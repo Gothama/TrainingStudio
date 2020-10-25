@@ -1,25 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route }  from "react-router-dom";
+
+import  '../src/assets/css/bootstrap.min.css'; 
+import '../src/assets/css/font-awesome.css'; 
+import '../src/assets/css/ourcss.css'; 
+import '../src/assets/boxicons/css/boxicons.min.css'; 
+import '../src/assets/aos/aos.css'
+import '../src/assets/boxicons/css/boxicons.min.css'; 
+
+import About from './components/general/about.component';
+import Contact from './components/general/contact.component';
+
+ 
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div>
+  
+      <Router> 
+      <Route path = "/about" exact component={About}/>
+      <Route path = "/contact" exact component={Contact}/>
+
+       {/*
+
+    <Route path = "/" exact component={LandingPage}/>
+    <Route path = "/trainerProfile" exact component={TrainerProfile}/>
+    <Route path = "/contact" exact component={Contact}/>
+    <Route path = "/allTrainers" exact component={AllTrainers}/>
+    <Route path = "/about" exact component={About}/>
+    <Route path = "/signIn" exact component={SignIn}/>
+    <Route path = "/blog" exact component={Blog}/>
+    <Route path = "/signUp" exact component={SignUp}/>
+    <Route path = "/account" exact component={MyAccount}/>
+    <Route path = "/allDieticians" exact component={AllDieticians}/>
+    <Route path = "/allBlogs" exact component={AllBlog}/>
+  <Footer/>
+     */}
+  </Router>
+ 
+</div>
   );
 }
 
