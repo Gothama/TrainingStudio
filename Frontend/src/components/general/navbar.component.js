@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AOS from "aos";
 import {Link} from 'react-router-dom';
 import image from "../../assets/images/p3.png"
-
+import '../../assets/css/ourcss.css'; 
 import $ from 'jquery';
 
 export default class Navbar extends Component{

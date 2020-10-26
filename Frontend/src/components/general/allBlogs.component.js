@@ -1,23 +1,18 @@
 
 import React, {Component} from 'react';
+import image1 from "../../assets/images/line-dec.png"
+import BlogTilecomponent from './blogTile.component';
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
-import Header from "./header.component";
-import BlogTilecomponent from "./blogTile.component.js"
-import image1 from "../../assets/images/line-dec.png"
-import Background from "../../assets/images/schedule-bg.jpg"
-import TrainerTile from './trainerTile.component';
 
 
-
-export default class LandingPage extends Component{
+export default class AllBlog extends Component{
   
     render(){
 return(
-    <div>
-    <Navbar/>
-    <Header/>
- 
+  <div>
+  <Navbar/>
+   
     <section id="courses " className="courses cta2" style={{paddingBottom:"10px"}}><br></br>
       <div className="container" data-aos="fade-up">
         <div className="section-heading">
@@ -25,7 +20,6 @@ return(
             <img src={image1} alt="waves"/>
             <p>Aute fugiat laboris non cillum culpa incididunt fugiat elit incididunt nulla fugiat esse sit..</p>
         </div>
-        
 
       <div className="row" >
 
@@ -61,38 +55,9 @@ return(
       <br></br>
       </div>
     </section>
-
-    <section id="courses " className="courses cta2" style={{paddingBottom:"10px", backgroundImage:`url(${Background})`}}><br></br>
-      <div className="container" data-aos="fade-up">
-      <div className="section-heading">
-            <h2>Our <em>Trainers</em></h2>
-            <img src={image1} alt="waves"/>
-            <p>Aute fugiat laboris non cillum culpa incididunt fugiat elit incididunt nulla fugiat esse sit..</p>
-      </div>
-        <div className="row" >
-
-        
-          <TrainerTile poster = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/fitness-poster-template-6721e067feaf056020d4160455315421_screen.jpg?ts=1561444865" 
-          trainerImage=""/>
-          <TrainerTile poster = "https://s3.amazonaws.com/thumbnails.venngage.com/template/c15b0128-7d4c-4dab-a3cd-8640ecca4c64.png" trainerImage=""/>
-  
-          
-          <TrainerTile poster = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/get-in-shape-from-home-fitness-workout-flyer-design-template-2032f7ecf1a6b65738f5b4c077a63492_screen.jpg?ts=1585657310"
-           trainerImage=""/>
-        </div><br></br>
-        <div className="row" >
-            <TrainerTile poster = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/fitness-poster-template-6721e067feaf056020d4160455315421_screen.jpg?ts=1561444865" 
-            trainerImage=""/>
-            <TrainerTile poster = "https://s3.amazonaws.com/thumbnails.venngage.com/template/c15b0128-7d4c-4dab-a3cd-8640ecca4c64.png"
-             trainerImage=""/>
-            <TrainerTile poster = "https://s3.amazonaws.com/thumbnails.venngage.com/template/c15b0128-7d4c-4dab-a3cd-8640ecca4c64.png" trainerImage=""/>
-        </div>
-      <br></br>
-      </div>
-    </section>
-    {/*<Fitbot/>*/}
     <Footer/>
-    </div>
+   </div>
+  
 );
 }
 } 

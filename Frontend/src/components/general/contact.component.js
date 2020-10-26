@@ -3,6 +3,7 @@ import Header from "./header.component";
 import image1 from "../../assets/images/line-dec.png"
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
+import '../../assets/css/ourcss.css'; 
 
 export default class Contact extends Component{
   

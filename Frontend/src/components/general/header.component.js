@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import '../../assets/css/ourcss.css'; 
 import video from "../../assets/images/gym-video.mp4"
 import AOS from "aos";
 
