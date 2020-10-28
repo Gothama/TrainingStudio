@@ -17,7 +17,8 @@ import AllBlog from './components/general/allBlogs.component';
 import Fitbot from './components/general/fitBot.component';
 import ExpertAccount from './components/general/expertAccount.component';
 import Blog from './components/general/blog.component';
-
+import MyAccount from './components/customer/myDetailsSection/myaccount.component';
+//import CusNav from './components/customer/cusNav.component';
  
 
 
@@ -27,6 +28,7 @@ function App() {
   
       <Router> 
       <Route path = "/" exact component={LandingPage}/>
+      <Route path = "/account" exact component={MyAccount}/>
       <Route path = "/about" exact component={About}/>
       <Route path = "/contact" exact component={Contact}/>
       <Route path = "/allDieticians" exact component={AllDieticians}/>
@@ -34,6 +36,9 @@ function App() {
       <Route path = "/allBlogs" exact component={AllBlog}/>
       <Route path = "/trainerAccount" exact component={ExpertAccount}/>
       <Route path = "/blog" exact component={Blog}/>
+  
+      
+      
        {/*
 
     <Route path = "/" exact component={LandingPage}/>

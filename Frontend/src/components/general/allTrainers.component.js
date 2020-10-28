@@ -1,8 +1,8 @@
-
 import React, {Component} from 'react';
 import TrainerTile from './trainerTile.component';
 import image1 from "../../assets/images/line-dec.png"
 import Navbar from "./navbar.component";
+import Footer from './footer.component';
 export default class AllTrainers extends Component{
   
     render(){
@@ -41,7 +41,7 @@ trainerImage="https://images.unsplash.com/photo-1563237023-b1e970526dcb?ixlib=rb
         <br></br>
       </div>
     </section>
-
+<Footer/>
     </div>
 );
 }

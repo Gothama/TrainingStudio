@@ -1,0 +1,39 @@
+import React, {Component} from 'react';
+//import {Link} from 'react-router-dom';
+import {Navbar,Nav} from 'react-bootstrap';
+import image from "../../assets/images/p3.png"
+
+
+export default class NavReact extends Component{
+  
+    render(){
+return(
+    <div>
+<Navbar bg="dark" variant="dark"  style={{height:"80px"}} fixed="top">
+    <div className="container" >
+    <Navbar.Brand href="#home">
+    <img
+        src={image}
+        width="90"
+        height="80"
+        className="d-inline-block align-top"
+        alt="React Bootstrap logo"
+      /> </Navbar.Brand>
+        <Navbar.Brand href="#home">
+        Customer Dashboard</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="/account">My Details</Nav.Link>
+      <Nav.Link href="/">Workout Plans</Nav.Link>
+      <Nav.Link href="/">Diet Plans</Nav.Link>
+      <Nav.Link href="/about">Messenger</Nav.Link>
+     
+    </Nav>
+    </div>
+  </Navbar>
+  
+
+
+    </div>
+);
+}
+}   
