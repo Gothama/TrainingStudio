@@ -1,9 +1,8 @@
 
 import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
-import {Button,Card} from 'react-bootstrap';
-import {Chart} from 'react-google-charts';
-import image1 from '../../../assets/images/p4.jpg'
+import {Button,Card,Form,Row,Col} from 'react-bootstrap';
+
 
 
 
@@ -13,136 +12,160 @@ export default class FitnessCalculator extends Component{
 return(
     <div style={{backgroundColor:"#007bff",padding:"20px"}}>
             <div className="text-center" style={{marginTop:"-60px"}}>
-                <img src={"https://images.unsplash.com/photo-1485527172732-c00ba1bf8929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"} className ="rounded avatar" alt="..."  style={{height:"200px",width:"150px", borderRadius:"50%"}}/>
+                <img src={"https://thumbs.dreamstime.com/b/fitness-background-calculator-fitness-background-calculator-orange-color-d-illustration-119305553.jpg"} className ="rounded avatar" alt="..."  style={{height:"200px",width:"250px", borderRadius:"50%"}}/>
             </div>
  
 
-<div className ="row" style={{paddingLeft:"10px" , paddingTop:"20px"}}>
-<Chart
-  width={'600px'}
-  height={'300px'}
+<div className ="row  text-center" style={{paddingLeft:"10px" , paddingTop:"20px"}}>
 
-  chartType="LineChart"
-  loader={<div>Loading Chart</div>}
-  data={[
-    ['x', 'BMI', 'Weight'],
-    [0, 0, 0],
-    [1, 10, 5],
-    [2, 23, 15],
-    [3, 17, 9],
-    [4, 18, 10],
-    [5, 9, 5],
-    [6, 11, 3],
-    [7, 27, 19],
-    [8, 23, 15],
-    [9, 90, 9],
-    [10, 18, 10],
-    [11, 9, 5],
-    [12, 11, 3],
-    [13, 50, 19],
-  ]}
-  options={{
-    hAxis: {
-      title: 'Time',
-    },
-    vAxis: {
-      title: 'Value',
-    },
-    series: {
-      1: { curveType: 'function' },
-    },
-  }}
-  rootProps={{ 'data-testid': '2' }}
-/>
 
-<Chart
-  width={'600px'}
-  height={'300px'}
-
-  chartType="LineChart"
-  loader={<div>Loading Chart</div>}
-  data={[
-    ['x', 'BMI', 'Weight'],
-    [0, 0, 0],
-    [1, 10, 5],
-    [2, 23, 15],
-    [3, 17, 9],
-    [4, 18, 10],
-    [5, 9, 5],
-    [6, 11, 3],
-    [7, 27, 19],
-    [8, 23, 15],
-    [9, 90, 9],
-    [10, 18, 10],
-    [11, 9, 5],
-    [12, 11, 3],
-    [13, 50, 19],
-  ]}
-  options={{
-    hAxis: {
-      title: 'Time',
-    },
-    vAxis: {
-      title: 'Value',
-    },
-    series: {
-      1: { curveType: 'function' },
-    },
-  }}
-  rootProps={{ 'data-testid': '2' }}
-/>
-
-</div>
-
-<div className="row">
-
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
+<Card style={{ width: '15rem', margin:"10px"}} className="col">
   <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
+  <Card.Img variant="top" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQT4JaFGhi9KY7SCpmvJ0OZ5b5J6xxplzElKA&usqp=CAU"}  style={{ width: '170px', height:"150px"}}/>
   <Card.Body>
-    <Card.Title>Health Report 1</Card.Title>
-    
-    <Button variant="primary" type="file">Go somewhere</Button>
-  </Card.Body></div>
-</Card>
+    <Card.Title>Body Mass Index</Card.Title>
+    <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Height:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Weight"/>
+    </Col>
+  </Form.Group>
 
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
-  <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
-  <Card.Body>
-    <Card.Title>Health Report 2</Card.Title>
-    
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Weight:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Weight"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Your BMI: 
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Your BMI"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Comment: 
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Comment"/>
+    </Col>
+  </Form.Group>
+
     <Button variant="primary" type="file">Go somewhere</Button>
   </Card.Body></div>
 </Card>
 
 </div>
 
+<div className ="row  text-center" style={{paddingLeft:"10px" , paddingTop:"20px"}}>
 
-<div className="row">
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
+
+<Card style={{ width: '15rem', margin:"10px"}} className="col">
   <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
+  <Card.Img variant="top" src={"https://d.newsweek.com/en/full/1626290/newsweek-amplify-satisfying-fat-burn.png?w=1600&h=1600&q=88&f=d4d8f599d173c0820018c8a2da00da47"}  style={{ width: '150px', height:"150px"}}/>
   <Card.Body>
-    <Card.Title>Health Report 3</Card.Title>
-    
+    <Card.Title>Body Mass Index</Card.Title>
+    <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Height:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Weight"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Weight:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Weight"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Your BMI: 
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Your BMI"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Comment: 
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Comment"/>
+    </Col>
+  </Form.Group>
+
     <Button variant="primary" type="file">Go somewhere</Button>
   </Card.Body></div>
 </Card>
 
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
-  </Card.Body>
-</Card>
 </div>
+
+<div className ="row  text-center" style={{paddingLeft:"10px" , paddingTop:"20px"}}>
+
+
+<Card style={{ width: '15rem', margin:"10px"}} className="col">
+  <div className="text-center" style={{ padding:"10px"}}>
+  <Card.Img variant="top" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTU0v8-3bGQFqmy-1ACr4xGumCummW_8ZK6Uw&usqp=CAU"}  style={{ width: '150px', height:"150px"}}/>
+  <Card.Body>
+    <Card.Title>Body Mass Index</Card.Title>
+    <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Height:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Weight"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Weight:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Weight"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Your BMI: 
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Your BMI"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Comment: 
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Comment"/>
+    </Col>
+  </Form.Group>
+
+    <Button variant="primary" type="file">Go somewhere</Button>
+  </Card.Body></div>
+</Card>
+
+</div>
+
     </div>
 );
 }

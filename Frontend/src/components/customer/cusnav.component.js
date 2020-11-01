@@ -23,9 +23,9 @@ return(
         Customer Dashboard</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/account">My Details</Nav.Link>
-      <Nav.Link href="/">Workout Plans</Nav.Link>
-      <Nav.Link href="/">Diet Plans</Nav.Link>
-      <Nav.Link href="/about">Messenger</Nav.Link>
+      <Nav.Link href="/myWorkoutPlans">Workout Plans</Nav.Link>
+      <Nav.Link href="/myDietPlans">Diet Plans</Nav.Link>
+      <Nav.Link href="/messenger">Messenger</Nav.Link>
      
     </Nav>
     </div>
