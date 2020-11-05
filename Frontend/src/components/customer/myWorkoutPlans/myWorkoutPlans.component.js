@@ -17,7 +17,7 @@ return(
 <NavBar/>
 <div className="container" style={{paddingTop:"100px" , paddingBottom:"100px" }}>
  <h1 style={{color:"white",paddingBottom:"50px"}}>My Workout Plans</h1>  
- <Button href="#" style={{marginBottom:"25px"}}>Video Chat</Button> <Button href="#" style={{marginBottom:"25px"}}>Messenger</Button> 
+ <Button href="/videoChat" style={{marginBottom:"25px"}}>Video Chat</Button> <Button href="/messenger" style={{marginBottom:"25px"}}>Messenger</Button> 
 
 <Accordion >
   <Card style={{backgroundColor:"#892cdc"}}>
