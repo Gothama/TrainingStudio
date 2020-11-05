@@ -13,6 +13,7 @@ export default class MyDetails extends Component{
     render(){
 return(
     <div className="container" style={{paddingTop:"100px" , paddingBottom:"100px" }}>
+
 <Tab.Container id="left-tabs-example" defaultActiveKey="first" bg="dark" variant="dark">
   <Row>
     <Col sm={3}>
