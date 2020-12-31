@@ -102,7 +102,7 @@ return(
   <Card.Body>
     <Card.Title>Health Report 1</Card.Title>
     
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Open Report</Button>
   </Card.Body></div>
 </Card>
 
@@ -112,7 +112,7 @@ return(
   <Card.Body>
     <Card.Title>Health Report 2</Card.Title>
     
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Open Report</Button>
   </Card.Body></div>
 </Card>
 
@@ -126,7 +126,7 @@ return(
   <Card.Body>
     <Card.Title>Health Report 3</Card.Title>
     
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Open Report</Button>
   </Card.Body></div>
 </Card>
 
@@ -136,7 +136,7 @@ return(
   <Card.Body>
     <Card.Title>Health Report 4</Card.Title>
     
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Open Report</Button>
   </Card.Body></div>
 </Card>
 </div>

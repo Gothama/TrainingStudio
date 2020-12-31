@@ -1,95 +1,40 @@
-
 import React, {Component} from 'react';
-
 import image1 from "../../assets/images/line-dec.png"
-import blogImage from "../../assets/images/foodBlogportrait.jpg"
 import Navbar from './navbar.component';
-import Header from './header.component';
+import Footer from './footer.component';
+import Post3 from '../../assets/images/trainerPost1.png'
 
 export default class Blog extends Component{
   
     render(){
 return(
-    <div >
-   <Navbar/>
-   <Header/>
-
-   <section className="cta2" style={{paddingBottom:"10px"}}>
-    <div className="container" style={{paddingTop:"100px"}}>
-    
-        <div className="row" style={{paddingBottom:"10px"}}>
-        <div className="col-5" >
-                    <div className="section-heading" style={{}}>
-                        <h2 style={{color:"white"}}>Blog <em>Sports</em></h2>
-                        <img src={image1} alt="waves"/>
-                        <p style={{color:"white",textAlign:"justify", fontSize:"20px"}}> Labore sit anim ad esse in sunt commodo
-                        nisi anim. Sit nisi velit sunt ea dolore nulla. Cillum excepteur Lorem proident aliquip sit nisi commodo incididunt consequat elit. Dolor nostrud irure culpa nisi dolor do enim. Id est ut id esse. 
-                        Occaecat velit voluptate incididunt exercitation consectetur laborum labore ex cupidatat commodo sint 
-                        incididunt est qui.Aute id tempor ad ut excepteur amet exercitation eiusmod. Do Lorem in quis tempor 
-                        officia enim do culpa aliquip adipisicing sunt exercitation. Proident do minim aliqua officia anim velit 
-                        labore voluptate velit. Cupidatat commodo tempor labore adipisicing officia laboris magna occaecat et do nisi 
-                        culpa. Tempor sit duis veniam eiusmod duis ad in quis exercitation laboris dolor sunt. Do qui eiusmod proident ullamco 
-                        mollit magna aliqua excepteur sint qui officia consectetur.  </p>
-                    </div>
-        </div> <div className="col-1"></div>
-        
-        <div className="col-6 col-md-6 d-flex align-items-stretch courses " data-aos="zoom-in" data-aos-delay="100" style={{ borderRadius:"10px"}}>
-            <div className="course-item" style={{paddingTop:"10px"}}>
-              <img src={blogImage} class="img-fluid" alt="..." style={{borderRadius:"5px"}}/>
-              <div className="course-content">
-                <div className="d-flex align-items-center mb-3">
-                  <h4 style={{marginRight:"10px"}}>Register</h4><h4 style={{marginRight:"10px"}}>Free Trail</h4>
-                  <p className="price" style={{paddingLeft:"250px"}}>$169</p>
-                </div>
-
-                
-                <div className="trainer d-flex justify-content-between align-items-center">
-              
-                  <div className="trainer-rank d-flex align-items-center">
-                    <i className="bx bx-user"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i className="bx bx-heart"></i>&nbsp;65
-                  </div>
-                </div>
-              </div>
-            </div><br/>
+<div>
+  <Navbar/>
+   
+    <section id="courses " className="courses cta2" style={{paddingBottom:"10px"}}><br></br>
+      <div className="container" data-aos="fade-up">
+        <div className="section-heading">
+            <h2>Do you Want to be fit?</h2>
+            <img src={image1} alt="waves"/>
+            <p>By : Gothama Rajawasam</p>
+        </div>
+        <div style={{backgroundColor:"#f5f4f4",padding:"20px"}}>
+            <div className="text-center" style={{marginTop:"-60px"}}>
+                <img src={Post3} className ="rounded avatar" alt="..."  style={{height:"350px",width:"525px", borderRadius:"50%"}}/>
+            </div>
+          <div style={{fontSize:"20px", textAlign:"justify", margin:"12px", paddingTop:"20px"}}>
+          Fitness is defined as the quality or state of being fit and healthy.[5] Around 1950, perhaps consistent with the Industrial Revolution and the treatise of World War II, the term "fitness" increased in western vernacular by a factor of ten.[6] The modern definition of fitness describes either a person or machine's ability to perform a specific function or a holistic definition of human adaptability to cope with various situations. This has led to an interrelation of human fitness and attractiveness that has mobilized global fitness and fitness equipment industries. Regarding specific function, fitness is attributed to persons who possess significant aerobic or anaerobic ability, i.e. endurance or strength. A well-rounded fitness program improves a person in all aspects of fitness compared to practising only one, such as only cardio/respiratory endurance or only weight training.
+          A comprehensive fitness program tailored to an individual typically focuses on one or more specific skills,[7] and on age-[8] or health-related needs such as bone health.[9] Many sources[10] also cite mental, social and emotional health as an important part of overall fitness. This is often presented in textbooks as a triangle made up of three points, which represent physical, emotional, and mental fitness. Physical fitness can also prevent or treat many chronic health conditions brought on by unhealthy lifestyle or aging.[11] Working out can also help some people sleep better and possibly alleviate some mood disorders in certain individuals.[12]
+          Developing research has demonstrated that many of the benefits of exercise are mediated through the role of skeletal muscle as an endocrine organ. That is, contracting muscles release multiple substances known as myokines, which promote the growth of new tissue, tissue repair, and various anti-inflammatory functions, which in turn reduce the risk of developing various inflammatory diseases.[13]
           </div>
-        
-        </div>
-        <div className="row" >
-        <div className="col-6 ">
-        <div className="section-heading" style={{}}>
-                      
-                        
-                        <p style={{color:"white",textAlign:"justify", fontSize:"20px"}}> Labore sit anim ad esse in sunt commodo
-                        nisi anim. Sit nisi velit sunt ea dolore nulla. Cillum excepteur Lorem proident aliquip sit nisi commodo incididunt consequat elit. Dolor nostrud irure culpa nisi dolor do enim. Id est ut id esse. 
-                        Occaecat velit voluptate incididunt exercitation consectetur laborum labore ex cupidatat commodo sint 
-                        incididunt est qui.Aute id tempor ad ut excepteur amet exercitation eiusmod. Do Lorem in quis tempor 
-                        officia enim do culpa aliquip adipisicing sunt exercitation. Proident do minim aliqua officia anim velit 
-                        labore voluptate velit. Cupidatat commodo tempor labore adipisicing officia laboris magna occaecat et do nisi 
-                        culpa. Tempor sit duis veniam eiusmod duis ad in quis exercitation laboris dolor sunt. Do qui eiusmod proident ullamco 
-                        mollit magna aliqua excepteur sint qui officia consectetur.  </p>
-                    </div>
-        </div>
-        <div className="col-6">
-        <div className="section-heading" style={{}}>
-                       
-                      
-                        <p style={{color:"white",textAlign:"justify", fontSize:"20px"}}> Labore sit anim ad esse in sunt commodo
-                        nisi anim. Sit nisi velit sunt ea dolore nulla. Cillum excepteur Lorem proident aliquip sit nisi commodo incididunt consequat elit. Dolor nostrud irure culpa nisi dolor do enim. Id est ut id esse. 
-                        Occaecat velit voluptate incididunt exercitation consectetur laborum labore ex cupidatat commodo sint 
-                        incididunt est qui.Aute id tempor ad ut excepteur amet exercitation eiusmod. Do Lorem in quis tempor 
-                        officia enim do culpa aliquip adipisicing sunt exercitation. Proident do minim aliqua officia anim velit 
-                        labore voluptate velit. Cupidatat commodo tempor labore adipisicing officia laboris magna occaecat et do nisi 
-                        culpa. Tempor sit duis veniam eiusmod duis ad in quis exercitation laboris dolor sunt. Do qui eiusmod proident ullamco 
-                        mollit magna aliqua excepteur sint qui officia consectetur.  </p>
-                    </div>
-        </div>
 
-      </div>
-    </div></section>
-  
     </div>
+     
+      <br></br>
+      </div>
+    </section>
+    <Footer/>
+   </div>
 );
 }
 }   

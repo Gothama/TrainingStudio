@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-//import {Link} from 'react-router-dom';
 import {Navbar,Nav} from 'react-bootstrap';
 import image from "../../assets/images/p3.png"
 
 
-export default class NavReact extends Component{
+export default class TrainerNav extends Component{
   
     render(){
 return(
@@ -20,12 +19,14 @@ return(
         alt="React Bootstrap logo"
       /> </Navbar.Brand>
         <Navbar.Brand href="#home">
-        Customer Dashboard</Navbar.Brand>
+        Expert Dashboard</Navbar.Brand>
     <Nav className="mr-auto" >
-      <Nav.Link href="/account" style={{color:"white"}}>My Details</Nav.Link>
-      <Nav.Link href="/myWorkoutPlans" style={{color:"white"}}>Workout Plans</Nav.Link>
-      <Nav.Link href="/myDietPlans" style={{color:"white"}}>Diet Plans</Nav.Link>
+      <Nav.Link href="/expertMyAccount" style={{color:"white"}}>My Details</Nav.Link>
+      <Nav.Link href="/myBlogs" style={{color:"white"}}>My Blogs</Nav.Link>
+      <Nav.Link href="/myPosts" style={{color:"white"}}>My Posts</Nav.Link>
       <Nav.Link href="/messenger" style={{color:"white"}}>Messenger</Nav.Link>
+      <Nav.Link href="/allCustomers" style={{color:"white"}}>All Customers</Nav.Link>
+     
      
     </Nav>
     </div>

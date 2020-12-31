@@ -26,6 +26,7 @@ return(
           {({getRootProps, getInputProps}) => (
             <div {...getRootProps()}>
               <input {...getInputProps()} />
+              
               <Icon className="fa fa-plus-circle" style={{ fontSize: 80 }} color="primary"/>
             </div>
           )}

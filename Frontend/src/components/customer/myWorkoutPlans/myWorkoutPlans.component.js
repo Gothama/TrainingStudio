@@ -4,9 +4,7 @@ import Footer from '../../general/footer.component';
 import NavBar from './../cusnav.component'
 import {Button,Card,Accordion} from 'react-bootstrap';
 
-//import {Link} from 'react-router-dom';
 
-//import Footer from '../general/footer.component';
 
 export default class MyWorkoutPlans extends Component{
   
@@ -17,8 +15,7 @@ return(
 <NavBar/>
 <div className="container" style={{paddingTop:"100px" , paddingBottom:"100px" }}>
  <h1 style={{color:"white",paddingBottom:"50px"}}>My Workout Plans</h1>  
- <Button href="/videoChat" style={{marginBottom:"25px"}}>Video Chat</Button> <Button href="/messenger" style={{marginBottom:"25px"}}>Messenger</Button> 
-
+ <div style={{color:"white", paddingBottom:"10px"}}>Contact Dietician:</div><Button href="/videoChat" style={{marginBottom:"25px"}}>Video Chat</Button> <Button href="/messenger" style={{marginBottom:"25px"}}>Messenger</Button> 
 <Accordion >
   <Card style={{backgroundColor:"#892cdc"}}>
     <Card.Header>

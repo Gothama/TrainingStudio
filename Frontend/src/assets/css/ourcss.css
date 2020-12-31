@@ -130,6 +130,8 @@ body {
 .section-heading h2 em {
   font-style: normal;
   color: #191df0;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
 }
 
 .section-heading img {
@@ -150,6 +152,8 @@ body {
   padding: 12px 20px;
   background-color: #191df0;
   color: #fff;
+  -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
   text-align: center;
   font-weight: 400;
   text-transform: uppercase;
@@ -181,6 +185,7 @@ header
 .background-header .logo,
 .background-header .main-nav .nav li a {
   color: #233239!important;
+  
 }
 
 .background-header .main-nav .nav li:last-child a {
@@ -235,6 +240,8 @@ header
   font-style: normal;
   color: #191df0;
   font-weight: 900;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
 }
 
 .header-area .main-nav .nav {
@@ -631,6 +638,8 @@ banner
 .main-banner .caption h2 em {
   font-style: normal;
   color: #191df0;
+  -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: white;
   font-weight: 900;
 }
 
@@ -712,6 +721,8 @@ subscribe
 .cta-content h2 em {
   font-style: normal;
   color: #191df0;
+
+ 
 }
 
 .cta-content p {

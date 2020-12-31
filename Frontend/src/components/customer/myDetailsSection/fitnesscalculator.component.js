@@ -60,7 +60,7 @@ return(
     </Col>
   </Form.Group>
 
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Calculate</Button>
   </Card.Body></div>
 </Card>
 
@@ -73,7 +73,7 @@ return(
   <div className="text-center" style={{ padding:"10px"}}>
   <Card.Img variant="top" src={"https://d.newsweek.com/en/full/1626290/newsweek-amplify-satisfying-fat-burn.png?w=1600&h=1600&q=88&f=d4d8f599d173c0820018c8a2da00da47"}  style={{ width: '150px', height:"150px"}}/>
   <Card.Body>
-    <Card.Title>Body Mass Index</Card.Title>
+    <Card.Title>Lean Body Mass</Card.Title>
     <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={2}>
       Height:
@@ -94,10 +94,30 @@ return(
 
   <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={2}>
+      Gender: 
+    </Form.Label>
+    <Col sm={2}>
+    <Form.Check
+          type="radio"
+          label="Female"
+          name="formHorizontalRadios"
+          id="formGenderFemailRadios1"
+        />
+        <Form.Check defaultChecked
+          type="radio"
+          label="Male"
+          name="formHorizontalRadios"
+          id="formGenderMaleRadios2"
+        />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
       Your BMI: 
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Email" defaultValue="Your BMI"/>
+      <Form.Control type="text" placeholder="Email" defaultValue="Your Leam Body Mass Index"/>
     </Col>
   </Form.Group>
 
@@ -110,7 +130,7 @@ return(
     </Col>
   </Form.Group>
 
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Calculate</Button>
   </Card.Body></div>
 </Card>
 
@@ -123,7 +143,7 @@ return(
   <div className="text-center" style={{ padding:"10px"}}>
   <Card.Img variant="top" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTU0v8-3bGQFqmy-1ACr4xGumCummW_8ZK6Uw&usqp=CAU"}  style={{ width: '150px', height:"150px"}}/>
   <Card.Body>
-    <Card.Title>Body Mass Index</Card.Title>
+    <Card.Title>Lean Body Mass</Card.Title>
     <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={2}>
       Height:
@@ -144,10 +164,57 @@ return(
 
   <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={2}>
+      Neck:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Neck"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Waist:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Email" defaultValue="Waist"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Age:
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="number" placeholder="Age" defaultValue="20"/>
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Gender: 
+    </Form.Label>
+    <Col sm={2}>
+    <Form.Check
+          type="radio"
+          label="Female"
+          name="formHorizontalRadios"
+          id="formGenderFemailRadios1"
+        />
+        <Form.Check defaultChecked
+          type="radio"
+          label="Male"
+          name="formHorizontalRadios"
+          id="formGenderMaleRadios2"
+        />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
       Your BMI: 
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Email" defaultValue="Your BMI"/>
+      <Form.Control type="text" placeholder="Email" defaultValue="Your Leam Body Mass Index"/>
     </Col>
   </Form.Group>
 
@@ -160,12 +227,11 @@ return(
     </Col>
   </Form.Group>
 
-    <Button variant="primary" type="file">Go somewhere</Button>
+    <Button variant="primary" type="file">Calculate</Button>
   </Card.Body></div>
-</Card>
+  </Card>
 
-</div>
-
+  </div>
     </div>
 );
 }

@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Header from "./header.component";
 import image from "../../assets/images/features-first-icon.png"
+import image3 from "../../assets/images/gymImage.png"
+import image2 from "../../assets/images/image.png"
+import image4 from "../../assets/images/personalTrainingImage.png"
 import image1 from "../../assets/images/line-dec.png"
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
@@ -29,7 +32,7 @@ return(
                     <ul className="features-items">
                         <li className="feature-item">
                             <div className="left-icon">
-                                <img src={image} alt="First One"/>
+                                <img src={image3} alt="First One"/>
                             </div>
                             <div className="right-content">
                                 <h4>Basic Fitness</h4>
@@ -39,7 +42,7 @@ return(
                         </li>
                         <li className="feature-item">
                             <div className="left-icon">
-                                <img src={image} alt="second one"/>
+                                <img src={image2} alt="second one"/>
                             </div>
                             <div className="right-content">
                                 <h4>New Gym Training</h4>
@@ -49,7 +52,7 @@ return(
                         </li>
                         <li className="feature-item">
                             <div className="left-icon">
-                                <img src={image} alt="third gym training"/>
+                                <img src={image4} alt="third gym training"/>
                             </div>
                             <div className="right-content">
                                 <h4>Basic Muscle Course</h4>
@@ -63,7 +66,7 @@ return(
                     <ul className="features-items">
                         <li className="feature-item">
                             <div className="left-icon">
-                                <img src={image} alt="fourth muscle"/>
+                                <img src={image3} alt="fourth muscle"/>
                             </div>
                             <div className="right-content">
                                 <h4>Advanced Muscle Course</h4>
@@ -83,7 +86,7 @@ return(
                         </li>
                         <li className="feature-item">
                             <div className="left-icon">
-                                <img src={image} alt="gym training"/>
+                                <img src={image2} alt="gym training"/>
                             </div>
                             <div className="right-content">
                                 <h4>Body Building Course</h4>

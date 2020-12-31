@@ -12,7 +12,7 @@ export default class Navbar extends Component{
    
       
     $(window).scroll(function() {
-        var scroll = $(window).scrollTop();
+       /* var scroll = $(window).scrollTop();
         var box = $('.header-text').height();
         var header = $('header').height();
   
@@ -20,8 +20,10 @@ export default class Navbar extends Component{
           $("header").addClass("background-header");
         } else {
           $("header").removeClass("background-header");
-        }
-      });}
+        }*/
+      }
+      );
+    }
       logout() {
         localStorage.clear();
         window.location.href = '/';
@@ -52,7 +54,7 @@ return(
 
                              
                                     {localStorage.getItem("loggedIn") ==="loggedIn"? <li ><Link to="/account">Account</Link></li> : <li></li> }
-                                    {localStorage.getItem("loggedIn") ==="loggedIn"? <li onClick = {this.logout} className="main-button" data-aos="fade-up" data-aos-delay="200"><Link to="/">Sign out</Link></li>  :<li className="main-button" data-aos="fade-up" data-aos-delay="200"><Link to="/signUp">Sign Up</Link></li>
+                                    {localStorage.getItem("loggedIn") ==="loggedIn"? <li onClick = {this.logout} className="main-button" data-aos="fade-up" data-aos-delay="200"><Link to="/">Sign out</Link></li>  :<li className="main-button" data-aos="fade-up" data-aos-delay="200"><Link to="/signInOut">Sign Up</Link></li>
         
                              }   
                         </ul>        

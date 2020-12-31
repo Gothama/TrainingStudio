@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import '../../assets/css/ourcss.css'; 
 import {Link} from 'react-router-dom';
+import { Icon } from '@iconify/react';
+import bxUser from '@iconify-icons/bx/bx-user';
+import bxHeart from '@iconify-icons/bx/bx-heart';
 
 
 export default class blogTilecomponent extends Component{
@@ -14,16 +17,16 @@ return(
             <img src={this.props.foodImage} className="img-fluid" alt="..."/>
             <div className="course-content">
               <h3><Link to ="/blog">{this.props.title}</Link></h3>
-              <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+              <p style={{textAlign: "justify"}}>{this.props.description}</p>
               <div className="trainer d-flex justify-content-between align-items-center">
                 <div className="trainer-profile d-flex align-items-center">
                   <img src={this.props.authorImage} className="img-fluid" alt=""/>
                   <Link to ="/blog"><span>{this.props.author}</span></Link>
                 </div>
                 <div className="trainer-rank d-flex align-items-center">
-                  <i className="bx bx-user"></i>&nbsp;50
+                <Icon icon={bxUser} />&nbsp;50
                   &nbsp;&nbsp;
-                  <i className="bx bx-heart"></i>&nbsp;65
+                  <Icon icon={bxHeart} />&nbsp;65
                 </div>
               </div>
             </div>

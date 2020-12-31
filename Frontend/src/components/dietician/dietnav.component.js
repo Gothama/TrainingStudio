@@ -4,7 +4,7 @@ import {Navbar,Nav} from 'react-bootstrap';
 import image from "../../assets/images/p3.png"
 
 
-export default class NavReact extends Component{
+export default class DietNav extends Component{
   
     render(){
 return(
@@ -21,11 +21,11 @@ return(
       /> </Navbar.Brand>
         <Navbar.Brand href="#home">
         Customer Dashboard</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="/account">My Details</Nav.Link>
-      <Nav.Link href="/myWorkoutPlans">Workout Plans</Nav.Link>
-      <Nav.Link href="/myDietPlans">Diet Plans</Nav.Link>
-      <Nav.Link href="/messenger">Messenger</Nav.Link>
+    <Nav className="mr-auto" >
+      <Nav.Link href="/account" style={{color:"white"}}>My Details</Nav.Link>
+      <Nav.Link href="/myBlogs" style={{color:"white"}}>My Blogs</Nav.Link>
+      <Nav.Link href="/MyPosts" style={{color:"white"}}>My Posts</Nav.Link>
+      <Nav.Link href="/messenger" style={{color:"white"}}>Messenger</Nav.Link>
      
     </Nav>
     </div>
