@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Footer from '../../general/footer.component';
 import NavBar from './../cusnav.component'
 import {Button,Card,Accordion} from 'react-bootstrap';
+import DietPlan from './dietPlan.component';
 
 //import {Link} from 'react-router-dom';
 
@@ -27,7 +28,7 @@ return(
       </Accordion.Toggle>
     </Card.Header>
     <Accordion.Collapse eventKey="0" style={{backgroundColor:"white"}}>
-      <Card.Body>Hello! I'm the body</Card.Body>
+      <Card.Body><DietPlan/></Card.Body>
     </Accordion.Collapse>
   </Card>
   <Card style={{backgroundColor:"#892cdc"}}>
@@ -37,7 +38,7 @@ return(
       </Accordion.Toggle>
     </Card.Header>
     <Accordion.Collapse eventKey="1" style={{backgroundColor:"white"}}>
-      <Card.Body>Hello! I'm another body</Card.Body>
+      <Card.Body><DietPlan/></Card.Body>
     </Accordion.Collapse>
   </Card>
 
@@ -48,7 +49,7 @@ return(
       </Accordion.Toggle>
     </Card.Header>
     <Accordion.Collapse eventKey="2" style={{backgroundColor:"white"}}>
-      <Card.Body>Hello! I'm another body</Card.Body>
+      <Card.Body><DietPlan/></Card.Body>
     </Accordion.Collapse>
   </Card>
 
@@ -59,7 +60,7 @@ return(
       </Accordion.Toggle>
     </Card.Header>
     <Accordion.Collapse eventKey="3" style={{backgroundColor:"white"}}>
-      <Card.Body>Hello! I'm another body</Card.Body>
+      <Card.Body><DietPlan/></Card.Body>
     </Accordion.Collapse>
   </Card>
   

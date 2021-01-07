@@ -25,7 +25,7 @@ return(
   chartType="LineChart"
   loader={<div>Loading Chart</div>}
   data={[
-    ['x', 'BMI', 'Weight'],
+    ['x', 'Calories Burnt', 'Weight'],
     [0, 0, 0],
     [1, 10, 5],
     [2, 23, 15],
@@ -43,7 +43,7 @@ return(
   ]}
   options={{
     hAxis: {
-      title: 'Time',
+      title: 'Date',
     },
     vAxis: {
       title: 'Value',

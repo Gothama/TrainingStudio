@@ -69,20 +69,23 @@ return(
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
     <p style={{color:"black"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.</p>
+    Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, 
+    occupations and daily activities. Physical fitness is generally achieved through proper nutrition,[1] moderate-vigorous physical exercise,[2] and sufficient rest.[3]
+    Before the industrial revolution, fitness was defined as the capacity to carry out the day’s activities without undue fatigue.</p>
     </Card.Text>
     <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
   </Card.Body>
 </Card>
+
 <Card style={{ width: '32rem' , margin:"0.5rem"}}>
   <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
     <p style={{color:"black"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.</p>
+    Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, 
+    occupations and daily activities. Physical fitness is generally achieved through proper nutrition,[1] moderate-vigorous physical exercise,[2] and sufficient rest.[3]
+    Before the industrial revolution, fitness was defined as the capacity to carry out the day’s activities without undue fatigue. </p>
     </Card.Text>
     <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
   </Card.Body>
@@ -95,8 +98,9 @@ return(
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
     <p style={{color:"black"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.</p>
+    Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, 
+    occupations and daily activities. Physical fitness is generally achieved through proper nutrition,[1] moderate-vigorous physical exercise,[2] and sufficient rest.[3]
+    Before the industrial revolution, fitness was defined as the capacity to carry out the day’s activities without undue fatigue. </p>
     </Card.Text>
     <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
   </Card.Body>
@@ -108,31 +112,36 @@ return(
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
     <p style={{color:"black"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.</p>
+    Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, 
+    occupations and daily activities. Physical fitness is generally achieved through proper nutrition,[1] moderate-vigorous physical exercise,[2] and sufficient rest.[3]
+    Before the industrial revolution, fitness was defined as the capacity to carry out the day’s activities without undue fatigue. </p>
     </Card.Text>
     <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
   </Card.Body>
 </Card>
+
 <Card style={{ width: '32rem' , margin:"0.5rem"}}>
   <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text>
     <p style={{color:"black"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.</p>
+    Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, 
+    occupations and daily activities. Physical fitness is generally achieved through proper nutrition,[1] moderate-vigorous physical exercise,[2] and sufficient rest.[3]
+    Before the industrial revolution, fitness was defined as the capacity to carry out the day’s activities without undue fatigue. </p>
     </Card.Text>
     <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
   </Card.Body>
 </Card>
+
 <Card style={{ width: '32rem' , margin:"0.5rem"}}>
   <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>
     <Card.Text><p style={{color:"black"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.</p>
+    Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, 
+    occupations and daily activities. Physical fitness is generally achieved through proper nutrition,[1] moderate-vigorous physical exercise,[2] and sufficient rest.[3]
+    Before the industrial revolution, fitness was defined as the capacity to carry out the day’s activities without undue fatigue. </p>
     </Card.Text>
     <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
   </Card.Body>
