@@ -21,8 +21,8 @@ return(
     <div className="form1 sign-in">
       <h2 className="heading2">Sign In</h2>
       <label>
-        <span>Email Address</span>
-        <input type="email" name="email" className="input1"/>
+        <span>Username</span>
+        <input type="text" name="username" className="input1"/>
       </label>
       <label>
         <span>Password</span>
@@ -59,22 +59,26 @@ return(
       <div className="form1 sign-up">
         <h2 className="heading2">Sign Up</h2>
         <label>
-          <span>Name</span>
-          <input type="text" class="input1"/>
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email" class="input1"/>
+          <span>Username</span>
+          <input type="text" className="input1" name="username"/>
         </label>
         <label>
           <span>Password</span>
-          <input type="password" class="input1"/>
+          <input type="password" name="password" className="input1"/>
         </label>
         <label>
           <span>Confirm Password</span>
-          <input type="password" class="input1"/>
+          <input type="text" name="confirm" className="input1"/>
         </label>
-        <button type="button" class="button1 submit">Sign Up Now</button>
+        <label>
+          <span>Account Type</span><br></br>
+          <select id="cars" name="cars" className="input1">
+              <option value="customer">Customer</option>
+              <option value="Physical Trainer">Physical Trainer</option>
+              <option value="dietician">Dietician</option>
+          </select>
+        </label>
+        <button type="button" className="button1 submit">Sign Up Now</button>
       </div>
     </div>
   </div>
