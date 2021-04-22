@@ -45,10 +45,10 @@ router.post('/fcustomer', function(req, res, next){
                             console.log(c);
                             if(c!==null){
                                 console.log("Successfull");
-                                res.send(c)
+                                res.json({"Data" : c, "statuss":"Successfull"})
                             }
                             else{
-                                res.send('fail')
+                                res.json({"statuss":"fail"})
                             }
                         }).catch(err=>{
                                 res.send('error')
