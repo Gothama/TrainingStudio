@@ -27,6 +27,9 @@ app.use('/customer' , customerRouter)
 const trainerRouter = require('./routes/trainer')
 app.use('/trainer' , trainerRouter)
 
+const blogRouter = require('./routes/blog')
+app.use('/blog' , blogRouter)
+
 app.listen(9020,()=>{
     console.log('server started on 9020')
 })
