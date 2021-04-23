@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Customer = require('../models/customer')
 const {check, validationResult} = require("express-validator")
+const jwt = require('jsonwebtoken');
+const auth = require("../middleware/auth")
 
 //signUp router
 router.post("/ncustomer",
@@ -23,8 +25,19 @@ router.post("/ncustomer",
                 password:req.body.password}
             })
             Customer.create(customer).then(function(c){
-                console.log(c)
-                res.json("successfull");
+                console.log(c._id)
+                const user ={id:c._id}
+                jwt.sign(
+                    {user}, 
+                      "supersecret",
+                      {expiresIn:360000000},
+                      (err, token)=>{
+                          if(err) throw err;
+                          res.json({"token":token, "status":"Successfull"});
+                      }
+                      
+                      );
+                //res.json("successfull");
             }).catch(err=>{
                 console.log(err)
                 res.send("fail")
@@ -45,7 +58,17 @@ router.post('/fcustomer', function(req, res, next){
                             console.log(c);
                             if(c!==null){
                                 console.log("Successfull");
-                                res.json({"Data" : c, "statuss":"Successfull"})
+                                const user ={id:c._id}
+                                jwt.sign(
+                                    {user}, 
+                                      "supersecret",
+                                      {expiresIn:360000000},
+                                      (err, token)=>{
+                                          if(err) throw err;
+                                          res.json({"token":token, "statuss":"Successfull"});
+                                      }
+                                      
+                                      );
                             }
                             else{
                                 res.json({"statuss":"fail"})
@@ -56,7 +79,7 @@ router.post('/fcustomer', function(req, res, next){
 })
 
 //add details of the customer
-router.put('/addDetails', 
+router.put('/addDetails',
     [
     check('fname' , "first Name is required").not().isEmpty(),
     check('lname' , "last name is required").not().isEmpty(),
@@ -68,14 +91,14 @@ router.put('/addDetails',
     check('email' , "Email should be in correct format").isEmail(),
     check('phoneNumber', "Phone number is required").not().isEmpty(),
     check('phoneNumber' , "Phone Number should be in correct format").isMobilePhone(),
-    ],
+    ],auth,
     function(req, res, next){
 
     var k = {$set: 
             {
                 name:{
-                    fName: req.body.fname,
-                    lName: req.body.lname
+                    fName: req.body.fName,
+                    lName: req.body.lName
                 },
                 dob: req.body.dob,
                 email: req.body.email,
@@ -85,10 +108,10 @@ router.put('/addDetails',
             }
         }
  
-     Customer.findOneAndUpdate({
-                                    credentials:{username:req.body.username,
-                                    password:req.body.password
-                                }
+     Customer.findByIdAndUpdate({
+        _id:
+        req.user
+                                
                             }, k ).then(function(c){
                                     console.log(req.body);
                                     res.json(c);
@@ -158,6 +181,25 @@ router.post('/getschedules', function(req, res, next){
                         })
 })
 
+//get All details of a customer
+router.post('/fdetail', auth , function(req, res, next){
+
+    Customer.findById({ _id:
+                        req.user
+                    })
+                    .then(function(c){
+                            console.log(c);
+                            if(c!==null){
+                                console.log("Successfull");
+                                res.json(c);
+                            }
+                            else{
+                                res.json({"statuss":"fail"})
+                            }
+                        }).catch(err=>{
+                                res.send('error')
+                        })
+})
 
 
 module.exports = router

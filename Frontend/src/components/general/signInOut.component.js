@@ -46,14 +46,11 @@ export default class signInOut extends Component{
     .then(res=>{
       console.log(res.data.statuss)
       if(res.data.statuss==="Successfull"){
-            localStorage.removeItem("password");
-            localStorage.removeItem("username");
-            localStorage.removeItem("customerID");
+            localStorage.removeItem("token");
             localStorage.removeItem("loggedIn");
+            localStorage.removeItem("AccountType");
             localStorage.setItem("loggedIn" , "loggedIn")
-            localStorage.setItem("password" , this.state.password);
-            localStorage.setItem("username" , this.state.username);
-            localStorage.setItem("customerID" , res.data._id);
+            localStorage.setItem("token" , res.data.token);
             localStorage.setItem("AccountType" , "Customer");
             console.log("verified");
            // this.props.history.push('/');
@@ -64,18 +61,13 @@ export default class signInOut extends Component{
           .then(res=>{
             console.log(res.data.statuss)
             if(res.data.statuss==="Successfull"){
-              localStorage.removeItem("password");
-              localStorage.removeItem("username");
-              localStorage.removeItem("trainerID");
+              localStorage.removeItem("token");
               localStorage.removeItem("loggedIn");
+              localStorage.removeItem("AccountType");
               localStorage.setItem("loggedIn" , "loggedIn")
-              localStorage.setItem("password" , this.state.password);
-              localStorage.setItem("username" , this.state.username);
-              localStorage.setItem("trainerID" , res.data._id);
+              localStorage.setItem("token" , res.data.token);
               localStorage.setItem("AccountType" , "Trainer");
               console.log("verified");
-           // this.props.history.push('/');
-            //window.location.reload();
             }
             else{
               window.alert("Try Again")
@@ -90,23 +82,31 @@ export default class signInOut extends Component{
   handleSignUp= event=>{
     event.preventDefault();
     console.log(this.state.accountType + this.state.password + this.state.username)
-    if(this.state.accountType==="customer"){
+    if(this.state.accountType==="Customer"){
       siAPI1.post("/ncustomer",  {username:this.state.username, password:this.state.password})
       .then(res=>{
-        console.log(res.data)
-        if(res.data==="successfull"){
-          window.alert("successfull")
+        console.log(res.data.token)
+        if(res.data.status==="Successfull"){
+          localStorage.removeItem("loggedIn");
+          localStorage.setItem("loggedIn" , "loggedIn")
+          localStorage.setItem("token" , res.data.token);
+          localStorage.setItem("AccountType" , "Customer");
+          window.alert("Successfull")
         }
         else{
           window.alert("unsuccessfull")
         }
       })
     }
-    else if(this.state.accountType==="trainer"){
+    else if(this.state.accountType==="Trainer"){
       siAPI2.post("/ntrainer",  {username:this.state.username, password:this.state.password})
       .then(res=>{
-        if(res.data==="successfull"){
-          window.alert("successfull")
+        if(res.data.status==="Successfull"){
+          localStorage.removeItem("loggedIn");
+          localStorage.setItem("loggedIn" , "loggedIn")
+          localStorage.setItem("token" , res.data.token);
+          localStorage.setItem("AccountType" , "Trainer");
+          window.alert("Successfull")
         }
         else{
           window.alert("unsuccessfull")
@@ -190,9 +190,9 @@ return(
         <label>
           <span>Account Type</span><br></br>
           <select id="cars" name="cars" className="input1" onChange={this.onChangeAccountType} value={this.state.accountType} >
-              <option value="customer">Customer</option>
-              <option value="trainer">Physical Trainer</option>
-              <option value="dietician">Dietician</option>
+              <option value="Customer">Customer</option>
+              <option value="Trainer">Physical Trainer</option>
+              <option value="Dietician">Dietician</option>
           </select>
         </label>
         <button type="submit" className="button1 submit">Sign Up Now</button>

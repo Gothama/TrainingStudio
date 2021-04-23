@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Trainer = require('../models/trainer')
 const {check, validationResult} = require("express-validator")
+const jwt = require('jsonwebtoken');
+const auth = require("../middleware/auth")
 
 //signUp router
 router.post("/ntrainer",
@@ -23,8 +25,18 @@ router.post("/ntrainer",
                 password:req.body.password}
             })
             Trainer.create(trainer).then(function(c){
-                console.log(c)
-                res.json("successfull");
+                console.log(c._id)
+                const user ={id:c._id}
+                jwt.sign(
+                    {user}, 
+                      "supersecret",
+                      {expiresIn:360000000},
+                      (err, token)=>{
+                          if(err) throw err;
+                          res.json({"token":token, "status":"Successfull"});
+                      }
+                      
+                      );
             }).catch(err=>{
                 console.log(err)
                 res.send("fail")
@@ -45,7 +57,17 @@ router.post('/ftrainer', function(req, res, next){
                             console.log(c);
                             if(c!==null){
                                 console.log("Successfull");
-                                res.json({"Data" : c, "statuss":"Successfull"})
+                                const user ={id:c._id}
+                                jwt.sign(
+                                    {user}, 
+                                      "supersecret",
+                                      {expiresIn:360000000},
+                                      (err, token)=>{
+                                          if(err) throw err;
+                                          res.json({"token":token, "statuss":"Successfull"});
+                                      }
+                                      
+                                      );
                             }
                             else{
                                 res.json({"statuss":"fail"})

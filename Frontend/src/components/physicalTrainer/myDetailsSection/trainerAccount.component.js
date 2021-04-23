@@ -6,8 +6,16 @@ import {Button,Carousel, Form, Row, Col} from 'react-bootstrap';
 import Profile1 from '../../../assets/images/profile1.png'
 import Profile2 from '../../../assets/images/profile2.png'
 import image from "../../../assets/images/trainers/trainer-2.jpg"
+import Qualifications from './qualifications.component';
 
 export default class TrainerAccount extends Component{
+
+  constructor(){
+    super()
+    this.state={
+        
+    }
+  }
   
     render(){
 return(
@@ -16,7 +24,7 @@ return(
 <TrainerNav/>
     <div style={{backgroundColor:"#14213d",paddingBottom:"100px" , paddingTop:"100px"}} >
 
-<div className="container" style={{/*paddingTop:"100px" ,*/ paddingBottom:"100px" }}>
+<div className="container" style={{ paddingBottom:"100px" }}>
 
 <div className="row" >  
 <Carousel>
@@ -55,7 +63,7 @@ return(
       First Name
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Email" defaultValue="Gothama"/>
+      <Form.Control type="text"  defaultValue="Gothama"/>
     </Col>
   </Form.Group>
 
@@ -64,7 +72,7 @@ return(
       Last Name
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Email" defaultValue="Rajawasam"/>
+      <Form.Control type="text"  defaultValue="Rajawasam"/>
     </Col>
   </Form.Group>
 
@@ -73,7 +81,7 @@ return(
       Username
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Email" defaultValue="GnRajawasam"/>
+      <Form.Control type="text"  defaultValue="GnRajawasam"/>
     </Col>
   </Form.Group>
 
@@ -82,7 +90,7 @@ return(
       Password
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="password" placeholder="Password" defaultValue="GnRajawasam"/>
+      <Form.Control type="password" defaultValue="GnRajawasam"/>
     </Col>
   </Form.Group>
 
@@ -91,7 +99,7 @@ return(
       Mobile No.
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Password" defaultValue="0715631088"/>
+      <Form.Control type="number" min="100000000" max="9999999999" defaultValue="0715631088"/>
     </Col>
   </Form.Group>
 
@@ -106,10 +114,10 @@ return(
 
   <Form.Group as={Row} controlId="formHorizontalAge">
     <Form.Label column sm={2}>
-      Age
+      Email
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Age" defaultValue="23 years"/>
+      <Form.Control type="email"  defaultValue="email@email.com"/>
     </Col>
   </Form.Group>
 
@@ -136,19 +144,30 @@ return(
     </Form.Group>
   </fieldset>
 
-  
+
+
 
   <Form.Group as={Row} controlId="formHorizontalAge">
     <Form.Label column sm={2}>
-      Blood Group
+      Card Details 1
     </Form.Label>
-    <Col sm={10}>
-    <Form.Control as="select">
-    <option>A Positive</option>
-    <option>B Positive</option>
-    <option>Default select</option>
-  </Form.Control>
+    <Col sm={5}>
+      <Form.Control type="text"  defaultValue="Name on Card"/>
+    </Col>
+    <Col sm={5}>
+      <Form.Control type="email"  defaultValue="Expiry Date"/>
+    </Col>
+  </Form.Group>
 
+  <Form.Group as={Row} controlId="formHorizontalAge">
+    <Form.Label column sm={2}>
+      Card Details 2
+    </Form.Label>
+    <Col sm={5}>
+      <Form.Control type="text"  defaultValue="card Number"/>
+    </Col>
+    <Col sm={5}>
+      <Form.Control type="email"  defaultValue="code"/>
     </Col>
   </Form.Group>
 
@@ -158,6 +177,10 @@ return(
       <Form.Check label="Remember me" />
     </Col>
   </Form.Group>
+  <Form.Label column sm={2}>
+      Qualifications
+    </Form.Label>
+  <Qualifications/>
 
   <Form.Group as={Row}>
     <Col sm={{ span: 10, offset: 2 }}>
