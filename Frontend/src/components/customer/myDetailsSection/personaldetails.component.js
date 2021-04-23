@@ -188,15 +188,6 @@ return(
     </Col>
   </Form.Group>
 
-  <Form.Group as={Row} controlId="formHorizontalDOB">
-    <Form.Label column sm={2}>
-      Date of Birth
-    </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="date" format='YYYY' required/>
-    </Col>
-  </Form.Group>
-
   <Form.Group as={Row} controlId="formHorizontalAge">
     <Form.Label column sm={2}>
       Email
