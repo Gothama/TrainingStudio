@@ -12,6 +12,17 @@ const blogSchema = new mongoose.Schema({
     blogImage:{
         type:String
     },
+    blogHeading:{
+        type:String,
+        required:true
+    },
+    blogSummary:{
+        type:String,
+        required:true
+    },
+    blogupdated:{
+        type:Date, default:Date.now
+    },
     publishedDate:{type:Date, default:Date.now},
     blogComments:[
 		{

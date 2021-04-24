@@ -7,14 +7,163 @@ import Profile1 from '../../../assets/images/profile1.png'
 import Profile2 from '../../../assets/images/profile2.png'
 import image from "../../../assets/images/trainers/trainer-2.jpg"
 import Qualifications from './qualifications.component';
+import axios from 'axios';
+import moment from 'moment';
+
+
+const siAPI1= axios.create({
+  baseURL :`http://localhost:9020/trainer`
+})
 
 export default class TrainerAccount extends Component{
-
+  state={
+    fName:"",
+    lName:"",
+    email:"",
+    gender:"Male",
+    phoneNumber:"",
+    username:"",
+    password:"",
+    cardNumber:"",
+    expiryDate:"",
+    nameOnCard:"",
+    code:"",
+    fee:""
+    
+  }
   constructor(){
     super()
-    this.state={
-        
+    this.getData()
+}
+
+  getData=()=>{
+    siAPI1.post("/fdetail", {},
+    {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      this.setState({
+        fName:res.data.name.fName,
+        lName:res.data.name.lName,
+        email:res.data.email,
+        gender:res.data.gender,
+        phoneNumber:res.data.phoneNumber,
+        username:res.data.credentials.username,
+        password:res.data.credentials.password,
+        cardNumber:res.data.cardDetails.cardNumber,
+        expiryDate:res.data.cardDetails.expiryDate,
+        nameOnCard:res.data.cardDetails.nameOnCard,
+        code:res.data.cardDetails.code,
+        fee:res.data.fee
+      })
+      
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  onChangefName= (event)=>{
+    this.setState({
+      fName:event.target.value
+    })
+  }
+  onChangelName= (event)=>{
+    this.setState({
+      lName:event.target.value
+    })
+  }
+  onChangeemail= (event)=>{
+    this.setState({
+      email:event.target.value
+    })
+  }
+  onChangegender= (event)=>{
+    this.setState({
+      gender:event.target.value
+    })
+    console.log(this.state.gender)
+  }
+  onChangephoneNumber= (event)=>{
+    this.setState({
+      phoneNumber:event.target.value
+    })
+  }
+  onChangeusername= (event)=>{
+    this.setState({
+      username:event.target.value
+    })
+  }
+  onChangepassword= (event)=>{
+    this.setState({
+      password:event.target.value
+    })
+  }
+  onChangecardNumber= (event)=>{
+    this.setState({
+      cardNumber:event.target.value
+    })
+  }
+  onChangeexpiryDate= (event)=>{
+    this.setState({
+      expiryDate:event.target.value
+    })
+  }
+  onChangenameOnCard= (event)=>{
+    this.setState({
+      nameOnCard:event.target.value
+    })
+  }
+  onChangecode= (event)=>{
+    this.setState({
+      code:event.target.value
+    })
+  }
+  onChangefee= (event)=>{
+    this.setState({
+      fee:event.target.value
+    })
+  }
+
+
+
+  handleOnSubmit=event=>{
+    event.preventDefault();
+    const user = {
+      fName:this.state.fName,
+      lName:this.state.lName,
+      phoneNumber:this.state.phoneNumber,
+      gender:this.state.gender,
+      email:this.state.email,
+      cardNumber:this.state.cardNumber,
+      expiryDate:this.state.expiryDate,
+      nameOnCard:this.state.nameOnCard,
+      code:this.state.code,
+      fee:this.state.fee
+      
     }
+    console.log(user)
+    siAPI1.put("/addDetails", {
+      fName:this.state.fName,
+      lName:this.state.lName,
+      phoneNumber:this.state.phoneNumber,
+      gender:this.state.gender,
+      email:this.state.email,
+      cardNumber:this.state.cardNumber,
+      expiryDate:this.state.expiryDate,
+      nameOnCard:this.state.nameOnCard,
+      code:this.state.code,
+      fee:this.state.fee
+    },
+    {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      console.log(res)
+      this.getData()
+      window.alert("Successfully Updated")
+    }).catch(err => {
+      window.alert(err)
+  })
   }
   
     render(){
@@ -57,13 +206,13 @@ return(
             <div className="text-center" style={{marginTop:"-60px"}}>
                 <img src={image} className ="rounded avatar" alt="..."  style={{height:"150px",width:"150px", borderRadius:"50%"}}/>
             </div>
-            <Form style={{padding:"20px"}}>
+            <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
   <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={2}>
       First Name
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text"  defaultValue="Gothama"/>
+      <Form.Control type="text"  Value={this.state.fName} onChange={this.onChangefName}/>
     </Col>
   </Form.Group>
 
@@ -72,7 +221,7 @@ return(
       Last Name
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text"  defaultValue="Rajawasam"/>
+      <Form.Control type="text"  Value={this.state.lName} onChange={this.onChangelName} required/>
     </Col>
   </Form.Group>
 
@@ -81,7 +230,7 @@ return(
       Username
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text"  defaultValue="GnRajawasam"/>
+      <Form.Control type="text"  Value={this.state.username}onChange={this.onChangeusername} required readOnly />
     </Col>
   </Form.Group>
 
@@ -90,7 +239,7 @@ return(
       Password
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="password" defaultValue="GnRajawasam"/>
+      <Form.Control type="password"  Value={this.state.password}onChange={this.onChangepassword}required readOnly />
     </Col>
   </Form.Group>
 
@@ -99,16 +248,7 @@ return(
       Mobile No.
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="number" min="100000000" max="9999999999" defaultValue="0715631088"/>
-    </Col>
-  </Form.Group>
-
-  <Form.Group as={Row} controlId="formHorizontalDOB">
-    <Form.Label column sm={2}>
-      Date of Birth
-    </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="date" placeholder="Age" defaultValue= {10/27/2020}/>
+      <Form.Control type="text"  Value={this.state.phoneNumber} onChange={this.onChangephoneNumber}required/>
     </Col>
   </Form.Group>
 
@@ -117,7 +257,7 @@ return(
       Email
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="email"  defaultValue="email@email.com"/>
+      <Form.Control type="email"  Value={this.state.email} onChange={this.onChangeemail}required/>
     </Col>
   </Form.Group>
 
@@ -130,14 +270,20 @@ return(
         <Form.Check
           type="radio"
           label="Female"
+          value="Female"
           name="formHorizontalRadios"
           id="formGenderFemailRadios1"
+          checked={this.state.gender==="Female"}
+          onChange={this.onChangegender}
         />
         <Form.Check defaultChecked
           type="radio"
           label="Male"
           name="formHorizontalRadios"
           id="formGenderMaleRadios2"
+          value="Male"
+          checked={this.state.gender==="Male"}
+          onChange={this.onChangegender}
         />
        
       </Col>
@@ -145,17 +291,15 @@ return(
   </fieldset>
 
 
-
-
   <Form.Group as={Row} controlId="formHorizontalAge">
     <Form.Label column sm={2}>
       Card Details 1
     </Form.Label>
     <Col sm={5}>
-      <Form.Control type="text"  defaultValue="Name on Card"/>
+      <Form.Control type="text"  Value={this.state.nameOnCard} onChange={this.onChangenameOnCard}required/>
     </Col>
     <Col sm={5}>
-      <Form.Control type="email"  defaultValue="Expiry Date"/>
+      <Form.Control type="text"  Value={this.state.expiryDate} onChange={this.onChangeexpiryDate}required/>
     </Col>
   </Form.Group>
 
@@ -164,23 +308,18 @@ return(
       Card Details 2
     </Form.Label>
     <Col sm={5}>
-      <Form.Control type="text"  defaultValue="card Number"/>
+      <Form.Control type="text"   Value={this.state.cardNumber} onChange={this.onChangenameOnCard}required/>
     </Col>
     <Col sm={5}>
-      <Form.Control type="email"  defaultValue="code"/>
+      <Form.Control type="text"   Value={this.state.code} onChange={this.onChangecode}required/>
     </Col>
   </Form.Group>
-
 
   <Form.Group as={Row} controlId="formHorizontalCheck">
     <Col sm={{ span: 10, offset: 2 }}>
       <Form.Check label="Remember me" />
     </Col>
   </Form.Group>
-  <Form.Label column sm={2}>
-      Qualifications
-    </Form.Label>
-  <Qualifications/>
 
   <Form.Group as={Row}>
     <Col sm={{ span: 10, offset: 2 }}>
@@ -188,8 +327,9 @@ return(
     </Col>
   </Form.Group>
 </Form>
-
+<Qualifications/>
     </div>
+    
 </div>  
 </div>      
 

@@ -1,12 +1,50 @@
-
+import {Link} from 'react-router-dom';
 import React, {Component} from 'react';
 import Footer from '../../general/footer.component';
 import TrainerNav from '../trainerNav.component';
 import {Button,Card} from 'react-bootstrap';
 import addBlogImage from '../../../assets/images/addblog.jpg'
+import axios from 'axios';
+
+const siAPI1= axios.create({
+  baseURL :`http://localhost:9020/blog`
+})
+
 
 export default class MyBlogs extends Component{
-  
+  state={
+    blogs:[]
+  }
+
+  constructor(){
+    super()
+    
+    siAPI1.post("/" ,{}, {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      this.setState({
+        blogs:res.data
+      })
+      console.log(this.state.blogs)
+      
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  deleteBlog=(id)=>{
+    siAPI1.post("/delete/" + id , {} , {headers:{Authorization:"Bearer "+ localStorage.getItem("token")}}).then(res=>{
+      console.log(res)
+      window.alert("Successfully")
+      window.location.reload()
+    }).catch(err=>{
+      console.log(err)
+    })
+
+  }
+
+ 
     render(){
 return(
   <div>
@@ -27,112 +65,26 @@ return(
     <Card.Text style={{ color:"white", fontSize:"30px", lineHeight:"60px", fontWeight:"bolder"}}>
     you can earn attention by creating something interesting and valuable and then publishing it online for free.
     </Card.Text>
-    <Button variant="danger">Add New Blog</Button> 
+    <Link to="/addblog"><Button variant="danger">Add New Blog</Button> </Link>
   </Card.ImgOverlay>
 </Card>
 
 </div>
 
-<div className="row" >  
+<div className="row" > 
+{this.state.blogs.map(b=>
 <Card style={{ width: '16rem', margin:"0.5rem"}}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+  <Card.Img variant="top" src={b.blogImage} />
   <Card.Body>
-    <Card.Title>What is Fitness?</Card.Title>
+    <Card.Title>{b.blogHeading}</Card.Title>
     <Card.Text>
     <p style={{color:"black", textAlign:"justify"}}>
-    Physical fitness is a state of health and well-being and, more specifically,
-    occupations and daily activities.</p>
+    {b.blogSummary}</p>
     </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
+    <Link to={"/editblog/60845eb1caab3e35f882dc4c"}><Button variant="primary">Edit</Button></Link> <Button variant="danger" onClick={()=>this.deleteBlog(b._id)}>Delete</Button> <Link to=""><Button variant="warning">View</Button></Link>
   </Card.Body>
 </Card>
-
-<Card style={{ width: '16rem', margin:"0.5rem" }}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1598733097325-42a02678c1a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-    <Card.Title>Simple Workout </Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '16rem' , margin:"0.5rem"}}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1573500883698-e3ef47a95feb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-  <Card.Title>Simple Diet Plan </Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '16rem' , margin:"0.5rem"}}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1573500883495-6c9b16d88d8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-    <Card.Title>Simple Workout </Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
-</div>
-
-<div className="row" >  
-<Card style={{ width: '16rem', margin:"0.5rem"}}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-    <Card.Title>What is Fitness?</Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Physical fitness is a state of health and well-being and, more specifically,
-    occupations and daily activities.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '16rem', margin:"0.5rem" }}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-    <Card.Title>Simple Workout </Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '16rem' , margin:"0.5rem"}}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-  <Card.Title>Simple Diet Plan </Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
-
-<Card style={{ width: '16rem' , margin:"0.5rem"}}>
-  <Card.Img variant="top" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-  <Card.Body>
-    <Card.Title>Simple Workout </Card.Title>
-    <Card.Text>
-    <p style={{color:"black", textAlign:"justify"}}>
-    Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.</p>
-    </Card.Text>
-    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button> <Button variant="warning">View</Button>
-  </Card.Body>
-</Card>
+)} 
 </div>
 </div>  </div>   
 

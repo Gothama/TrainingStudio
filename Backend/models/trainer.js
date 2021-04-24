@@ -15,27 +15,31 @@ const trainerSchema = new mongoose.Schema({
     },
     name:{
         fName:{
-            type:String
+            type:String,
+            default:"First Name"
         },
         lName:{
-            type:String
+            type:String,
+            default:"Last Name"
         }
     },
     email:{
-        type:String
+        type:String,
+        default:"Email@Email.com"
     },
     gender:{
         type:String,
-        enum:['Male', 'Female']
+        enum:['Male', 'Female'],deafult:"Male"
     },
     phoneNumber:{
-        type:String
+        type:String,
+        default:"01234566789"
     },
     cardDetails:{
-        cardNumber:{type:String},
-        expiryDate:{type:String},
-        nameOnCard:{type:String},
-        code:{type:Number, max:999,min:0}
+        cardNumber:{type:String,default:"01234566789"},
+        expiryDate:{type:String,default:"01234566789"},
+        nameOnCard:{type:String,default:"01234566789"},
+        code:{type:Number, max:999,min:0,default:"0"}
     },
     profilePhotoLink:{type:String},
     qualifications:[
@@ -48,7 +52,7 @@ const trainerSchema = new mongoose.Schema({
                     description:{type:String},
         }
     ],
-    fee:{type:Number, min:0}
+    fee:{type:Number, min:0, default:0}
         
 
 })

@@ -80,10 +80,11 @@ router.post('/ftrainer', function(req, res, next){
 //add details of the trainer
 router.put('/addDetails', 
     [
-    check('fname' , "first Name is required").not().isEmpty(),
-    check('lname' , "last name is required").not().isEmpty(),
-    check('fname' , "first Name should be letters").isString(),
-    check('lname' , "last name is required").isString(),
+    check('fName' , "first Name is required").not().isEmpty(),
+    check('lName' , "last name is required").not().isEmpty(),
+    check('fName' , "first Name should be letters").isString(),
+    check('fName' , "first Name should be letters").isLength({ min: 3 }),
+    check('lName' , "last name is required").isString(),
     check('dob' , "Date of birth is required").not().isEmpty(),
     check('dob' , "Date of birth should be a date").isDate(),
     check('email' , "email is required").not().isEmpty(),
@@ -92,14 +93,14 @@ router.put('/addDetails',
     check('phoneNumber' , "Phone Number should be in correct format").isMobilePhone(),
     check('fee', "Fee is required").not().isEmpty(),
     check('fee', "Fee should be in a currency").isNumeric()
-    ],
+    ], auth,
     function(req, res, next){
 
     var k = {$set: 
             {
                 name:{
-                    fName: req.body.fname,
-                    lName: req.body.lname
+                    fName: req.body.fName,
+                    lName: req.body.lName
                 },
                 dob: req.body.dob,
                 email: req.body.email,
@@ -110,11 +111,12 @@ router.put('/addDetails',
             }
         }
  
-     Trainer.findOneAndUpdate({
-                                    credentials:{username:req.body.username,
-                                    password:req.body.password
-                                }
-                            }, k ).then(function(c){
+     Trainer.findByIdAndUpdate({
+        _id:
+        req.user
+                                
+                            }
+                            , k ).then(function(c){
                                     console.log(req.body);
                                     res.json(c);
                             }).catch(err=>{
@@ -133,7 +135,7 @@ router.put('/addDetails',
     check("title", "title is required").not().isEmpty(),
     check("issuedBy", "Issued By is required").not().isEmpty(),
     check("description", "description is required").not().isEmpty(),
-    ],
+    ],auth,
     function(req, res, next){
     const errors = validationResult(req);
         if(!errors.isEmpty()){
@@ -158,11 +160,8 @@ router.put('/addDetails',
             }
         }
 
-     Trainer.findOneAndUpdate({
-                                    credentials:{username:req.body.username,
-                                    password:req.body.password
-                                }
-                            }, k ).then(function(c){
+     Trainer.findByIdAndUpdate({_id:req.user}
+                            , k ).then(function(c){
                                     console.log(c);
                                     res.json(c);
                             }).catch(err=>{
@@ -171,6 +170,46 @@ router.put('/addDetails',
                             });
    }})
 
-   
+   //get all qualifications
+
+   router.post("/getqualification", auth , function(req, res, next){
+       Trainer.findById({_id:req.user}).then(function(c){
+           console.log(c.qualifications);
+           if(c!==null){
+               if(c.qualifications.isLength!=1){
+                   res.json({"D" : c.qualifications, "K" : "Successfull"})
+               }
+               else{
+                   res.json({"k" : "Unsuccessfull"})
+               }
+           }
+           else{
+            res.json({"k" : "No user"})
+           }
+       }).catch(err=>{
+        res.json({"k" : "Error"})
+})
+   })
+
+   //get All details of a trainer
+router.post('/fdetail', auth , function(req, res, next){
+
+    Trainer.findById({ _id:
+                        req.user
+                    })
+                    .then(function(c){
+                            console.log(c);
+                            if(c!==null){
+                                console.log("Successfull");
+                                res.json(c);
+                            }
+                            else{
+                                res.json({"statuss":"fail"})
+                            }
+                        }).catch(err=>{
+                                res.send('error')
+                        })
+})
+
 
 module.exports = router

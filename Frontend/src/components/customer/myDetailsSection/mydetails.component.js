@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import {Tab,Row,Nav,Col} from 'react-bootstrap';
 import AddHealthDetails from './addHealth.component';
 import FitnessCalculator from './fitnesscalculator.component';
+import HealthReports from './healthreports.component';
+import MyhealthData from './myhealthData.component';
 import HealthDetails from './myhealthDetails.component';
 import PersonalDetails from './personaldetails.component';
 //import Footer from '../general/footer.component';
@@ -22,10 +24,10 @@ return(
           <Nav.Link eventKey="first">Personal Details</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="second">Health Details</Nav.Link>
+          <Nav.Link eventKey="second">Health Reports</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="third">Add Health Details</Nav.Link>
+          <Nav.Link eventKey="third">Health Data</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="fourth">Health Calculator</Nav.Link>
@@ -38,10 +40,10 @@ return(
           <PersonalDetails/>
         </Tab.Pane>
         <Tab.Pane eventKey="second">
-        <HealthDetails/>
+        <HealthReports/>
         </Tab.Pane>
         <Tab.Pane eventKey="third">
-        <AddHealthDetails/>
+        <MyhealthData/>
         </Tab.Pane>
         <Tab.Pane eventKey="fourth">
         <FitnessCalculator/>
