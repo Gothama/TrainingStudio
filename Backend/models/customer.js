@@ -66,7 +66,6 @@ const customerSchema = new mongoose.Schema({
         nameOnCard:{type:String},
         code:{type:Number, max:999,min:0}
     },
-    profilePhotoLink:{type:String},
     bloodPressure:[
         {
             checkedDate:{type: Date, default: Date.now },
@@ -83,6 +82,10 @@ const customerSchema = new mongoose.Schema({
     rating:{
         totalRating:{type:Number},
         totalRated:{type:Number}
+    },
+    profilephotolink:{
+        type:String,
+        default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
     }
     
 

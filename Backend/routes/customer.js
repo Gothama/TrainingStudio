@@ -104,7 +104,8 @@ router.put('/addDetails',
                 email: req.body.email,
                 gender: req.body.gender,
                 bloodGroup:req.body.bloodGroup,
-                phoneNumber:req.body.phoneNumber
+                phoneNumber:req.body.phoneNumber,
+                profilephotolink:req.body.profilephotolink
             }
         }
  

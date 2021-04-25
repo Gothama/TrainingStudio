@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
-import {Form,Row,Col,Button} from 'react-bootstrap';
+import {Form,Row,Col,Button, ProgressBar} from 'react-bootstrap';
 import image from "../../../assets/images/trainers/trainer-2.jpg"
 import axios from 'axios';
 import moment from 'moment';
@@ -20,7 +20,10 @@ export default class PersonalDetails extends Component{
       bloodGroup:"ABPositive",
       phoneNumber:"",
       username:"",
-      password:""
+      password:"",
+      profilephotolink:"",
+      uploading:"",
+      image:""
     }
    
   constructor(){
@@ -41,7 +44,8 @@ export default class PersonalDetails extends Component{
         bloodGroup:res.data.bloodGroup,
         phoneNumber:res.data.phoneNumber,
         username:res.data.credentials.username,
-        password:res.data.credentials.password
+        password:res.data.credentials.password,
+        profilephotolink:res.data.profilephotolink
       })
     }).catch(err => {
       window.alert(err)
@@ -116,7 +120,10 @@ export default class PersonalDetails extends Component{
       gender:this.state.gender,
       bloodGroup:this.state.bloodGroup,
       dob:this.state.dob,
-      email:this.state.email},
+      email:this.state.email,
+      profilephotolink:this.state.profilephotolink
+    
+    },
     {
       headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
     })
@@ -126,12 +133,45 @@ export default class PersonalDetails extends Component{
       window.alert(err)
   })
   }
+
+  upload=(event)=>{
+
+    if(this.state.image.size > 600 * 600) // 1mb
+            return alert("Size too large!")
+  
+        if(this.state.image.type !== 'image/jpeg' && this.state.image.type !== 'image/png') // 1mb
+            return alert("File format is incorrect.")
+  
+  
+    console.log(this.state.image)
+    const formData = new FormData()
+    formData.append("file" , this.state.image)
+    formData.append("upload_preset" , "w2qn2jsf")
+    axios.post("https://api.cloudinary.com/v1_1/dbecgupu0/image/upload", formData, {onUploadProgress: data => {
+        
+        this.setState({uploading:Math.round((100 * data.loaded) / data.total)})}
+        
+      }).then((res)=>{
+        console.log(res)
+        this.setState({profilephotolink:res.data.secure_url})
+    })
+   
+  
+    console.log(this.state.profilephotolink)
+  }
+  
+  selectImage=(event)=>{
+    this.setState({
+        image:event.target.files[0]
+    })
+  }
+  
   
     render(){
 return(
     <div style={{backgroundColor:"#007bff",padding:"20px"}}>
             <div className="text-center" style={{marginTop:"-60px"}}>
-                <img src={image} className ="rounded avatar" alt="..."  style={{height:"150px",width:"150px", borderRadius:"50%"}}/>
+                <img src={this.state.profilephotolink} className ="rounded avatar" alt="..."  style={{height:"150px",width:"150px", borderRadius:"50%"}}/>
             </div>
             <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
   <Form.Group as={Row} controlId="formHorizontalFName" >
@@ -178,6 +218,21 @@ return(
       <Form.Control type="text"  Value={this.state.phoneNumber} onChange={this.onChangephoneNumber}required/>
     </Col>
   </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Profile Image
+    </Form.Label>
+    <Col sm={7}>
+      <Form.Control type="file"  Value={this.state.fName} onChange={this.selectImage}/>
+     
+    </Col>
+    <Col sm={3}>
+      <Button type="button" onClick={this.upload} style={{backgroundColor:"red"}}>Upload Image</Button>
+    </Col>
+  </Form.Group>
+  {this.state.uploading && <ProgressBar variant="danger" now={this.state.uploading} label={`${this.state.uploading}%`} />}
+<br/>
 
   <Form.Group as={Row} controlId="formHorizontalDOB">
     <Form.Label column sm={2}>

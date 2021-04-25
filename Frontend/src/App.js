@@ -36,7 +36,6 @@ import Editblog from './components/physicalTrainer/blogSection/editblog.componen
 function App() {
   return (
    <div>
-  
       <Router> 
       <Route path = "/" exact component={LandingPage}/>
       <Route path = "/account" exact component={MyAccount}/>
@@ -48,7 +47,7 @@ function App() {
       <Route path = "/myBlogs" exact component={MyBlogs}/>
       <Route path = "/myPosts" exact component={MyPosts}/>
       <Route path = "/trainerAccount" exact component={ExpertAccount}/>
-      <Route path = "/blog" exact component={Blog}/>
+      <Route path = "/blog/:id" exact component={Blog}/>
       <Route path = "/myDietPlans" exact component={MyDietPlans}/>
       <Route path = "/messenger" exact component={Messenger}/> 
       <Route path = "/videoChat" exact component={VideoChat}/> 
@@ -59,10 +58,8 @@ function App() {
       <Route path = "/Admin" exact component ={AdminDashboard}/>
       <Route path = "/addBlog" exact component ={AddBlog}/>
       <Route path = "/editblog/:id" exact component ={Editblog}/>
-      
   </Router>
   <Fitbot/>
- 
 </div>
   );
 }

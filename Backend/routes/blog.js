@@ -3,6 +3,8 @@ const router = express.Router()
 const Blog = require('../models/blog')
 const {check, validationResult} = require("express-validator")
 const auth = require("../middleware/auth")
+const Trainer = require('../models/trainer')
+const trainer = require('../models/trainer')
 
 //add new blog
 router.post("/nblog",
@@ -97,10 +99,32 @@ router.put('/addcomment',
   
   })
 
-    //get a blog
+    //get a blog by the publisher
     router.post('/getblog', auth , function(req, res, next){
         Blog.findOne({_id:req.body.id, authorID:req.user}).then(function(blog){
           res.send(blog);
+        }).catch(err=>{
+            console.log(err)
+            res.send('fail' + err);
+        });
+      
+      })
+
+    //get a blog 
+    router.post('/ngetblog' , function(req, res, next){
+        Blog.findOne({_id:req.body.id}).then(function(blog){
+            if(blog!==null){
+               Trainer.findById({_id:blog.authorID}).then(function(trainer){
+                res.json({"Blog":blog, "authorName":trainer.name})
+            }).catch(err=>{
+                console.log(err)
+                res.send('fail' + err);
+            });
+            }
+            else{
+                res.json({"Blog":"No Blog"})
+            }
+            
         }).catch(err=>{
             console.log(err)
             res.send('fail' + err);
@@ -148,5 +172,44 @@ router.post("/updateblog",
         
     }
 )
+
+  //add comment to blog
+  router.post("/addcomment",
+  [
+    check('id', "id is required").not().isEmpty(),
+      check('content', "content is required").not().isEmpty()
+  ],auth,
+      function(req, res){
+          const errors = validationResult(req);
+          if(!errors.isEmpty()){
+              return res.json({
+                  success:false,
+                  errors:errors.array()
+              });
+          }
+          else{
+            var k = {$push: 
+                {
+                    blogComments:[{
+                        content:req.body.content,
+                        commentByID:req.user
+                    }]
+                }
+            }
+              
+              Blog.findByIdAndUpdate({_id:req.body.id}, 
+               k
+                  ).then(function(c){
+                  console.log(c)
+                  console.log(k)
+                  res.json("successfull");
+              }).catch(err=>{
+                  console.log(err)
+                  res.send("fail")
+              })
+          }
+          
+      }
+  )
 
 module.exports = router

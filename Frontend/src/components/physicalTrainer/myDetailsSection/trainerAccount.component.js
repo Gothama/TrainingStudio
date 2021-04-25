@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import Footer from '../../general/footer.component';
 import TrainerNav from '../trainerNav.component';
-import {Button,Carousel, Form, Row, Col} from 'react-bootstrap';
+import {Button,Carousel, Form, Row, Col, ProgressBar} from 'react-bootstrap';
 import Profile1 from '../../../assets/images/profile1.png'
 import Profile2 from '../../../assets/images/profile2.png'
 import image from "../../../assets/images/trainers/trainer-2.jpg"
@@ -28,13 +28,48 @@ export default class TrainerAccount extends Component{
     expiryDate:"",
     nameOnCard:"",
     code:"",
-    fee:""
-    
+    fee:"",
+    profilephotolink:"",
+    uploading:"",
+    image:""
   }
   constructor(){
     super()
     this.getData()
 }
+
+upload=(event)=>{
+
+  if(this.state.image.size > 600 * 600) // 1mb
+          return alert("Size too large!")
+
+      if(this.state.image.type !== 'image/jpeg' && this.state.image.type !== 'image/png') // 1mb
+          return alert("File format is incorrect.")
+
+
+  console.log(this.state.image)
+  const formData = new FormData()
+  formData.append("file" , this.state.image)
+  formData.append("upload_preset" , "w2qn2jsf")
+  axios.post("https://api.cloudinary.com/v1_1/dbecgupu0/image/upload", formData, {onUploadProgress: data => {
+      
+      this.setState({uploading:Math.round((100 * data.loaded) / data.total)})}
+      
+    }).then((res)=>{
+      console.log(res)
+      this.setState({profilephotolink:res.data.secure_url})
+  })
+ 
+
+  console.log(this.state.profilephotolink)
+}
+
+selectImage=(event)=>{
+  this.setState({
+      image:event.target.files[0]
+  })
+}
+
 
   getData=()=>{
     siAPI1.post("/fdetail", {},
@@ -54,7 +89,8 @@ export default class TrainerAccount extends Component{
         expiryDate:res.data.cardDetails.expiryDate,
         nameOnCard:res.data.cardDetails.nameOnCard,
         code:res.data.cardDetails.code,
-        fee:res.data.fee
+        fee:res.data.fee,
+        profilephotolink:res.data.profilephotolink
       })
       
     }).catch(err => {
@@ -152,7 +188,8 @@ export default class TrainerAccount extends Component{
       expiryDate:this.state.expiryDate,
       nameOnCard:this.state.nameOnCard,
       code:this.state.code,
-      fee:this.state.fee
+      fee:this.state.fee,
+      profilephotolink:this.state.profilephotolink
     },
     {
       headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
@@ -204,7 +241,7 @@ return(
     
 <div style={{backgroundColor:"#007bff",padding:"20px",marginTop:"60px"}}>
             <div className="text-center" style={{marginTop:"-60px"}}>
-                <img src={image} className ="rounded avatar" alt="..."  style={{height:"150px",width:"150px", borderRadius:"50%"}}/>
+                <img src={this.state.profilephotolink} className ="rounded avatar" alt="..."  style={{height:"150px",width:"150px", borderRadius:"50%"}}/>
             </div>
             <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
   <Form.Group as={Row} controlId="formHorizontalFName" >
@@ -260,6 +297,22 @@ return(
       <Form.Control type="email"  Value={this.state.email} onChange={this.onChangeemail}required/>
     </Col>
   </Form.Group>
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Profile Image
+    </Form.Label>
+    <Col sm={8}>
+      <Form.Control type="file"  Value={this.state.fName} onChange={this.selectImage}/>
+     
+    </Col>
+    <Col sm={2}>
+      <Button type="button" onClick={this.upload} style={{backgroundColor:"red"}}>Upload Image</Button>
+    </Col>
+  </Form.Group>
+  {this.state.uploading && <ProgressBar variant="danger" now={this.state.uploading} label={`${this.state.uploading}%`} />}
+<br/>
+
+
 
   <fieldset>
     <Form.Group as={Row}>

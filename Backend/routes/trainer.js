@@ -107,7 +107,8 @@ router.put('/addDetails',
                 gender: req.body.gender,
                 profilePhotoLink:req.body.profilePhotoLink,
                 phoneNumber:req.body.phoneNumber,
-                fee:req.body.fee
+                fee:req.body.fee,
+                profilephotolink:req.body.profilephotolink
             }
         }
  
@@ -156,6 +157,7 @@ router.put('/addDetails',
                     title:req.body.title,
                     issuedBy:req.body.issuedBy,
                     description:req.body.description,
+        
                 }]
             }
         }

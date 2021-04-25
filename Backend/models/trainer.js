@@ -41,7 +41,6 @@ const trainerSchema = new mongoose.Schema({
         nameOnCard:{type:String,default:"01234566789"},
         code:{type:Number, max:999,min:0,default:"0"}
     },
-    profilePhotoLink:{type:String},
     qualifications:[
         {
                     issuedDate:{type:Date},
@@ -52,7 +51,11 @@ const trainerSchema = new mongoose.Schema({
                     description:{type:String},
         }
     ],
-    fee:{type:Number, min:0, default:0}
+    fee:{type:Number, min:0, default:0},
+    profilephotolink:{
+        type:String,
+        default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
+    }
         
 
 })

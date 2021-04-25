@@ -7,6 +7,7 @@ import axios from 'axios';
 import SunEditor from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 import moment from 'moment';
+import { ProgressBar } from "react-bootstrap"
 
 
 const siAPI1= axios.create({
@@ -18,12 +19,46 @@ export default class addBlog extends Component{
     blogContent:"",
     blogImage:"",
     blogHeading:"",
-    blogSummary:""
+    blogSummary:"",
+    image:"",
+    uploading:""
     
   }
   constructor(){
     super()
   
+}
+
+upload=(event)=>{
+
+  if(this.state.image.size === 1050 * 700) // 1mb
+         return alert("Size too large!")
+
+      if(this.state.image.type !== 'image/jpeg' && this.state.image.type !== 'image/png') // 1mb
+          return alert("File format is incorrect.")
+
+
+  console.log(this.state.image)
+  const formData = new FormData()
+  formData.append("file" , this.state.image)
+  formData.append("upload_preset" , "w2qn2jsf")
+  axios.post("https://api.cloudinary.com/v1_1/dbecgupu0/image/upload", formData, {onUploadProgress: data => {
+      
+      this.setState({uploading:Math.round((100 * data.loaded) / data.total)})}
+      
+    }).then((res)=>{
+      console.log(res)
+      this.setState({blogImage:res.data.secure_url})
+  })
+ 
+
+  console.log(this.state.blogImage)
+}
+
+selectImage=(event)=>{
+  this.setState({
+      image:event.target.files[0]
+  })
 }
 
   onChangeblogContent= (event)=>{
@@ -105,11 +140,16 @@ return(
     <Form.Label column sm={2}>
       Blog Image
     </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="text"  Value={this.state.fName} onChange={this.onChangeblogImage}/>
+    <Col sm={8}>
+      <Form.Control type="file"  Value={this.state.fName} onChange={this.selectImage}/>
+     
+    </Col>
+    <Col sm={2}>
+      <Button type="button" onClick={this.upload} style={{backgroundColor:"red"}}>Upload Image</Button>
     </Col>
   </Form.Group>
-
+  {this.state.uploading && <ProgressBar variant="danger" now={this.state.uploading} label={`${this.state.uploading}%`} />}
+<br/>
   <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={2}>
       Blog Summary
