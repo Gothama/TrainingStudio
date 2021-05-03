@@ -9,6 +9,8 @@ import image from "../../../assets/images/trainers/trainer-2.jpg"
 import Qualifications from './qualifications.component';
 import axios from 'axios';
 import moment from 'moment';
+import Swal from 'sweetalert2'
+
 
 
 const siAPI1= axios.create({
@@ -38,13 +40,27 @@ export default class TrainerAccount extends Component{
     this.getData()
 }
 
+message=(type, msg)=>{
+
+    Swal.fire({
+      position: 'top-end',
+      icon: type,
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+
 upload=(event)=>{
 
   if(this.state.image.size > 600 * 600) // 1mb
-          return alert("Size too large!")
+          //return alert("Size too large!")
+          return this.message("error" , "Size too large!")
 
       if(this.state.image.type !== 'image/jpeg' && this.state.image.type !== 'image/png') // 1mb
-          return alert("File format is incorrect.")
+          //return alert("File format is incorrect.")
+          return this.message("error" , "File format is incorrect.")
 
 
   console.log(this.state.image)
@@ -58,6 +74,7 @@ upload=(event)=>{
     }).then((res)=>{
       console.log(res)
       this.setState({profilephotolink:res.data.secure_url})
+      this.message("success" , "Profile Photo uploaded")
   })
  
 
@@ -197,9 +214,11 @@ selectImage=(event)=>{
     .then(res=>{
       console.log(res)
       this.getData()
-      window.alert("Successfully Updated")
+     // window.alert("Successfully Updated")
+      this.message("success" , "Successfully Updated")
     }).catch(err => {
-      window.alert(err)
+     // window.alert(err)
+      this.message("error" , err)
   })
   }
   
@@ -277,6 +296,15 @@ return(
     </Form.Label>
     <Col sm={10}>
       <Form.Control type="password"  Value={this.state.password}onChange={this.onChangepassword}required readOnly />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row} controlId="formHorizontalPassword">
+    <Form.Label column sm={2}>
+      Fee per plan
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="number"  Value={this.state.fee} onChange={this.onChangefee}required />
     </Col>
   </Form.Group>
 

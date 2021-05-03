@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import {Table} from 'react-bootstrap';
 import {Button,Carousel, Form, Row, Col} from 'react-bootstrap';
 import Moment from 'react-moment';
+import Swal from 'sweetalert2'
+import {Link} from 'react-router-dom';
 
 export default class qualifications extends Component {
 
@@ -58,13 +60,36 @@ export default class qualifications extends Component {
     this.getData()
   }
 
+  message=(type, msg)=>{
+
+    Swal.fire({
+      position: 'top-end',
+      icon: type,
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  deletequalification=(id1)=>{
+    console.log(id1)
+    axios.post("http://localhost:9020/trainer/deletequalification",{ id:id1},
+      {
+        headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    }).then(res=>{
+      console.log(res)
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
   getData=()=>{
     axios.post("http://localhost:9020/trainer/getqualification", {},
     {
       headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
     }).then(res=>{
-      console.log(res.data.D[0].qualificationID)
-      if(this.state.qualificationA.length<=0){
+      console.log(res.data.D)
+      if(res.data.D.length>=0){
         this.setState({
           qualificationA:res.data.D
         })
@@ -96,10 +121,12 @@ export default class qualifications extends Component {
     }).then(res=>{
       console.log(res.data)
       window.location.reload();
-      window.alert("Successfull")
+      //window.alert("Successfull")
+      this.message('success' , "Your qualification added Successfully")
       
     }).catch(err => {
-      window.alert(err)
+      //window.alert(err)
+      this.message('error' , err)
   })
   }
     render() {
@@ -126,7 +153,7 @@ export default class qualifications extends Component {
       <td>{q.issuedBy}</td>
       <td><Moment format="YYYY/MM/DD">{q.issuedDate}</Moment></td>
       <td>{q.description}</td>
-      <td>{q.linkTo}</td>
+      <td><a href ={q.linkTo}><Button variant="warning">View</Button></a><Button variant="danger" onClick={()=>this.deletequalification(q._id)}>Delete</Button></td>
       
       
     </tr> 

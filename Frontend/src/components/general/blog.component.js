@@ -22,12 +22,13 @@ export default class Blog extends Component{
     blogupdated:"",
     authorID:"",
     authorName:"",
-    comments:[]
+    comments:[],
+    ncomment:""
   }
   
   constructor(props){
     super(props)
-    console.log(window.location.pathname.split("editblog/")[1])
+    console.log(window.location.pathname.split("blog/")[1])
     siAPI1.post("/ngetblog", 
     {
         id:this.props.match.params.id
@@ -56,6 +57,32 @@ export default class Blog extends Component{
       window.alert("Front"+err)
   })
 
+  }
+
+  getCommentprofilePhoto=(id1)=>{
+    //window.alert(id1)
+    //return "https://res.cloudinary.com/dbecgupu0/image/upload/v1619378978/dlr7bhjbvwniq5gj4vln.jpg"
+      siAPI1.post('/profilePhoto' , {id:id1}).then(res=>{
+        console.log(res.data)
+        return res.data
+      })
+      
+  }
+  onChangeComment=(event)=>{
+    this.setState({
+      ncomment:event.target.value
+    })
+  }
+
+
+  handleOnSubmit=()=>{
+    siAPI1.post("/addcomment" , {content:this.state.ncomment,  id:this.props.match.params.id},{
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    }).then(res=>{
+      console.log(res.data)
+    }).catch(err=>{
+      window.alert(err)
+    })
   }
     render(){
 return(
@@ -86,18 +113,18 @@ return(
 {localStorage.getItem("loggedIn")==="loggedIn"?
       <div style={{backgroundColor:"white", padding:"30px", borderRadius:"5px", marginBottom:"30px"}} >
                <Container>
-  <Row>
+ 
   
       
-      
+  <Form onSubmit={this.handleOnSubmit}> <Row>
       <Form.Group controlId="exampleForm.ControlTextarea1" style={{width:"100%"}}>
     <Form.Label>Add your Comment</Form.Label>
-    <Form.Control as="textarea" rows={3} />
-  </Form.Group>
-      
+    <Form.Control as="textarea" rows={3} onChange={this.onChangeComment} required/>
+  </Form.Group></Row>
+  <Button type="submit" style={{backgroundColor:"red"}}>Add Comment</Button>
+  </Form>
 
-
-  </Row>
+  
  
 </Container>
             </div>:<div></div>}
@@ -112,7 +139,7 @@ return(
       width={64}
       height={64}
       className="align-self-start mr-3"
-      src={"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}
+      src={this.getCommentprofilePhoto(q.commentByID)}
       alt="Generic placeholder"
     />
     <Media.Body>

@@ -4,7 +4,7 @@ const Blog = require('../models/blog')
 const {check, validationResult} = require("express-validator")
 const auth = require("../middleware/auth")
 const Trainer = require('../models/trainer')
-const trainer = require('../models/trainer')
+const Customer = require('../models/customer')
 
 //add new blog
 router.post("/nblog",
@@ -44,7 +44,7 @@ router.post("/nblog",
 )
 
 //add comment
-router.put('/addcomment', 
+/*router.put('/addcomment', 
    [
     check('commentByID' , "commentByID is required").not().isEmpty(),
     check('content' , "content should be numeric").not().isEmpty(),
@@ -78,7 +78,7 @@ router.put('/addcomment',
                                 console.log(err)
                                 res.send('fail' + err);
                             });
-   }})
+   }})*/
 
 //get all the blogs 
    router.post('/',auth ,  function(req, res, next){
@@ -102,6 +102,7 @@ router.put('/addcomment',
     //get a blog by the publisher
     router.post('/getblog', auth , function(req, res, next){
         Blog.findOne({_id:req.body.id, authorID:req.user}).then(function(blog){
+            console.log(blog)
           res.send(blog);
         }).catch(err=>{
             console.log(err)
@@ -113,6 +114,7 @@ router.put('/addcomment',
     //get a blog 
     router.post('/ngetblog' , function(req, res, next){
         Blog.findOne({_id:req.body.id}).then(function(blog){
+            console.log(blog)
             if(blog!==null){
                Trainer.findById({_id:blog.authorID}).then(function(trainer){
                 res.json({"Blog":blog, "authorName":trainer.name})
@@ -176,12 +178,13 @@ router.post("/updateblog",
   //add comment to blog
   router.post("/addcomment",
   [
-    check('id', "id is required").not().isEmpty(),
-      check('content', "content is required").not().isEmpty()
+    check('id').not().isEmpty().withMessage("id is required"),
+      check('content').not().isEmpty().withMessage("content is required")
   ],auth,
       function(req, res){
           const errors = validationResult(req);
           if(!errors.isEmpty()){
+              console.log(errors.array())
               return res.json({
                   success:false,
                   errors:errors.array()
@@ -210,6 +213,30 @@ router.post("/updateblog",
           }
           
       }
+  )
+
+  router.post("/profilePhoto",
+  function(req, res){
+      Customer.findById({_id:req.body.id}).then(function(c){
+         if(c!==null) {res.send(c.profilephotolink)}
+         else{
+             Trainer.findById({_id:req.body.id}).then(function(t){
+                 if(t!==null){
+                     console.log(t.profilephotolink)
+                     const k = "'" +t.profilephotolink+ "'"
+                     res.send(k)
+                    }
+                 
+             })
+         }
+          
+      }).catch(err=>{
+        console.log(err)
+        res.send("fail")
+    })
+  }
+  
+  
   )
 
 module.exports = router

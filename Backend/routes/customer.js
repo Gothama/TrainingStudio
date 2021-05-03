@@ -78,6 +78,50 @@ router.post('/fcustomer', function(req, res, next){
                         })
 })
 
+
+   //add qualifications of the trainer
+   router.put('/addhealthreports', 
+   [
+    check('issuedDate' , "Issued Date is required").not().isEmpty(),
+    check('issuedDate' , "Issued Date should be a date").isDate(),
+    check("link", "link should be a link").isURL(),
+    check("description", "description is required").not().isEmpty(),
+    ],auth,
+    function(req, res, next){
+    const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            return res.json({
+                success:false,
+                errors:errors.array()
+            });
+        }
+        else
+    {
+
+    var k = {$push: 
+            {
+                healthReports:[{
+                    issuedDate:req.body.issuedDate,
+                    link:req.body.link,
+                    description:req.body.description,
+                    addeddate:req.body.addeddate
+        
+                }]
+            }
+        }
+
+     Customer.findByIdAndUpdate({_id:req.user}
+                            , k ).then(function(c){
+                                    console.log(c);
+                                    res.json(c);
+                            }).catch(err=>{
+                                console.log(err)
+                                res.send('fail' + err);
+                            });
+   }})
+
+
+
 //add details of the customer
 router.put('/addDetails',
     [
@@ -160,7 +204,83 @@ router.put('/addDetails',
                             });
    }})
 
+   //add weight
+      router.put('/addweight', 
+      [
+       check('amount' , "amount is required").not().isEmpty(),
+       check('amount' , "amount should be numeric").isNumeric(),
+       ],
+       function(req, res, next){
+       const errors = validationResult(req);
+           if(!errors.isEmpty()){
+               return res.json({
+                   success:false,
+                   errors:errors.array()
+               });
+           }
+           else
+       {
+   
+       var k = {$push: 
+               {
+                weight:[{
+                    amount:req.body.amount
+                   }]
+               }
+           }
+    
+        Customer.findOneAndUpdate({
+                                       credentials:{username:req.body.username,
+                                       password:req.body.password
+                                   }
+                               }, k ).then(function(c){
+                                       console.log(c);
+                                       res.json(c);
+                               }).catch(err=>{
+                                   console.log(err)
+                                   res.send('fail' + err);
+                               });
+      }})
 
+
+       //add pressure
+       router.put('/addpressure', 
+       [
+        check('level' , "level is required").not().isEmpty(),
+        check('level' , "level should be numeric").isNumeric(),
+        ],
+        function(req, res, next){
+        const errors = validationResult(req);
+            if(!errors.isEmpty()){
+                return res.json({
+                    success:false,
+                    errors:errors.array()
+                });
+            }
+            else
+        {
+    
+        var k = {$push: 
+                {
+                    bloodPressure:[{
+                     level:req.body.level
+                    }]
+                }
+            }
+     
+         Customer.findOneAndUpdate({
+                                        credentials:{username:req.body.username,
+                                        password:req.body.password
+                                    }
+                                }, k ).then(function(c){
+                                        console.log(c);
+                                        res.json(c);
+                                }).catch(err=>{
+                                    console.log(err)
+                                    res.send('fail' + err);
+                                });
+       }})
+ 
    //get workout schedules
 router.post('/getschedules', function(req, res, next){
 
@@ -202,5 +322,36 @@ router.post('/fdetail', auth , function(req, res, next){
                         })
 })
 
+
+//get all the health reports of a customer
+router.post("/gethealthreports", auth , function(req, res, next){
+    Customer.findById({_id:req.user}).then(function(c){
+        console.log(c.healthReports);
+        if(c!==null){
+            if(c.healthReports.isLength!=1){
+                res.json({"D" : c.healthReports, "K" : "Successfull"})
+            }
+            else{
+                res.json({"k" : "Unsuccessfull"})
+            }
+        }
+        else{
+         res.json({"k" : "No user"})
+        }
+    }).catch(err=>{
+     res.json({"k" : "Error"})
+})
+})
+
+  //delete a report
+  router.post('/delete/:id', auth , function(req, res, next){
+    Customer.findOneAndDelete({healthReports:[{_id:req.params.id}], _id:req.user}).then(function(customer){
+      res.send(customer);
+    }).catch(err=>{
+        console.log(err)
+        res.send('fail' + err);
+    });
+  
+  })
 
 module.exports = router

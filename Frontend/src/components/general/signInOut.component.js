@@ -4,6 +4,7 @@ import image1 from "../../assets/images/linkedin.png"
 import image2 from "../../assets/images/facebook.png"
 import image3 from "../../assets/images/instagram.png"
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
@@ -38,6 +39,24 @@ export default class signInOut extends Component{
     })
     console.log(this.state.accountType)
   }
+  successfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  unsuccessfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 
   handleSignIn= event =>{
     event.preventDefault();
@@ -53,6 +72,7 @@ export default class signInOut extends Component{
             localStorage.setItem("token" , res.data.token);
             localStorage.setItem("AccountType" , "Customer");
             console.log("verified");
+            this.successfulmessage("Login Successfull as a Customer");
            // this.props.history.push('/');
             //window.location.reload();
       }
@@ -68,9 +88,12 @@ export default class signInOut extends Component{
               localStorage.setItem("token" , res.data.token);
               localStorage.setItem("AccountType" , "Trainer");
               console.log("verified");
+              this.successfulmessage("Login Successfull as a Trainer");
+              
             }
             else{
-              window.alert("Try Again")
+              //window.alert("Try Again")
+              this.unsuccessfulmessage("Login Unuccessfull");
             }
           })
            
@@ -91,7 +114,7 @@ export default class signInOut extends Component{
           localStorage.setItem("loggedIn" , "loggedIn")
           localStorage.setItem("token" , res.data.token);
           localStorage.setItem("AccountType" , "Customer");
-          window.alert("Successfull")
+          this.successfulmessage("Sign Up Successfull as a Customer");
         }
         else{
           window.alert("unsuccessfull")
@@ -106,15 +129,15 @@ export default class signInOut extends Component{
           localStorage.setItem("loggedIn" , "loggedIn")
           localStorage.setItem("token" , res.data.token);
           localStorage.setItem("AccountType" , "Trainer");
-          window.alert("Successfull")
+          this.successfulmessage("Sign Up Successfull as a Trainer");
         }
         else{
-          window.alert("unsuccessfull")
+          this.successfulmessage("Sign Up UnSuccessfull");
         }
       })
     }
     else{
-      window.alert("unsuccessfull")
+      this.successfulmessage("Sign Up UnSuccessfull");
     }
   }
 

@@ -193,6 +193,25 @@ router.put('/addDetails',
 })
    })
 
+      //delete a qualification
+
+      router.post("/deletequalification", auth , function(req, res, next){
+          var d={$pull:{qualifications:{_id:req.id}}}
+        Trainer.findByIdAndUpdate({_id:req.user}, d).then(function(c){
+            console.log(c)
+            if(c!==null){
+                console.log(c)
+                console.log("successfull")
+               res.send(c)
+            }
+            else{
+             res.send("unsuccessfull")
+            }
+        }).catch(err=>{
+         res.json("error")
+ })
+    })
+
    //get All details of a trainer
 router.post('/fdetail', auth , function(req, res, next){
 

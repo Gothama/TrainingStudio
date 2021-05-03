@@ -46,7 +46,7 @@ function App() {
       <Route path = "/allBlogs" exact component={AllBlog}/>
       <Route path = "/myBlogs" exact component={MyBlogs}/>
       <Route path = "/myPosts" exact component={MyPosts}/>
-      <Route path = "/trainerAccount" exact component={ExpertAccount}/>
+      <Route path = "/trainerAccount/:type/:id" exact component={ExpertAccount}/>
       <Route path = "/blog/:id" exact component={Blog}/>
       <Route path = "/myDietPlans" exact component={MyDietPlans}/>
       <Route path = "/messenger" exact component={Messenger}/> 

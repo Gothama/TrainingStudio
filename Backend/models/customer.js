@@ -76,7 +76,8 @@ const customerSchema = new mongoose.Schema({
         {
             issuedDate:{type: Date,default: Date.now },
             link:{type: String},
-            description:{type: String}
+            description:{type: String},
+            addeddate:{type:Date, default:Date.now}
         }
     ],
     rating:{

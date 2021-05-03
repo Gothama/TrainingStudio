@@ -3,6 +3,7 @@ import {Table} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import {Form,Row,Col} from 'react-bootstrap';
 import {Chart} from 'react-google-charts';
+import MyDetails from './myhealthDetails.component';
 
 export default class myhealthData extends Component {
     render() {
@@ -90,102 +91,9 @@ export default class myhealthData extends Component {
 </div>
             
             <div>
-                <Table striped bordered hover variant="dark">
-  <thead >
-    <tr >
-     
-      <th style={{textAlign:"center" }}>Date</th>
-      <th style={{textAlign:"center"}}>Weight</th>
-      <th style={{textAlign:"center"}}>Blood Pressure</th>
-      <th style={{textAlign:"center"}}>Blood Sugar</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     
-      <td style={{textAlign:"center" }}>Mark</td>
-      <td style={{textAlign:"center" }}>Kenneth</td>
-      <td style={{textAlign:"center" }}>35</td>
-      <td style={{textAlign:"center" }}>35</td>
 
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      <td style={{textAlign:"center" }}>Kenneth</td>
-      <td style={{textAlign:"center" }}>35</td>
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-    <td style={{textAlign:"center" }}>Mark</td>
-      <td style={{textAlign:"center" }}>Kenneth</td>
-      <td style={{textAlign:"center" }}>35</td>
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      <td style={{textAlign:"center" }}>Kenneth</td>
-      <td style={{textAlign:"center" }}>35</td>
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      <td style={{textAlign:"center" }}>Kenneth</td>
-      <td style={{textAlign:"center" }}>35</td>
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr> 
-  </tbody>
-</Table>
-
-<Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
-  <Form.Group as={Row} controlId="formHorizontalFName" >
-    <Form.Label column sm={2}>
-      First Name
-    </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="text" />
-    </Col>
-  </Form.Group>
-
-  <Form.Group as={Row} controlId="formHorizontalLName" >
-    <Form.Label column sm={2}>
-      Last Name
-    </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="text"  />
-    </Col>
-  </Form.Group>
-
-  <Form.Group as={Row} controlId="formHorizontalUserName" >
-    <Form.Label column sm={2}>
-      Username
-    </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="text"   />
-    </Col>
-  </Form.Group>
-
-  <Form.Group as={Row} controlId="formHorizontalPassword">
-    <Form.Label column sm={2}>
-      Password
-    </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="password"  />
-    </Col>
-  </Form.Group>
-
-  
-
-  <Form.Group as={Row}>
-    <Col sm={{ span: 10, offset: 2 }}>
-      <Button type="submit" style={{backgroundColor:"red"}}>Update</Button>
-    </Col>
-  </Form.Group>
-</Form>
+ <MyDetails/>
             </div></div>
         )
     }

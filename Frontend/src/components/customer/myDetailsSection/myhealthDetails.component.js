@@ -1,71 +1,276 @@
-
-/*import React, {Component} from 'react';
+import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
-import {Button,Card} from 'react-bootstrap';
-
+import {Button,Card,Tabs, Tab, Form, Row, Col, Table} from 'react-bootstrap';
+import {Chart} from 'react-google-charts';
 import image1 from '../../../assets/images/p4.jpg'
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
+import axios from 'axios'
 
-
+const siAPI1= axios.create({
+  baseURL :`http://localhost:9020/customer`
+})
 
 
 export default class HealthDetails extends Component{
   
+  generate=()=>{
+    const doc = new jsPDF()
+    doc.autoTable({ html: 'sadasd' })
+    doc.save('table.pdf')
+  }
     render(){
 return(
-    <div style={{backgroundColor:"#007bff",padding:"20px"}}>
-            <div className="text-center" style={{marginTop:"-60px"}}>
-                <img src={"https://images.unsplash.com/photo-1485527172732-c00ba1bf8929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"} className ="rounded avatar" alt="..."  style={{height:"200px",width:"150px", borderRadius:"50%"}}/>
-            </div>
+<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" bg="dark" variant="tabs" >
+  <Tab eventKey="home" title="Sugar Level " bg="dark" >
+    <div>
+    <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={4}>
+      Sugar Level 
+    </Form.Label>
+    <Col sm={8}>
+      <Form.Control type="text" />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+    <Col sm={{ span: 10, offset: 2 }}>
+      <Button type="submit" style={{backgroundColor:"red"}}>Update</Button>
+    </Col>
+  </Form.Group>
+</Form>
+
+<Table striped bordered hover variant="dark"   id="#table" >
+  <thead >
+    <tr >
+     
+      <th style={{textAlign:"center" }}>Date</th>
+      <th style={{textAlign:"center"}}>Blood Sugar</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+    <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr> 
+  </tbody>
+</Table>
+
+<Button type="button" style={{backgroundColor:"red"}} onClick={this.generate}>Update</Button>
+<div style={{paddingTop:"20px", marginRight:"auto", marginLeft:"auto"}}>
+<Chart
+  width={'600px'}
+  height={'300px'}
+
+  chartType="LineChart"
+  loader={<div>Loading Chart</div>}
+  data={[
+    ['x', 'BMI', 'Weight'],
+    [0, 0, 0],
+    [1, 10, 5],
+    [2, 23, 15],
+    [3, 17, 9],
+    [4, 18, 10],
+    [5, 9, 5],
+    [6, 11, 3],
+    [7, 27, 19],
+    [8, 23, 15],
+    [9, 90, 9],
+    [10, 18, 10],
+    [11, 9, 5],
+    [12, 11, 3],
+    [13, 50, 19],
+  ]}
+  options={{
+    hAxis: {
+      title: 'Time',
+    },
+    vAxis: {
+      title: 'Value',
+    },
+    series: {
+      1: { curveType: 'function' },
+    },
+  }}
+  rootProps={{ 'data-testid': '2' }}
+/>
+</div>
+
+    </div>
+  </Tab>
+  <Tab eventKey="profile" title="Blood Pressure">
+  <div>
+  <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
+
+
+  <Form.Group as={Row} controlId="formHorizontalLName" >
+    <Form.Label column sm={4}>
+      Blood Pressure
+    </Form.Label>
+    <Col sm={8}>
+      <Form.Control type="text"  />
+    </Col>
+  </Form.Group>
+
+
  
 
+  
 
-<div className="row">
+  <Form.Group as={Row}>
+    <Col sm={{ span: 10, offset: 2 }}>
+      <Button type="submit" style={{backgroundColor:"red"}}>Update</Button>
+    </Col>
+  </Form.Group>
+</Form>
+<Table striped bordered hover variant="dark">
+  <thead >
+    <tr >
+     
+      <th style={{textAlign:"center" }}>Date</th>
 
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
-  <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
-  <Card.Body>
-    <Card.Title>Health Report 1</Card.Title>
-    
-    <Button variant="primary" type="file">Open Report</Button>
-  </Card.Body></div>
-</Card>
-
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
-  <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
-  <Card.Body>
-    <Card.Title>Health Report 2</Card.Title>
-    
-    <Button variant="primary" type="file">Open Report</Button>
-  </Card.Body></div>
-</Card>
-
-</div>
+      <th style={{textAlign:"center"}}>Blood Pressure</th>
 
 
-<div className="row">
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
-  <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
-  <Card.Body>
-    <Card.Title>Health Report 3</Card.Title>
-    
-    <Button variant="primary" type="file">Open Report</Button>
-  </Card.Body></div>
-</Card>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td style={{textAlign:"center" }}>Mark</td>
 
-<Card style={{ width: '18rem', margin:"10px"}} className="col">
-  <div className="text-center" style={{ padding:"10px"}}>
-  <Card.Img variant="top" src={image1}  style={{ width: '150px', height:"150px"}}/>
-  <Card.Body>
-    <Card.Title>Health Report 4</Card.Title>
-    
-    <Button variant="primary" type="file">Open Report</Button>
-  </Card.Body></div>
-</Card>
-</div>
-    </div>
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+    <td style={{textAlign:"center" }}>Mark</td>
+
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+      
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+     
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr> 
+  </tbody>
+</Table>
+
+  </div>
+  </Tab>
+  <Tab eventKey="contact" title="Weight">
+  <div>
+  <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
+
+  <Form.Group as={Row} controlId="formHorizontalUserName" >
+    <Form.Label column sm={4}>
+      Weight
+    </Form.Label>
+    <Col sm={8}>
+      <Form.Control type="text"   />
+    </Col>
+  </Form.Group>
+
+ 
+
+  
+
+  <Form.Group as={Row}>
+    <Col sm={{ span: 10, offset: 2 }}>
+      <Button type="submit" style={{backgroundColor:"red"}}>Update</Button>
+    </Col>
+  </Form.Group>
+</Form>
+
+<Table striped bordered hover variant="dark">
+  <thead >
+    <tr >
+     
+      <th style={{textAlign:"center" }}>Date</th>
+      <th style={{textAlign:"center"}}>Weight</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td style={{textAlign:"center" }}>Mark</td>
+     
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+      
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+    <td style={{textAlign:"center" }}>Mark</td>
+     
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+      
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr>
+    <tr>
+      <td style={{textAlign:"center" }}>Mark</td>
+      
+      <td style={{textAlign:"center" }}>35</td>
+
+    </tr> 
+  </tbody>
+</Table>
+
+  </div>
+  </Tab>
+</Tabs>
 );
 }
-} */
+} 
