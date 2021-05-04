@@ -55,7 +55,16 @@ const trainerSchema = new mongoose.Schema({
     profilephotolink:{
         type:String,
         default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
+    },
+    posterphotoLink:{
+        type:String,
+        default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1620164857/poster_hheyjb.png"
+    },
+    rating:{
+        type:Number,
+        default:0
     }
+
         
 
 })

@@ -30,7 +30,7 @@ export default class ExpertAccount extends Component{
     super(props)
     window.alert(this.props.match.params.type)
     window.alert(this.props.match.params.id)
-    
+
   }
     render(){
 return(
@@ -75,7 +75,9 @@ return(
 
               <Form.Group as={Row}>
                 <Col sm={{ span: 10, offset: 2 }}>
-                <Button type="submit" style={{backgroundColor:"red"}}>Register</Button>
+                {localStorage.getItem("AccountType")==="Trainer" ?<Button type="submit" style={{backgroundColor:"red"}}>Trainers cant Register</Button>
+                  : <Button type="submit" style={{backgroundColor:"red"}}>Register</Button>
+                }
                 </Col>
               </Form.Group>
             </Form>

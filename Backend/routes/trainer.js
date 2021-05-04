@@ -232,5 +232,13 @@ router.post('/fdetail', auth , function(req, res, next){
                         })
 })
 
+router.get("/alltrainers" ,function(req, res){
+        Trainer.find().then(function(t){
+            res.json(t);
+        }).catch(err=>{
+            res.json("Error")
+        })
+})
+
 
 module.exports = router
