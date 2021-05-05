@@ -30,6 +30,9 @@ app.use('/trainer' , trainerRouter)
 const blogRouter = require('./routes/blog')
 app.use('/blog' , blogRouter)
 
+const emailRouter = require('./routes/email')
+app.use('/email' , emailRouter)
+
 app.listen(9020,()=>{
     console.log('server started on 9020')
 })

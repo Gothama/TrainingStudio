@@ -4,8 +4,70 @@ import image1 from "../../assets/images/line-dec.png"
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
 import '../../assets/css/ourcss.css'; 
+import axios from 'axios';
+import Swal from 'sweetalert2'
 
 export default class Contact extends Component{
+
+  state={
+    question:"",
+    remail:"",
+    subject:"",
+    name:""
+  }
+
+
+
+  contactAdmin= event =>{
+    event.preventDefault();
+    axios.post("http://localhost:9020/email/contact" , {question:this.state.question , remail:this.state.remail , name:this.state.name , subject:this.state.subject}).then(res=>{
+
+      if(res.data.status==="Okay"){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: "Training Studio will reply you soon",
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+      else{
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: "Pls try again",
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  onChangeSubject=(event)=>{
+    this.setState({
+      subject:event.target.value
+    })
+  }
+
+  onChangeEmail=(event)=>{
+    this.setState({
+      remail:event.target.value
+    })
+  }
+
+  onChangeMessage=(event)=>{
+    this.setState({
+      question:event.target.value
+    })
+  }
+
+  onChangeName=(event)=>{
+    this.setState({
+      name:event.target.value
+    })
+  }
   
     render(){
 return(
@@ -30,31 +92,31 @@ return(
                 </div>
                 <div className="col-lg-6 col-md-6 col-xs-12">
                     <div className="contact-form">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" onSubmit={this.contactAdmin}>
                           <div className="row">
                             <div className="col-md-6 col-sm-12">
                               <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required=""/>
+                                <input name="name" type="text" onChange={this.onChangeName} id="name" placeholder="Your Name*" required=""/>
                               </fieldset>
                             </div>
                             <div className="col-md-6 col-sm-12">
                               <fieldset>
-                                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required=""/>
+                                <input name="email" onChange={this.onChangeEmail} type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required=""/>
                               </fieldset>
                             </div>
                             <div className="col-md-12 col-sm-12">
                               <fieldset>
-                                <input name="subject" type="text" id="subject" placeholder="Subject"/>
+                                <input name="subject" onChange={this.onChangeSubject} type="text" id="subject" placeholder="Subject"/>
                               </fieldset>
                             </div>
                             <div className="col-lg-12">
                               <fieldset>
-                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                                <textarea name="message" onChange={this.onChangeMessage} rows="6" id="message" placeholder="Message" required=""></textarea>
                               </fieldset>
                             </div>
                             <div className="col-lg-12">
                               <fieldset>
-                                <button type="submit" id="form-submit" className="main-button">Send Message</button>
+                                <button type="submit">Send Message</button>
                               </fieldset>
                             </div>
                           </div>

@@ -108,7 +108,8 @@ router.put('/addDetails',
                 profilePhotoLink:req.body.profilePhotoLink,
                 phoneNumber:req.body.phoneNumber,
                 fee:req.body.fee,
-                profilephotolink:req.body.profilephotolink
+                profilephotolink:req.body.profilephotolink,
+                posterphotoLink:req.body.posterphotoLink
             }
         }
  

@@ -33,7 +33,10 @@ export default class TrainerAccount extends Component{
     fee:"",
     profilephotolink:"",
     uploading:"",
-    image:""
+    image:"",
+    image1:"",
+    posterphotoLink:"",
+    uploading1:""
   }
   constructor(){
     super()
@@ -51,12 +54,40 @@ message=(type, msg)=>{
     })
   }
 
+  upload1=(event)=>{
+
+    if(this.state.image1.size !== 535 * 693) // 1mb
+            //return alert("Size too large!")
+            return this.message("error" , "Size Should be 535x693!")
+  
+        if(this.state.image1.type !== 'image/jpeg' && this.state.image1.type !== 'image/png') // 1mb
+            //return alert("File format is incorrect.")
+            return this.message("error" , "File format is incorrect.")
+  
+  
+    console.log(this.state.image1)
+    const formData = new FormData()
+    formData.append("file" , this.state.image1)
+    formData.append("upload_preset" , "w2qn2jsf")
+    axios.post("https://api.cloudinary.com/v1_1/dbecgupu0/image/upload", formData, {onUploadProgress: data => {
+        
+        this.setState({uploading1:Math.round((100 * data.loaded) / data.total)})}
+        
+      }).then((res)=>{
+        console.log(res)
+        this.setState({posterphotoLink:res.data.secure_url})
+        this.message("success" , "Profile Photo uploaded")
+    })
+   
+  
+    console.log(this.state.posterphotoLink)
+  }
 
 upload=(event)=>{
 
-  if(this.state.image.size > 600 * 600) // 1mb
+  if(this.state.image.size !== 600 * 600) // 1mb
           //return alert("Size too large!")
-          return this.message("error" , "Size too large!")
+          return this.message("error" , "Size should be 600x600!")
 
       if(this.state.image.type !== 'image/jpeg' && this.state.image.type !== 'image/png') // 1mb
           //return alert("File format is incorrect.")
@@ -87,6 +118,12 @@ selectImage=(event)=>{
   })
 }
 
+selectImage1=(event)=>{
+  this.setState({
+      image1:event.target.files[0]
+  })
+}
+
 
   getData=()=>{
     siAPI1.post("/fdetail", {},
@@ -107,7 +144,8 @@ selectImage=(event)=>{
         nameOnCard:res.data.cardDetails.nameOnCard,
         code:res.data.cardDetails.code,
         fee:res.data.fee,
-        profilephotolink:res.data.profilephotolink
+        profilephotolink:res.data.profilephotolink,
+        posterphotoLink:res.data.posterphotoLink
       })
       
     }).catch(err => {
@@ -206,7 +244,8 @@ selectImage=(event)=>{
       nameOnCard:this.state.nameOnCard,
       code:this.state.code,
       fee:this.state.fee,
-      profilephotolink:this.state.profilephotolink
+      profilephotolink:this.state.profilephotolink,
+      posterphotoLink:this.state.posterphotoLink
     },
     {
       headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
@@ -338,6 +377,21 @@ return(
     </Col>
   </Form.Group>
   {this.state.uploading && <ProgressBar variant="danger" now={this.state.uploading} label={`${this.state.uploading}%`} />}
+<br/>
+
+<Form.Group as={Row} controlId="formHorizontalFName" >
+    <Form.Label column sm={2}>
+      Poster Image
+    </Form.Label>
+    <Col sm={8}>
+      <Form.Control type="file"  Value={this.state.posterphotoLink} onChange={this.selectImage1}/>
+     
+    </Col>
+    <Col sm={2}>
+      <Button type="button" onClick={this.upload1} style={{backgroundColor:"red"}}>Upload Image</Button>
+    </Col>
+  </Form.Group>
+  {this.state.uploading1 && <ProgressBar variant="danger" now={this.state.uploading1} label={`${this.state.uploading1}%`} />}
 <br/>
 
 
