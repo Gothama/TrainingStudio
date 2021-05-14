@@ -6,6 +6,7 @@ import Navbar from "./navbar.component";
 import Footer from './footer.component';
 import Header from './header.component';
 import QualificationDetails from './qualificationdetails.component';
+import { PayPalButton } from "react-paypal-button-v2";
 
 export default class ExpertAccount extends Component{
   state={
@@ -23,15 +24,27 @@ export default class ExpertAccount extends Component{
     fee:"",
     profilephotolink:"",
     uploading:"",
-    image:""
+    image:"",
+    register:false
   }
 
   constructor(props){
     super(props)
-    window.alert(this.props.match.params.type)
-    window.alert(this.props.match.params.id)
+    // window.alert(this.props.match.params.type)
+    //window.alert(this.props.match.params.id)
 
   }
+  register=(event)=>{
+    event.preventDefault();
+    this.setState({register:true})
+  }
+  onPaymentSuccess=(details, data)=>{
+    alert("Transaction completed by " + details.payer.name.given_name);
+    
+    // OPTIONAL: Call your server to save the transaction
+    console.log(data.orderID);
+    }
+  
     render(){
 return(
     <div>
@@ -51,7 +64,7 @@ return(
                     First Name
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control type="text"  Value={this.state.fName} onChange={this.onChangefName}/>
+                  <Form.Control type="text"  Value={this.state.fName} readOnly/>
                 </Col>
               </Form.Group>
 
@@ -60,7 +73,7 @@ return(
                     Last Name
                 </Form.Label>
                 <Col sm={10}>
-                <Form.Control type="text"  Value={this.state.lName} onChange={this.onChangelName} required/>
+                <Form.Control type="text"  Value={this.state.lName} readOnly/>
                 </Col>
               </Form.Group>
 
@@ -69,15 +82,18 @@ return(
                     Fee per plan
                   </Form.Label>
                   <Col sm={10}>
-                  <Form.Control type="number"  Value={this.state.fee} onChange={this.onChangefee}required />
+                  <Form.Control type="number"  Value={this.state.fee} readOnly />
                   </Col>
                 </Form.Group>
 
               <Form.Group as={Row}>
                 <Col sm={{ span: 10, offset: 2 }}>
-                {localStorage.getItem("AccountType")==="Trainer" ?<Button type="submit" style={{backgroundColor:"red"}}>Trainers cant Register</Button>
-                  : <Button type="submit" style={{backgroundColor:"red"}}>Register</Button>
+                {localStorage.getItem("AccountType")==="Trainer" ?<div><Button type="submit" style={{backgroundColor:"red"}}>Trainers cant Register</Button></div>
+                  : <div> {!this.state.register ? <div><Button type="submit" style={{backgroundColor:"red"}} onClick={this.register}>Register</Button> </div> : null}</div>
                 }
+
+                {this.state.register ? <div style={{width:"10px"}}> <PayPalButton amount="200" onSuccess={(details, data) => this.onPaymentSuccess()}/></div>:null }
+            
                 </Col>
               </Form.Group>
             </Form>

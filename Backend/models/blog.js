@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
    authorID:{
-       type:String,
-       required:true
+       //type:String,
+   // required:true
+
+      type: mongoose.Schema.ObjectId, ref: 'trainer'
    },
    blogContent:{
     type:String,

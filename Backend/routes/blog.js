@@ -239,4 +239,31 @@ router.post("/updateblog",
   
   )
 
+  
+//get all the blogs 
+router.post('/allBlogs',  function(req, res){
+    Blog.find({ }).then(function(blog){
+        console.log(blog);
+      res.send(blog);
+    })
+  })
+
+
+  router.post('/allBlogs1',  function(req, res){
+    Blog.aggregate([
+        { $lookup:
+            {
+              from: Trainer.collection.name,
+              localField: 'authorID',
+              foreignField: '_id',
+              as: 'authorDetails'
+            }
+          }
+
+    ]).then(function(blog){
+        console.log(blog);
+      res.send(blog);
+    })
+  })
+
 module.exports = router
