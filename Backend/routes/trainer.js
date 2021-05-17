@@ -203,8 +203,8 @@ router.post("/getqualification", auth, function (req, res, next) {
 //delete a qualification
 
 router.post("/deletequalification", auth, function (req, res, next) {
-    var d = { $pull: { qualifications: { _id: req.id } } }
-    Trainer.findByIdAndUpdate({ _id: req.user }, d).then(function (c) {
+    var d = { $pull: { qualifications: { _id: req.body.id } } }
+    Trainer.update({ _id: req.user }, { $pull: { qualifications: { _id: req.body.id } } }).then(function (c) {
         console.log(c)
         if (c !== null) {
             console.log(c)
@@ -218,6 +218,7 @@ router.post("/deletequalification", auth, function (req, res, next) {
         res.json("error")
     })
 })
+
 
 //get All details of a trainer
 router.post('/fdetail', auth, function (req, res, next) {

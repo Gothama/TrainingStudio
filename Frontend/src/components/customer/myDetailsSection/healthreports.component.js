@@ -125,7 +125,7 @@ export default class HealthReports extends Component{
   
   deleteBlog=(id)=>{
     window.alert(id)
-    siAPI1.post("/delete/" + id , {} , {headers:{Authorization:"Bearer "+ localStorage.getItem("token")}}).then(res=>{
+    siAPI1.post("/delete" , {id:id} , {headers:{Authorization:"Bearer "+ localStorage.getItem("token")}}).then(res=>{
       console.log(res)
       window.alert("Successfully")
       window.location.reload()

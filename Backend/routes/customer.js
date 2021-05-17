@@ -371,9 +371,10 @@ router.post("/gethealthreports", auth, function (req, res, next) {
  
 })*/
 
-router.post("/delete/:id", auth, function (req, res, next) {
-    var d = { $pull: { healthReports: { _id: req.params.id } } }
-    Customer.findByIdAndUpdate({ _id: req.user }, { d }).then(function (c) {
+router.post("/delete", auth, function (req, res, next) {
+
+    console.log(req.body.id)
+    Customer.update({ _id: req.user}, { $pull: { healthReports: { _id: req.body.id }} } ).then(function (c) {
         console.log(c)
         if (c !== null) {
             console.log(c)
@@ -384,7 +385,7 @@ router.post("/delete/:id", auth, function (req, res, next) {
             res.send("unsuccessfull")
         }
     }).catch(err => {
-        res.json("error")
+        res.json("Error: " + err)
     })
 })
 

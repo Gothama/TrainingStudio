@@ -43,42 +43,7 @@ router.post("/nblog",
     }
 )
 
-//add comment
-/*router.put('/addcomment', 
-   [
-    check('commentByID' , "commentByID is required").not().isEmpty(),
-    check('content' , "content should be numeric").not().isEmpty(),
-    ],
-    function(req, res, next){
-    const errors = validationResult(req);
-        if(!errors.isEmpty()){
-            return res.json({
-                success:false,
-                errors:errors.array()
-            });
-        }
-        else
-    {
 
-    var k = {$push: 
-            {
-                blogComments:[{
-                    commentByID:req.body.commentByID,
-                    content:req.body.content
-                }]
-            }
-        }
- 
-     Blog.findByIdAndUpdate({
-                                 _id:req.body.id  
-                            }, k ).then(function(c){
-                                    console.log(c);
-                                    res.json(c);
-                            }).catch(err=>{
-                                console.log(err)
-                                res.send('fail' + err);
-                            });
-   }})*/
 
 //get all the blogs 
 router.post('/', auth, function (req, res, next) {
@@ -112,28 +77,6 @@ router.post('/getblog', auth, function (req, res, next) {
 })
 
 //get a blog 
-/*router.post('/ngetblog' , function(req, res, next){
-    Blog.findOne({_id:req.body.id}).then(function(blog){
-        console.log(blog)
-        if(blog!==null){
-           Trainer.findById({_id:blog.authorID}).then(function(trainer){
-            res.json({"Blog":blog, "authorName":trainer.name})
-        }).catch(err=>{
-            console.log(err)
-            res.send('fail' + err);
-        });
-        }
-        else{
-            res.json({"Blog":"No Blog"})
-        }
-        
-    }).catch(err=>{
-        console.log(err)
-        res.send('fail' + err);
-    });
-  
-  })*/
-
 router.post('/ngetblog', function (req, res, next) {
     Blog.findOne({ _id: req.body.id }).populate("authorID").populate("blogComments.commentByID").exec((err, blog) => {
         if (err) {
@@ -229,29 +172,6 @@ router.post("/addcomment",
     }
 )
 
-router.post("/profilePhoto",
-    function (req, res) {
-        Customer.findById({ _id: req.body.id }).then(function (c) {
-            if (c !== null) { res.send(c.profilephotolink) }
-            else {
-                Trainer.findById({ _id: req.body.id }).then(function (t) {
-                    if (t !== null) {
-                        console.log(t.profilephotolink)
-                        const k = "'" + t.profilephotolink + "'"
-                        res.send(k)
-                    }
-
-                })
-            }
-
-        }).catch(err => {
-            console.log(err)
-            res.send("fail")
-        })
-    }
-
-
-)
 
 
 //get all the blogs 
