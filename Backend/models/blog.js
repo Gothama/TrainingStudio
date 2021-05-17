@@ -2,10 +2,7 @@ const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
    authorID:{
-       //type:String,
-   // required:true
-
-      type: mongoose.Schema.ObjectId, ref: 'trainer'
+      type: mongoose.Schema.ObjectId, ref: 'Trainer'
    },
    blogContent:{
     type:String,
@@ -28,7 +25,7 @@ const blogSchema = new mongoose.Schema({
     publishedDate:{type:Date, default:Date.now},
     blogComments:[
 		{
-			commentByID:{type: mongoose.Schema.ObjectId, ref: 'customer'},
+			commentByID:{type: mongoose.Schema.ObjectId, ref: 'Customer'},
 			content:{type:String},
 			date:{type:Date, default:Date.now}
 		}
