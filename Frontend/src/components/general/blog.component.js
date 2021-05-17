@@ -64,7 +64,7 @@ export default class Blog extends Component{
     //return "https://res.cloudinary.com/dbecgupu0/image/upload/v1619378978/dlr7bhjbvwniq5gj4vln.jpg"
       siAPI1.post('/profilePhoto' , {id:id1}).then(res=>{
         console.log(res.data)
-        return res.data
+        return (res.data);
       })
       
   }
@@ -110,7 +110,7 @@ return(
     </div>
      
       <br></br>
-{localStorage.getItem("loggedIn")==="loggedIn"?
+{localStorage.getItem("loggedIn")==="loggedIn" && localStorage.getItem("AccountType") === "Customer"?
       <div style={{backgroundColor:"white", padding:"30px", borderRadius:"5px", marginBottom:"30px"}} >
                <Container>
  
@@ -135,13 +135,13 @@ return(
                <Container>
   <Row>
   <Media>
-    <img
+    {/*<img
       width={64}
       height={64}
       className="align-self-start mr-3"
       src={this.getCommentprofilePhoto(q.commentByID)}
       alt="Generic placeholder"
-    />
+    />*/}
     <Media.Body>
       <h5>{q.commentByID}</h5>
       <p style={{color:"black"}}>

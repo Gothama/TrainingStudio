@@ -6,6 +6,7 @@ import {Form,Row,Col} from 'react-bootstrap';
 import image1 from '../../../assets/images/p4.jpg'
 import axios from 'axios';
 import Moment from 'react-moment';
+import Swal from 'sweetalert2'
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
@@ -25,6 +26,17 @@ export default class HealthReports extends Component{
     super();
     this.getData()
   }
+
+  successfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
   getData=()=>{
     axios.post("http://localhost:9020/customer/gethealthreports", {},
     {
@@ -104,6 +116,8 @@ export default class HealthReports extends Component{
     })
     .then(res=>{
       console.log(res.data)
+      this.successfulmessage("Health Report Added Successfully")
+      
     }).catch(err => {
       window.alert(err)
   })

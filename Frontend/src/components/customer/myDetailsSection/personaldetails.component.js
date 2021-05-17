@@ -4,6 +4,7 @@ import {Form,Row,Col,Button, ProgressBar} from 'react-bootstrap';
 import image from "../../../assets/images/trainers/trainer-2.jpg"
 import axios from 'axios';
 import moment from 'moment';
+import Swal from 'sweetalert2'
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
@@ -102,18 +103,19 @@ export default class PersonalDetails extends Component{
     })
   }
 
+  successfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 
   handleOnSubmit=event=>{
     event.preventDefault();
-    const user = {
-      fName:this.state.fName,
-      lName:this.state.lName,
-      phoneNumber:this.state.phoneNumber,
-      gender:this.state.gender,
-      bloodGroup:this.state.bloodGroup,
-      dob:this.state.dob,
-      email:this.state.email
-    }
+
     siAPI1.put("/addDetails", {fName:this.state.fName,
       lName:this.state.lName,
       phoneNumber:this.state.phoneNumber,
@@ -122,13 +124,14 @@ export default class PersonalDetails extends Component{
       dob:this.state.dob,
       email:this.state.email,
       profilephotolink:this.state.profilephotolink
-    
+      
     },
     {
       headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
     })
     .then(res=>{
       console.log(res.data)
+      this.successfulmessage("Successfully Updated")
     }).catch(err => {
       window.alert(err)
   })

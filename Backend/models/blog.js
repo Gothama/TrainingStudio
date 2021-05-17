@@ -28,7 +28,7 @@ const blogSchema = new mongoose.Schema({
     publishedDate:{type:Date, default:Date.now},
     blogComments:[
 		{
-			commentByID:{type:String},
+			commentByID:{type: mongoose.Schema.ObjectId, ref: 'customer'},
 			content:{type:String},
 			date:{type:Date, default:Date.now}
 		}

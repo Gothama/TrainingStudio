@@ -68,7 +68,7 @@ return(
               <div className="trainer d-flex justify-content-between align-items-center">
                 <div className="trainer-profile d-flex align-items-center">
                   <img src={b.authorDetails[0].profilephotolink} className="img-fluid" alt=""/>
-                  <Link to ={"/blog/"+"609447eb336c851d109a43b8"}><span>By: {b.authorDetails[0].name.fName} {b.authorDetails[0].name.lName}</span></Link>
+                  <Link to ={"/blog/609447eb336c851d109a43b8"}><span>By: {b.authorDetails[0].name.fName} {b.authorDetails[0].name.lName}</span></Link>
                 </div>
                 <div className="trainer-rank d-flex align-items-center">
                {/* <Icon icon={bxUser} />&nbsp;50*/}

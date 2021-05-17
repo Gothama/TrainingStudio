@@ -73,6 +73,7 @@ export default class signInOut extends Component{
             localStorage.setItem("AccountType" , "Customer");
             console.log("verified");
             this.successfulmessage("Login Successfull as a Customer");
+            this.props.history.push('/')
            // this.props.history.push('/');
             //window.location.reload();
       }
@@ -89,7 +90,7 @@ export default class signInOut extends Component{
               localStorage.setItem("AccountType" , "Trainer");
               console.log("verified");
               this.successfulmessage("Login Successfull as a Trainer");
-              
+              this.props.history.push('/')
             }
             else{
               //window.alert("Try Again")
@@ -115,6 +116,7 @@ export default class signInOut extends Component{
           localStorage.setItem("token" , res.data.token);
           localStorage.setItem("AccountType" , "Customer");
           this.successfulmessage("Sign Up Successfull as a Customer");
+          this.props.history.push('/')
         }
         else{
           window.alert("unsuccessfull")
@@ -130,6 +132,7 @@ export default class signInOut extends Component{
           localStorage.setItem("token" , res.data.token);
           localStorage.setItem("AccountType" , "Trainer");
           this.successfulmessage("Sign Up Successfull as a Trainer");
+          this.props.history.push('/')
         }
         else{
           this.successfulmessage("Sign Up UnSuccessfull");

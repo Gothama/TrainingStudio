@@ -344,14 +344,33 @@ router.post("/gethealthreports", auth , function(req, res, next){
 })
 
   //delete a report
-  router.post('/delete/:id', auth , function(req, res, next){
+  /*router.post('/delete/:id', auth , function(req, res, next){
     Customer.findOneAndDelete({healthReports:[{_id:req.params.id}], _id:req.user}).then(function(customer){
+    console.log("customer");
       res.send(customer);
+
     }).catch(err=>{
         console.log(err)
         res.send('fail' + err);
     });
   
-  })
+  })*/
+
+  router.post("/delete/:id", auth , function(req, res, next){
+    var d={$pull:{healthReports:{_id:req.params.id}}}
+    Customer.findByIdAndUpdate({_id:req.user}, {d}).then(function(c){
+      console.log(c)
+      if(c!==null){
+          console.log(c)
+          console.log("successfull")
+         res.send(c)
+      }
+      else{
+       res.send("unsuccessfull")
+      }
+  }).catch(err=>{
+   res.json("error")
+})
+})
 
 module.exports = router
