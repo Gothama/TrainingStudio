@@ -78,6 +78,7 @@ export default class qualifications extends Component {
         headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
     }).then(res=>{
       console.log(res)
+      this.message("success" , "Qualification Deleted Successfully")
     }).catch(err => {
       window.alert(err)
   })
@@ -153,7 +154,7 @@ export default class qualifications extends Component {
       <td>{q.issuedBy}</td>
       <td><Moment format="YYYY/MM/DD">{q.issuedDate}</Moment></td>
       <td>{q.description}</td>
-      <td><a href ={q.linkTo}><Button variant="warning">View</Button></a><Button variant="danger" onClick={()=>this.deletequalification(q._id)}>Delete</Button></td>
+      <td><a href ={q.linkTo}><Button variant="warning">View</Button></a><Button variant="danger" type="submit" onClick={()=>this.deletequalification(q._id)}>Delete</Button></td>
       
       
     </tr> 
