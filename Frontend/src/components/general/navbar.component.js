@@ -45,9 +45,10 @@ return(
 
                         <ul className="nav">
                             <li><Link to="/">Home</Link></li>
-                            <li ><Link to="/about">About</Link></li>
+
                             <li ><Link to="/allTrainers"> Trainers</Link></li>
-                            <li><Link to="/allDieticians"> Dieticians</Link></li>
+                            <li><Link to="/allDieticians"> Dieticians</Link></li>                           
+                            <li ><Link to="/stories">Stories</Link></li>
                             <li ><Link to="/allBlogs">Blogs</Link></li> 
                             <li ><Link to="/contact">Contact</Link></li> 
                             {/*<li className="main-button" data-aos="fade-up" data-aos-delay="200"><a href="/signUp">Sign Up</a></li>*/}

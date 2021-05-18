@@ -7,7 +7,7 @@ import '../src/assets/boxicons/css/boxicons.min.css';
 import '../src/assets/aos/aos.css'
 import '../src/assets/boxicons/css/boxicons.min.css'; 
 
-import About from './components/general/about.component';
+import About from './components/general/stories.component';
 import Contact from './components/general/contact.component';
 import LandingPage from './components/general/landingpage.component';
 import AllDieticians from './components/general/allDieticians.component';
@@ -29,6 +29,7 @@ import ExpertMyAccount from './components/physicalTrainer/myDetailsSection/train
 import AdminDashboard from './components/Admin/AdminDashboard.component';
 import AddBlog from './components/physicalTrainer/blogSection/addBlog.component';
 import Editblog from './components/physicalTrainer/blogSection/editblog.component';
+import AddPosts from './components/physicalTrainer/postsSection/addnewposts.component';
 
  
 
@@ -37,9 +38,9 @@ function App() {
   return (
    <div>
       <Router> 
-      <Route path = "/" exact component={LandingPage}/>
+      <Route path = "/" exact component={About}/>
       <Route path = "/account" exact component={MyAccount}/>
-      <Route path = "/about" exact component={About}/>
+      <Route path = "/stories" exact component={About}/>
       <Route path = "/contact" exact component={Contact}/>
       <Route path = "/allDieticians" exact component={AllDieticians}/>
       <Route path = "/allTrainers" exact component={AllTrainers}/>
@@ -57,6 +58,7 @@ function App() {
       <Route path = "/expertMyAccount" exact component={ExpertMyAccount}/>
       <Route path = "/Admin" exact component ={AdminDashboard}/>
       <Route path = "/addBlog" exact component ={AddBlog}/>
+      <Route path = "/addnewPosts" exact component ={AddPosts}/>
       <Route path = "/editblog/:id" exact component ={Editblog}/>
   </Router>
   <Fitbot/>

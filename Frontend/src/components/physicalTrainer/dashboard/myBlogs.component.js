@@ -93,7 +93,7 @@ export default class MyBlogs extends Component {
                       <p style={{ color: "black", textAlign: "justify" }}>
                         {b.blogSummary}</p>
                     </Card.Text>
-                    <Link to={"/editblog/60a193059f4f4616587fb1fa"}><Button variant="primary">Edit</Button></Link> <Button variant="danger" onClick={() => this.deleteBlog(b._id)}>Delete</Button> <Link to="/blog/609023a799636b3924551220"><Button variant="warning">View</Button></Link>
+                    <Link to={`/editblog/${b._id}`}><Button variant="primary">Edit</Button></Link> <Button variant="danger" onClick={() => this.deleteBlog(b._id)}>Delete</Button> <Link to={`/blog/${b._id}`}><Button variant="warning">View</Button></Link>
                   </Card.Body>
                 </Card>
               )}

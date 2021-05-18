@@ -358,19 +358,8 @@ router.post("/gethealthreports", auth, function (req, res, next) {
     })
 })
 
-//delete a report
-/*router.post('/delete/:id', auth , function(req, res, next){
-  Customer.findOneAndDelete({healthReports:[{_id:req.params.id}], _id:req.user}).then(function(customer){
-  console.log("customer");
-    res.send(customer);
 
-  }).catch(err=>{
-      console.log(err)
-      res.send('fail' + err);
-  });
- 
-})*/
-
+//delete report
 router.post("/delete", auth, function (req, res, next) {
 
     console.log(req.body.id)

@@ -7,6 +7,7 @@ import addPostImage from '../../../assets/images/addpost.png'
 import Post1 from '../../../assets/images/thirdtrainer1.png'
 import Post2 from '../../../assets/images/signinoutBg.jpg'
 import Post3 from '../../../assets/images/trainerPost1.png'
+import { Link } from 'react-router-dom';
 
 export default class MyPosts extends Component{
   
@@ -17,8 +18,8 @@ return(
 <TrainerNav/>
     <div style={{backgroundColor:"#14213d",paddingBottom:"100px" , paddingTop:"100px"}} >
 
-<div className="container" style={{/*paddingTop:"100px" ,*/ paddingBottom:"100px" }}>
-{/*<h1 style={{color:"white", paddingBottom:"20px"}}>My Posts</h1>*/}
+<div className="container" style={{paddingBottom:"100px" }}>
+
 <div className="row" >      
 
 
@@ -29,7 +30,7 @@ return(
     <Card.Text style={{ color:"white", fontSize:"30px", lineHeight:"60px", fontWeight:"bolder"}}>
     you can earn attention by creating something interesting and valuable and then publishing it online for free.
     </Card.Text>
-    <Button variant="danger">Add New Post</Button> 
+    <Link to = '/addnewPosts' ><Button variant="danger">Add New Posts</Button> </Link>
   </Card.ImgOverlay>
 </Card>
 
