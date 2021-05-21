@@ -161,7 +161,7 @@ export default class ExpertAccount extends Component {
                         <td>{q.issuedBy}</td>
                         <td><Moment format="YYYY/MM/DD">{q.issuedDate}</Moment></td>
                         <td>{q.description}</td>
-                        <td><a href ={"www.q.lk"}><Button variant="warning">View</Button></a></td>
+                        <td><a href ={q.linkTo}><Button variant="warning">View</Button></a></td>
                         </tr> 
                   )  }
  
