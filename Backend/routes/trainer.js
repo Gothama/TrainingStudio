@@ -3,7 +3,8 @@ const router = express.Router()
 const Trainer = require('../models/trainer')
 const { check, validationResult } = require("express-validator")
 const jwt = require('jsonwebtoken');
-const auth = require("../middleware/auth")
+const auth = require("../middleware/auth");
+const customer = require('../models/customer');
 
 //signUp router
 router.post("/ntrainer",
@@ -26,23 +27,51 @@ router.post("/ntrainer",
                     password: req.body.password
                 }
             })
-            Trainer.create(trainer).then(function (c) {
-                console.log(c._id)
-                const user = { id: c._id }
-                jwt.sign(
-                    { user },
-                    "supersecret",
-                    { expiresIn: 360000000 },
-                    (err, token) => {
-                        if (err) throw err;
-                        res.json({ "token": token, "status": "Successfull" });
-                    }
-
-                );
-            }).catch(err => {
-                console.log(err)
-                res.send("fail")
+            
+            Trainer.findOne({
+                credentials: {
+                    username: req.body.username,
+                    password: req.body.password
+                }
+            }).then(function (t){
+                if(t!==null){
+                    res.json({"status" : "Already"})
+                }
+                else{
+                    customer.findOne({
+                        credentials: {
+                            username: req.body.username,
+                            password: req.body.password
+                        }}
+                    ).then(function (c){
+                        if(c!==null){
+                            res.json({"status" : "Already"})
+                        }
+                        else{
+                            Trainer.create(trainer).then(function (c) {
+                                console.log(c._id)
+                                const user = { id: c._id }
+                                jwt.sign(
+                                    { user },
+                                    "supersecret",
+                                    { expiresIn: 360000000 },
+                                    (err, token) => {
+                                        if (err) throw err;
+                                        res.json({ "token": token, "status": "Successfull" });
+                                    }
+                
+                                );
+                            }).catch(err => {
+                                console.log(err)
+                                res.send("fail")
+                            })
+                        }
+                    })
+                }
             })
+
+
+
         }
 
     }

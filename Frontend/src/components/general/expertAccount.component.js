@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Carousel, Form, Row, Col, ProgressBar } from 'react-bootstrap';
-import image1 from "../../assets/images/line-dec.png"
-import TrainerImage from "../../assets/images/trainers/trainer-1.jpg"
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
 import Header from './header.component';

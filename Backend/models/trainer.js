@@ -12,6 +12,7 @@ const trainerSchema = new mongoose.Schema({
             required:true,
             unique:true
         }
+        
     },
     name:{
         fName:{
