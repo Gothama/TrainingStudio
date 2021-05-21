@@ -52,7 +52,7 @@ export default class AllTrainers extends Component {
                         <p className="price">Rs. {t.fee}/=</p>
                       </div>
 
-                      <h3><Link to="/trainerAccount">{t.name.fName} {t.name.lName} </Link></h3>
+                      <h3><Link to={`/trainerAccount/trainer/${t._id}`}>{t.name.fName} {t.name.lName} </Link></h3>
 
                       <div className="trainer d-flex justify-content-between align-items-center">
                         <div className="trainer-profile d-flex align-items-center">

@@ -23,10 +23,12 @@ const customerSchema = new mongoose.Schema({
     },
     name:{
         fName:{
-            type:String
+            type:String,
+            default:"Enter your name"
         },
         lName:{
-            type:String
+            type:String,
+            default:"Enter your name"
         }
     },
     dob:{
@@ -49,7 +51,8 @@ const customerSchema = new mongoose.Schema({
         }
     ],
     phoneNumber:{
-        type:String
+        type:String,
+        default:"Enter your phone number"
     },
     weight:[
         {

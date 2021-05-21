@@ -36,6 +36,7 @@ export default class PersonalDetails extends Component{
     })
     .then(res=>{
       console.log(res)
+
       this.setState({
         fName:res.data.name.fName,
         lName:res.data.name.lName,
@@ -48,6 +49,7 @@ export default class PersonalDetails extends Component{
         password:res.data.credentials.password,
         profilephotolink:res.data.profilephotolink
       })
+      window.alert("Pls complete all your data")
     }).catch(err => {
       window.alert(err)
   })
@@ -182,7 +184,7 @@ return(
       First Name
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text"  Value={this.state.fName} onChange={this.onChangefName}/>
+      <Form.Control type="text"  Value={this.state.fName} onChange={this.onChangefName} required/>
     </Col>
   </Form.Group>
 

@@ -250,11 +250,11 @@ router.post("/deletequalification", auth, function (req, res, next) {
 
 
 //get All details of a trainer
-router.post('/fdetail', auth, function (req, res, next) {
+router.post('/fdetail', function (req, res, next) {
 
     Trainer.findById({
-        _id:
-            req.user
+        _id:req.body.id
+            
     })
         .then(function (c) {
             console.log(c);

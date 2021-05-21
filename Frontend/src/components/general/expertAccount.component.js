@@ -3,8 +3,10 @@ import { Button, Carousel, Form, Row, Col, ProgressBar } from 'react-bootstrap';
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
 import Header from './header.component';
-import QualificationDetails from './qualificationdetails.component';
+import {Table} from 'react-bootstrap';
+import Moment from 'react-moment';
 import { PayPalButton } from "react-paypal-button-v2";
+import axios from 'axios';
 
 export default class ExpertAccount extends Component {
   state = {
@@ -23,13 +25,29 @@ export default class ExpertAccount extends Component {
     profilephotolink: "",
     uploading: "",
     image: "",
-    register: false
+    register: false,
+    qualifications:[],
+    rating:""
   }
 
   constructor(props) {
     super(props)
-    // window.alert(this.props.match.params.type)
-    //window.alert(this.props.match.params.id)
+
+
+    axios.post("http://localhost:9020/trainer/fdetail", {id:this.props.match.params.id}).then(res => {
+      this.setState({
+        fName:res.data.name.fName,
+        lName:res.data.name.lName,
+        email:res.data.email,
+        gender:res.data.gender,
+        phoneNumber:res.data.phoneNumber,
+        profilephotolink:res.data.profilephotolink,
+        fee:res.data.fee,
+        qualifications:res.data.qualifications,
+        rating:res.data.rating
+      })
+      console.log(res.data)
+    })
 
   }
   register = (event) => {
@@ -53,34 +71,60 @@ export default class ExpertAccount extends Component {
           <div className="container" style={{ paddingTop: "100px" }}>
             <div style={{ backgroundColor: "#007bff", padding: "20px", marginTop: "60px", borderRadius: "15px" }}>
               <div className="text-center" style={{ marginTop: "-60px" }}>
-                <img src={"https://res.cloudinary.com/dbecgupu0/image/upload/v1620056410/dakgperuws4bdo5sc6mf.jpg"} className="rounded avatar" alt="..." style={{ height: "150px", width: "150px", borderRadius: "50%" }} />
+                <img src={this.state.profilephotolink} className="rounded avatar" alt="..." style={{ height: "150px", width: "150px", borderRadius: "50%" }} />
               </div>
 
-              <Form style={{ padding: "20px" }} onSubmit={this.handleOnSubmit}>
+              <Form style={{ padding: "20px" }} onSubmit={this.handleOnSubmit} style={{color:"white" , padding:"60px" , fontSize:"20px"}}>
                 <Form.Group as={Row} controlId="formHorizontalFName" >
-                  <Form.Label column sm={2}>
-                    First Name
-                </Form.Label>
-                  <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} readOnly />
+                  <Form.Label column sm={2} >
+                    First Name : 
+                  </Form.Label>
+                  <Col sm={4}>
+                    <Form.Label column sm={2}>
+                    {this.state.fName}
+                    </Form.Label>
                   </Col>
+
+                  <Form.Label column sm={2}>
+                    Last Name : 
+                  </Form.Label>
+                  <Col sm={4}>
+                    <Form.Label column sm={2}>
+                    {this.state.lName}
+                    </Form.Label>
+                  </Col>
+                  
                 </Form.Group>
 
-                <Form.Group as={Row} controlId="formHorizontalLName" >
+                <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
-                    Last Name
-                </Form.Label>
-                  <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.lName} readOnly />
+                    Gender : 
+                  </Form.Label>
+                  <Col sm={4}>
+                    <Form.Label column sm={2}>
+                    {this.state.gender}
+                    </Form.Label>
                   </Col>
+
+                  <Form.Label column sm={2}>
+                    Rating : 
+                  </Form.Label>
+                  <Col sm={4}>
+                    <Form.Label column sm={2}>
+                    {this.state.rating}
+                    </Form.Label>
+                  </Col>
+                  
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                   <Form.Label column sm={2}>
-                    Fee per plan
+                    Fee per plan : 
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="number" Value={this.state.fee} readOnly />
+                  <Form.Label column sm={2}>
+                    {this.state.fee}
+                    </Form.Label>
                   </Col>
                 </Form.Group>
 
@@ -95,7 +139,35 @@ export default class ExpertAccount extends Component {
                   </Col>
                 </Form.Group>
               </Form>
-              <QualificationDetails />
+              <div>
+                <Table striped bordered hover variant="dark" style={{borderRadius:"10px"}}>
+                    <thead >
+                        <tr >
+                        
+                        <th style={{textAlign:"center", width:"5vh" }}>Title</th>
+                        <th style={{textAlign:"center",width:"10vh"}}>qualification ID</th>
+                        <th style={{textAlign:"center",width:"10vh"}}>Issued By</th>
+                        <th style={{textAlign:"center",width:"10vh"}}>Issued Date</th>
+                        <th style={{textAlign:"center",width:"10vh"}}>Description</th>
+                        <th style={{textAlign:"center",width:"10vh"}}>Link To</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {this.state.qualifications.map(q=>
+                        <tr>  
+                        <td>{q.title}</td>
+                        <td>{q.qualificationID}</td>
+                        <td>{q.issuedBy}</td>
+                        <td><Moment format="YYYY/MM/DD">{q.issuedDate}</Moment></td>
+                        <td>{q.description}</td>
+                        <td><a href ={"www.q.lk"}><Button variant="warning">View</Button></a></td>
+                        </tr> 
+                  )  }
+ 
+                    </tbody>
+                </Table>
+            </div>
             </div>
           </div>
         </section>
