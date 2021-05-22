@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import axios from 'axios';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { Button, Carousel, Form, Row, Col, Container, Media } from 'react-bootstrap';
+import ReactStars from 'react-stars'
 
 const siAPI1 = axios.create({
   baseURL: `http://localhost:9020/blog`
@@ -23,7 +24,8 @@ export default class Blog extends Component {
     authorID: "",
     authorName: "",
     comments: [],
-    ncomment: ""
+    ncomment: "",
+    liked:0
   }
 
   constructor(props) {
@@ -74,6 +76,12 @@ export default class Blog extends Component {
     })
   }
 
+  customerliked=(newRating)=>{
+    console.log(newRating);
+    this.setState({
+      liked:newRating
+    })
+  }
 
   handleOnSubmit = () => {
     siAPI1.post("/addcomment", { content: this.state.ncomment, id: this.props.match.params.id }, {
@@ -108,10 +116,14 @@ export default class Blog extends Component {
               </div>
 
             </div>
-
+            <div style={{ backgroundColor: "white", paddingLeft: "5px", borderRadius: "5px", margin: "10px", width:"250px" , color:"black"}} >
+            Rating : 78 <br/>
+            <div className="container row">Your Rating : <ReactStars count={4} onChange={this.customerliked} value={this.state.liked} size={24} color2={'#ffd700'} /></div>
+            </div>
             <br></br>
             {localStorage.getItem("loggedIn") === "loggedIn" && localStorage.getItem("AccountType") === "Customer" ?
               <div style={{ backgroundColor: "white", padding: "30px", borderRadius: "5px", marginBottom: "30px" }} >
+
                 <Container>
 
 
@@ -143,13 +155,13 @@ export default class Blog extends Component {
                         alt="Generic placeholder"
                       />
                       <Media.Body>
-                        <h5>{q.commentByID.name.fName} {q.commentByID.name.lName}</h5>
+                        <h5>{q.content}</h5>
                         <p style={{ color: "black" }}>
-                          {q.content}
+                        By : {q.commentByID.name.fName} {q.commentByID.name.lName}
                         </p>
 
                         <p style={{ color: "black" }}>
-                          Published Date:<Moment format="YYYY.MM.DD">{q.date}</Moment>
+                          Commented Date:<Moment format="YYYY.MM.DD">{q.date}</Moment>
                         </p>
                       </Media.Body>
                     </Media>

@@ -49,7 +49,7 @@ export default class PersonalDetails extends Component{
         password:res.data.credentials.password,
         profilephotolink:res.data.profilephotolink
       })
-      window.alert("Pls complete all your data")
+
     }).catch(err => {
       window.alert(err)
   })

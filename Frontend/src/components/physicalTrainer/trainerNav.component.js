@@ -10,7 +10,7 @@ return(
     <div>
 <Navbar bg="dark" variant="dark"  style={{height:"80px"}} fixed="top">
     <div className="container" >
-    <Navbar.Brand href="#home">
+    <Navbar.Brand href="/">
     <img
         src={image}
         width="90"

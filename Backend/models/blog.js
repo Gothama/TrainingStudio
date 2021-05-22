@@ -29,7 +29,10 @@ const blogSchema = new mongoose.Schema({
 			content:{type:String},
 			date:{type:Date, default:Date.now}
 		}
-	]
+	],
+    bloglike:[{
+            likeByID:{type: mongoose.Schema.ObjectId, ref: 'Customer'}
+    }]
 })
 
 module.exports = mongoose.model('Blog', blogSchema)

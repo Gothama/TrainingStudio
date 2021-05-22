@@ -27,6 +27,7 @@ export default class HealthReports extends Component{
     this.getData()
   }
 
+
   successfulmessage=(msg)=>{
     Swal.fire({
       position: 'top-end',
@@ -117,7 +118,7 @@ export default class HealthReports extends Component{
     .then(res=>{
       console.log(res.data)
       this.successfulmessage("Health Report Added Successfully")
-      
+      window.location.reload()
     }).catch(err => {
       window.alert(err)
   })
@@ -127,7 +128,7 @@ export default class HealthReports extends Component{
     window.alert(id)
     siAPI1.post("/delete" , {id:id} , {headers:{Authorization:"Bearer "+ localStorage.getItem("token")}}).then(res=>{
       console.log(res)
-      window.alert("Successfully")
+      this.successfulmessage("Health Report Deleted Successfully")
       window.location.reload()
     }).catch(err=>{
       console.log(err)
