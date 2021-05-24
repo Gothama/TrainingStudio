@@ -30,6 +30,8 @@ import AdminDashboard from './components/Admin/AdminDashboard.component';
 import AddBlog from './components/physicalTrainer/blogSection/addBlog.component';
 import Editblog from './components/physicalTrainer/blogSection/editblog.component';
 import AddPosts from './components/physicalTrainer/postsSection/addnewposts.component';
+import Resetpassword from './components/general/resetpassword';
+import Newpassword from './components/general/newpassword';
 
  
 
@@ -60,6 +62,8 @@ function App() {
       <Route path = "/addBlog" exact component ={AddBlog}/>
       <Route path = "/addnewPosts" exact component ={AddPosts}/>
       <Route path = "/editblog/:id" exact component ={Editblog}/>
+      <Route path = "/resetpassword" exact component ={Resetpassword}/>
+      <Route path = "/newpassword/:token" exact component ={Newpassword}/>
   </Router>
   <Fitbot/>
 </div>
