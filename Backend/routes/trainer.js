@@ -250,10 +250,31 @@ router.post("/deletequalification", auth, function (req, res, next) {
 
 
 //get All details of a trainer
-router.post('/fdetail', function (req, res, next) {
+router.post('/fdetail', auth, function (req, res, next) {
 
     Trainer.findById({
-        _id:req.body.id
+        _id: req.user
+            
+    })
+        .then(function (c) {
+            console.log(c);
+            if (c !== null) {
+                console.log("Successfull");
+                res.json(c);
+            }
+            else {
+                res.json({ "statuss": "fail" })
+            }
+        }).catch(err => {
+            res.send('error')
+        })
+})
+
+//get All details of a trainer
+router.post('/ffdetail', function (req, res, next) {
+
+    Trainer.findById({
+        _id: req.body.id
             
     })
         .then(function (c) {

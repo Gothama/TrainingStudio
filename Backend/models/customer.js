@@ -90,8 +90,10 @@ const customerSchema = new mongoose.Schema({
     profilephotolink:{
         type:String,
         default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
-    }
-    
+    },
+
+    resetToken:String,
+    expireToken:Date,
 
     
 })

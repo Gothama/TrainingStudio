@@ -34,7 +34,7 @@ export default class ExpertAccount extends Component {
     super(props)
 
 
-    axios.post("http://localhost:9020/trainer/fdetail", { id: this.props.match.params.id }).then(res => {
+    axios.post("http://localhost:9020/trainer/ffdetail", { id: this.props.match.params.id }).then(res => {
       this.setState({
         fName: res.data.name.fName,
         lName: res.data.name.lName,

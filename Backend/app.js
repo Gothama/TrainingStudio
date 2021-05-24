@@ -33,6 +33,10 @@ app.use('/blog' , blogRouter)
 const emailRouter = require('./routes/email')
 app.use('/email' , emailRouter)
 
+const generalRouter = require('./routes/general')
+app.use('/general' , generalRouter)
+
+
 app.listen(9020,()=>{
     console.log('server started on 9020')
 })

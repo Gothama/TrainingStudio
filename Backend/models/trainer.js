@@ -64,7 +64,12 @@ const trainerSchema = new mongoose.Schema({
     rating:{
         type:Number,
         default:0
-    }
+    },
+
+    resetToken:String,
+    expireToken:Date
+
+    
 
         
 
