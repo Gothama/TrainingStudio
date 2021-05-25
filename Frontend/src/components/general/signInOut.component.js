@@ -137,15 +137,15 @@ export default class signInOut extends Component {
 
         })
     }
-    else if (this.state.accountType === "Trainer") {
-      siAPI2.post("/ntrainer", { username: this.state.username, password: this.state.password })
+    else if(this.state.accountType === "Trainer" || this.state.accountType === "Dietician") {
+      siAPI2.post("/ntrainer", { username: this.state.username, password: this.state.password , type:this.state.accountType})
         .then(res => {
           if (res.data.status === "Successfull") {
             localStorage.removeItem("loggedIn");
             localStorage.setItem("loggedIn", "loggedIn")
             localStorage.setItem("token", res.data.token);
-            localStorage.setItem("AccountType", "Trainer");
-            this.successfulmessage("Sign Up Successfull as a Trainer");
+            localStorage.setItem("AccountType", this.state.accountType);
+            this.successfulmessage("Sign Up Successfull as a" + this.state.accountType);
             this.props.history.push('/')
           }
           else if (res.data.status === "Already") {

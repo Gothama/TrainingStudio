@@ -67,7 +67,11 @@ const trainerSchema = new mongoose.Schema({
     },
 
     resetToken:String,
-    expireToken:Date
+    expireToken:Date,
+    type:{
+        type:String,
+        enum:['Dietician', 'Trainer']
+    }
 
     
 

@@ -55,7 +55,7 @@ return(
 
                              
                                     {localStorage.getItem("loggedIn") ==="loggedIn" && localStorage.getItem("AccountType")==="Customer"? <li ><Link to="/account">Account</Link></li> : <li></li> }
-                                    {localStorage.getItem("loggedIn") ==="loggedIn" && localStorage.getItem("AccountType")==="Trainer"? <li ><Link to="/expertMyAccount">Account</Link></li> : <li></li> }
+                                    {localStorage.getItem("loggedIn") ==="loggedIn" && (localStorage.getItem("AccountType")==="Trainer" || localStorage.getItem("AccountType")==="Dietician" )? <li ><Link to="/expertMyAccount">Account</Link></li> : <li></li> }
                                     {localStorage.getItem("loggedIn") ==="loggedIn"? <li onClick = {this.logout} className="main-button" data-aos="fade-up" data-aos-delay="200"><Link to="/">Sign out</Link></li>  :<li className="main-button" data-aos="fade-up" data-aos-delay="200"><Link to="/signInOut">Sign Up</Link></li>
         
                              }   

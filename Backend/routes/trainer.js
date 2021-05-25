@@ -25,7 +25,8 @@ router.post("/ntrainer",
                 credentials: {
                     username: req.body.username,
                     password: req.body.password
-                }
+                },
+                type: req.body.type
             })
             
             Trainer.findOne({
@@ -292,7 +293,15 @@ router.post('/ffdetail', function (req, res, next) {
 })
 
 router.get("/alltrainers", function (req, res) {
-    Trainer.find().then(function (t) {
+    Trainer.find({type:"Trainer"}).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json("Error")
+    })
+})
+
+router.get("/allDtrainers", function (req, res) {
+    Trainer.find({type:"Dietician"}).then(function (t) {
         res.json(t);
     }).catch(err => {
         res.json("Error")

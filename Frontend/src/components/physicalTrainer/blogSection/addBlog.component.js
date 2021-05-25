@@ -165,7 +165,7 @@ export default class addBlog extends Component {
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
                     Blog Summary
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
                     <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogSummary} />
                   </Col>
@@ -174,7 +174,7 @@ export default class addBlog extends Component {
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
                     Blog Content
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
                     <SunEditor onChange={this.handleChange} />
                   </Col>
