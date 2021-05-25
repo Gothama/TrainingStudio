@@ -36,6 +36,8 @@ app.use('/email' , emailRouter)
 const generalRouter = require('./routes/general')
 app.use('/general' , generalRouter)
 
+const postRouter = require('./routes/post')
+app.use('/post' , postRouter)
 
 app.listen(9020,()=>{
     console.log('server started on 9020')
