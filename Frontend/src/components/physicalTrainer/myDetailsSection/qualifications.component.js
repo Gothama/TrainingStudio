@@ -5,6 +5,9 @@ import {Button,Carousel, Form, Row, Col} from 'react-bootstrap';
 import Moment from 'react-moment';
 import Swal from 'sweetalert2'
 import {Link} from 'react-router-dom';
+import DatePicker from 'react-datepicker'
+
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class qualifications extends Component {
 
@@ -21,7 +24,7 @@ export default class qualifications extends Component {
 
   onChangeissuedDate=(event)=>{
     this.setState({
-      issuedDate:event.target.value
+      issuedDate:event
     })
   }
 
@@ -218,7 +221,16 @@ export default class qualifications extends Component {
       Issued Date
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="date" onChange={this.onChangeissuedDate} required/>
+      {/*<Form.Control type="date" onChange={this.onChangeissuedDate} required minDate={new Date(2020, 1, 1)}
+  maxDate={new Date(2020, 1, 29)}/>*/}
+
+<DatePicker
+  placeholderText="Issued Date"
+  onChange={this.onChangeissuedDate}
+  required
+  maxDate={Date.now()}
+  selected={this.state.issuedDate}
+/>
     </Col>
   </Form.Group>
 

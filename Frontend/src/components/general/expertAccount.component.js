@@ -7,6 +7,7 @@ import { Table } from 'react-bootstrap';
 import Moment from 'react-moment';
 import { PayPalButton } from "react-paypal-button-v2";
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class ExpertAccount extends Component {
   state = {
@@ -130,9 +131,14 @@ export default class ExpertAccount extends Component {
 
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 2 }}>
-                    {localStorage.getItem("AccountType") === "Trainer" ? <div><Button type="submit" style={{ backgroundColor: "red" }}>Trainers cant Register</Button></div>
-                      : <div> {!this.state.register ? <div><Button type="submit" style={{ backgroundColor: "red" }} onClick={this.register}>Register</Button> </div> : null}</div>
-                    }
+                    {localStorage.getItem("AccountType") === "Trainer" ? <div><Button type="submit" style={{ backgroundColor: "red" }}>Trainers cant Register</Button></div>: null}
+                    {localStorage.getItem("AccountType") === "Customer" && !this.state.register ? <div><Button type="submit" style={{ backgroundColor: "red" }} onClick={this.register}>Register</Button> </div>: 
+                    null}
+
+
+{(localStorage.getItem("loggedIn") !== "loggedIn" ) ? <div><Link to="/signinsignout"><Button style={{ backgroundColor: "red" }}>Please Sign In</Button></Link> </div>: 
+                    null}
+                   
 
                     {this.state.register ? <div style={{ width: "10px" }}> <PayPalButton amount="200" onSuccess={(details, data) => this.onPaymentSuccess()} /></div> : null}
 
