@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
 import {Button,Card, ProgressBar} from 'react-bootstrap';
 import {Form,Row,Col} from 'react-bootstrap';
-import image1 from '../../../assets/images/p4.jpg'
 import axios from 'axios';
 import Moment from 'react-moment';
 import Swal from 'sweetalert2'

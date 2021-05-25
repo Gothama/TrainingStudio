@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Carousel, Form, Row, Col, ProgressBar } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
 import Header from './header.component';
@@ -7,7 +7,7 @@ import { Table } from 'react-bootstrap';
 import Moment from 'react-moment';
 import { PayPalButton } from "react-paypal-button-v2";
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class ExpertAccount extends Component {
   state = {
@@ -75,7 +75,7 @@ export default class ExpertAccount extends Component {
                 <img src={this.state.profilephotolink} className="rounded avatar" alt="..." style={{ height: "150px", width: "150px", borderRadius: "50%" }} />
               </div>
 
-              <Form style={{ padding: "20px" }} onSubmit={this.handleOnSubmit} style={{ color: "white", paddingTop: "60px", fontSize: "20px" }}>
+              <Form onSubmit={this.handleOnSubmit} style={{ color: "white", paddingTop: "60px", fontSize: "20px",padding: "20px" }}>
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2} >
                     First Name :
@@ -131,14 +131,14 @@ export default class ExpertAccount extends Component {
 
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 2 }}>
-                    {localStorage.getItem("AccountType") === "Trainer" ? <div><Button type="submit" style={{ backgroundColor: "red" }}>Trainers cant Register</Button></div>: null}
-                    {localStorage.getItem("AccountType") === "Customer" && !this.state.register ? <div><Button type="submit" style={{ backgroundColor: "red" }} onClick={this.register}>Register</Button> </div>: 
-                    null}
+                    {localStorage.getItem("AccountType") === "Trainer" ? <div><Button type="submit" style={{ backgroundColor: "red" }}>Trainers cant Register</Button></div> : null}
+                    {localStorage.getItem("AccountType") === "Customer" && !this.state.register ? <div><Button type="submit" style={{ backgroundColor: "red" }} onClick={this.register}>Register</Button> </div> :
+                      null}
 
 
-{(localStorage.getItem("loggedIn") !== "loggedIn" ) ? <div><Link to="/signinsignout"><Button style={{ backgroundColor: "red" }}>Please Sign In</Button></Link> </div>: 
-                    null}
-                   
+                    {(localStorage.getItem("loggedIn") !== "loggedIn") ? <div><Link to="/signinsignout"><Button style={{ backgroundColor: "red" }}>Please Sign In</Button></Link> </div> :
+                      null}
+
 
                     {this.state.register ? <div style={{ width: "10px" }}> <PayPalButton amount="200" onSuccess={(details, data) => this.onPaymentSuccess()} /></div> : null}
 

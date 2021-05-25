@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import {Table} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
-import {Form,Row,Col} from 'react-bootstrap';
 import {Chart} from 'react-google-charts';
 import MyDetails from './myhealthDetails.component';
 

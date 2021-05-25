@@ -4,8 +4,8 @@ import Navbar from './navbar.component';
 import Footer from './footer.component';
 import Moment from 'react-moment';
 import axios from 'axios';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-import { Button, Carousel, Form, Row, Col, Container, Media } from 'react-bootstrap';
+import ReactHtmlParser from 'react-html-parser';
+import { Button, Form, Row, Container, Media } from 'react-bootstrap';
 import ReactStars from 'react-stars'
 
 const siAPI1 = axios.create({

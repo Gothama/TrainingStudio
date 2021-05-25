@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
-import {Button,Card,Tabs, Tab, Form, Row, Col, Table} from 'react-bootstrap';
+import {Button,Tabs, Tab, Form, Row, Col, Table} from 'react-bootstrap';
 import {Chart} from 'react-google-charts';
-import image1 from '../../../assets/images/p4.jpg'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
-import axios from 'axios'
 
-const siAPI1= axios.create({
-  baseURL :`http://localhost:9020/customer`
-})
+
 
 
 export default class HealthDetails extends Component{

@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import {Table} from 'react-bootstrap';
-import {Button,Carousel, Form, Row, Col} from 'react-bootstrap';
+import {Button, Form, Row, Col} from 'react-bootstrap';
 import Moment from 'react-moment';
 import Swal from 'sweetalert2'
-import {Link} from 'react-router-dom';
 import DatePicker from 'react-datepicker'
 
 import "react-datepicker/dist/react-datepicker.css";

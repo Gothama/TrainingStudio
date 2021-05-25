@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Footer from '../../general/footer.component';
 import TrainerNav from '../trainerNav.component';
-import { Button, Carousel, Form, Row, Col } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 import image from "../../../assets/images/trainers/blog.jpg"
 import axios from 'axios';
 import SunEditor from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
-import moment from 'moment';
 import { ProgressBar } from "react-bootstrap"
 import Swal from 'sweetalert2'
 
@@ -25,10 +24,7 @@ export default class addPosts extends Component {
     uploading: ""
 
   }
-  constructor() {
-    super()
 
-  }
 
   message = (type, msg) => {
 

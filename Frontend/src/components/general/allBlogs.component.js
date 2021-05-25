@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import image1 from "../../assets/images/line-dec.png"
-import BlogTilecomponent from './blogTile.component';
 import Navbar from "./navbar.component";
 import Footer from './footer.component';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import bxUser from '@iconify-icons/bx/bx-user';
 import bxHeart from '@iconify-icons/bx/bx-heart';
 import axios from 'axios'
 

@@ -9,7 +9,6 @@ import '../src/assets/boxicons/css/boxicons.min.css';
 
 import About from './components/general/stories.component';
 import Contact from './components/general/contact.component';
-import LandingPage from './components/general/landingpage.component';
 import AllDieticians from './components/general/allDieticians.component';
 import AllTrainers from './components/general/allTrainers.component';
 import AllBlog from './components/general/allBlogs.component';

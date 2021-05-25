@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
 import {Form,Row,Col,Button, ProgressBar} from 'react-bootstrap';
-import image from "../../../assets/images/trainers/trainer-2.jpg"
 import axios from 'axios';
 import moment from 'moment';
 import Swal from 'sweetalert2'

@@ -5,10 +5,8 @@ import TrainerNav from '../trainerNav.component';
 import { Button, Carousel, Form, Row, Col, ProgressBar } from 'react-bootstrap';
 import Profile1 from '../../../assets/images/profile1.png'
 import Profile2 from '../../../assets/images/profile2.png'
-import image from "../../../assets/images/trainers/trainer-2.jpg"
 import Qualifications from './qualifications.component';
 import axios from 'axios';
-import moment from 'moment';
 import Swal from 'sweetalert2'
 
 

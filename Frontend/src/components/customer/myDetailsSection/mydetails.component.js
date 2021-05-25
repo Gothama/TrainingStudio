@@ -2,11 +2,9 @@
 import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
 import {Tab,Row,Nav,Col} from 'react-bootstrap';
-import AddHealthDetails from './addHealth.component';
 import FitnessCalculator from './fitnesscalculator.component';
 import HealthReports from './healthreports.component';
 import MyhealthData from './myhealthData.component';
-import HealthDetails from './myhealthDetails.component';
 import PersonalDetails from './personaldetails.component';
 //import Footer from '../general/footer.component';
 
