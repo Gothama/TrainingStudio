@@ -32,6 +32,7 @@ import AddPosts from './components/physicalTrainer/postsSection/addnewposts.comp
 import Resetpassword from './components/general/resetpassword';
 import Newpassword from './components/general/newpassword';
 import Editpost from './components/physicalTrainer/postsSection/editpost.component';
+import AllPosts from './components/general/allPosts.component';
 
  
 
@@ -47,6 +48,7 @@ function App() {
       <Route path = "/allDieticians" exact component={AllDieticians}/>
       <Route path = "/allTrainers" exact component={AllTrainers}/>
       <Route path = "/allBlogs" exact component={AllBlog}/>
+      <Route path = "/allPosts" exact component={AllPosts}/>
       <Route path = "/myBlogs" exact component={MyBlogs}/>
       <Route path = "/myPosts" exact component={MyPosts}/>
       <Route path = "/trainerAccount/:type/:id" exact component={ExpertAccount}/>

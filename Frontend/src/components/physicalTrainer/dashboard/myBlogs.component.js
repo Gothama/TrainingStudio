@@ -67,10 +67,10 @@ export default class MyBlogs extends Component {
           <div className="container" style={{/*paddingTop:"100px" , */paddingBottom: "100px" }}>
 
 
-            <div className="row" >
+            <div className="row col-lg-12 col-md-12 col-xs-12" >
 
 
-              <Card className="bg-dark text-white" style={{ width: '67rem', margin: "0.5rem" }}>
+              <Card className="bg-dark text-white" style={{  margin: "0.5rem" }}>
                 <Card.Img src={addBlogImage} alt="Card image" />
                 <Card.ImgOverlay >
                   <Card.Title style={{ color: "white", fontSize: "30px", lineHeight: "80px", fontWeight: "bolder" }}>Lets Add New Blog</Card.Title>
@@ -85,7 +85,8 @@ export default class MyBlogs extends Component {
 
             <div className="row" >
               {this.state.blogs.map(b =>
-                <Card style={{ width: '16rem', margin: "0.5rem" }}>
+              <div className="col-lg-3 col-md-4 col-xs-12">
+                <Card style={{  margin: "0.5rem" }}>
                   <Card.Img variant="top" src={b.blogImage} />
                   <Card.Body>
                     <Card.Title>{b.blogHeading}</Card.Title>
@@ -95,8 +96,10 @@ export default class MyBlogs extends Component {
                     </Card.Text>
                     <Link to={`/editpost/${b._id}`}><Button variant="primary">Edit</Button></Link> <Button variant="danger" onClick={() => this.deleteBlog(b._id)}>Delete</Button> <Link to={`/blog/${b._id}`}><Button variant="warning">View</Button></Link>
                   </Card.Body>
-                </Card>
+                </Card>            
+                </div>
               )}
+              
             </div>
           </div>  </div>
 

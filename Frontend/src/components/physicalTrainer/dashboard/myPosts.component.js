@@ -70,7 +70,7 @@ return(
 
 <div className="row" >      
 
-
+<div className="row col-lg-12 col-md-12 col-xs-12" >
 <Card className="bg-dark text-white" style={{ width: '65rem',margin:"0.5rem"}}>
   <Card.Img src={addPostImage} alt="Card image" />
   <Card.ImgOverlay >
@@ -81,11 +81,12 @@ return(
     <Link to = '/addnewPosts' ><Button variant="danger">Add New Posts</Button> </Link>
   </Card.ImgOverlay>
 </Card>
-
+</div>
 </div>     
 <div className="row" >  
 {this.state.posts.map(b =>
-<Card style={{ width: '32rem', margin:"0.5rem"}}>
+   <div className="col-lg-6 col-md-6 col-xs-12">
+<Card style={{ margin:"0.5rem"}}>
   <Card.Img variant="top" src= {b.postImage} />
   <Card.Body>
     <Card.Title>{b.postHeading}</Card.Title>
@@ -95,6 +96,7 @@ return(
     <Link to={`/editpost/${b._id}`}><Button variant="primary">Edit</Button></Link> <Button variant="danger" onClick={() => this.deletePost(b._id)}>Delete</Button> <Link to={`/post/${b._id}`}><Button variant="warning">View</Button></Link>
   </Card.Body>
 </Card>
+</div>
 )}
 </div>
 </div>  </div>   

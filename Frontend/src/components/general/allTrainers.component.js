@@ -42,7 +42,7 @@ export default class AllTrainers extends Component {
 
               {this.state.trainers.map(t =>
 
-                <div className="col-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div className="col-lg-4 col-md-4 col-xs-12" data-aos="zoom-in" data-aos-delay="100">
                   <div className="course-item">
                     <img src={t.posterphotoLink} className="img-fluid" alt="..." />
                     <div className="course-content">

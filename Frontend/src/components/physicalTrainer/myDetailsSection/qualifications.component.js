@@ -135,7 +135,7 @@ export default class qualifications extends Component {
     render() {
         return (
             <div>
-                <Table striped bordered hover variant="dark" >
+                <Table striped bordered hover variant="dark"  >
   <thead >
     <tr >
      
