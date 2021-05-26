@@ -31,6 +31,7 @@ import Editblog from './components/physicalTrainer/blogSection/editblog.componen
 import AddPosts from './components/physicalTrainer/postsSection/addnewposts.component';
 import Resetpassword from './components/general/resetpassword';
 import Newpassword from './components/general/newpassword';
+import Editpost from './components/physicalTrainer/postsSection/editpost.component';
 
  
 
@@ -63,6 +64,7 @@ function App() {
       <Route path = "/editblog/:id" exact component ={Editblog}/>
       <Route path = "/resetpassword" exact component ={Resetpassword}/>
       <Route path = "/newpassword/:token" exact component ={Newpassword}/>
+      <Route path = "/editpost/:id" exact component = {Editpost}/>
   </Router>
   <Fitbot/>
 </div>

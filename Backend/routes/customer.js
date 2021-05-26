@@ -116,7 +116,6 @@ router.post('/fcustomer', function (req, res, next) {
 router.put('/addhealthreports',
     [
         check('issuedDate', "Issued Date is required").not().isEmpty(),
-        check('issuedDate', "Issued Date should be a date").isDate(),
         check("link", "link should be a link").isURL(),
         check("description", "description is required").not().isEmpty(),
     ], auth,
@@ -164,7 +163,6 @@ router.put('/addDetails',
         check('fname', "first Name should be letters").isString(),
         check('lname', "last name is required").isString(),
         check('dob', "Date of birth is required").not().isEmpty(),
-        check('dob', "Date of birth should be a date").isDate(),
         check('email', "email is required").not().isEmpty(),
         check('email', "Email should be in correct format").isEmail(),
         check('phoneNumber', "Phone number is required").not().isEmpty(),
@@ -373,6 +371,7 @@ router.post("/gethealthreports", auth, function (req, res, next) {
         console.log(c.healthReports);
         if (c !== null) {
             if (c.healthReports.isLength != 1) {
+                
                 res.json({ "D": c.healthReports, "K": "Successfull" })
             }
             else {

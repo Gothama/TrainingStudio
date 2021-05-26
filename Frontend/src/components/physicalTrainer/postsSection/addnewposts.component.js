@@ -11,15 +11,14 @@ import Swal from 'sweetalert2'
 
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/blog/nblog`
+  baseURL: `http://localhost:9020/post/npost`
 })
 
-export default class addPosts extends Component {
+export default class addPost extends Component {
   state = {
-    blogContent: "",
-    blogImage: "",
-    blogHeading: "",
-    blogSummary: "",
+    postContent: "",
+    postImage: "",
+    postHeading: "",
     image: "",
     uploading: ""
 
@@ -58,12 +57,12 @@ export default class addPosts extends Component {
 
     }).then((res) => {
       console.log(res)
-      this.setState({ blogImage: res.data.secure_url })
+      this.setState({ postImage: res.data.secure_url })
       this.message("success", "Image Uploaded Successfully")
     })
 
 
-    console.log(this.state.blogImage)
+    console.log(this.state.postImage)
   }
 
   selectImage = (event) => {
@@ -72,31 +71,31 @@ export default class addPosts extends Component {
     })
   }
 
-  onChangeblogContent = (event) => {
+  onChangepostContent = (event) => {
     this.setState({
-      blogContent: event.target.value
+      postContent: event.target.value
     })
   }
-  onChangeblogImage = (event) => {
+  onChangepostImage = (event) => {
     this.setState({
-      blogImage: event.target.value
+      postImage: event.target.value
     })
   }
-  onChangeblogHeading = (event) => {
+  onChangepostHeading = (event) => {
     this.setState({
-      blogHeading: event.target.value
+      postHeading: event.target.value
     })
   }
 
   handleChange = (content) => {
     this.setState({
-      blogContent: content
+      postContent: content
     })
   }
 
-  onChangeblogSummary = (event) => {
+  onChangepostSummary = (event) => {
     this.setState({
-      blogSummary: event.target.value
+      postSummary: event.target.value
     })
   }
 
@@ -106,17 +105,16 @@ export default class addPosts extends Component {
     event.preventDefault();
     siAPI1.post("/",
       {
-        blogContent: this.state.blogContent,
-        blogImage: this.state.blogImage,
-        blogHeading: this.state.blogHeading,
-        blogSummary: this.state.blogSummary
+        postContent: this.state.postContent,
+        postImage: this.state.postImage,
+        postHeading: this.state.postHeading
       },
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       })
       .then(res => {
         console.log(res)
-        this.message("success", "Blog added Successfully")
+        this.message("success", "Post added Successfully")
 
       }).catch(err => {
         window.alert(err)
@@ -141,19 +139,19 @@ export default class addPosts extends Component {
               <Form style={{ padding: "20px" }} onSubmit={this.handleOnSubmit}>
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
-                    Blog Heading
+                    Post Heading
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogHeading} />
+                    <Form.Control type="text" onChange={this.onChangepostHeading} />
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
-                    Blog Image
+                    Post Image
                   </Form.Label>
                   <Col sm={8}>
-                    <Form.Control type="file" Value={this.state.fName} onChange={this.selectImage} />
+                    <Form.Control type="file" onChange={this.selectImage} />
 
                   </Col>
                   <Col sm={2}>
@@ -164,17 +162,17 @@ export default class addPosts extends Component {
                 <br />
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
-                    Blog Summary
-    </Form.Label>
+                    Post Summary
+                  </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogSummary} />
+                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangepostSummary} />
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
-                    Blog Content
-    </Form.Label>
+                    Post Content
+                  </Form.Label>
                   <Col sm={10}>
                     <SunEditor onChange={this.handleChange} />
                   </Col>
@@ -185,7 +183,7 @@ export default class addPosts extends Component {
 
                 <Form.Group as={Row} style={{ padding: "25px" }}>
                   <Col sm={{ span: 10, offset: 2 }}>
-                    <Button type="submit" style={{ backgroundColor: "red" }}>Publish Blog</Button>
+                    <Button type="submit" style={{ backgroundColor: "red" }}>Publish Post</Button>
                   </Col>
                 </Form.Group>
               </Form>

@@ -6,6 +6,9 @@ import {Form,Row,Col} from 'react-bootstrap';
 import axios from 'axios';
 import Moment from 'react-moment';
 import Swal from 'sweetalert2'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment'
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
@@ -13,7 +16,7 @@ const siAPI1= axios.create({
 
 export default class HealthReports extends Component{
   state={
-            issuedDate:"",
+            issuedDate:Date.now(),
             link:"",
             description:"",
             uploading:"",
@@ -64,9 +67,11 @@ export default class HealthReports extends Component{
       description:event.target.value
     })
   }
-  onChangedate=(event)=>{
+  onChangedate=(idate)=>{
+    console.log(idate)
+
     this.setState({
-      issuedDate:event.target.value
+      issuedDate:idate
     })
   }
 
@@ -116,8 +121,14 @@ export default class HealthReports extends Component{
     })
     .then(res=>{
       console.log(res.data)
-      this.successfulmessage("Health Report Added Successfully")
-      window.location.reload()
+      if(res.data.K==="Successfull"){
+         this.successfulmessage("Health Report Added Successfully")
+         window.location.reload()
+      }
+     else{
+      this.successfulmessage("unuccessfully")
+     }
+      
     }).catch(err => {
       window.alert(err)
   })
@@ -177,7 +188,14 @@ return(
       Issued Date
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="date" onChange={this.onChangedate} required/>
+    <DatePicker
+selected={this.state.issuedDate}
+  placeholderText="Issued Date"
+  onChange={idate => this.onChangedate(idate)}
+  required
+  dateFormat="MM-dd-yyyy"
+  maxDate={Date.now()}
+/>
     </Col>
   </Form.Group>
 
@@ -186,7 +204,18 @@ return(
       Description
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" onChange={this.onChangedescription} required />
+    <Form.Control as="select" onChange={this.onChangedescription}required>
+    <option value="Complete Blood Count">Complete Blood Count</option>
+    <option value="Prothrombin Time">Prothrombin Time</option>
+    <option value="Basic Metabolic Panel">Basic Metabolic Panel</option>
+    <option value="Comprehensive Metabolic Panel">Comprehensive Metabolic Panel</option>
+    <option value="Lipid Panel">Lipid Panel</option>
+    <option value="Liver Panel">Liver Panel</option>
+    <option value="Thyroid Stimulating Hormone">Thyroid Stimulating Hormone</option>
+    <option value="Hemoglobin A1C">Hemoglobin A1C</option>
+    <option value="Urinalysis">Urinalysis</option>
+    <option value="other">Other Report</option>
+  </Form.Control>
     </Col>
   </Form.Group>
 

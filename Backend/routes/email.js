@@ -29,4 +29,26 @@ router.post("/contact", function (req, res) {
     }
   })
 })
+
+
+router.post("/accountupdated", function (req, res) {
+  const mailOptions = {
+    from: 'studentdataschool@gmail.com',
+    to: 'albertlinconnr@gmail.com',
+    subject: 'Account Details Updated',
+    text: "Your Personal Details of your Account is updated Successfully"
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+      res.json({ "status": "Unsuccessfull" })
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.json({ 'Email sent: ': info.response, "status": "Okay" })
+    }
+  })
+})
+
+
 module.exports = router

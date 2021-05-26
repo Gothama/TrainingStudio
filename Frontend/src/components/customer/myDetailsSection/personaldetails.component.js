@@ -4,9 +4,15 @@ import {Form,Row,Col,Button, ProgressBar} from 'react-bootstrap';
 import axios from 'axios';
 import moment from 'moment';
 import Swal from 'sweetalert2'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
+})
+
+const siAPI2= axios.create({
+  baseURL :`http://localhost:9020/email/accountupdated`
 })
 
 
@@ -23,7 +29,8 @@ export default class PersonalDetails extends Component{
       password:"",
       profilephotolink:"",
       uploading:"",
-      image:""
+      image:"",
+      maxd:moment(Date.now()).format("yyyy-MM-DD")
     }
    
   constructor(){
@@ -39,7 +46,7 @@ export default class PersonalDetails extends Component{
       this.setState({
         fName:res.data.name.fName,
         lName:res.data.name.lName,
-        dob:moment(res.data.dob).format("YYYY-MM-DD"),
+        dob:(moment(res.data.dob).format("yyyy-MM-DD")),
         email:res.data.email,
         gender:res.data.gender,
         bloodGroup:res.data.bloodGroup,
@@ -67,8 +74,9 @@ export default class PersonalDetails extends Component{
     })
   }
   onChangedob= (event)=>{
+    console.log((moment(event.target.value).format("yyyy-MM-DD")))
     this.setState({
-      dob:event.target.value
+      dob:(moment(event.target.value).format("yyyy-MM-DD"))
     })
   }
   onChangeemail= (event)=>{
@@ -132,7 +140,12 @@ export default class PersonalDetails extends Component{
     })
     .then(res=>{
       console.log(res.data)
-      this.successfulmessage("Successfully Updated")
+      
+      siAPI2.post("/").then(res=>{
+        this.successfulmessage("Successfully Updated");
+      }).catch(err=>{
+        window.alert(err)
+      })
     }).catch(err => {
       window.alert(err)
   })
@@ -243,7 +256,7 @@ return(
       Date of Birth
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="date" Value= {this.state.dob} onChange={this.onChangedob}required/>
+<input type="date" max={this.state.maxd}    dateFormat="MM-dd-yyyy" required defaultValue={this.state.dob} onChange={this.onChangedob}/>
     </Col>
   </Form.Group>
 
