@@ -19,38 +19,10 @@ export default class SideNav extends Component{
 return(
 
 <div >
-{/*
-<Nav variant="tabs" defaultActiveKey="/home" className="flex-column">
-  <Nav.Item>
-    <Nav.Link style={{height:"80px", paddingTop:"30px" , textAlign:"left", fontWeight:"bolder"}}>
-    <Icon icon={clipboardPulse} height="2em" />Summary</Nav.Link>
-  </Nav.Item>
-  <Nav.Item >
-    <Nav.Link eventKey="link-1" style={{height:"80px", paddingTop:"30px" , textAlign:"left" ,fontWeight:"bolder"}}>
-    <Icon icon={accountSettings} height="2em" />Customers</Nav.Link>
-  </Nav.Item>
-  <Nav.Item >
-    <Nav.Link eventKey="link-2" style={{height:"80px", paddingTop:"30px" , textAlign:"left", fontWeight:"bolder"}}>
-    <Icon icon={bxUser}height="2em" />Dieticians</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-3" style={{height:"80px", paddingTop:"30px" , textAlign:"left",  fontWeight:"bolder"}}>
-    <Icon icon={accountHeart} height="2em" />Physical Trainers</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-4" style={{height:"80px", paddingTop:"30px" , textAlign:"left",  fontWeight:"bolder"}}>
-    <Icon icon={viewComfy} height="2em" />Analysis Reports</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-5" style={{height:"80px", paddingTop:"30px" , textAlign:"left",  fontWeight:"bolder"}}>
-    <Icon icon={cogOutline} height="2em" />Settings</Nav.Link>
-  </Nav.Item>
-</Nav>*/}
-
 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
   <Row>
     
-        <Col sm={3}><div style={{backgroundColor:"#e7d9ea",borderRadius:"10px"}}>
+        <Col sm={12} md={12} lg={3}><div style={{backgroundColor:"#e7d9ea",borderRadius:"10px"}}>
       <Nav variant="pills" className="flex-column">
         <Nav.Item >
           <Nav.Link eventKey="first" style={{height:"80px", paddingTop:"30px" , textAlign:"left" ,fontWeight:"bolder"}}>
@@ -82,7 +54,7 @@ return(
     </Col>
     
 
-    <Col sm={9}>
+    <Col sm={12} md={12} lg={9}>
       <Tab.Content>
         <Tab.Pane eventKey="first">
         <Summary/>

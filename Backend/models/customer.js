@@ -94,6 +94,7 @@ const customerSchema = new mongoose.Schema({
 
     resetToken:String,
     expireToken:Date,
+    registered:{type: Date,default: Date.now }
 
     
 })

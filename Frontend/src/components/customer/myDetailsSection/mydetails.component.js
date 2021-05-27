@@ -16,7 +16,7 @@ return(
 
 <Tab.Container id="left-tabs-example" defaultActiveKey="first" bg="dark" variant="dark">
   <Row>
-    <Col sm={3}>
+    <Col  lg={3} md={12}>
       <Nav variant="pills" className="flex-column">
         <Nav.Item>
           <Nav.Link eventKey="first">Personal Details</Nav.Link>
@@ -32,7 +32,7 @@ return(
         </Nav.Item>
       </Nav>
     </Col>
-    <Col sm={9}>
+    <Col lg={9} md={12}>
       <Tab.Content>
         <Tab.Pane eventKey="first">
           <PersonalDetails/>

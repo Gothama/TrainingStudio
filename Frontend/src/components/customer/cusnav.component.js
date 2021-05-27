@@ -9,7 +9,7 @@ export default class NavReact extends Component{
     render(){
 return(
     <div>
-<Navbar bg="dark" variant="dark"  style={{height:"80px"}} fixed="top">
+<Navbar collapseOnSelect bg="dark" variant="dark"  expand="lg" style={{height:"80px"}} fixed="top">
     <div className="container" >
     <Navbar.Brand href="/">
     <img
@@ -21,14 +21,17 @@ return(
       /> </Navbar.Brand>
         <Navbar.Brand href="#home">
         Customer Dashboard</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto" >
       <Nav.Link href="/account" style={{color:"white"}}>My Details</Nav.Link>
       <Nav.Link href="/myWorkoutPlans" style={{color:"white"}}>Workout Plans</Nav.Link>
       <Nav.Link href="/myDietPlans" style={{color:"white"}}>Diet Plans</Nav.Link>
       <Nav.Link href="/messenger" style={{color:"white"}}>Messenger</Nav.Link>
      
-    </Nav>
+    </Nav></Navbar.Collapse>
     </div>
+    
   </Navbar>
   
 

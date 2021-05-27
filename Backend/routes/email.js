@@ -27,7 +27,7 @@ router.post("/contact", function (req, res) {
       console.log('Email sent: ' + info.response);
       res.json({ 'Email sent: ': info.response, "status": "Okay" })
     }
-  })
+  });
 })
 
 
@@ -49,6 +49,27 @@ router.post("/accountupdated", function (req, res) {
     }
   })
 })
+
+
+router.post("/paymentsuccess", function (req, res) {
+  const mailOptions = {
+    from: 'studentdataschool@gmail.com',
+    to: 'albertlinconnr@gmail.com',
+    subject: 'Payment',
+    text: "Your Payment is successfull. Thank you for your payment."
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+      res.json({ "status": "Unsuccessfull" })
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.json({ 'Email sent: ': info.response, "status": "Okay" })
+    }
+  })
+})
+
 
 
 module.exports = router

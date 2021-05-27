@@ -46,12 +46,11 @@ return(
                         <ul className="nav">
                             <li><a><Link to="/">Home</Link></a></li>
 
-                            <li ><a><Link to="/allTrainers"> Trainers</Link></a></li>
-                            <li><a><Link to="/allDieticians"> Dieticians</Link></a></li>                           
-                            <li ><a><Link to="/allPosts">Stories</Link></a></li>
-                            <li ><a><Link to="/allBlogs">Blogs</Link></a></li> 
-                            <li ><a><Link to="/contact">Contact</Link></a></li> 
-                            {/*<li className="main-button" data-aos="fade-up" data-aos-delay="200"><a href="/signUp">Sign Up</a></li>*/}
+                            <li ><Link to="/allTrainers"> Trainers</Link></li>
+                            <li><Link to="/allDieticians"> Dieticians</Link></li>                           
+                            <li ><Link to="/allPosts">Stories</Link></li>
+                            <li ><Link to="/allBlogs">Blogs</Link></li> 
+                            <li ><Link to="/contact">Contact</Link></li> 
 
                              
                                     {localStorage.getItem("loggedIn") ==="loggedIn" && localStorage.getItem("AccountType")==="Customer"? <li ><Link to="/account">Account</Link></li> : <li></li> }
@@ -60,9 +59,7 @@ return(
         
                              }   
                         </ul>        
-                      {/*  <a className='menu-trigger'>
-                            <span>Menu</span>
-                            </a>*/}
+                     
                     </nav>
                 </div>
             </div>

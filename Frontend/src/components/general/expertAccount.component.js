@@ -45,7 +45,8 @@ export default class ExpertAccount extends Component {
         profilephotolink: res.data.profilephotolink,
         fee: res.data.fee,
         qualifications: res.data.qualifications,
-        rating: res.data.rating
+        rating: res.data.rating,
+        type:res.data.type
       })
       console.log(res.data)
     })
@@ -57,10 +58,24 @@ export default class ExpertAccount extends Component {
     
   }
   onPaymentSuccess = (details, data) => {
-    alert("Transaction completed by " + details.payer.name.given_name);
+    // alert("Transaction completed by " + details.payer.name.given_name);
 
     // OPTIONAL: Call your server to save the transaction
-    console.log(data.orderID);
+    console.log(data);
+
+    if(data.payerID!==null){
+      axios.post("http://localhost:9020/customer/register", { eid: this.props.match.params.id, type:this.state.type },{
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+      }).then(res => {
+        console.log(res.data)
+        if(res.data === "successfull"){
+          alert("successfull")
+        }
+        else{
+          alert(res.data)
+        }
+      })
+    }
   }
 
   render() {
@@ -141,7 +156,7 @@ export default class ExpertAccount extends Component {
                       null}
 
 
-                    {this.state.register ? <div style={{ width: "10px" }}> <PayPalButton amount="200" onSuccess={(details, data) => this.onPaymentSuccess()} /></div> : null}
+                    {this.state.register ? <div style={{ width: "10px" }}> <PayPalButton amount="200" onSuccess={(details, data) => this.onPaymentSuccess(details, data)} /></div> : null}
 
                   </Col>
                 </Form.Group>

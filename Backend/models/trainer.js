@@ -71,8 +71,8 @@ const trainerSchema = new mongoose.Schema({
     type:{
         type:String,
         enum:['Dietician', 'Trainer']
-    }
-
+    },
+    registered:{type: Date,default: Date.now }
     
 
         

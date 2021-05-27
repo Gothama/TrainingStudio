@@ -9,7 +9,8 @@ export default class AdminDashboard extends Component{
     render(){
 return(
 
-<div style={{backgroundColor:"purple", height:"100vh"}}>
+<div style={{backgroundColor:"purple" , width: "100%",
+    height: "100%"}}>
 <AdminTop/>
 
 <div class="row" style={{paddingTop:"100px", paddingLeft:"80px"}}>

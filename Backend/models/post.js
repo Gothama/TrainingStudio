@@ -29,6 +29,7 @@ const postSchema = new mongoose.Schema({
     postlike:[{
             likeByID:{type: mongoose.Schema.ObjectId, ref: 'Customer'}
     }]
+    
 })
 
 module.exports = mongoose.model('Post', postSchema)
