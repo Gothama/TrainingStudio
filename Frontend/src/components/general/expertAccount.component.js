@@ -54,6 +54,7 @@ export default class ExpertAccount extends Component {
   register = (event) => {
     event.preventDefault();
     this.setState({ register: true })
+    
   }
   onPaymentSuccess = (details, data) => {
     alert("Transaction completed by " + details.payer.name.given_name);

@@ -13,14 +13,14 @@ const customerSchema = new mongoose.Schema({
             unique:true
         }
     },
-    register:{
-        dietianID:{
-            type:String
+    
+        rdietianID:{
+            type: mongoose.Schema.ObjectId, ref: 'Trainer'
         },
-        trainerID:{
-            type:String
+        rtrainerID:{
+            type: mongoose.Schema.ObjectId, ref: 'Trainer'
         }
-    },
+    ,
     name:{
         fName:{
             type:String,

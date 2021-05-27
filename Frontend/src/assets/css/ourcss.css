@@ -557,6 +557,10 @@ header
   .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
   }
+  .nav a {
+    float: none;
+    display: block;
+  }
 }
 
 @media (min-width: 767px) {
@@ -1374,5 +1378,12 @@ img1{
   max-width: 240px;
   max-height: 240px;
  /* display: block;  remove extra space below image */
+}
+
+@media (max-width: 500px) {
+  .main-nav a {
+    float: none;
+    display: block;
+  }
 }
 

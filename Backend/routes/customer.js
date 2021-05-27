@@ -33,21 +33,22 @@ router.post("/ncustomer",
                     username: req.body.username,
                     password: req.body.password
                 }
-            }).then(function(c){
-                if(c!==null){
-                    res.json({"status": "Already" });
+            }).then(function (c) {
+                if (c !== null) {
+                    res.json({ "status": "Already" });
                 }
-                else{
-                    
+                else {
+
                     Trainer.findOne({
                         credentials: {
-                        username: req.body.username,
-                        password: req.body.password
-                     } }).then(function(t){
-                         if(t!==null){
-                            res.json({"status": "Already" });
-                         }
-                         else{
+                            username: req.body.username,
+                            password: req.body.password
+                        }
+                    }).then(function (t) {
+                        if (t !== null) {
+                            res.json({ "status": "Already" });
+                        }
+                        else {
                             Customer.create(customer).then(function (c) {
                                 console.log(c._id)
                                 const user = { id: c._id }
@@ -59,19 +60,19 @@ router.post("/ncustomer",
                                         if (err) throw err;
                                         res.json({ "token": token, "status": "Successfull" });
                                     }
-                
+
                                 );
-            
+
                             }).catch(err => {
                                 console.log(err)
                                 res.send("fail")
                             })
-                         }
-                     })
-                    
+                        }
+                    })
+
 
                 }
-            })      
+            })
 
         }
 
@@ -371,7 +372,7 @@ router.post("/gethealthreports", auth, function (req, res, next) {
         console.log(c.healthReports);
         if (c !== null) {
             if (c.healthReports.isLength != 1) {
-                
+
                 res.json({ "D": c.healthReports, "K": "Successfull" })
             }
             else {
@@ -391,7 +392,7 @@ router.post("/gethealthreports", auth, function (req, res, next) {
 router.post("/delete", auth, function (req, res, next) {
 
     console.log(req.body.id)
-    Customer.update({ _id: req.user}, { $pull: { healthReports: { _id: req.body.id }} } ).then(function (c) {
+    Customer.update({ _id: req.user }, { $pull: { healthReports: { _id: req.body.id } } }).then(function (c) {
         console.log(c)
         if (c !== null) {
             console.log(c)
@@ -404,6 +405,92 @@ router.post("/delete", auth, function (req, res, next) {
     }).catch(err => {
         res.json("Error: " + err)
     })
+})
+
+
+//register with an expert
+router.post('/register', auth, function (req, res, next) {
+    console.log(req.body.eid + req.body.type)
+
+    if (req.body.type === "Dietician") {
+        var k = {
+            $set:
+            {
+           
+                    rdietianID: req.body.eid
+     
+            }
+        }
+
+        Customer.findByIdAndUpdate({
+            _id:req.user
+        }, k).then(function (c) {
+            console.log(c);
+            res.json("successfull");
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+    }
+    else {
+        var k = {
+            $set:
+            {
+
+                    rtrainerID: req.body.eid
+     
+            }
+        }
+
+        Customer.findByIdAndUpdate({
+            _id:req.user
+        }, k).then(function (c) {
+            console.log(c);
+            res.json("successfull");
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+
+    }
+})
+
+router.post('/unregister', auth, function (req, res, next) {
+    console.log(req.body.eid + req.body.type)
+
+    if (req.body.type === "Dietician") {
+        var k = {
+            $set:
+            {rdietianID: undefined}
+        }
+
+        Customer.findByIdAndUpdate({
+            _id:req.user
+        }, k).then(function (c) {
+            console.log(c);
+            res.json("successfull");
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+    }
+    else {
+        var k = {
+            $set:
+            {rtrainerID: null}
+        }
+
+        Customer.findByIdAndUpdate({
+            _id:req.user
+        }, k).then(function (c) {
+            console.log(c);
+            res.json("successfull");
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+
+    }
 })
 
 module.exports = router
