@@ -33,7 +33,8 @@ import Resetpassword from './components/general/resetpassword';
 import Newpassword from './components/general/newpassword';
 import Editpost from './components/physicalTrainer/postsSection/editpost.component';
 import AllPosts from './components/general/allPosts.component';
-
+import chatc from './components/Chat/chatc.component';
+import ChatT from './components/Chat/chatt.component';
  
 
 
@@ -54,7 +55,8 @@ function App() {
       <Route path = "/trainerAccount/:type/:id" exact component={ExpertAccount}/>
       <Route path = "/blog/:id" exact component={Blog}/>
       <Route path = "/myDietPlans" exact component={MyDietPlans}/>
-      <Route path = "/messenger" exact component={Messenger}/> 
+      <Route path = "/messenger" exact component={chatc}/> 
+      <Route path = "/messengert" exact component={ChatT}/> 
       <Route path = "/videoChat" exact component={VideoChat}/> 
       <Route path = "/myWorkoutPlans" exact component={MyWorkoutPlans}/> 
       <Route path = "/signInOut" exact component={signInOut}/> 
@@ -67,6 +69,7 @@ function App() {
       <Route path = "/resetpassword" exact component ={Resetpassword}/>
       <Route path = "/newpassword/:token" exact component ={Newpassword}/>
       <Route path = "/editpost/:id" exact component = {Editpost}/>
+      
   </Router>
   <Fitbot/>
 </div>

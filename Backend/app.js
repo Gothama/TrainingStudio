@@ -39,6 +39,12 @@ app.use('/general' , generalRouter)
 const postRouter = require('./routes/post')
 app.use('/post' , postRouter)
 
+const adminRouter = require('./routes/admin')
+app.use('/admin' , adminRouter)
+
+const chatRouter = require('./routes/chat')
+app.use('/chat' , chatRouter)
+
 app.listen(9020,()=>{
     console.log('server started on 9020')
 })

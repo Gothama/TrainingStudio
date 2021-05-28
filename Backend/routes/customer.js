@@ -4,7 +4,8 @@ const Customer = require('../models/customer')
 const { check, validationResult } = require("express-validator")
 const jwt = require('jsonwebtoken');
 const auth = require("../middleware/auth");
-const Trainer = require('../models/trainer')
+const Trainer = require('../models/trainer');
+const chat = require('../models/chat');
 
 //signUp router
 router.post("/ncustomer",
@@ -411,14 +412,22 @@ router.post("/delete", auth, function (req, res, next) {
 //register with an expert
 router.post('/register', auth, function (req, res, next) {
     console.log(req.body.eid + req.body.type)
+    
+    chat.create({
+        customerID:req.user,
+        expertID:req.body.eid
+    }).then(function (c) {
+        console.log(c._id + " Chat room Created")
+    }).catch(err => {
+        console.log(err)
+        res.send("fail on creating chat room")
+    })
 
     if (req.body.type === "Dietician") {
         var k = {
             $set:
             {
-           
                     rdietianID: req.body.eid
-     
             }
         }
 
