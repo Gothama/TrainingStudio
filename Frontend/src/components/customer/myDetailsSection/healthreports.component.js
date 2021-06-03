@@ -40,6 +40,17 @@ export default class HealthReports extends Component{
     })
   }
 
+  
+  unsuccessfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
   getData=()=>{
     axios.post("http://localhost:9020/customer/gethealthreports", {},
     {
@@ -90,7 +101,8 @@ export default class HealthReports extends Component{
     formData.append("upload_preset" , "w2qn2jsf")
     axios.post("https://api.cloudinary.com/v1_1/dbecgupu0/image/upload", formData, {onUploadProgress: data => {
         
-        this.setState({uploading:Math.round((100 * data.loaded) / data.total)})}
+        this.setState({uploading:Math.round((100 * data.loaded) / data.total)})
+        this.successfulmessage("Image Uploaded Successfully")}
         
       }).then((res)=>{
         console.log(res)
@@ -121,12 +133,12 @@ export default class HealthReports extends Component{
     })
     .then(res=>{
       console.log(res.data)
-      if(res.data.K==="Successfull"){
+      if(res.data.k==="Successfull"){
          this.successfulmessage("Health Report Added Successfully")
          window.location.reload()
       }
      else{
-      this.successfulmessage("unuccessfully")
+      this.unsuccessfulmessage("unusccessfully")
      }
       
     }).catch(err => {
@@ -135,7 +147,7 @@ export default class HealthReports extends Component{
   }
   
   deleteBlog=(id)=>{
-    window.alert(id)
+
     siAPI1.post("/delete" , {id:id} , {headers:{Authorization:"Bearer "+ localStorage.getItem("token")}}).then(res=>{
       console.log(res)
       this.successfulmessage("Health Report Deleted Successfully")

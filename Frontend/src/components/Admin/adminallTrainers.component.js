@@ -3,16 +3,16 @@ import {Table} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import axios from 'axios';
 
-export default class AdminAllCustomers extends Component{
+export default class AdminAllTrainers extends Component{
   state={
-    customers:[]
+    trainers:[]
   }
 
 constructor(){
   super();
-  axios.get("http://localhost:9020/admin/allcustomers" ).then(res=>{
+  axios.get("http://localhost:9020/admin/alltrainers" ).then(res=>{
     this.setState({
-      customers:res.data
+      trainers:res.data
     })
   }).catch(err => {
     window.alert(err)
@@ -42,7 +42,7 @@ return(
     </tr>
   </thead>
   <tbody>
-    {this.state.customers.map(c=>
+    {this.state.trainers.map(c=>
  <tr>
       <td>1</td>
       <td>{c.name.fName}</td>

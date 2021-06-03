@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {Component} from 'react';
 import {Card} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
@@ -6,6 +7,39 @@ import image1 from "../../assets/images/customerIcon.png"
 
 export default class Summary extends Component{
   
+  state={
+    dieticians:"",
+    customers:"",
+    trainers:""
+  }
+
+constructor(){
+  super();
+  axios.get("http://localhost:9020/admin/nodieticians" ).then(res=>{
+    this.setState({
+      dieticians:res.data
+    })
+  }).catch(err => {
+    window.alert(err)
+  })
+
+  axios.get("http://localhost:9020/admin/notrainers" ).then(res=>{
+    this.setState({
+      trainers:res.data
+    })
+  }).catch(err => {
+    window.alert(err)
+  })
+
+  axios.get("http://localhost:9020/admin/nocustomers" ).then(res=>{
+    this.setState({
+      customers:res.data
+    })
+  }).catch(err => {
+    window.alert(err)
+  })
+}
+
     render(){
 return(
 
@@ -25,7 +59,7 @@ return(
     <br/><br/>
     <Button variant="danger">New Member (%) : 10 %</Button>
     <br/><br/>
-    <Button variant="warning">Total Dieticians : 20</Button>
+    <Button variant="warning">Total Dieticians : {this.state.dieticians}</Button>
     </div>
   </Card.Body>
 </Card>
@@ -40,7 +74,7 @@ return(
     <br/><br/>
     <Button variant="danger">New Member (%) : 10 %</Button>
     <br/><br/>
-    <Button variant="warning">Total Physical Trainers : 20</Button>
+    <Button variant="warning">Total Physical Trainers : {this.state.trainers}</Button>
     </div>
   </Card.Body>
 </Card>
@@ -56,7 +90,7 @@ return(
     <br/><br/>
     <Button variant="danger">New Member (%) : 10 %</Button>
     <br/><br/>
-    <Button variant="warning">Total Customers : 20</Button>
+    <Button variant="warning">Total Customers : {this.state.customers}</Button>
     </div>
   </Card.Body>
 </Card>

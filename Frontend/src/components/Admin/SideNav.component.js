@@ -11,6 +11,8 @@ import viewComfy from '@iconify-icons/mdi/view-comfy';
 import AdminAllCustomers from './adminallCustomers.component';
 import Summary from './summary.component';
 import Anlysis from './analysis.component';
+import AdminAllTrainers from './adminallTrainers.component';
+import AdminAllDieticians from './adminallDieticians.component ';
 
 
 export default class SideNav extends Component{
@@ -60,14 +62,14 @@ return(
         <Summary/>
         </Tab.Pane>
         <Tab.Pane eventKey="second">
-          <AdminAllCustomers />
+        <AdminAllCustomers />
         </Tab.Pane>
         <Tab.Pane eventKey="third">
-          <AdminAllCustomers />
+        <AdminAllDieticians />  
         </Tab.Pane>
 
         <Tab.Pane eventKey="fifth">
-          <AdminAllCustomers />
+        <AdminAllTrainers />
         </Tab.Pane>
         <Tab.Pane eventKey="sixth">
           <Anlysis/>

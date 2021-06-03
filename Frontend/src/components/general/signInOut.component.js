@@ -5,6 +5,7 @@ import image2 from "../../assets/images/facebook.png"
 import image3 from "../../assets/images/instagram.png"
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 const siAPI1 = axios.create({
   baseURL: `http://localhost:9020/customer`
@@ -192,7 +193,7 @@ export default class signInOut extends Component {
               </label>
               <button className="submit button1" type="submit">Sign In</button>
             </form>
-            <p className="forgot-pass">Forgot Password ?</p>
+            <Link to="/resetpassword"><p className="forgot-pass">Forgot Password ?</p></Link>
             <div className="social-media">
               <ul>
                 <li><img src={image1} alt="" /></li>

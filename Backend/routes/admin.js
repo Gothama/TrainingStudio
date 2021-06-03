@@ -44,7 +44,7 @@ router.get("/nodieticians", function (req, res) {
 
 //quantity of dieticians
 router.get("/notrainers", function (req, res) {
-    Trainer.count({type:"Trainers"}).then(function (t) {
+    Trainer.count({type:"Trainer"}).then(function (t) {
         res.json(t);
     }).catch(err => {
         res.json("Error")
@@ -58,6 +58,28 @@ router.get("/nocustomers", function (req, res) {
     }).catch(err => {
         res.json("Error")
     })
+})
+
+//delete a customers
+router.post('/cdelete/:id', auth, function (req, res, next) {
+    customer.findOneAndDelete({ _id: req.params.id }).then(function (c) {
+        res.send("okay");
+    }).catch(err => {
+        console.log(err)
+        res.send('fail' + err);
+    });
+
+})
+
+//delete a trainer/dietician
+router.post('/tdelete/:id', auth, function (req, res, next) {
+    Trainer.findOneAndDelete({ _id: req.params.id }).then(function (c) {
+        res.send("okay");
+    }).catch(err => {
+        console.log(err)
+        res.send('fail' + err);
+    });
+
 })
 
 

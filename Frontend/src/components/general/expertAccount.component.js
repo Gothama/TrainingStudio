@@ -8,6 +8,7 @@ import Moment from 'react-moment';
 import { PayPalButton } from "react-paypal-button-v2";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export default class ExpertAccount extends Component {
   state = {
@@ -57,6 +58,28 @@ export default class ExpertAccount extends Component {
     this.setState({ register: true })
     
   }
+
+  successfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  
+  unsuccessfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
   onPaymentSuccess = (details, data) => {
     // alert("Transaction completed by " + details.payer.name.given_name);
 
@@ -69,7 +92,7 @@ export default class ExpertAccount extends Component {
       }).then(res => {
         console.log(res.data)
         if(res.data === "successfull"){
-          alert("successfull")
+          this.successfulmessage("Registered Successfully")
         }
         else{
           alert(res.data)
@@ -152,7 +175,7 @@ export default class ExpertAccount extends Component {
                       null}
 
 
-                    {(localStorage.getItem("loggedIn") !== "loggedIn") ? <div><Link to="/signinsignout"><Button style={{ backgroundColor: "red" }}>Please Sign In</Button></Link> </div> :
+                    {(localStorage.getItem("loggedIn") !== "loggedIn") ? <div><Link to="/signInOut"><Button style={{ backgroundColor: "red" }}>Please Sign In</Button></Link> </div> :
                       null}
 
 

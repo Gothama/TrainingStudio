@@ -147,7 +147,7 @@ router.put('/addhealthreports',
             Customer.findByIdAndUpdate({ _id: req.user }
                 , k).then(function (c) {
                     console.log(c);
-                    res.json(c);
+                    res.json({"r" : c , "k":"Successfull"});
                 }).catch(err => {
                     console.log(err)
                     res.send('fail' + err);
