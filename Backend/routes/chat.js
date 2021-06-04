@@ -17,9 +17,9 @@ router.post("/chatroomidc", auth , function (req, res) {
 
 router.post("/chatroomidt", auth , function (req, res) {
     console.log(req.user);
-    chat.findOne({expertID:req.user}).then(function (c) {
+    chat.findOne({expertID:req.user, customerID:req.body.customerID}).then(function (c) {
         console.log(c);
-        res.json(c._id);
+        res.send(c._id);
     }).catch(err => {
         console.log(err)
         res.send('fail' + err);

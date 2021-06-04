@@ -17,16 +17,16 @@ const trainerSchema = new mongoose.Schema({
     name:{
         fName:{
             type:String,
-            default:"First Name"
+            default:null
         },
         lName:{
             type:String,
-            default:"Last Name"
+            default:null
         }
     },
     email:{
         type:String,
-        default:"Email@Email.com"
+        default:null
     },
     gender:{
         type:String,
@@ -37,10 +37,10 @@ const trainerSchema = new mongoose.Schema({
         default:"01234566789"
     },
     cardDetails:{
-        cardNumber:{type:String,default:"01234566789"},
-        expiryDate:{type:String,default:"01234566789"},
-        nameOnCard:{type:String,default:"01234566789"},
-        code:{type:Number, max:999,min:0,default:"0"}
+        cardNumber:{type:String,default:null},
+        expiryDate:{type:String,default:null},
+        nameOnCard:{type:String,default:null},
+        code:{type:Number, max:999,min:0,default:null}
     },
     qualifications:[
         {
@@ -52,7 +52,7 @@ const trainerSchema = new mongoose.Schema({
                     description:{type:String},
         }
     ],
-    fee:{type:Number, min:0, default:0},
+    fee:{type:Number, min:0, default:null},
     profilephotolink:{
         type:String,
         default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
@@ -70,7 +70,7 @@ const trainerSchema = new mongoose.Schema({
     expireToken:Date,
     type:{
         type:String,
-        enum:['Dietician', 'Trainer']
+        enum:["Dietician", "Trainer"]
     },
     registered:{type: Date,default: Date.now }
     

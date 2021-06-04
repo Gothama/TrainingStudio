@@ -7,7 +7,7 @@ import axios from 'axios'
 const socket = io.connect('http://localhost:4000')
 
 
-export default class Chatc extends Component {
+export default class ChatC extends Component {
 
   state = {
     loggedIn: false,
@@ -19,21 +19,24 @@ export default class Chatc extends Component {
     typing: false
   }
 
-  constructor() {
-    super()
+  getData = async () => {
     axios.post("http://localhost:9020/chat/chatroomidc", {},
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
         console.log(res)
+
         this.setState({
-          room: "k",
+          room: res.data,
           userName: "Customer"
         })
       }).catch(err => {
         window.alert(err)
       })
-      socket.emit("join_room", "k");
+  }
+  constructor() {
+    super()
+    this.getData();
   }
 
   componentDidMount() {
@@ -41,6 +44,7 @@ export default class Chatc extends Component {
     {
       socket.on("receive_message", (data) => {
         this.setState({
+          ///messagereceived:[...this.state.messagereceived, data]
           messagereceived: this.state.messagereceived.concat(data)
         })
         this.setState({
@@ -56,33 +60,35 @@ export default class Chatc extends Component {
 
 
   }
-
-
-
   connectToRoom = () => {
-    socket.emit("join_room", "k");
+    this.setState({ loggedIn: true });
+    socket.emit("join_room", this.state.room);
   };
 
   sendMessage = () => {
+    if (!this.state.loggedIn) {
+      this.connectToRoom()
+    }
     let messageContent = {
-      room: "k",
+      room: this.state.room,
       content: {
         author: this.state.userName,
         message: this.state.message,
       },
     };
 
-    let messageContent1 = {
-      room: "k",
-      content: true
-    };
-    console.log(messageContent1.content)
 
     socket.emit("send_message", messageContent);
+
     this.setState({
+      ///messagereceived:[...this.state.messagereceived, data]
       messagereceived: this.state.messagereceived.concat(messageContent.content)
     })
+
+
+
   };
+
 
 
   onchangeMesage = (event) => {
@@ -93,46 +99,47 @@ export default class Chatc extends Component {
   render() {
     return (
       <div>
-        <div className="App">
+        <div className="App cta2" >
 
-          <div className="chatContainer" style={{ width: "600px", margin: "auto", height: "100vh", overflowX: "hidden", overflowY: "auto", backgroundColor: "#ADFF2F" }}>
+          <div className="chatContainer container" style={{ margin: "auto", height: "98vh", overflowX: "hidden", overflowY: "auto", backgroundColor: "#522909" }}>
             {this.state.typing ? <p>typing</p> : null}
-
             {this.state.messagereceived.map(e => {
               return (<div>
                 { this.state.userName === e.author ? <Row>
                   <Col><div style={{ color: "white", textAlign: "left", backgroundColor: "blue", padding: "10px", margin: "10px", borderRadius: "10px" }}>
-                    <h3>Author {e.author}</h3>
-                    <h2>Message  {e.message}</h2>
+
+                    <h4>{e.message}</h4>
+                    <p>By - {e.author}</p>
                   </div></Col><Col></Col></Row>
                   :
                   <Row><Col></Col><Col><div style={{ color: "white", textAlign: "right", backgroundColor: "red", padding: "10px", margin: "10px", borderRadius: "10px" }}>
-                    <h3>Author {e.author}</h3>
-                    <h2>Message  {e.message}</h2>
+                       <h4>{e.message}</h4>
+                    <p>By - {e.author}</p>
                   </div></Col></Row>
                 } </div>
               )
-            })
-            }
-
+            })}
 
             <p>Author {this.state.messagereceived1.author}</p> <p>Message {this.state.messagereceived1.message}</p>
-            <div className="messageInputs" style={{ position: "fixed", bottom: "2px", backgroundColor: "white", width: "1000px", height: "60px", paddingBottom: "20px", paddingTop: "10px", paddingLeft: "10px" }} >
+            <div className="container" style={{ position: "fixed", bottom: "2px", height: "60px", paddingBottom: "20px", paddingTop: "10px" }} >
 
-              <Row style={{ paddingLeft: "20px" }}>
-                <Form.Control type="text" placeholder="Message..."
-                  style={{ width: "90%", marginRight: "10px" }}
-                  onChange={this.onchangeMesage}
+              <div className="row" >
+                <div className="col-lg-11 col-md-8s col-xs-12" >
+                  <Form.Control type="text"
+                    style={{ width: "100%" }}
+                    onChange={this.onchangeMesage}
 
-                />
-
-
-                <Button variant="primary" onClick={this.sendMessage} style={{ width: "8%" }}>Send</Button></Row>
+                  />
+                </div>
+                <div className="col-lg-1 col-md-4 col-xs-12" >
+                  <Button variant="primary" onClick={this.sendMessage}>Send</Button>
+                </div>
+              </div>
 
             </div>
           </div>
-      )
-    </div>
+
+        </div>
       </div>
     )
   }

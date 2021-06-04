@@ -1,15 +1,43 @@
-
+import { Link } from 'react-router-dom';
 import React, {Component} from 'react';
 import Footer from '../../general/footer.component';
 import {Table} from 'react-bootstrap';
 import TrainerNav from '../trainerNav.component';
 import {Button,Card} from 'react-bootstrap';
 import addBlogImage from '../../../assets/images/customerSection.png'
+import axios from 'axios';
+import CsvDownload from 'react-json-to-csv'
 //import {Link} from 'react-router-dom';
 
 //import Footer from '../general/footer.component';
 
+const siAPI1 = axios.create({
+  baseURL: `http://localhost:9020/trainer`
+})
+
 export default class AllCustomers extends Component{
+  state = {
+    customers: []
+  }
+
+  constructor() {
+    super()
+
+    siAPI1.post("/allMyCustomers", {type:localStorage.getItem("AccountType")}, 
+    {
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+    })
+      .then(res => {
+        this.setState({
+          customers: res.data
+        })
+        console.log(this.state.customers)
+
+      }).catch(err => {
+        window.alert(err)
+      })
+  }
+
   
     render(){
 return(
@@ -29,14 +57,14 @@ return(
     <Card.Text style={{ color:"white", fontSize:"30px", lineHeight:"60px", fontWeight:"bolder"}}>
     Manage all your customers
     </Card.Text>
-    {/*<Button variant="danger">Add New Blog</Button>*/}
+    <CsvDownload data={this.state.customers} />
   </Card.ImgOverlay>
 </Card>
 </div>
 <Table striped bordered hover variant="dark" >
   <thead >
     <tr >
-      <th >#</th>
+
       <th style={{textAlign:"center"}}>First Name</th>
       <th style={{textAlign:"center"}}>Last Name</th>
       <th style={{textAlign:"center"}}>Age</th>
@@ -45,54 +73,16 @@ return(
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Kenneth</td>
-      <td>35</td>
-      <td>markenneth@gmail.com</td>
-      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Button variant="primary">Payments</Button></td>
+     {this.state.customers.map(c=>
+     <tr>
+      <td>{c.name.fName}</td>
+      <td>{c.name.lName}</td>
+      <td>{c.age}</td>
+      <td>{c.email}</td>
+      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Link to ={`/messengert/${c._id}`}><Button variant="success">Message</Button></Link> <Button variant="primary">Payments</Button></td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Gothama</td>
-      <td>Rajawasam</td>
-      <td>23</td>
-      <td>gothamaRajawasam@gmail.com</td>
-      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Button variant="primary">Payments</Button></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Kisal</td>
-      <td>Perera</td>
-      <td>56</td>
-      <td>kisalPerera@gmail.com</td>
-      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Button variant="primary">Payments</Button></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>John</td>
-      <td>Thornton</td>
-      <td>56</td>
-      <td>JohnThornton@gmail.com</td>
-      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Button variant="primary">Payments</Button></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Hasitha</td>
-      <td>Wickramasinghe</td>
-      <td>41</td>
-      <td>hasithaWickramasinghe@gmail.com</td>
-      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Button variant="primary">Payments</Button></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Kulesha</td>
-      <td>Senanayaka</td>
-      <td>26</td>
-      <td>KuleshaWickramasinghe@gmail.com</td>
-      <td><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Button variant="primary">Payments</Button></td>
-    </tr>
+    )}
+  
   </tbody>
 </Table>
 </div>

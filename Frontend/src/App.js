@@ -56,7 +56,7 @@ function App() {
       <Route path = "/blog/:id" exact component={Blog}/>
       <Route path = "/myDietPlans" exact component={MyDietPlans}/>
       <Route path = "/messenger" exact component={chatc}/> 
-      <Route path = "/messengert" exact component={ChatT}/> 
+      <Route path = "/messengert/:id" exact component={ChatT}/> 
       <Route path = "/videoChat" exact component={VideoChat}/> 
       <Route path = "/myWorkoutPlans" exact component={MyWorkoutPlans}/> 
       <Route path = "/signInOut" exact component={signInOut}/> 

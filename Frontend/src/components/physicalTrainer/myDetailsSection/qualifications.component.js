@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import {Table} from 'react-bootstrap';
-import {Button, Form, Row, Col} from 'react-bootstrap';
+import {Button, Form, Row, Col, ProgressBar} from 'react-bootstrap';
 import Moment from 'react-moment';
 import Swal from 'sweetalert2'
 import DatePicker from 'react-datepicker'
@@ -17,8 +17,50 @@ export default class qualifications extends Component {
     title:"",
     issuedBy:"",
     description:"",
-    qualificationA:[]
+    qualificationA:[],
+    image1:"",
+    uploading1: ""
 
+  }
+
+  upload = (event) => {
+    event.preventDefault()
+    if (this.state.image1.size === 800 * 618) // 1mb
+      //return alert("Size too large!")
+      return this.message("error", "Size Should be 800 x 618!")
+
+    if (this.state.image1.type !== 'image/jpeg' && this.state.image1.type !== 'image/png' && this.state.image1.type !== 'image/JPG') // 1mb
+      //return alert("File format is incorrect.")
+     return this.message("error", "File format is incorrect.")
+
+
+    console.log("Lonk" +this.state.image1)
+    const formData = new FormData()
+    formData.append("file", this.state.image1)
+    formData.append("upload_preset", "w2qn2jsf")
+    axios.post("https://api.cloudinary.com/v1_1/dbecgupu0/image/upload", formData, {
+      onUploadProgress: data => {
+
+        this.setState({ uploading1: Math.round((100 * data.loaded) / data.total) })
+      }
+
+    }).then((res) => {
+      console.log(res)
+      this.setState({ linkTo: res.data.secure_url })
+      this.message("success", "Certificate Photo uploaded")   
+       console.log(this.state.linkTo)
+    }).catch(err => {
+      window.alert(err)
+    })
+
+
+
+  }
+
+  selectImage1 = (event) => {
+    this.setState({
+      image1: event.target.files[0]
+    })
   }
 
   onChangeissuedDate=(event)=>{
@@ -80,7 +122,9 @@ export default class qualifications extends Component {
         headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
     }).then(res=>{
       console.log(res)
-      this.message("success" , "Qualification Deleted Successfully")
+     
+      this.message("success" , "Qualification Deleted Successfully") 
+      window.location.reload();
     }).catch(err => {
       window.alert(err)
   })
@@ -123,9 +167,17 @@ export default class qualifications extends Component {
       headers:{Authorization:"Bearer "+localStorage.getItem("token")}
     }).then(res=>{
       console.log(res.data)
-      window.location.reload();
+      //alert(res.data.success)
+      if(res.data.success){
+
       //window.alert("Successfull")
-      this.message('success' , "Your qualification added Successfully")
+      this.message('success' , "Your qualification added Successfully")         
+      window.location.reload();
+      }
+      else{
+        this.message('error' , "Your qualification added unsuccessfully")
+      }
+     
       
     }).catch(err => {
       //window.alert(err)
@@ -178,15 +230,20 @@ export default class qualifications extends Component {
       <Form.Control type="text" onChange={this.onChangetitle} required/>
     </Col>
   </Form.Group>
-
-  <Form.Group as={Row} controlId="formHorizontalLName" >
-    <Form.Label column sm={2}>
-      Qualification Link
+  <Form.Group as={Row} controlId="formHorizontalFName" >
+                  <Form.Label column sm={2}>
+                    Certificate Image
     </Form.Label>
-    <Col sm={10}>
-      <Form.Control type="text" onChange={this.onChangelinkTo} required/>
-    </Col>
-  </Form.Group>
+                  <Col sm={8}>
+                    <Form.Control type="file" Value={this.state.image1} onChange={this.selectImage1} />
+
+                  </Col>
+                  <Col sm={2}>
+                    <Button type="button" onClick={this.upload} style={{ backgroundColor: "red" }}>Upload Image</Button>
+                  </Col>
+                </Form.Group>
+                {this.state.uploading1 && <ProgressBar variant="danger" now={this.state.uploading1} label={`${this.state.uploading1}%`} />}
+                <br />
 
   <Form.Group as={Row} controlId="formHorizontalUserName" >
     <Form.Label column sm={2}>

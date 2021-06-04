@@ -15,6 +15,7 @@ const siAPI2 = axios.create({
 })
 
 export default class signInOut extends Component {
+  
   constructor() {
     super()
     this.state = {
@@ -89,15 +90,16 @@ export default class signInOut extends Component {
           siAPI2.post("/ftrainer", { username: this.state.username, password: this.state.password })
             .then(res => {
               console.log(res.data.statuss)
+
               if (res.data.statuss === "Successfull") {
                 localStorage.removeItem("token");
                 localStorage.removeItem("loggedIn");
                 localStorage.removeItem("AccountType");
                 localStorage.setItem("loggedIn", "loggedIn")
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem("AccountType", "Trainer");
+                localStorage.setItem("AccountType", res.data.type);
                 console.log("verified");
-                this.successfulmessage("Login Successfull as a Trainer");
+                this.successfulmessage("Login Successfull as a "  +res.data.type);
                 this.props.history.push('/')
               }
               else {
@@ -146,7 +148,7 @@ export default class signInOut extends Component {
             localStorage.setItem("loggedIn", "loggedIn")
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("AccountType", this.state.accountType);
-            this.successfulmessage("Sign Up Successfull as a" + this.state.accountType);
+            this.successfulmessage("Sign Up Successfull as a " + this.state.accountType);
             this.props.history.push('/')
           }
           else if (res.data.status === "Already") {

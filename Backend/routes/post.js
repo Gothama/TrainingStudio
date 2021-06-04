@@ -64,8 +64,9 @@ router.post('/delete/:id', auth, function (req, res, next) {
 
 //get a blog by the publisher
 router.post('/getpost', auth, function (req, res, next) {
-    Post.findOne({ _id: req.body.id, authorID: req.user }).then(function (post) {
-        console.log(post)
+    console.log(req.body.postID)
+    Post.findOne({ _id: req.body.postID, authorID: req.user }).then(function (post) {
+        console.log( req.body.postID)
         res.send(post);
     }).catch(err => {
         console.log(err)

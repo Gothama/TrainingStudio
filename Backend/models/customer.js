@@ -1,102 +1,102 @@
 const mongoose = require('mongoose')
 
 const customerSchema = new mongoose.Schema({
-    credentials:{
-        password:{
-            type:String,
-            required:true,
-            unique:true
+    credentials: {
+        password: {
+            type: String,
+            required: true,
+            unique: true
         },
-        username:{
-            type:String,
-            required:true,
-            unique:true
+        username: {
+            type: String,
+            required: true,
+            unique: true
         }
     },
-    
-        rdietianID:{
-            type: mongoose.Schema.ObjectId, ref: 'Trainer'
-        },
-        rtrainerID:{
-            type: mongoose.Schema.ObjectId, ref: 'Trainer'
-        }
+
+    rdietianID: {
+        type: mongoose.Schema.ObjectId, ref: 'Trainer'
+    },
+    rtrainerID: {
+        type: mongoose.Schema.ObjectId, ref: 'Trainer'
+    }
     ,
-    name:{
-        fName:{
-            type:String,
-            default:"Enter your name"
+    name: {
+        fName: {
+            type: String,
+            default: "Enter your name"
         },
-        lName:{
-            type:String,
-            default:"Enter your name"
+        lName: {
+            type: String,
+            default: "Enter your name"
         }
     },
-    dob:{
-        type:Date
+    dob: {
+        type: Date
     },
-    email:{
-        type:String
+    email: {
+        type: String
     },
-    gender:{
-        type:String,
-        enum:['Male', 'Female']
+    gender: {
+        type: String,
+        enum: ['Male', 'Female']
     },
-    bloodGroup:{
-        type:String
+    bloodGroup: {
+        type: String
     },
-    sugarLevel:[
+    sugarLevel: [
         {
-            checkedDate:{type: Date, default: Date.now },
-            level:{type: Number,min:0}
+            checkedDate: { type: Date, default: Date.now },
+            level: { type: Number, min: 0 }
         }
     ],
-    phoneNumber:{
-        type:String,
-        default:"Enter your phone number"
+    phoneNumber: {
+        type: String,
+        default: "Enter your phone number"
     },
-    weight:[
+    weight: [
         {
-            checkedDate:{type: Date, default: Date.now },
-            amount:{type: Number, min:0}
+            checkedDate: { type: Date, default: Date.now },
+            amount: { type: Number, min: 0 }
         }
     ],
-    height:{
-        type:Number
+    height: {
+        type: Number
     },
-    cardDetails:{
-        cardNumber:{type:String},
-        expiryDate:{type:String},
-        nameOnCard:{type:String},
-        code:{type:Number, max:999,min:0}
+    cardDetails: {
+        cardNumber: { type: String },
+        expiryDate: { type: String },
+        nameOnCard: { type: String },
+        code: { type: Number, max: 999, min: 0 }
     },
-    bloodPressure:[
+    bloodPressure: [
         {
-            checkedDate:{type: Date, default: Date.now },
-            level:{type: Number,min:0}
+            checkedDate: { type: Date, default: Date.now },
+            level: { type: Number, min: 0 }
         }
     ],
-    healthReports:[
+    healthReports: [
         {
-            issuedDate:{type: Date,default: Date.now },
-            link:{type: String},
-            description:{type: String},
-            addeddate:{type:Date, default:Date.now}
+            issuedDate: { type: Date, default: Date.now },
+            link: { type: String },
+            description: { type: String },
+            addeddate: { type: Date, default: Date.now }
         }
     ],
-    rating:{
-        totalRating:{type:Number},
-        totalRated:{type:Number}
+    rating: {
+        totalRating: { type: Number },
+        totalRated: { type: Number }
     },
-    profilephotolink:{
-        type:String,
-        default:"https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
+    profilephotolink: {
+        type: String,
+        default: "https://res.cloudinary.com/dbecgupu0/image/upload/v1619377477/profile_ybple8.jpg"
     },
 
-    resetToken:String,
-    expireToken:Date,
-    registered:{type: Date,default: Date.now }
+    resetToken: String,
+    expireToken: Date,
+    registered: { type: Date, default: Date.now }
 
-    
+
 })
 
 module.exports = mongoose.model('Customer', customerSchema)

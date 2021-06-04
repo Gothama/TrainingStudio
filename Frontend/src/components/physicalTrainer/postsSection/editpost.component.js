@@ -24,7 +24,7 @@ export default class Editpost extends Component {
         console.log(window.location.pathname.split("editpost/")[1])
         siAPI1.post("/getpost",
             {
-                id: this.props.match.params.id
+                postID: this.props.match.params.id
             },
             {
                 headers: { Authorization: "Bearer " + localStorage.getItem("token") }

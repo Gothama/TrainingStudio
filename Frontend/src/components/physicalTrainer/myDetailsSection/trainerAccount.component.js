@@ -54,9 +54,9 @@ export default class TrainerAccount extends Component {
 
   upload1 = (event) => {
 
-    if (this.state.image1.size !== 535 * 693) // 1mb
+    //if (this.state.image1.size !== 535 * 693) // 1mb
       //return alert("Size too large!")
-      return this.message("error", "Size Should be 535x693!")
+     // return this.message("error", "Size Should be 535x693!")
 
     if (this.state.image1.type !== 'image/jpeg' && this.state.image1.type !== 'image/png') // 1mb
       //return alert("File format is incorrect.")
@@ -85,7 +85,7 @@ export default class TrainerAccount extends Component {
 
   upload = (event) => {
 
-    if (this.state.image.size !== 600 * 600) // 1mb
+    if (this.state.image.size >= 600 * 600) // 1mb
       //return alert("Size too large!")
       return this.message("error", "Size should be 600x600!")
 
@@ -309,7 +309,7 @@ export default class TrainerAccount extends Component {
                     First Name
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangefName} />
+                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangefName} placeholder={"Add Your First Name"}/>
                   </Col>
                 </Form.Group>
 
@@ -318,7 +318,7 @@ export default class TrainerAccount extends Component {
                     Last Name
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.lName} onChange={this.onChangelName} required />
+                    <Form.Control type="text" Value={this.state.lName} onChange={this.onChangelName} required placeholder={"Add Your Last Name"}/>
                   </Col>
                 </Form.Group>
 
@@ -345,7 +345,7 @@ export default class TrainerAccount extends Component {
                     Fee per plan
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="number" Value={this.state.fee} onChange={this.onChangefee} required />
+                    <Form.Control type="number" Value={this.state.fee} onChange={this.onChangefee} required  placeholder={"Add Your Fee Per Plan"}/>
                   </Col>
                 </Form.Group>
 
@@ -354,7 +354,7 @@ export default class TrainerAccount extends Component {
                     Mobile No.
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.phoneNumber} onChange={this.onChangephoneNumber} required />
+                    <Form.Control type="text" Value={this.state.phoneNumber} onChange={this.onChangephoneNumber} required minlength="10" maxLength="10"  placeholder={"Add Your Phone Number"}/>
                   </Col>
                 </Form.Group>
 
@@ -363,7 +363,7 @@ export default class TrainerAccount extends Component {
                     Email
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="email" Value={this.state.email} onChange={this.onChangeemail} required />
+                    <Form.Control type="email" Value={this.state.email} onChange={this.onChangeemail} required placeholder={"Add Your Email"}/>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formHorizontalFName" >
@@ -426,17 +426,19 @@ export default class TrainerAccount extends Component {
                     </Col>
                   </Form.Group>
                 </fieldset>
-
-
+             
                 <Form.Group as={Row} controlId="formHorizontalAge">
                   <Form.Label column sm={2}>
-                    Card Details 1
+                    Name on Card
     </Form.Label>
-                  <Col sm={5}>
-                    <Form.Control type="text" Value={this.state.nameOnCard} onChange={this.onChangenameOnCard} required />
+                  <Col sm={4}>
+                    <Form.Control type="text" Value={this.state.nameOnCard} onChange={this.onChangenameOnCard} required placeholder={"Name on Card"}/>
                   </Col>
-                  <Col sm={5}>
-                    <Form.Control type="text" Value={this.state.expiryDate} onChange={this.onChangeexpiryDate} required />
+                  <Form.Label column sm={2}>
+                    Expiry Date
+    </Form.Label>
+                  <Col sm={4}>
+                    <Form.Control type="text" Value={this.state.expiryDate} onChange={this.onChangeexpiryDate} required placeholder={"Expiry Date"}/>
                   </Col>
                 </Form.Group>
 
@@ -444,11 +446,14 @@ export default class TrainerAccount extends Component {
                   <Form.Label column sm={2}>
                     Card Details 2
     </Form.Label>
-                  <Col sm={5}>
+                  <Col sm={4}>
                     <Form.Control type="text" Value={this.state.cardNumber} onChange={this.onChangenameOnCard} required />
                   </Col>
-                  <Col sm={5}>
-                    <Form.Control type="text" Value={this.state.code} onChange={this.onChangecode} required />
+                  <Form.Label column sm={2}>
+                    Card Security code
+    </Form.Label>
+                  <Col sm={4}>
+                    <Form.Control type="text" Value={this.state.code} onChange={this.onChangecode} required placeholder={"Card Security code"}/>
                   </Col>
                 </Form.Group>
 

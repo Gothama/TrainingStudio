@@ -51,6 +51,7 @@ router.post("/ntrainer",
                         else{
                             Trainer.create(trainer).then(function (c) {
                                 console.log(c._id)
+                                console.log(c.type)
                                 const user = { id: c._id }
                                 jwt.sign(
                                     { user },
@@ -58,7 +59,7 @@ router.post("/ntrainer",
                                     { expiresIn: 360000000 },
                                     (err, token) => {
                                         if (err) throw err;
-                                        res.json({ "token": token, "status": "Successfull" });
+                                        res.json({ "token": token, "status": "Successfull" , "type" : c.type.toString()});
                                     }
                 
                                 );
@@ -98,7 +99,7 @@ router.post('/ftrainer', function (req, res, next) {
                     { expiresIn: 360000000 },
                     (err, token) => {
                         if (err) throw err;
-                        res.json({ "token": token, "statuss": "Successfull" });
+                        res.json({ "token": token, "statuss": "Successfull", "type" : c.type.toString()});
                     }
 
                 );
@@ -166,7 +167,7 @@ router.put('/addDetails',
 router.put('/addQualification',
     [
         check('issuedDate', "Issued Date is required").not().isEmpty(),
-        check('issuedDate', "Issued Date should be a date").isDate(),
+        //check('issuedDate', "Issued Date should be a date").isDate(),
         check('qualificationID', "qualificationID is required").not().isEmpty(),
         check("linkTo", "linkTo should be a link").isURL(),
         check("title", "title is required").not().isEmpty(),
@@ -201,7 +202,7 @@ router.put('/addQualification',
             Trainer.findByIdAndUpdate({ _id: req.user }
                 , k).then(function (c) {
                     console.log(c);
-                    res.json(c);
+                    res.json({"success" : true});
                 }).catch(err => {
                     console.log(err)
                     res.send('fail' + err);
@@ -307,6 +308,27 @@ router.get("/allDtrainers", function (req, res) {
         res.json("Error")
     })
 })
+
+router.post("/allMyCustomers", auth , function (req, res) {
+    console.log(req.user);
+    if(req.body.type==="Trainer"){
+           customer.find({rtrainerID: req.user} , {credentials:{username:0 , password:0}, healthReports:0}).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json("Error")
+    }) 
+    }
+    else{
+        customer.find({rdietianID: req.user},{credentials:0}).then(function (t) {
+            res.json(t);
+        }).catch(err => {
+            res.json("Error")
+        }) 
+    }
+
+})
+
+
 
 
 module.exports = router

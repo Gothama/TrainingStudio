@@ -117,7 +117,7 @@ export default class addBlog extends Component {
       .then(res => {
         console.log(res)
         this.message("success", "Blog added Successfully")
-
+        this.props.history.push('/myBlogs')
       }).catch(err => {
         window.alert(err)
       })

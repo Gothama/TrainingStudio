@@ -24,7 +24,6 @@ return(
       <Nav.Link href="/expertMyAccount"  style={{color:"white"}}>My Details</Nav.Link>
       <Nav.Link href="/myBlogs" style={{color:"white"}}>My Blogs</Nav.Link>
       <Nav.Link href="/myPosts"  style={{color:"white"}}>My Posts</Nav.Link>
-      <Nav.Link href="/messengert"  style={{color:"white"}}>Messenger</Nav.Link>
       <Nav.Link href="/allCustomers"  style={{color:"white"}}>All Customers</Nav.Link>
      
      
