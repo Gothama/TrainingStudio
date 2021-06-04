@@ -34,7 +34,7 @@ const trainerSchema = new mongoose.Schema({
     },
     phoneNumber:{
         type:String,
-        default:"01234566789"
+        default:null
     },
     cardDetails:{
         cardNumber:{type:String,default:null},
