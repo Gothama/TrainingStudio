@@ -36,7 +36,7 @@ export default class ExpertAccount extends Component {
     super(props)
 
 
-    axios.post("http://localhost:9020/trainer/ffdetail", { id: this.props.match.params.id }).then(res => {
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}trainer/ffdetail`, { id: this.props.match.params.id }).then(res => {
       this.setState({
         fName: res.data.name.fName,
         lName: res.data.name.lName,
@@ -87,13 +87,13 @@ export default class ExpertAccount extends Component {
     console.log(data);
 
     if(data.payerID!==null){
-      axios.post("http://localhost:9020/customer/register", { eid: this.props.match.params.id, type:this.state.type },{
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}customer/register`, { eid: this.props.match.params.id, type:this.state.type },{
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
         console.log(res.data)
         if(res.data === "successfull"){
           this.successfulmessage("Registered Successfully")
-          
+
         }
         else{
           alert(res.data)
@@ -191,8 +191,8 @@ export default class ExpertAccount extends Component {
                     <tr >
 
                       <th style={{ textAlign: "center", width: "5vh" }}>Title</th>
-                      <th style={{ textAlign: "center", width: "10vh" }}>qualification ID</th>
-                      <th style={{ textAlign: "center", width: "10vh" }}>Issued By</th>
+                      <th style={{ textAlign: "center", width: "5vh" }}>qualification ID</th>
+                      <th style={{ textAlign: "center", width: "15vh" }}>Issued By</th>
                       <th style={{ textAlign: "center", width: "10vh" }}>Issued Date</th>
                       <th style={{ textAlign: "center", width: "10vh" }}>Description</th>
                       <th style={{ textAlign: "center", width: "10vh" }}>Link To</th>

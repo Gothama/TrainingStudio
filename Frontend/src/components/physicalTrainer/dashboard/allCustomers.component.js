@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 import Moment from 'react-moment';
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/trainer`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}trainer`
 })
 
 export default class AllCustomers extends Component {
@@ -73,7 +73,7 @@ export default class AllCustomers extends Component {
 
   showpayments = (id) => {
     //console.log(id)
-    axios.post("http://localhost:9020/payment/allrPcustomer" , {payerID:id},
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}payment/allrPcustomer` , {payerID:id},
     {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") }
     }

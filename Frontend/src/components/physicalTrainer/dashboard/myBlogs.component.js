@@ -8,7 +8,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/blog`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}blog`
 })
 
 

@@ -119,7 +119,7 @@ export default class qualifications extends Component {
 
   deletequalification = (id1) => {
     console.log(id1)
-    axios.post("http://localhost:9020/trainer/deletequalification", { id: id1 },
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}trainer/deletequalification`, { id: id1 },
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
@@ -143,7 +143,7 @@ export default class qualifications extends Component {
   }
 
   getData = () => {
-    axios.post("http://localhost:9020/trainer/getqualification", {},
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}trainer/getqualification`, {},
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
@@ -166,7 +166,7 @@ export default class qualifications extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    axios.put("http://localhost:9020/trainer/addQualification", {
+    axios.put(`${process.env.REACT_APP_BACKEND_URL}trainer/addQualification`, {
 
       issuedDate: this.state.issuedDate,
       qualificationID: this.state.qualificationID,

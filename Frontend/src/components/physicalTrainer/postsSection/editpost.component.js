@@ -9,7 +9,7 @@ import 'suneditor/dist/css/suneditor.min.css';
 
 
 const siAPI1 = axios.create({
-    baseURL: `http://localhost:9020/post`
+    baseURL:`${process.env.REACT_APP_BACKEND_URL}post`
 })
 
 export default class Editpost extends Component {

@@ -16,7 +16,7 @@ export default class AllDieticians extends Component {
 
   constructor() {
     super()
-    axios.get("http://localhost:9020/trainer/alldtrainers").then(res => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}trainer/alldtrainers`).then(res => {
       this.setState({
         trainers: res.data
       })
@@ -42,7 +42,7 @@ export default class AllDieticians extends Component {
 
               {this.state.trainers.map(t =>
 
-                <div className="col-lg-4 col-md-4 col-xs-12" data-aos="zoom-in" data-aos-delay="100">
+                <div className="col-lg-4 col-md-4 col-xs-12" style={{ paddingBottom: "10px" }}data-aos="zoom-in" data-aos-delay="100">
                   <div className="course-item">
                     <img src={t.posterphotoLink} className="img-fluid" alt="..." />
                     <div className="course-content">

@@ -15,7 +15,7 @@ export default class Summary extends Component{
 
 constructor(){
   super();
-  axios.get("http://localhost:9020/admin/nodieticians" ).then(res=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/nodieticians` ).then(res=>{
     this.setState({
       dieticians:res.data
     })
@@ -23,7 +23,7 @@ constructor(){
     window.alert(err)
   })
 
-  axios.get("http://localhost:9020/admin/notrainers" ).then(res=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/notrainers` ).then(res=>{
     this.setState({
       trainers:res.data
     })
@@ -31,7 +31,7 @@ constructor(){
     window.alert(err)
   })
 
-  axios.get("http://localhost:9020/admin/nocustomers" ).then(res=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/nocustomers` ).then(res=>{
     this.setState({
       customers:res.data
     })

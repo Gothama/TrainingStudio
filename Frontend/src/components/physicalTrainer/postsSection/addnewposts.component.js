@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/post/npost`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}post/npost`
 })
 
 export default class addPost extends Component {

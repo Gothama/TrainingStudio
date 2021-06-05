@@ -8,10 +8,10 @@ import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/customer`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}customer`
 })
 const siAPI2 = axios.create({
-  baseURL: `http://localhost:9020/trainer`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}trainer`
 })
 
 export default class signInOut extends Component {

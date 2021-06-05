@@ -20,7 +20,7 @@ export default class ChatC extends Component {
   }
 
   getData = async () => {
-    axios.post("http://localhost:9020/chat/chatroomidc", {},
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/chatroomidc`, {},
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {

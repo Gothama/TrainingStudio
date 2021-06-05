@@ -10,7 +10,7 @@ export default class AdminAllDieticians extends Component{
 
 constructor(){
   super();
-  axios.get("http://localhost:9020/admin/allDtrainers" ).then(res=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/allDtrainers` ).then(res=>{
     this.setState({
       trainers:res.data
     })

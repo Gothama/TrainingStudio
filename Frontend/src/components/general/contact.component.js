@@ -20,7 +20,7 @@ export default class Contact extends Component {
 
   contactAdmin = event => {
     event.preventDefault();
-    axios.post("http://localhost:9020/email/contact", { question: this.state.question, remail: this.state.remail, name: this.state.name, subject: this.state.subject }).then(res => {
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}email/contact`, { question: this.state.question, remail: this.state.remail, name: this.state.name, subject: this.state.subject }).then(res => {
 
       if (res.data.status === "Okay") {
         Swal.fire({

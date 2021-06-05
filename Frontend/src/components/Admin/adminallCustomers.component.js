@@ -10,7 +10,7 @@ export default class AdminAllCustomers extends Component{
 
 constructor(){
   super();
-  axios.get("http://localhost:9020/admin/allcustomers" ).then(res=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/allcustomers` ).then(res=>{
     this.setState({
       customers:res.data
     })

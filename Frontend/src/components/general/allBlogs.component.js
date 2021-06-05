@@ -8,7 +8,7 @@ import bxHeart from '@iconify-icons/bx/bx-heart';
 import axios from 'axios'
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/blog`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}blog`
 })
 
 export default class AllBlog extends Component {

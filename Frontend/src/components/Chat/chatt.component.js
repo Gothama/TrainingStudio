@@ -20,7 +20,7 @@ export default class ChatT extends Component {
   }
 
   getData = async () => {
-    axios.post("http://localhost:9020/chat/chatroomidt", {customerID:this.props.match.params.id},
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/chatroomidt`, {customerID:this.props.match.params.id},
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
