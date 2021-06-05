@@ -8,7 +8,6 @@ import Moment from 'react-moment';
 import Swal from 'sweetalert2'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
-import moment from 'moment'
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`

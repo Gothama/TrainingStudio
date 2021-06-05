@@ -1,6 +1,6 @@
-import React, { Component, createRef } from 'react'
+import React, { Component } from 'react'
 import io from 'socket.io-client'
-import { Row, Col, Container, Button, Form } from 'react-bootstrap'
+import { Row, Col, Button, Form } from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -41,10 +41,9 @@ export default class ChatT extends Component {
 
   componentDidMount() {
 
-    {
+    
       socket.on("receive_message", (data) => {
         this.setState({
-          ///messagereceived:[...this.state.messagereceived, data]
           messagereceived: this.state.messagereceived.concat(data)
         })
         this.setState({
@@ -55,7 +54,7 @@ export default class ChatT extends Component {
         console.log(this.state.messagereceived)
       });
 
-    }
+    
 
 
 

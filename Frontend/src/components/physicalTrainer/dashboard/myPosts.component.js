@@ -4,7 +4,6 @@ import Footer from '../../general/footer.component';
 import TrainerNav from '../trainerNav.component';
 import {Button,Card} from 'react-bootstrap';
 import addPostImage from '../../../assets/images/addpost.png'
-import Post1 from '../../../assets/images/thirdtrainer1.png'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2'

@@ -18,7 +18,7 @@ export default class AllCustomers extends Component {
   state = {
     customers: [],
     show: false,
-    paymentsDetails:[]
+    paymentsDetails: []
   }
 
   constructor() {
@@ -73,18 +73,18 @@ export default class AllCustomers extends Component {
 
   showpayments = (id) => {
     //console.log(id)
-    axios.post(`${process.env.REACT_APP_BACKEND_URL}payment/allrPcustomer` , {payerID:id},
-    {
-      headers: { Authorization: "Bearer " + localStorage.getItem("token") }
-    }
-    ).then(res=>{
-      console.log(res)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}payment/allrPcustomer`, { payerID: id },
+      {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+      }
+    ).then(res => {
+      console.log(res.data)
       this.setState({
         show: true,
-        paymentsDetails:res.data
-        
+        paymentsDetails: res.data
+
       })
-      console.log(this.state.paymentsDetails + this.state.show)
+      console.log(this.state.show)
     }).catch(err => {
       alert(err)
     })
@@ -96,29 +96,29 @@ export default class AllCustomers extends Component {
         <TrainerNav />
         <div style={{ backgroundColor: "#14213d", paddingBottom: "100px", paddingTop: "100px" }} >
 
-          <div className="container" style={{/*paddingTop:"100px" ,*/ paddingBottom: "100px" }}>
+          <div className="container" style={{ paddingBottom: "100px" }}>
 
-            <div className="row" >
+            <div className="row col-lg-12 col-md-12 col-xs-12">
 
-              <Card className="bg-dark text-white" style={{ width: '70rem', margin: "0.5rem" }}>
+              <Card className="bg-dark text-white" style={{ margin: "0.5rem" }}>
                 <Card.Img src={addBlogImage} alt="Card image" />
                 <Card.ImgOverlay >
                   <Card.Title style={{ color: "white", fontSize: "30px", lineHeight: "80px", fontWeight: "bolder" }}>All Customers Table</Card.Title>
                   <Card.Text style={{ color: "white", fontSize: "30px", lineHeight: "60px", fontWeight: "bolder" }}>
                     Manage all your customers
     </Card.Text>
-                  <CsvDownload data={this.state.customers} style={{backgroundColor:"red" , borderRadius:"2px" , height:"30px", padding:"2px" , fontSize:"15px", color:"white", borderRadius:"10px"}}>Download Customer Data</CsvDownload>
-                  <CsvDownload data={this.state.customers} style={{backgroundColor:"red" , borderRadius:"2px" , height:"30px", padding:"2px" , fontSize:"15px", color:"white", borderRadius:"10px"}}>Download Customer Data</CsvDownload>
+                  <CsvDownload data={this.state.customers} style={{ backgroundColor: "red", height: "30px", padding: "2px", fontSize: "15px", color: "white", borderRadius: "10px" }}>Download Customer Data</CsvDownload>
+                  <CsvDownload data={this.state.customers} style={{ backgroundColor: "red", height: "30px", padding: "2px", fontSize: "15px", color: "white", borderRadius: "10px" }}>Download Customer Data</CsvDownload>
                 </Card.ImgOverlay>
               </Card>
             </div>
-            <Table striped bordered hover variant="dark" >
+            <Table striped bordered hover variant="dark" className="col-lg-12 col-md-12 col-xs-12">
               <thead >
                 <tr >
 
                   <th style={{ textAlign: "center" }}>First Name</th>
                   <th style={{ textAlign: "center" }}>Last Name</th>
-                  <th style={{ textAlign: "center" }}>Age</th>
+                  <th style={{ textAlign: "center" }}>DOB</th>
                   <th style={{ textAlign: "center" }}>Email</th>
                   <th style={{ textAlign: "center" }}>Manage</th>
                 </tr>
@@ -128,9 +128,9 @@ export default class AllCustomers extends Component {
                   <tr>
                     <td>{c.name.fName}</td>
                     <td>{c.name.lName}</td>
-                     <td><Moment format="YYYY/MM/DD">{c.dob}</Moment></td>
+                    <td><Moment format="YYYY/MM/DD">{c.dob}</Moment></td>
                     <td>{c.email}</td>
-                    <td><Button variant="danger" onClick={() => this.unregistercustomer(c._id)}>Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Link to={`/messengert/${c._id}`}><Button variant="success">Message</Button></Link> <Button variant="primary" onClick={()=>this.showpayments(c._id)}>Payments</Button></td>
+                    <td><Button variant="danger" onClick={() => this.unregistercustomer(c._id)}>Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Link to={`/messengert/${c._id}`}><Button variant="success">Message</Button></Link> <Button variant="primary" onClick={() => this.showpayments(c._id)}>Payments</Button></td>
                   </tr>
                 )}
 
@@ -139,11 +139,11 @@ export default class AllCustomers extends Component {
             {this.state.show ? <Modal show={this.state.show} >
               <Modal.Header>Payments Done</Modal.Header>
               <Modal.Body>
-              {this.state.paymentsDetails.map(p=>{
-                  return (<p>{p.payerID}</p>)
+                {this.state.paymentsDetails.map(pd => {
+                  return (<p style={{ color: "black" }}>{pd.reason} Rs.{pd.paymentamount}.00  <Moment format="YYYY/MM/DD">{pd.paymentdate}</Moment></p>)
                 })}
-              
-               </Modal.Body>
+
+              </Modal.Body>
               <Modal.Footer>
                 <Button onClick={this.close}>
                   Close

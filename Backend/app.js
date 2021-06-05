@@ -48,6 +48,6 @@ app.use('/chat' , chatRouter)
 const paymentRouter = require('./routes/payment')
 app.use('/payment' , paymentRouter)
 
-app.listen(9020,()=>{
+app.listen(process.env.PORT || 9020,()=>{
     console.log('server started on 9020')
 })

@@ -268,7 +268,7 @@ export default class TrainerAccount extends Component {
       <div>
 
         <TrainerNav />
-        <div style={{ backgroundColor: "#14213d", paddingBottom: "100px", paddingTop: "100px" }} >
+        <div style={{ backgroundColor: "#14213d", paddingBottom: "100px", paddingTop: "100px" }} className="col-lg-12 col-md-12 col-xs-12">
 
           <div className="container" style={{ paddingBottom: "100px" }}>
 

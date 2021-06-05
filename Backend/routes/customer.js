@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const auth = require("../middleware/auth");
 const Trainer = require('../models/trainer');
 const chat = require('../models/chat');
+const payments = require('../models/payments');
 
 //signUp router
 router.post("/ncustomer",
@@ -412,7 +413,20 @@ router.post("/delete", auth, function (req, res, next) {
 //register with an expert
 router.post('/register', auth, function (req, res, next) {
     console.log(req.body.eid + req.body.type)
+
     
+    payments.create({
+        payerID:req.user,
+        receiverID:req.body.eid,
+        paymentamount:req.body.fee,
+        reason:"Register"
+    }).then(function(p){
+        console.log("Payment Recorded")
+    }).catch(err=>{
+        console.log(err)
+        res.send("Payment Not recorded")
+    })
+
     chat.create({
         customerID:req.user,
         expertID:req.body.eid

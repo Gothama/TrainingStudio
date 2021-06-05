@@ -87,7 +87,7 @@ export default class ExpertAccount extends Component {
     console.log(data);
 
     if(data.payerID!==null){
-      axios.post(`${process.env.REACT_APP_BACKEND_URL}customer/register`, { eid: this.props.match.params.id, type:this.state.type },{
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}customer/register`, { eid: this.props.match.params.id, fee:200 , type:this.state.type },{
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
         console.log(res.data)

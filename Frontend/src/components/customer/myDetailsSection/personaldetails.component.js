@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-//import {Link} from 'react-router-dom';
 import {Form,Row,Col,Button, ProgressBar} from 'react-bootstrap';
 import axios from 'axios';
 import moment from 'moment';
 import Swal from 'sweetalert2'
-import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 const siAPI1= axios.create({

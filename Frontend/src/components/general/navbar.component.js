@@ -12,15 +12,6 @@ export default class Navbar extends Component{
    
       
     $(window).scroll(function() {
-       /* var scroll = $(window).scrollTop();
-        var box = $('.header-text').height();
-        var header = $('header').height();
-  
-        if (scroll >= box - header) {
-          $("header").addClass("background-header");
-        } else {
-          $("header").removeClass("background-header");
-        }*/
       }
       );
     }
@@ -44,7 +35,7 @@ return(
                
 
                         <ul className="nav">
-                            <li><a><Link to="/">Home</Link></a></li>
+                            <li><Link to="/">Home</Link></li>
 
                             <li ><Link to="/allTrainers"> Trainers</Link></li>
                             <li><Link to="/allDieticians"> Dieticians</Link></li>                           

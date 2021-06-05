@@ -18,7 +18,6 @@ import Blog from './components/general/blog.component';
 import MyAccount from './components/customer/myDetailsSection/myaccount.component';
 import MyDietPlans from './components/customer/myDietPlans/myDietPlans.component';
 import MyWorkoutPlans from './components/customer/myWorkoutPlans/myWorkoutPlans.component';
-import Messenger from './components/contact/messenger.component';
 import VideoChat from './components/contact/videoChat.component';
 import signInOut from './components/general/signInOut.component';
 import AllCustomers from './components/physicalTrainer/dashboard/allCustomers.component';

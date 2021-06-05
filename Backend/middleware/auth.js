@@ -6,7 +6,6 @@ module.exports = function(req, res,next)
     const authHeader = req.headers['authorization']
   const token = authHeader && authHeader.split(' ')[1]
     //get token from the header
-    //const token = req.header("token");
     console.log(token)
     //check if there is no token
     if(token == null){

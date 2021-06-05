@@ -1,6 +1,6 @@
-import React, { Component, createRef } from 'react'
+import React, { Component } from 'react'
 import io from 'socket.io-client'
-import { Row, Col, Container, Button, Form } from 'react-bootstrap'
+import { Row, Col, Button, Form } from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -41,7 +41,7 @@ export default class ChatC extends Component {
 
   componentDidMount() {
 
-    {
+    
       socket.on("receive_message", (data) => {
         this.setState({
           ///messagereceived:[...this.state.messagereceived, data]
@@ -55,8 +55,7 @@ export default class ChatC extends Component {
         console.log(this.state.messagereceived)
       });
 
-    }
-
+    
 
 
   }
