@@ -167,7 +167,6 @@ router.put('/addDetails',
 router.put('/addQualification',
     [
         check('issuedDate', "Issued Date is required").not().isEmpty(),
-        //check('issuedDate', "Issued Date should be a date").isDate(),
         check('qualificationID', "qualificationID is required").not().isEmpty(),
         check("linkTo", "linkTo should be a link").isURL(),
         check("title", "title is required").not().isEmpty(),
@@ -326,6 +325,46 @@ router.post("/allMyCustomers", auth , function (req, res) {
         }) 
     }
 
+})
+
+//unregister a customer
+router.post('/unregister', auth, function (req, res, next) {
+    console.log(req.body.cid + req.body.type)
+
+    if (req.body.type === "Dietician") {
+        var k = {
+            $set:
+            {rdietianID: undefined}
+        }
+
+        customer.findByIdAndUpdate({
+            _id:req.body.cid
+        }, k).then(function (c) {
+            console.log(c);
+            res.json("deleted");
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+    }
+    else {
+        var k = {
+            $set:
+            {rtrainerID: null}
+        }
+
+        customer.findByIdAndUpdate({
+            _id:req.body.cid
+        }, k).then(function (c) {
+            console.log(c);
+            res.json("deleted");
+            
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+
+    }
 })
 
 

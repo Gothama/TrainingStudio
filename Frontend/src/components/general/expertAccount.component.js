@@ -93,6 +93,7 @@ export default class ExpertAccount extends Component {
         console.log(res.data)
         if(res.data === "successfull"){
           this.successfulmessage("Registered Successfully")
+          
         }
         else{
           alert(res.data)
