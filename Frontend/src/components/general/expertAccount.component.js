@@ -47,7 +47,7 @@ export default class ExpertAccount extends Component {
         fee: res.data.fee,
         qualifications: res.data.qualifications,
         rating: res.data.rating,
-        type:res.data.type
+        type: res.data.type
       })
       console.log(res.data)
     })
@@ -56,10 +56,10 @@ export default class ExpertAccount extends Component {
   register = (event) => {
     event.preventDefault();
     this.setState({ register: true })
-    
+
   }
 
-  successfulmessage=(msg)=>{
+  successfulmessage = (msg) => {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -69,8 +69,8 @@ export default class ExpertAccount extends Component {
     })
   }
 
-  
-  unsuccessfulmessage=(msg)=>{
+
+  unsuccessfulmessage = (msg) => {
     Swal.fire({
       position: 'top-end',
       icon: 'error',
@@ -86,16 +86,16 @@ export default class ExpertAccount extends Component {
     // OPTIONAL: Call your server to save the transaction
     console.log(data);
 
-    if(data.payerID!==null){
-      axios.post(`${process.env.REACT_APP_BACKEND_URL}customer/register`, { eid: this.props.match.params.id, fee:200 , type:this.state.type },{
+    if (data.payerID !== null) {
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}customer/register`, { eid: this.props.match.params.id, fee: 200, type: this.state.type }, {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then(res => {
         console.log(res.data)
-        if(res.data === "successfull"){
+        if (res.data === "successfull") {
           this.successfulmessage("Registered Successfully")
 
         }
-        else{
+        else {
           alert(res.data)
         }
       })
@@ -115,7 +115,7 @@ export default class ExpertAccount extends Component {
                 <img src={this.state.profilephotolink} className="rounded avatar" alt="..." style={{ height: "150px", width: "150px", borderRadius: "50%" }} />
               </div>
 
-              <Form onSubmit={this.handleOnSubmit} style={{ color: "white", paddingTop: "60px", fontSize: "20px",padding: "20px" }}>
+              <Form onSubmit={this.handleOnSubmit} style={{ color: "white", paddingTop: "60px", fontSize: "20px", padding: "20px" }}>
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2} >
                     First Name :
