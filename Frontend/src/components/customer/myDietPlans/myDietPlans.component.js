@@ -4,6 +4,7 @@ import Footer from '../../general/footer.component';
 import NavBar from './../cusnav.component'
 import {Button,Card,Accordion} from 'react-bootstrap';
 import DietPlan from './dietPlan.component';
+import { Link } from 'react-router-dom';
 
 //import {Link} from 'react-router-dom';
 
@@ -18,7 +19,7 @@ return(
 <NavBar/>
 <div className="container" style={{paddingTop:"100px" , paddingBottom:"100px" }}>
  <h1 style={{color:"white",paddingBottom:"50px"}}>My Diet Plans</h1>  
- <div style={{color:"white", paddingBottom:"10px"}}>Contact Dietician:</div><Button href="/videoChat" style={{marginBottom:"25px"}}>Video Chat</Button> <Button href="/messenger" style={{marginBottom:"25px"}}>Messenger</Button> 
+ <div style={{color:"white", paddingBottom:"10px"}}>Contact Dietician:</div><Button href="/videoChat" style={{marginBottom:"25px"}}>Video Chat</Button> <Link to ="/messenger" ><Button  style={{marginBottom:"25px"}}>Messenger</Button> </Link>
 
 <Accordion >
   <Card style={{backgroundColor:"#892cdc"}}>

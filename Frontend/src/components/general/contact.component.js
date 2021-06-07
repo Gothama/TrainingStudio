@@ -96,22 +96,22 @@ export default class Contact extends Component {
                     <div className="row">
                       <div className="col-md-6 col-sm-12">
                         <fieldset>
-                          <input name="name" type="text" onChange={this.onChangeName} id="name" placeholder="Your Name*" required="" />
+                          <input name="name" required type="text" onChange={this.onChangeName} id="name" placeholder="Your Name*"  />
                         </fieldset>
                       </div>
                       <div className="col-md-6 col-sm-12">
                         <fieldset>
-                          <input name="email" onChange={this.onChangeEmail} type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="" />
+                          <input name="email" required onChange={this.onChangeEmail} type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" />
                         </fieldset>
                       </div>
                       <div className="col-md-12 col-sm-12">
                         <fieldset>
-                          <input name="subject" onChange={this.onChangeSubject} type="text" id="subject" placeholder="Subject" />
+                          <input name="subject" required onChange={this.onChangeSubject} type="text" id="subject" placeholder="Subject"  />
                         </fieldset>
                       </div>
                       <div className="col-lg-12">
                         <fieldset>
-                          <textarea name="message" onChange={this.onChangeMessage} rows="6" id="message" placeholder="Message" required=""></textarea>
+                          <textarea name="message" required onChange={this.onChangeMessage} rows="6" id="message" placeholder="Message" />
                         </fieldset>
                       </div>
                       <div className="col-lg-12">

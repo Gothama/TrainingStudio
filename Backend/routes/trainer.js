@@ -145,7 +145,13 @@ router.put('/addDetails',
                 phoneNumber: req.body.phoneNumber,
                 fee: req.body.fee,
                 profilephotolink: req.body.profilephotolink,
-                posterphotoLink: req.body.posterphotoLink
+                posterphotoLink: req.body.posterphotoLink,
+                cardDetails:{
+                    cardNumber:req.body.cardNumber,
+                    expiryDate:req.body.expiryDate,
+                    nameOnCard:req.body.nameOnCard,
+                    code:req.body.code
+                }
             }
         }
 

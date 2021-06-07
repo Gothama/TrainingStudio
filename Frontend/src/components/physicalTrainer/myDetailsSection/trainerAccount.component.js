@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 
 
 const siAPI1 = axios.create({
-  baseURL: `${process.env.REACT_APP_BACKEND_URL}trainer`
+  baseURL: `http://localhost:9020/trainer`
 })
 
 export default class TrainerAccount extends Component {
@@ -78,8 +78,6 @@ export default class TrainerAccount extends Component {
       this.setState({ posterphotoLink: res.data.secure_url })
       this.message("success", "Profile Photo uploaded")
     })
-
-
     console.log(this.state.posterphotoLink)
   }
 
@@ -268,7 +266,7 @@ export default class TrainerAccount extends Component {
       <div>
 
         <TrainerNav />
-        <div style={{ backgroundColor: "#14213d", paddingBottom: "100px", paddingTop: "100px" }} className="col-lg-12 col-md-12 col-xs-12">
+        <div style={{ backgroundColor: "#14213d", paddingBottom: "100px", paddingTop: "100px" }} >
 
           <div className="container" style={{ paddingBottom: "100px" }}>
 
@@ -444,10 +442,10 @@ export default class TrainerAccount extends Component {
 
                 <Form.Group as={Row} controlId="formHorizontalAge">
                   <Form.Label column sm={2}>
-                    Card Details 2
+                    Card Number
     </Form.Label>
                   <Col sm={4}>
-                    <Form.Control type="text" Value={this.state.cardNumber} onChange={this.onChangenameOnCard} required />
+                    <Form.Control type="text" Value={this.state.cardNumber} onChange={this.onChangecardNumber} required />
                   </Col>
                   <Form.Label column sm={2}>
                     Card Security code

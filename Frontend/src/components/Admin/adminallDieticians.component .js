@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default class AdminAllDieticians extends Component{
   state={
@@ -18,6 +20,42 @@ constructor(){
     window.alert(err)
   })
 
+}
+
+successfulmessage=(msg)=>{
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: msg,
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
+
+
+unsuccessfulmessage=(msg)=>{
+  Swal.fire({
+    position: 'top-end',
+    icon: 'error',
+    title: msg,
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
+
+deletedietician=(id)=>{
+  axios.post(`${process.env.REACT_APP_BACKEND_URL}admin/tdelete/` + id ).then(res=>{
+    console.log(res.data)
+    if(res.data === "okay"){
+        this.successfulmessage("Successfully unregistered from the Web Platform")
+        window.location.reload()
+    }
+    else{
+        this.unsuccessfulmessage("Unsucessful")
+    }
+  }).catch(err => {
+    window.alert(err)
+  })
 }
 
     render(){
@@ -49,7 +87,7 @@ return(
       <td>{c.name.lName}</td>
       <td>{c.age}</td>
       <td>{c.email}</td>
-      <td style={{textAlign:"center"}}><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="primary">Payments</Button></td>
+      <td style={{textAlign:"center"}}><Button variant="danger"onClick={()=>this.deletedietician(c._id)}>Unregister</Button> <Link to={`/trainerAccount/trainer/${c._id}`}><Button variant="warning">View Profile</Button></Link> <Button variant="primary">Payments</Button></td>
     </tr>
 
 

@@ -61,7 +61,7 @@ router.get("/nocustomers", function (req, res) {
 })
 
 //delete a customers
-router.post('/cdelete/:id', auth, function (req, res, next) {
+router.post('/cdelete/:id', function (req, res, next) {
     customer.findOneAndDelete({ _id: req.params.id }).then(function (c) {
         res.send("okay");
     }).catch(err => {

@@ -45,6 +45,8 @@ router.post("/allrPcustomer", auth, function (req, res) {
     })
 })
 
+
+
 //get all recent payments
 router.get("/paymentsrecent", function (req, res) {
     
@@ -79,6 +81,16 @@ router.post("/npayment", auth,
             })
     }
 )
+
+//get all the payments done by a customer admin router
+router.post("/paymentsofcustomer", function (req, res) {
+    Payments.find({payerID:req.body.payerID}).then(function (t) {
+        console.log(t)
+        res.json(t);
+    }).catch(err => {
+        res.json("Error")
+    })
+})
 /*
 //total payments done in
 router.get("/notrainers", function (req, res) {

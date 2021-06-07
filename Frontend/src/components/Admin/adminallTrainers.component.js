@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class AdminAllTrainers extends Component{
   state={
@@ -49,7 +50,7 @@ return(
       <td>{c.name.lName}</td>
       <td>{c.age}</td>
       <td>{c.email}</td>
-      <td style={{textAlign:"center"}}><Button variant="danger">Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="primary">Payments</Button></td>
+      <td style={{textAlign:"center"}}><Button variant="danger">Unregister</Button> <Link to={`/trainerAccount/trainer/${c._id}`}><Button variant="warning">View Profile</Button></Link> <Button variant="primary">Payments</Button></td>
     </tr>
 
 

@@ -187,11 +187,11 @@ export default class signInOut extends Component {
             <form onSubmit={this.handleSignIn}>
               <label>
                 <span>Username</span>
-                <input type="text" name="username" className="input1" onChange={this.onChangeUsername} />
+                <input type="text" name="username" className="input1" onChange={this.onChangeUsername} required/>
               </label>
               <label>
                 <span>Password</span>
-                <input type="password" name="password" className="input1" onChange={this.onChangePassword} />
+                <input type="password" name="password" className="input1" onChange={this.onChangePassword} required/>
               </label>
               <button className="submit button1" type="submit">Sign In</button>
             </form>
@@ -227,19 +227,19 @@ export default class signInOut extends Component {
               <form onSubmit={this.handleSignUp}>
                 <label>
                   <span>Username</span>
-                  <input type="text" className="input1" name="username" onChange={this.onChangeUsername} minLength="7"/>
+                  <input type="text" className="input1" name="username" onChange={this.onChangeUsername} minLength="7" required/>
                 </label>
                 <label>
                   <span>Password</span>
-                  <input type="password" name="password" className="input1" onChange={this.onChangePassword} minLength="7"/>
+                  <input type="password" name="password" className="input1" onChange={this.onChangePassword} minLength="7" required/>
                 </label>
                 <label>
                   <span>Confirm Password</span>
-                  <input type="text" name="confirm" className="input1" minLength="7"  onChange={this.onChangesPassword}/>
+                  <input type="text" name="confirm" className="input1" minLength="7"  onChange={this.onChangesPassword} required/>
                 </label>
                 <label>
                   <span>Account Type</span><br></br>
-                  <select id="cars" name="cars" className="input1" onChange={this.onChangeAccountType} value={this.state.accountType} >
+                  <select id="cars" name="cars" className="input1" onChange={this.onChangeAccountType} value={this.state.accountType} required >
                     <option value="Customer">Customer</option>
                     <option value="Trainer">Physical Trainer</option>
                     <option value="Dietician">Dietician</option>
