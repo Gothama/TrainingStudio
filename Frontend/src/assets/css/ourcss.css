@@ -1387,3 +1387,10 @@ img1{
   }
 }
 
+.errorMsg {
+  padding: 5px;
+  margin: 0px;
+  font-size: 19px;
+  color: white;
+}
+

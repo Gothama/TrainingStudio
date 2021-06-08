@@ -14,6 +14,8 @@ const siAPI2 = axios.create({
   baseURL: `${process.env.REACT_APP_BACKEND_URL}trainer`
 })
 
+const passregex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
 export default class signInOut extends Component {
   
   constructor() {
@@ -22,14 +24,27 @@ export default class signInOut extends Component {
       username: "",
       password: "",
       spassword: "",
-      accountType: "Customer"
+      accountType: "Customer",
+      passworderror:false,
+      passworderror1:false
     }
   }
 
   onChangePassword = (event) => {
-    this.setState({
-      password: event.target.value
+    let p = event.target.value;
+    if(!passregex.test(p)){
+      this.setState({
+        passworderror:true
+      })
+      console.log("Error")
+    }
+    else{
+        this.setState({
+      password: event.target.value,
+      passworderror:false
     })
+    }
+  
   }
   onChangeUsername = (event) => {
     this.setState({
@@ -38,9 +53,20 @@ export default class signInOut extends Component {
   }
 
   onChangesPassword = (event) => {
-    this.setState({
-      spassword: event.target.value
+    let p = event.target.value;
+    if(!passregex.test(p)){
+      this.setState({
+        passworderror1:true
+      })
+      console.log("Error")
+    }
+    else{
+        this.setState({
+      spassword: event.target.value,
+      passworderror1:false
     })
+    }
+  
   }
 
   onChangeAccountType = (event) => {
@@ -192,6 +218,9 @@ export default class signInOut extends Component {
               <label>
                 <span>Password</span>
                 <input type="password" name="password" className="input1" onChange={this.onChangePassword} required/>
+                {this.state.passworderror ? 
+              <div className="errorMsg" style={{color:"red", fontSize:"11px"}}>Password should contain eight characters, at least one letter and one number</div>
+            :null}
               </label>
               <button className="submit button1" type="submit">Sign In</button>
             </form>
@@ -232,10 +261,16 @@ export default class signInOut extends Component {
                 <label>
                   <span>Password</span>
                   <input type="password" name="password" className="input1" onChange={this.onChangePassword} minLength="7" required/>
+                  {this.state.passworderror ? 
+              <div className="errorMsg" style={{color:"red", fontSize:"11px"}}>Password should contain eight characters, at least one letter and one number</div>
+            :null}
                 </label>
                 <label>
                   <span>Confirm Password</span>
-                  <input type="text" name="confirm" className="input1" minLength="7"  onChange={this.onChangesPassword} required/>
+                  <input type="password" name="confirm" className="input1" minLength="7"  onChange={this.onChangesPassword} required/>
+                  {this.state.passworderror1 ? 
+              <div className="errorMsg" style={{color:"red", fontSize:"11px"}}>Password should contain eight characters, at least one letter and one number</div>
+            :null}
                 </label>
                 <label>
                   <span>Account Type</span><br></br>

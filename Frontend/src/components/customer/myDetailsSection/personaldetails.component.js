@@ -13,6 +13,9 @@ const siAPI2= axios.create({
   baseURL :`http://localhost:9020/email/accountupdated`
 })
 
+const phoneregex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
+const nameregex = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
+const emailregex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 
 export default class PersonalDetails extends Component{   
   state={
@@ -28,7 +31,11 @@ export default class PersonalDetails extends Component{
       profilephotolink:"",
       uploading:"",
       image:"",
-      maxd:moment(Date.now()).format("yyyy-MM-DD")
+      maxd:moment(Date.now()).format("yyyy-MM-DD"),
+      phoneerror:false,
+      fnameerror:false,
+      lnameerror:false,
+      emailerror:false
     }
    
   constructor(){
@@ -62,14 +69,34 @@ export default class PersonalDetails extends Component{
   
 
   onChangefName= (event)=>{
-    this.setState({
-      fName:event.target.value
+    let f = event.target.value
+    if(!nameregex.test(f)){
+      this.setState({
+        fnameerror:true
+      })
+    }
+    else{
+       this.setState({
+      fName:event.target.value,
+      fnameerror:false
     })
+    }
+   
   }
   onChangelName= (event)=>{
-    this.setState({
-      lName:event.target.value
+    let l = event.target.value
+    if(!nameregex.test(l)){
+      this.setState({
+        lnameerror:true
+      })
+    }
+    else{
+      this.setState({
+      lName:event.target.value,
+      lnameerror:false
     })
+    }
+    
   }
   onChangedob= (event)=>{
     console.log((moment(event.target.value).format("yyyy-MM-DD")))
@@ -78,9 +105,19 @@ export default class PersonalDetails extends Component{
     })
   }
   onChangeemail= (event)=>{
-    this.setState({
-      email:event.target.value
+    let e = event.target.value;
+    if(!emailregex.test(e)){
+      this.setState({
+        emailerror:true
+      })
+    }
+    else{
+       this.setState({
+      email:event.target.value,
+      emailerror:false
     })
+    }
+   
   }
   onChangegender= (event)=>{
     this.setState({
@@ -95,9 +132,21 @@ export default class PersonalDetails extends Component{
     console.log(this.state.bloodGroup)
   }
   onChangephoneNumber= (event)=>{
-    this.setState({
-      phoneNumber:event.target.value
+    let p = event.target.value;
+    if(!phoneregex.test(p)){
+      this.setState({
+        phoneerror:true
+      })
+      console.log("Error")
+    }
+    else{
+      this.setState({
+      phoneNumber:event.target.value,
+      phoneerror:false
     })
+    console.log(this.state.phoneNumber)
+    }
+    
   }
   onChangeusername= (event)=>{
     this.setState({
@@ -195,6 +244,9 @@ return(
     </Form.Label>
     <Col sm={10}>
       <Form.Control type="text"  Value={this.state.fName} onChange={this.onChangefName} required/>
+      {this.state.fnameerror ? 
+              <div className="errorMsg">Enter a valid Name</div>
+            :null}
     </Col>
   </Form.Group>
 
@@ -204,6 +256,9 @@ return(
     </Form.Label>
     <Col sm={10}>
       <Form.Control type="text"  Value={this.state.lName} onChange={this.onChangelName} required/>
+      {this.state.lnameerror ? 
+              <div className="errorMsg">Enter a valid Name</div>
+            :null}
     </Col>
   </Form.Group>
 
@@ -230,7 +285,10 @@ return(
       Mobile No.
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text"  Value={this.state.phoneNumber} onChange={this.onChangephoneNumber}required/>
+      <Form.Control type="text"  Value={this.state.phoneNumber} onChange={this.onChangephoneNumber}required maxLength="10"  minLength="10"/>
+      {this.state.phoneerror ? 
+              <div className="errorMsg">Enter a valid number</div>
+            :null}
     </Col>
   </Form.Group>
 
@@ -263,7 +321,10 @@ return(
       Email
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="email"  Value={this.state.email} onChange={this.onChangeemail}required/>
+      <Form.Control type="email"  Value={this.state.email} onChange={this.onChangeemail}required />
+      {this.state.emailerror ? 
+              <div className="errorMsg">Enter a valid Email address</div>
+            :null}
     </Col>
   </Form.Group>
 
