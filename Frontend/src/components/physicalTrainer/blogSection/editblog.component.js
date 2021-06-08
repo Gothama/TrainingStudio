@@ -118,7 +118,7 @@ export default class Editblog extends Component {
                     Blog Heading
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.blogHeading} onChange={this.onChangeblogHeading} />
+                    <Form.Control type="text" Value={this.state.blogHeading} onChange={this.onChangeblogHeading} required/>
                   </Col>
                 </Form.Group>
 
@@ -136,7 +136,7 @@ export default class Editblog extends Component {
                     Blog Summary
     </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.blogSummary} onChange={this.onChangeblogSummary} />
+                    <Form.Control type="text" Value={this.state.blogSummary} onChange={this.onChangeblogSummary} required/>
                   </Col>
                 </Form.Group>
 
@@ -145,7 +145,7 @@ export default class Editblog extends Component {
                     Blog Content
     </Form.Label>
                   <Col sm={10}>
-                    <SunEditor onChange={this.handleChange} setContents={this.state.blogContent} />
+                    <SunEditor onChange={this.handleChange} setContents={this.state.blogContent} required/>
                   </Col>
                 </Form.Group>
 

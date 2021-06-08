@@ -28,6 +28,7 @@ showpayments = (id) => {
   axios.post(`${process.env.REACT_APP_BACKEND_URL}payment/paymentsofcustomer`, { payerID: id }
   ).then(res => {
     console.log(res.data)
+
     this.setState({
       show: true,
       paymentsDetails: res.data
@@ -118,20 +119,31 @@ return(
 
   </tbody>
 </Table>
-
 {this.state.show ? <Modal show={this.state.show} >
               <Modal.Header>Payments Done</Modal.Header>
               <Modal.Body>
-                {this.state.paymentsDetails.map(pd => {
-                  return (<p style={{ color: "black" }}>{pd.reason} Rs.{pd.paymentamount}.00  <Moment format="YYYY/MM/DD">{pd.paymentdate}</Moment></p>)
-                })}
-
+                <Table striped bordered hover variant="dark">
+                  <thead >
+                    <tr >
+                      <th style={{ textAlign: "center"}}>Reason</th>
+                      <th style={{ textAlign: "center" }}>Paid to</th>
+                      <th style={{ textAlign: "center" }}>Amount</th>
+                      <th style={{ textAlign: "center" }}>Paid Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {this.state.paymentsDetails.map(pd => {
+                    
+                    return ( <tr><td>{pd.reason}</td> <td>{pd.receiverID.name.fName} {pd.receiverID.name.lName}</td><td>{pd.paymentamount}</td><td><Moment format="YYYY/MM/DD">{pd.paymentdate}</Moment></td></tr>)
+                  })}
+              </tbody>
+            </Table>
               </Modal.Body>
-              <Modal.Footer>
-                <Button onClick={this.close}>
-                  Close
+                <Modal.Footer>
+                  <Button onClick={this.close}>
+                    Close
                    </Button>
-              </Modal.Footer>
+                </Modal.Footer>
             </Modal> : null}
 
 </div>

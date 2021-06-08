@@ -139,10 +139,20 @@ export default class AllCustomers extends Component {
             {this.state.show ? <Modal show={this.state.show} >
               <Modal.Header>Payments Done</Modal.Header>
               <Modal.Body>
-                {this.state.paymentsDetails.map(pd => {
-                  return (<p style={{ color: "black" }}>{pd.reason} Rs.{pd.paymentamount}.00  <Moment format="YYYY/MM/DD">{pd.paymentdate}</Moment></p>)
-                })}
-
+                <Table striped bordered hover variant="dark">
+                  <thead >
+                    <tr >
+                      <th style={{ textAlign: "center" }}>Reason</th>
+                      <th style={{ textAlign: "center" }}>Amount</th>
+                      <th style={{ textAlign: "center" }}>Paid Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.paymentsDetails.map(pd => {
+                      return (<tr><td>{pd.reason} </td> <td>Rs.{pd.paymentamount}.00 </td> <td> <Moment format="YYYY/MM/DD">{pd.paymentdate}</Moment></td></tr>)
+                    })}
+                  </tbody>
+                </Table>
               </Modal.Body>
               <Modal.Footer>
                 <Button onClick={this.close}>
@@ -159,3 +169,4 @@ export default class AllCustomers extends Component {
     );
   }
 }
+

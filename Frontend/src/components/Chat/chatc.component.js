@@ -30,6 +30,7 @@ export default class ChatC extends Component {
           room: res.data,
           userName: "Customer"
         })
+        this.connectToRoom()
       }).catch(err => {
         window.alert(err)
       })
@@ -66,7 +67,7 @@ export default class ChatC extends Component {
 
   sendMessage = () => {
     if (!this.state.loggedIn) {
-      this.connectToRoom()
+      //this.connectToRoom()
     }
     let messageContent = {
       room: this.state.room,

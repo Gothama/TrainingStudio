@@ -84,13 +84,25 @@ router.post("/npayment", auth,
 
 //get all the payments done by a customer admin router
 router.post("/paymentsofcustomer", function (req, res) {
-    Payments.find({payerID:req.body.payerID}).then(function (t) {
+    Payments.find({payerID:req.body.payerID}).populate("receiverID").then(function (t) {
         console.log(t)
         res.json(t);
     }).catch(err => {
         res.json("Error")
     })
 })
+
+//get all the payments received by a trainer admin router
+router.post("/paymentsoftrainer", function (req, res) {
+    Payments.find({receiverID:req.body.receiverID}).populate("payerID").then(function (t) {
+        console.log(t)
+        res.json(t);
+    }).catch(err => {
+        res.json("Error")
+    })
+})
+
+
 /*
 //total payments done in
 router.get("/notrainers", function (req, res) {

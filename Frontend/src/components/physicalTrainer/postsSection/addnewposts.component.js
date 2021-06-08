@@ -142,7 +142,7 @@ export default class addPost extends Component {
                     Post Heading
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" onChange={this.onChangepostHeading} />
+                    <Form.Control type="text" onChange={this.onChangepostHeading} required/>
                   </Col>
                 </Form.Group>
 
@@ -151,7 +151,7 @@ export default class addPost extends Component {
                     Post Image
                   </Form.Label>
                   <Col sm={8}>
-                    <Form.Control type="file" onChange={this.selectImage} />
+                    <Form.Control type="file" onChange={this.selectImage} required/>
 
                   </Col>
                   <Col sm={2}>
@@ -174,7 +174,7 @@ export default class addPost extends Component {
                     Post Content
                   </Form.Label>
                   <Col sm={10}>
-                    <SunEditor onChange={this.handleChange} />
+                    <SunEditor onChange={this.handleChange} required/>
                   </Col>
                 </Form.Group>
 

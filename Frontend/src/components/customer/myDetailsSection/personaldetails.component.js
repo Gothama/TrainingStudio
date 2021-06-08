@@ -5,6 +5,7 @@ import moment from 'moment';
 import Swal from 'sweetalert2'
 import "react-datepicker/dist/react-datepicker.css";
 
+
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
 })
@@ -187,7 +188,7 @@ export default class PersonalDetails extends Component{
     })
     .then(res=>{
       console.log(res.data)
-      
+      this.successfulmessage("Successfully Updated");
       siAPI2.post("/").then(res=>{
         this.successfulmessage("Successfully Updated");
       }).catch(err=>{
@@ -218,6 +219,7 @@ export default class PersonalDetails extends Component{
       }).then((res)=>{
         console.log(res)
         this.setState({profilephotolink:res.data.secure_url})
+        this.successfulmessage("Image Uploaded Successfully")
     })
    
   

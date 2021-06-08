@@ -34,6 +34,7 @@ import Editpost from './components/physicalTrainer/postsSection/editpost.compone
 import AllPosts from './components/general/allPosts.component';
 import chatc from './components/Chat/chatc.component';
 import ChatT from './components/Chat/chatt.component';
+import Login from './components/Admin/login.component';
  
 
 
@@ -68,7 +69,7 @@ function App() {
       <Route path = "/resetpassword" exact component ={Resetpassword}/>
       <Route path = "/newpassword/:token" exact component ={Newpassword}/>
       <Route path = "/editpost/:id" exact component = {Editpost}/>
-      
+      <Route path = "/login" exact component = {Login}/>
   </Router>
   <Fitbot/>
 </div>

@@ -83,10 +83,10 @@ router.post('/tdelete/:id', auth, function (req, res, next) {
 })
 
 
-router.get("/date", function (req, res) {
+router.get("/nonewcustomers", function (req, res) {
     
     customer.count({registered:{
-        $gte:  new Date("2001-01-25").toISOString(),
+        $gte:  new Date("2021-01-25").toISOString(),
         $lt: new Date("2030-01-25").toISOString()
     }}).then(function (t) {
         res.json(t);
@@ -94,6 +94,31 @@ router.get("/date", function (req, res) {
         res.json({"Error" : err})
     })
 })
+
+router.get("/nonewdieticians", function (req, res) {
+    
+    Trainer.countDocuments({registered:{
+        $gte:  new Date("2021-01-25").toISOString(),
+        $lt: new Date("2030-01-25").toISOString()
+    }, type:"Dietician"}).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
+
+router.get("/nonewtrainers", function (req, res) {
+    
+    Trainer.countDocuments({registered:{
+        $gte:  new Date("2021-01-25").toISOString(),
+        $lt: new Date("2030-01-25").toISOString()
+    }, type:"Trainer"}).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
+
 
 
 router.get("/rdate", function (req, res) {

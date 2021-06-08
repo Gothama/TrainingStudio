@@ -9,8 +9,12 @@ export default class Summary extends Component{
   
   state={
     dieticians:"",
-    customers:"",
-    trainers:""
+    customers:0,
+    trainers:"",
+    numberofnewcustomers:0,
+    pcustomers:"",
+    numberofnewdieticians:0,
+    numberofnewtrainers:0
   }
 
 constructor(){
@@ -38,6 +42,33 @@ constructor(){
   }).catch(err => {
     window.alert(err)
   })
+
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/nonewcustomers` ).then(res=>{
+    this.setState({
+      numberofnewcustomers:res.data
+    })
+    console.log(res.data)
+  }).catch(err => {
+    window.alert(err)
+  })
+
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/nonewdieticians` ).then(res=>{
+    this.setState({
+      numberofnewdieticians:res.data
+    })
+    console.log(res.data)
+  }).catch(err => {
+    window.alert(err)
+  })
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/nonewtrainers` ).then(res=>{
+    this.setState({
+      numberofnewtrainers:res.data
+    })
+    console.log(res.data)
+  }).catch(err => {
+    window.alert(err)
+  })
+
 }
 
     render(){
@@ -55,9 +86,9 @@ return(
   <Card.Img variant="top" src="https://www.pinclipart.com/picdir/big/164-1640717_free-user-icon-flat-189024-download-user-icon.png"/>
     <Card.Title style={{textAlign:"center"}}>Dieticians</Card.Title>
     <div style={{textAlign:"center"}}>
-    <Button variant="primary">New Dieticians : 20</Button>
+    <Button variant="primary">New Dieticians :{this.state.numberofnewdieticians}</Button>
     <br/><br/>
-    <Button variant="danger">New Member (%) : 10 %</Button>
+     {/*<Button variant="danger">New Member (%) : 10 %</Button>*/}
     <br/><br/>
     <Button variant="warning">Total Dieticians : {this.state.dieticians}</Button>
     </div>
@@ -70,9 +101,9 @@ return(
   <Card.Img variant="top" src="https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg" />
   <Card.Title style={{textAlign:"center"}}>Physical Trainers</Card.Title>
     <div style={{textAlign:"center"}}>
-    <Button variant="primary">New Physical Trainers : 20</Button>
+    <Button variant="primary">New Physical Trainers :  {this.state.numberofnewtrainers}</Button>
     <br/><br/>
-    <Button variant="danger">New Member (%) : 10 %</Button>
+     {/*<Button variant="danger">New Member (%) : 10 %</Button>*/}
     <br/><br/>
     <Button variant="warning">Total Physical Trainers : {this.state.trainers}</Button>
     </div>
@@ -86,9 +117,9 @@ return(
   <Card.Img variant="top" src={image1} />
   <Card.Title style={{textAlign:"center"}}>Customers</Card.Title>
     <div style={{textAlign:"center"}}>
-    <Button variant="primary">New Customers : 20</Button>
+    <Button variant="primary">New Customers : {this.state.numberofnewcustomers}</Button>
     <br/><br/>
-    <Button variant="danger">New Member (%) : 10 %</Button>
+    {/*<Button variant="danger">New Member (%) : {this.state.pcustomers}</Button>*/}
     <br/><br/>
     <Button variant="warning">Total Customers : {this.state.customers}</Button>
     </div>

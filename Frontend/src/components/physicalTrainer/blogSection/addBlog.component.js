@@ -144,7 +144,7 @@ export default class addBlog extends Component {
                     Blog Heading
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogHeading} />
+                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogHeading} required />
                   </Col>
                 </Form.Group>
 
@@ -153,7 +153,7 @@ export default class addBlog extends Component {
                     Blog Image
                   </Form.Label>
                   <Col sm={8}>
-                    <Form.Control type="file" Value={this.state.fName} onChange={this.selectImage} />
+                    <Form.Control type="file" Value={this.state.fName} onChange={this.selectImage} required/>
 
                   </Col>
                   <Col sm={2}>
@@ -167,7 +167,7 @@ export default class addBlog extends Component {
                     Blog Summary
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogSummary} />
+                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangeblogSummary}required />
                   </Col>
                 </Form.Group>
 
@@ -176,7 +176,7 @@ export default class addBlog extends Component {
                     Blog Content
                   </Form.Label>
                   <Col sm={10}>
-                    <SunEditor onChange={this.handleChange} />
+                    <SunEditor onChange={this.handleChange} required/>
                   </Col>
                 </Form.Group>
 

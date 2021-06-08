@@ -30,6 +30,7 @@ export default class ChatT extends Component {
           room: res.data,
           userName: "Dietician"
         })
+        this.connectToRoom()
       }).catch(err => {
         window.alert(err)
       })
