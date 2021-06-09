@@ -141,7 +141,7 @@ getmessages=()=>{
           <div className="chatContainer container" style={{ margin: "auto", height: "98vh", overflowX: "hidden", overflowY: "auto", backgroundColor: "#522909" }}>
             {this.state.typing ? <p>typing</p> : null}
             {this.state.messagereceived.map(e => {
-              return (<div>
+              return (<div >
                 { this.state.userName === e.author ? <Row>
                   <Col><div style={{ color: "white", textAlign: "left", backgroundColor: "blue", padding: "10px", margin: "10px", borderRadius: "10px" }}>
 
