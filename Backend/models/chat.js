@@ -7,12 +7,14 @@ const chatSchema = new mongoose.Schema({
     customerID:{
     type: mongoose.Schema.ObjectId, ref: 'Customer'
     },
-    messager:{
-        type:String
-    },
-    messages:{
-        type:String
-    }
+    messages:[
+        {
+                    message:{type:String},
+                    date:{type:Date, default: Date.now },
+                    author:{type:String,enum: ['Customer', 'Dietician']}   
+        }
+    ]
+
 })
 
 module.exports = mongoose.model('Chat', chatSchema)

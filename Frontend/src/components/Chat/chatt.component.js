@@ -19,6 +19,26 @@ export default class ChatT extends Component {
     typing: false
   }
 
+
+  getmessages=()=>{
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/getmessages`, {room:this.state.room}).then(res => {
+     // console.log(res.data.D.length)
+     // if (res.data.D.length >= 0) 
+      {
+        this.setState({
+          messagereceived: res.data.D
+        })
+      }
+      /*else {
+        this.setState({
+          messagereceived: []
+        })
+      }*/
+      //console.log(this.state.messagereceived.length)
+    }).catch(err => {
+      window.alert(err)
+    })
+  }
   getData = async () => {
     axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/chatroomidt`, {customerID:this.props.match.params.id},
       {
@@ -31,6 +51,7 @@ export default class ChatT extends Component {
           userName: "Dietician"
         })
         this.connectToRoom()
+        this.getmessages()
       }).catch(err => {
         window.alert(err)
       })
@@ -85,6 +106,20 @@ export default class ChatT extends Component {
       messagereceived: this.state.messagereceived.concat(messageContent.content)
     })
 
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/addmessage`, {
+
+      message:this.state.message,
+      author:this.state.userName,
+      room:this.state.room
+
+    }).then(res => {
+      console.log(res.data)
+      //alert(res.data.success)
+
+
+    }).catch(err => {
+      window.alert(err)
+    })
 
 
   };

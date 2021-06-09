@@ -31,6 +31,7 @@ export default class ChatC extends Component {
           userName: "Customer"
         })
         this.connectToRoom()
+        this.getmessages()
       }).catch(err => {
         window.alert(err)
       })
@@ -38,7 +39,28 @@ export default class ChatC extends Component {
   constructor() {
     super()
     this.getData();
+
   }
+
+getmessages=()=>{
+  axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/getmessages`, {room:this.state.room}).then(res => {
+   // console.log(res.data.D.length)
+   // if (res.data.D.length >= 0) 
+    {
+      this.setState({
+        messagereceived: res.data.D
+      })
+    }
+    /*else {
+      this.setState({
+        messagereceived: []
+      })
+    }*/
+    //console.log(this.state.messagereceived.length)
+  }).catch(err => {
+    window.alert(err)
+  })
+}
 
   componentDidMount() {
 
@@ -55,6 +77,7 @@ export default class ChatC extends Component {
         console.log(this.state.messagereceived1)
         console.log(this.state.messagereceived)
       });
+
 
     
 
@@ -85,6 +108,20 @@ export default class ChatC extends Component {
       messagereceived: this.state.messagereceived.concat(messageContent.content)
     })
 
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}chat/addmessage`, {
+
+      message:this.state.message,
+      author:this.state.userName,
+      room:this.state.room
+
+    }).then(res => {
+      console.log(res.data)
+      //alert(res.data.success)
+
+
+    }).catch(err => {
+      window.alert(err)
+    })
 
 
   };
@@ -110,6 +147,7 @@ export default class ChatC extends Component {
 
                     <h4>{e.message}</h4>
                     <p>By - {e.author}</p>
+                    <p></p>
                   </div></Col><Col></Col></Row>
                   :
                   <Row><Col></Col><Col><div style={{ color: "white", textAlign: "right", backgroundColor: "red", padding: "10px", margin: "10px", borderRadius: "10px" }}>

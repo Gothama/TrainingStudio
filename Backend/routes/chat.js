@@ -26,6 +26,47 @@ router.post("/chatroomidt", auth , function (req, res) {
     });
 })
 
+router.post("/addmessage" , function(req,res){
+    var k = {
+        $push:
+        {
+            messages:[
+                {
+                             message:req.body.message,
+                            author:req.body.author   
+                }
+            ]
+        }
+    }
+
+    chat.findByIdAndUpdate({ _id: req.body.room }
+        , k).then(function (c) {
+            console.log(c);
+            res.json({"success" : true});
+        }).catch(err => {
+            console.log(err)
+            res.send('fail' + err);
+        });
+})
+
+router.post("/getmessages", function (req, res) {
+    chat.findById({ _id: req.body.room }).then(function (c) {
+        console.log(c.messages);
+        if (c !== null) {
+            if (c.messages.isLength != 1) {
+                res.json({ "D": c.messages, "K": "Successfull" })
+            }
+            else {
+                res.json({ "k": "Unsuccessfull" })
+            }
+        }
+        else {
+            res.json({ "k": "No messages" })
+        }
+    }).catch(err => {
+        res.json({ "k": "Error" })
+    })
+})
 
 
 
