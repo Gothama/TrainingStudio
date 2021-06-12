@@ -5,6 +5,7 @@ const { check, validationResult } = require("express-validator")
 const jwt = require('jsonwebtoken');
 const auth = require("../middleware/auth");
 const customer = require('../models/customer');
+const f = require('../functions/functions');
 
 //signUp router
 router.post("/ntrainer",
@@ -298,6 +299,7 @@ router.post('/ffdetail', function (req, res, next) {
         })
 })
 
+//get all the trainers registered with the platform
 router.get("/alltrainers", function (req, res) {
     Trainer.find({type:"Trainer"}).then(function (t) {
         res.json(t);
@@ -306,6 +308,7 @@ router.get("/alltrainers", function (req, res) {
     })
 })
 
+//get all the dieticians registered with the platform
 router.get("/allDtrainers", function (req, res) {
     Trainer.find({type:"Dietician"}).then(function (t) {
         res.json(t);
@@ -372,7 +375,6 @@ router.post('/unregister', auth, function (req, res, next) {
 
     }
 })
-
 
 
 

@@ -110,7 +110,7 @@ return(
       <td>{c.name.lName}</td>
       <td>{c.age}</td>
       <td>{c.email}</td>
-      <td style={{textAlign:"center"}}><Button variant="danger" onClick={()=>this.deletecustomer(c._id)}>Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="primary"onClick={() => this.showpayments(c._id)}>Payments</Button></td>
+      <td style={{textAlign:"center"}}><Button variant="danger" onClick={()=>this.deletecustomer(c._id)}>Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="primary"onClick={() => this.showpayments(c._id)}>Payments Done</Button></td>
     </tr>
 
 

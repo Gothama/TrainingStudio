@@ -18,7 +18,7 @@ import Blog from './components/general/blog.component';
 import MyAccount from './components/customer/myDetailsSection/myaccount.component';
 import MyDietPlans from './components/customer/myDietPlans/myDietPlans.component';
 import MyWorkoutPlans from './components/customer/myWorkoutPlans/myWorkoutPlans.component';
-import VideoChat from './components/contact/videoChat.component';
+
 import signInOut from './components/general/signInOut.component';
 import AllCustomers from './components/physicalTrainer/dashboard/allCustomers.component';
 import MyBlogs from './components/physicalTrainer/dashboard/myBlogs.component';
@@ -35,6 +35,8 @@ import AllPosts from './components/general/allPosts.component';
 import chatc from './components/Chat/chatc.component';
 import ChatT from './components/Chat/chatt.component';
 import Login from './components/Admin/login.component';
+import VideoChat from './components/Chat/videochat.component';
+import Customeraccount from './components/physicalTrainer/customerAccount/customeraccount.compoent';
  
 
 
@@ -70,6 +72,9 @@ function App() {
       <Route path = "/newpassword/:token" exact component ={Newpassword}/>
       <Route path = "/editpost/:id" exact component = {Editpost}/>
       <Route path = "/login" exact component = {Login}/>
+      <Route path = "/customeraccount/:id" exact component = {Customeraccount}/>
+
+
   </Router>
   <Fitbot/>
 </div>

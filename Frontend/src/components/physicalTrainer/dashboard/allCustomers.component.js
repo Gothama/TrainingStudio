@@ -130,7 +130,7 @@ export default class AllCustomers extends Component {
                     <td>{c.name.lName}</td>
                     <td><Moment format="YYYY/MM/DD">{c.dob}</Moment></td>
                     <td>{c.email}</td>
-                    <td><Button variant="danger" onClick={() => this.unregistercustomer(c._id)}>Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="success">Video Call</Button> <Link to={`/messengert/${c._id}`}><Button variant="success">Message</Button></Link> <Button variant="primary" onClick={() => this.showpayments(c._id)}>Payments</Button></td>
+                    <td><Button variant="danger" onClick={() => this.unregistercustomer(c._id)}>Unregister</Button> <Link to={`/customeraccount/${c._id}`}><Button variant="warning">View Profile</Button></Link> <Button variant="success">Video Call</Button> <Link to={`/messengert/${c._id}`}><Button variant="success">Message</Button></Link> <Button variant="primary" onClick={() => this.showpayments(c._id)}>Payments</Button></td>
                   </tr>
                 )}
 
