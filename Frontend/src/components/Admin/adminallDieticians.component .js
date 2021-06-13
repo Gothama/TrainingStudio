@@ -5,11 +5,15 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import {Chart} from 'react-google-charts';
+import moment from 'moment';
 
 export default class AdminAllDieticians extends Component{
   state={
     trainers:[],
-    show: false
+    show: false,
+    trainersinmonth:[],
+    trainersinyear:[]
   }
 
 constructor(){
@@ -21,7 +25,43 @@ constructor(){
   }).catch(err => {
     window.alert(err)
   })
+  this.getyeardata();
+  this.getmonthdata();
+}
 
+getyeardata=()=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/registeredtrainersperyear` ).then(res=>{
+    let trainersinyear1=[['Year', 'Count'], ["2014",8], ["2015",0], ["2016",3], ["2017",5]] 
+    for (const dataObj of res.data) {
+      trainersinyear1.push([(dataObj._id),parseInt(dataObj.count)]);
+    }
+
+    this.setState({
+      trainersinyear:trainersinyear1
+    })
+    console.log(this.state.trainersinyear)
+
+  }).catch(err => {
+    window.alert(err)
+  })
+}
+
+
+getmonthdata=()=>{
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/registeredtrainerspermonth` ).then(res=>{
+    let trainersinmonth1=[['Month', 'Count'],['January' , 8],['February' , 3],['March' , 8]]
+    for (const dataObj of res.data) {
+      trainersinmonth1.push([moment().month(parseInt(dataObj._id)).format('MMMM'),parseInt(dataObj.count)]);
+    }
+
+    this.setState({
+      trainersinmonth:trainersinmonth1
+    })
+    console.log(this.state.trainersinmonth)
+
+  }).catch(err => {
+    window.alert(err)
+  })
 }
 
 close = () => {
@@ -146,7 +186,75 @@ return(
                    </Button>
                 </Modal.Footer>
             </Modal> : null}
+            </div>
+
+<div className="row">
+<div className="col-lg-6">
+<Chart
+  width={'100%'}
+  height={'100%'}
+
+  chartType="Bar"
+  loader={<div>Loading Chart</div>}
+  data={this.state.trainersinyear}
+  
+  options={{
+     height:500,
+     width:500,
+     
+    hAxis: {
+      title: 'Year',
+    },
+    vAxis: {
+      title: 'Count',
+    },
+    colors: ['#F56F07'],
+    chart: {
+        title: 'Registered Dieticians in each year',
+      },
+    series: {
+      1: { curveType: 'function' },
+    },
+  }}
+  rootProps={{ 'data-testid': '2' }}
+/>
 </div>
+<div className="col-lg-6">
+<Chart
+  width={'100%'}
+  height={'100%'}
+  
+  chartType="Bar"
+  loader={<div>Loading Chart</div>}
+  data={this.state.trainersinmonth}
+  options={{
+     height:500,
+     width:500,
+
+    hAxis: {
+      title: 'Month',
+    },
+    vAxis: {
+      title: 'Count',
+    },
+  
+    colors: ['#f54748'],
+    chart: {
+        title: 'Registered Dieticians in each Month',
+       
+      },
+    series: {
+      1: { curveType: 'function' },
+    },
+  }}
+  rootProps={{ 'data-testid': '2' }}
+/>
+</div>
+
+</div>
+
+
+
 </div>
 
 

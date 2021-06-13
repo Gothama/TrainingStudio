@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-//import {Link} from 'react-router-dom';
 import { Tab, Tabs, Row, Nav, Col } from 'react-bootstrap';
 import HealthReports from './healthreports.component';
 import PersonalDetails from './personaldetails.component';

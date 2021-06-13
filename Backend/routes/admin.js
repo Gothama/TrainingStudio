@@ -121,14 +121,58 @@ router.get("/nonewtrainers", function (req, res) {
 
 
 
-router.get("/rdate", function (req, res) {
+router.get("/registeredcustomerperyear", function (req, res) {
     
     customer.aggregate([{
         $group:{
             _id: {$year: "$registered"},
             count:{$sum:1}
         }
-     }]).then(function (t) {
+    }]).sort({ '_id': 1 }).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
+
+
+router.get("/registeredtrainersperyear", function (req, res) {
+    
+    Trainer.aggregate([{
+        $group:{
+            _id: {$year: "$registered"},
+            count:{$sum:1},
+        }
+    }]).sort({ '_id': -1 }).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
+
+
+router.get("/registeredcustomerpermonth", function (req, res) {
+    
+    customer.aggregate([{
+        $group:{
+            _id: {$month: "$registered"},
+            count:{$sum:1}
+        }
+    }]).sort({ '_id': -1 }).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
+
+router.get("/registeredtrainerspermonth", function (req, res) {
+    
+    Trainer.aggregate([{
+        $group:{
+            _id: {$month: "$registered"},
+            count:{$sum:1},
+        }
+    }]).sort({ '_id': -1 }).then(function (t) {
         res.json(t);
     }).catch(err => {
         res.json({"Error" : err})

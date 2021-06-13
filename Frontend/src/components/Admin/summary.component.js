@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Card} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import image1 from "../../assets/images/customerIcon.png"
-
+import {Chart} from 'react-google-charts';
 
 export default class Summary extends Component{
   
@@ -128,8 +128,32 @@ return(
 
 </div>
 
-
-
+<div style={{marginTop:"20px"}} className="row">
+<Chart
+  width={'450px'}
+  height={'300px'}
+  chartType="PieChart"
+  loader={<div>Loading Chart</div>}
+  data={[["Type" , "Quantity"],["Dieticians" , this.state.dieticians] , ["Trainers" , this.state.trainers] , ["Customers" , this.state.customers]]}
+  options={{
+    title: 'Total Types of Users Registered with the platform',
+    is3D: true
+  }}
+  rootProps={{ 'data-testid': '1' }}
+/>
+<Chart
+  width={'450px'}
+  height={'300px'}
+  chartType="PieChart"
+  loader={<div>Loading Chart</div>}
+  data={[["Type" , "Quantity"],["Dieticians" , this.state.numberofnewdieticians] , ["Trainers" , this.state.numberofnewtrainers] , ["Customers" , this.state.numberofnewcustomers]]}
+  options={{
+    title: 'New Types of Users Registered with the platform',
+    is3D: true
+  }}
+  rootProps={{ 'data-testid': '1' }}
+/>
+</div>
     </div> </div> </div>
 );
 }
