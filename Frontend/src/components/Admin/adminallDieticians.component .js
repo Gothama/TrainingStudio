@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
-import {Button,Modal} from 'react-bootstrap';
-import axios from 'axios';
+import {Button, Modal, Form, Row, Col} from 'react-bootstrap';import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
@@ -13,7 +12,8 @@ export default class AdminAllDieticians extends Component{
     trainers:[],
     show: false,
     trainersinmonth:[],
-    trainersinyear:[]
+    trainersinyear:[],
+    sfName:"", sLName:"", sEmail:""
   }
 
 constructor(){
@@ -46,6 +46,21 @@ getyeardata=()=>{
   })
 }
 
+searchEmail=(event)=>{
+  this.setState({
+    sEmail: event.target.value
+  })
+}
+searchFname=(event)=>{
+  this.setState({
+    sfName: event.target.value
+  })
+}
+searchLname=(event)=>{
+  this.setState({
+    lName: event.target.value
+  })
+}
 
 getmonthdata=()=>{
   axios.get(`${process.env.REACT_APP_BACKEND_URL}admin/registeredtrainerspermonth` ).then(res=>{
@@ -131,7 +146,12 @@ return(
     <div style={{paddingTop:"50px"}} >
 
 <div style={{/*paddingTop:"100px" ,*/ paddingBottom:"100px",width:"100%" }}>
-
+<Form.Group as={Row} controlId="formHorizontalFName" >
+    <Col sm={4}>
+      <Form.Control type="text" placeholder="Search by First Name" onChange={this.searchFname}/>
+    </Col>
+   
+  </Form.Group>
 
 <Table striped bordered hover variant="dark">
   <thead >
@@ -145,12 +165,19 @@ return(
     </tr>
   </thead>
   <tbody>
-    {this.state.trainers.map(c=>
+    {this.state.trainers.filter((c)=>{
+      if(this.state.sfName===""){
+        return c
+      }
+      else if(c.name.fName.toLowerCase().includes(this.state.sfName.toLowerCase()) ){
+        return c
+      }
+    }).map(c=>
  <tr>
       <td>1</td>
       <td>{c.name.fName}</td>
       <td>{c.name.lName}</td>
-      <td>{c.age}</td>
+      <td><Moment format="YYYY/MM/DD">{c.dob}</Moment></td>
       <td>{c.email}</td>
       <td style={{textAlign:"center"}}><Button variant="danger"onClick={()=>this.deletedietician(c._id)}>Unregister</Button> <Link to={`/trainerAccount/trainer/${c._id}`}><Button variant="warning">View Profile</Button></Link> <Button variant="primary" onClick={() => this.showpayments(c._id)}>Recieved Payments</Button></td>
     </tr>

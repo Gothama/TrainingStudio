@@ -1,9 +1,10 @@
 
 import React, { Component } from 'react';
 import { Tab, Tabs, Row, Nav, Col } from 'react-bootstrap';
+import AddDietPlan from './DietPlans/addDietPlan.component';
 import HealthReports from './healthreports.component';
 import PersonalDetails from './personaldetails.component';
-
+import DietPlans from './dietplans.components';
 //import Footer from '../general/footer.component';
 
 export default class InternalNavbar extends Component {
@@ -20,7 +21,7 @@ export default class InternalNavbar extends Component {
                         <HealthReports id={this.props.id}/>
                     </Tab>
                     <Tab eventKey="Diet Plans" title="Diet Plans">
-
+                        <DietPlans id={this.props.id}/>
                     </Tab>
                 </Tabs>s
 

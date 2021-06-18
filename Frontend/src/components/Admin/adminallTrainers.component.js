@@ -90,7 +90,7 @@ export default class AdminAllTrainers extends Component {
         <div style={{ paddingTop: "50px" }} >
 
           <div style={{/*paddingTop:"100px" ,*/ paddingBottom: "100px", width: "100%" }}>
-
+          
 
             <Table striped bordered hover variant="dark">
               <thead >
@@ -109,7 +109,7 @@ export default class AdminAllTrainers extends Component {
                     <td>1</td>
                     <td>{c.name.fName}</td>
                     <td>{c.name.lName}</td>
-                    <td>{c.age}</td>
+                    <td><Moment format="YYYY/MM/DD">{c.dob}</Moment></td>
                     <td>{c.email}</td>
                     <td style={{ textAlign: "center" }}><Button variant="danger" onClick={() => this.deletedietician(c._id)}>Unregister</Button> <Link to={`/trainerAccount/trainer/${c._id}`}><Button variant="warning">View Profile</Button></Link> <Button variant="primary" onClick={() => this.showpayments(c._id)}>Recieved Payments</Button></td>
                   </tr>

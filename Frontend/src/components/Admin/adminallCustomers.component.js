@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, Form, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Moment from 'react-moment';
@@ -12,7 +12,8 @@ export default class AdminAllCustomers extends Component{
     customers:[],
     customersinyear:[],
     customersinmonth1:[],
-    show: false
+    show: false,
+    sfName:"", sLName:"", sEmail:""
   }
 
 constructor(){
@@ -125,6 +126,22 @@ close = () => {
   })
 }
 
+searchEmail=(event)=>{
+  this.setState({
+    sEmail: event.target.value
+  })
+}
+searchFname=(event)=>{
+  this.setState({
+    sfName: event.target.value
+  })
+}
+searchLname=(event)=>{
+  this.setState({
+    lName: event.target.value
+  })
+}
+
     render(){
 return(
 
@@ -133,6 +150,12 @@ return(
     <div style={{paddingTop:"50px"}} >
 
 <div style={{/*paddingTop:"100px" ,*/ paddingBottom:"20px",width:"100%" }}>
+<Form.Group as={Row} controlId="formHorizontalFName" >
+    <Col sm={4}>
+      <Form.Control type="text" placeholder="Search by First Name" onChange={this.searchFname}/>
+    </Col>
+   
+  </Form.Group>
 
 
 <Table striped bordered hover variant="dark">
@@ -141,18 +164,25 @@ return(
       <th >#</th>
       <th style={{textAlign:"center", width:"20vh" }}>First Name</th>
       <th style={{textAlign:"center"}}>Last Name</th>
-      <th style={{textAlign:"center"}}>Age</th>
+      <th style={{textAlign:"center"}}>DOB</th>
       <th style={{textAlign:"center"}}>Email</th>
       <th style={{textAlign:"center", width:"70vh" }}>Manage</th>
     </tr>
   </thead>
   <tbody>
-    {this.state.customers.map(c=>
+    {this.state.customers.filter((c)=>{
+      if(this.state.sfName===""){
+        return c
+      }
+      else if(c.name.fName.toLowerCase().includes(this.state.sfName.toLowerCase()) ){
+        return c
+      }
+    }).map(c=>
  <tr>
       <td>1</td>
       <td>{c.name.fName}</td>
       <td>{c.name.lName}</td>
-      <td>{c.age}</td>
+      <td><Moment format="YYYY/MM/DD">{c.dob}</Moment></td>
       <td>{c.email}</td>
       <td style={{textAlign:"center"}}><Button variant="danger" onClick={()=>this.deletecustomer(c._id)}>Unregister</Button> <Button variant="warning">View Profile</Button> <Button variant="primary"onClick={() => this.showpayments(c._id)}>Payments Done</Button></td>
     </tr>

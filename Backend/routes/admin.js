@@ -5,7 +5,7 @@ const { check, validationResult } = require("express-validator")
 const jwt = require('jsonwebtoken');
 const auth = require("../middleware/auth");
 const customer = require('../models/customer');
-
+const payments = require('../models/payments');
 
 
 router.get("/alltrainers", function (req, res) {
@@ -180,5 +180,33 @@ router.get("/registeredtrainerspermonth", function (req, res) {
 })
 
 
+router.get("/paymentcustomerperyear", function (req, res) {
+    
+    payments.aggregate([{
+        $group:{
+            _id: {$year: "$paymentdate"},
+            sum:{$sum:"$paymentamount"}
+        }
+    }]).sort({ '_id': 1 }).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
+
+
+router.get("/paymentcustomerpermonth", function (req, res) {
+    
+    payments.aggregate([{
+        $group:{
+            _id: {$month: "$paymentdate"},
+            sum:{$sum:"$paymentamount"}
+        }
+    }]).sort({ '_id': 1 }).then(function (t) {
+        res.json(t);
+    }).catch(err => {
+        res.json({"Error" : err})
+    })
+})
 
 module.exports = router

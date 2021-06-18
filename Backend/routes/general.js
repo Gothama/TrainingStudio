@@ -117,7 +117,7 @@ router.post('/new-password',(req,res)=>{
 
 //get the details of a customer
 router.post('/customerdetails' ,function(req,res){
-    customer.findById({_id:req.body.id}).then(function (c) {
+    customer.findById({ _id:req.body.id}).then(function (c) {
         res.json(c)
 }).catch(err => {
     console.log(err)
