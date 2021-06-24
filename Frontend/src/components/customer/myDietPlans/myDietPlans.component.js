@@ -1,77 +1,87 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Footer from '../../general/footer.component';
 import NavBar from './../cusnav.component'
-import {Button,Card,Accordion} from 'react-bootstrap';
+import { Button, Card, Accordion } from 'react-bootstrap';
 import DietPlan from './dietPlan.component';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Moment from 'react-moment';
 
 //import {Link} from 'react-router-dom';
 
 //import Footer from '../general/footer.component';
+const siAPI1 = axios.create({
+  baseURL: `http://localhost:9020/dietplan/getalldietplansbycustomer/`
+})
 
-export default class MyDietPlans extends Component{
-  
-    render(){
-return(
-<div>
-    <div style={{backgroundColor:"#14213d",paddingBottom:"100px" , paddingTop:"100px"}} >
-<NavBar/>
-<div className="container" style={{paddingTop:"100px" , paddingBottom:"100px" }}>
- <h1 style={{color:"white",paddingBottom:"50px"}}>My Diet Plans</h1>  
- <div style={{color:"white", paddingBottom:"10px"}}>Contact Dietician:</div><Button href="/videoChat" style={{marginBottom:"25px"}}>Video Chat</Button> <Link to ="/messenger" ><Button  style={{marginBottom:"25px"}}>Messenger</Button> </Link>
-
-<Accordion >
-  <Card style={{backgroundColor:"#892cdc"}}>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{color:"white"}}>
-        First Week! (2020-11-30 -- 2020-12-06 )
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="0" style={{backgroundColor:"white"}}>
-      <Card.Body><DietPlan/></Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  <Card style={{backgroundColor:"#892cdc"}}>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{color:"white"}}>
-        Second Week!  (2020-12-07 -- 2020-12-14 )
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="1" style={{backgroundColor:"white"}}>
-      <Card.Body><DietPlan/></Card.Body>
-    </Accordion.Collapse>
-  </Card>
-
-  <Card style={{backgroundColor:"#892cdc"}}>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{color:"white"}}>
-        Third Week!  (2020-12-14 -- 2020-12-21 )
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="2" style={{backgroundColor:"white"}}>
-      <Card.Body><DietPlan/></Card.Body>
-    </Accordion.Collapse>
-  </Card>
-
-  <Card style={{backgroundColor:"#892cdc"}}>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{color:"white"}}>
-        Fourth Week!  (2020-12-21 -- 2020-12-28 )
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="3" style={{backgroundColor:"white"}}>
-      <Card.Body><DietPlan/></Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  
-</Accordion>
+export default class MyDietPlans extends Component {
+  state = {
+    dietplans: []
+  }
 
 
-</div>
-</div>
-<Footer/>
-    </div>
-);
+  getData = () => {
+    siAPI1.post("/",
+      {
+
+      },
+      {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+      }
+    ).then(res => {
+      console.log(res.data)
+
+      this.setState({
+        dietplans: res.data
+      })
+
+    }).catch(err => {
+      window.alert(err)
+    })
+  }
+
+  constructor(props) {
+    super(props);
+    this.getData()
+  }
+
+  render() {
+    return (
+      <div>
+        <div style={{ backgroundColor: "#14213d", paddingBottom: "100px", paddingTop: "100px" }} >
+          <NavBar />
+          <div className="container" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+            <h1 style={{ color: "white", paddingBottom: "50px" }}>My Diet Plans</h1>
+            <div style={{ color: "white", paddingBottom: "10px" }}>Contact Dietician:</div><Button href="/videoChat" style={{ marginBottom: "25px" }}>Video Chat</Button> <Link to="/messenger" ><Button style={{ marginBottom: "25px" }}>Messenger</Button> </Link>
+
+            <div className="row" style={{ alignContent: "center" }}>
+
+              {this.state.dietplans.map(h =>
+
+                <Card style={{ width: '18rem', margin: "0.3rem" }}>
+                  <Card.Body>
+                    <Card.Title>Diet Plan</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">For Date: <Moment format="YYYY/MM/DD">{h.forDate}</Moment></Card.Subtitle>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the bulk of
+                      the card's content.
+                      {h.addedDate}
+                    </Card.Text>
+                    <Link to={`/mydietplan/${h._id}`}><Button variant="warning">View</Button></Link>
+
+                  </Card.Body>
+                </Card>
+
+
+              )}
+            </div>
+
+
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 }
-}   

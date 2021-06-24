@@ -70,6 +70,25 @@ router.post("/paymentsuccess", function (req, res) {
   })
 })
 
+router.post("/newdietplanadded" , function(req,res){
+  const mailOptions = {
+    from: 'studentdataschool@gmail.com',
+    to: 'albertlinconnr@gmail.com',
+    subject: 'New Diet Plan Added for your Account',
+    text: "Please enjoy your customized diet plan. Contact the dietician if needed"
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+      res.json({ "status": "Unsuccessfull" })
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.json({ 'Email sent: ': info.response, "status": "Okay" })
+    }
+  })
+})
+
 
 
 module.exports = router

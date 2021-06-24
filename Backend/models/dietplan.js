@@ -22,21 +22,27 @@ const DietPlanSchema = new mongoose.Schema({
 		{
             foodname:{type:String },
 			unit:{type:String},
-			quantity:{type:String}
+			quantity:{type:String},
+            calories:{type:String},
+            weight:{type:String}
 		}
 	],
     lunch: [
 		{
 			foodname:{type:String },
 			unit:{type:String},
-			quantity:{type:String}
+			quantity:{type:String},
+            calories:{type:String},
+            weight:{type:String}
 		}
 	],
     dinner: [
 		{
             foodname:{type:String },
 			unit:{type:String},
-			quantity:{type:String}
+			quantity:{type:String},
+            calories:{type:String},
+            weight:{type:String}
 		}
 	],
     additional: [
@@ -54,4 +60,4 @@ const DietPlanSchema = new mongoose.Schema({
     
 })
 
-module.exports = mongoose.model('DietPlanSchema', DietPlanSchema)
+module.exports = mongoose.model('DietPlan', DietPlanSchema)

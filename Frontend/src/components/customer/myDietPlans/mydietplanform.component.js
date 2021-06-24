@@ -15,7 +15,7 @@ const siAPI2 = axios.create({
 })
 
 
-export default class DietPlanForm extends Component {
+export default class MyDietPlanForm extends Component {
     state = {
         foodsuggestions: [],
         quantity: "",
@@ -115,7 +115,7 @@ export default class DietPlanForm extends Component {
 
             siAPI1.put("/", {
                 calories: this.state.calories,
-                weight: parseFloat(this.state.totalWeight).toFixed(2).toString() ,
+                weight: this.state.totalWeight,
                 unit: this.state.unit,
                 quantity: this.state.quantity,
                 food: this.state.foodName,
@@ -155,7 +155,7 @@ export default class DietPlanForm extends Component {
                                     <th style={{ textAlign: "center", width: "15vh" }}>Food</th>
                                     <th style={{ textAlign: "center", width: "10vh" }}>Calories</th>
                                     <th style={{ textAlign: "center", width: "10vh" }}>Weight</th>
-                                    <th style={{ textAlign: "center", width: "10vh" }}>Control</th>
+                                  
 
                                 </tr>
                             </thead>
@@ -167,7 +167,7 @@ export default class DietPlanForm extends Component {
                                     <td>{f.foodname}</td>
                                     <td>{f.calories} Kcal</td>
                                     <td>{f.weight} g</td>
-                                    <td className="text-center" ><Button variant="danger" type="submit" >Delete</Button></td>
+                                   
                                 </tr>
                              )}
 
@@ -175,52 +175,7 @@ export default class DietPlanForm extends Component {
                             </tbody>
                         </Table>
 
-                        <Form style={{ padding: "20px" }} >
-                            <Form.Group as={Row} controlId="formHorizontalFName" >
-                                <Form.Label column sm={2}>
-                                    Food
-                                </Form.Label>
-                                <Col sm={10}>
-
-                                    <input list="food" name="browser" id="browser" onChange={this.onChangeFoodName} style={{ height: "40px", borderRadius: "9px" }} />
-                                    <datalist id="food">
-                                        {this.state.foodsuggestions.map(f =>
-
-                                            <option value={f} />
-                                        )}
-
-                                    </datalist>
-                                </Col>
-                            </Form.Group>
-
-                            <Form.Group as={Row} controlId="formHorizontalUserName" >
-                                <Form.Label column sm={2}>
-                                    Unit
-                                </Form.Label>
-                                <Col sm={4}>
-
-                                    <Form.Control as="select" required onChange={this.onChangeUnit} value={this.state.unit}>
-                                        <option value="cup">Cup</option>
-                                        <option value="ounce">Ounce - OZ</option>
-                                        <option value="tablespoon">tablespoon</option>
-                                        <option value="whole">whole</option>
-
-                                    </Form.Control>
-                                </Col>
-                                <Form.Label column sm={2}>
-                                    Quantity
-                                </Form.Label>
-                                <Col sm={4}>
-                                    <Form.Control type="number" required onChange={this.selectQuantity} />
-                                </Col>
-                            </Form.Group>
-
-                            <Form.Group as={Row}>
-                                <Col sm={{ span: 10, offset: 2 }}>
-                                    <Button variant="warning" onClick={this.addfood}>Add New Food</Button>
-                                </Col>
-                            </Form.Group>
-                        </Form>
+                      
 
                     </div>
 
