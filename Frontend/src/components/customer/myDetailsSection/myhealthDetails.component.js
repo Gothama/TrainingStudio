@@ -17,8 +17,8 @@ export default class HealthDetails extends Component{
   }
     render(){
 return(
-<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" bg="dark" variant="tabs" >
-  <Tab eventKey="home" title="Sugar Level " bg="dark" >
+<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" bg="light" variant="tabs" >
+  <Tab eventKey="home" title="Sugar Level " bg="light" >
     <div>
     <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
   <Form.Group as={Row} controlId="formHorizontalFName" >
@@ -123,7 +123,7 @@ return(
 
     </div>
   </Tab>
-  <Tab eventKey="profile" title="Blood Pressure">
+  <Tab eventKey="profile" title="Blood Pressure" bg="light" >
   <div>
   <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
 
@@ -196,7 +196,7 @@ return(
 
   </div>
   </Tab>
-  <Tab eventKey="contact" title="Weight">
+  <Tab eventKey="contact" title="Weight" bg="light" >
   <div>
   <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
 

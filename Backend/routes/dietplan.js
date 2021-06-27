@@ -3,6 +3,7 @@ const router = express.Router()
 const DietPlan = require('../models/dietplan')
 const { check, validationResult } = require("express-validator")
 const auth = require("../middleware/auth")
+const Payments = require('../models/payments')
 
 router.post("/ndietplan", auth,
     function (req, res) {
@@ -106,18 +107,9 @@ router.put('/addFoods',
 
 //delete a food in the diet plan
 router.post("/deletefood", auth, function (req, res, next) {
-    var d;
+    let d;
     if (req.body.type === "B") {
-        d = { $pull: { breakfast: { _id: req.body.id } } }
-    }
-    else if (req.body.type === "L") {
-        d = { $pull: { lunch: { _id: req.body.id } } }
-    }
-    else if (req.body.type === "D") {
-        d = { $pull: { dinner: { _id: req.body.id } } }
-    }
-
-    DietPlan.update({ _id: req.body.dietplanID }, { d }).then(function (c) {
+       DietPlan.update({ _id: req.body.dietplanID }, {   $pull: { breakfast: { _id: req.body.id } }  })  .then(function (c) {
         console.log(c)
         if (c !== null) {
             console.log(c)
@@ -130,6 +122,39 @@ router.post("/deletefood", auth, function (req, res, next) {
     }).catch(err => {
         res.json("error")
     })
+    }
+    else if (req.body.type === "L") {
+        DietPlan.update({ _id: req.body.dietplanID }, {   $pull: { lunch: { _id: req.body.id } }  })  .then(function (c) {
+            console.log(c)
+            if (c !== null) {
+                console.log(c)
+                console.log("successfull")
+                res.send(c)
+            }
+            else {
+                res.send("unsuccessfull")
+            }
+        }).catch(err => {
+            res.json("error")
+        })
+    }
+    else if (req.body.type === "D") {
+        DietPlan.update({ _id: req.body.dietplanID }, {   $pull: { dinner: { _id: req.body.id } }  })  .then(function (c) {
+            console.log(c)
+            if (c !== null) {
+                console.log(c)
+                console.log("successfull")
+                res.send(c)
+            }
+            else {
+                res.send("unsuccessfull")
+            }
+        }).catch(err => {
+            res.json("error")
+        })
+    }
+
+   
 })
 
 
@@ -197,23 +222,24 @@ router.post("/addpaymentdetails", auth, function (req, res, next) {
         console.log(c)
         res.json(c)
     }).catch(err => {
-        res.json({ "k": "Error" })
+        res.json({ "k": err })
     })
 })
 
 
 //make a payment for a specific diet plan by the customer
 router.post("/makepaymentsfordietplan", auth, function (req, res, next) {
+    console.log("Payments")
     const payment = new Payments({
         payerID: req.user,
-        receiverID: req.body.receiverID ,
+        receiverID: req.body.eid ,
         paymentdate: req.body.paymentdate ,
         paymentamount: req.body.paymentamount,
         reason: "Diet plan payment"
     })
     Payments.create(payment).then(function (c) {
-        var d = { $pull: { price: { paymentID:c._id, paid: true } } }
-        DietPlan.update({customerID: req.user, _id: req.body.dietplanID},{d} ).then(function(k){
+       // var d = { $pull: { price: { paymentID:c._id, paid: true } } }
+        DietPlan.findByIdAndUpdate({ _id: req.body.dietplanID},{ $set: { price: { paymentID:c._id, paid: true } } }).then(function(k){
             console.log(k)
         }).catch(err => {
             console.log(err)
@@ -238,6 +264,22 @@ router.post("/getallpaymentdetails", auth, function (req, res, next) {
         res.json("error")
     })
 })
+
+//update the status of the diet plan by the customer
+router.post("/updatecompletedfood" ,auth,function(req,res,next){
+    DietPlan.findByIdAndUpdate({"_id":"60d4f96c68a909510861e4f7" , "breakfast._id":"60d6525fe624c9244406d117"} , { $set:{"breakfast.$.completed": "true"}})
+    .then(function(f){
+        res.json("done")
+    }).catch(err=>{
+        console.log(err)
+        res.json(err)
+    })
+})
+
+
+
+
+
 
 
 module.exports = router

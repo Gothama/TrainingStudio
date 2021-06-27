@@ -46,16 +46,18 @@ export default class ImportantFacts extends Component {
                 }
                 if(res.data.price!==undefined && res.data.price.paid!==undefined){
                     this.setState({
-                        paid: res.data.price.paid
+                        paid: res.data.price.paid ? "True" : "False"
                     })
                 }
-              
+                console.log(res.data.price.paymentID)
 
-                if (res.data.price!==undefined &&  res.data.paymentID !== null) {
+                if (res.data.price!==undefined &&  res.data.price.paymentID !== undefined){
                     this.setState({
-                        paymentID: res.data.paymentID
+                        paymentID: res.data.price.paymentID
                     })
                 }
+                console.log(this.state.paymentID)
+
             }).catch(err => {
                 window.alert(err)
             })
@@ -80,7 +82,7 @@ export default class ImportantFacts extends Component {
         event.preventDefault()
 
         this.setState({
-            paid:false
+            paid: event.target.value==="False"?false:true
         })
         console.log(this.state.paid)
     }
@@ -108,82 +110,6 @@ export default class ImportantFacts extends Component {
         })
     }
 
-
-    /*
-    onChangeFoodName = (event) => {
-        event.preventDefault()
-        this.setState({
-            foodsuggestions: [],
-            foodName: event.target.value
-        })
-        axios.get("https://api.edamam.com/auto-complete?app_id=a3e31d85&app_key=%2010e936572b084d5b87f05cd5bfc9cd22%09&q=" + event.target.value + "&limit=4").then(res => {
-            console.log(res.data)
-            this.setState({
-                foodsuggestions: res.data
-            })
-
-        }).catch(err => {
-            window.alert(err)
-        })
-    }
-
-    selectQuantity = (event) => {
-        event.preventDefault()
-        this.setState({
-            quantity: event.target.value
-        })
-    }
-
-
-
-    onChangeUnit = (event) => {
-
-        event.preventDefault()
-        this.setState({
-            unit: event.target.value
-        })
-        console.log(this.state.unit)
-    }
-
-    addfood = () => {
-        var k = this.state.quantity + " " + this.state.unit + " " + this.state.foodName
-        console.log(k)
-        axios.post("https://api.edamam.com/api/nutrition-details?app_id=5effcac5&app_key=8f9f753f0386a290283ee5274ccc7c24", {
-            ingr: [
-                k
-            ]
-        }).then(res => {
-            console.log(res.data.calories)
-            this.setState({
-                calories: res.data.calories,
-                totalWeight: res.data.totalWeight
-            })
-
-            siAPI1.put("/", {
-                calories: this.state.calories,
-                weight: this.state.totalWeight,
-                unit: this.state.unit,
-                quantity: this.state.quantity,
-                food: this.state.foodName,
-                type: this.props.type,
-                dietplanID: this.props.id
-            },
-                {
-                    headers: { Authorization: "Bearer " + localStorage.getItem("token") }
-                }).then(res => {
-                    console.log(res.data)
-                    this.getallfood()
-                }).catch(err => {
-                    window.alert(err)
-                })
-
-
-        }).catch(err => {
-            window.alert(err)
-        })
-    }*/
-
-
     render() {
         return (
             <div>
@@ -204,10 +130,10 @@ export default class ImportantFacts extends Component {
 
                         <Form.Group as={Row} controlId="formHorizontalFName" >
                             <Form.Label column sm={5}>
-                                Payment
+                                Payment ID
                             </Form.Label>
                             <Col sm={7}>
-                                <Form.Control type="text" readOnly/>
+                                <Form.Control type="text" readOnly value={this.state.paymentID}/>
                             </Col>
                         </Form.Group>
 
@@ -220,10 +146,10 @@ export default class ImportantFacts extends Component {
                                     <Form.Check
                                         type="radio"
                                         label="Not Paid"
-                                        value="false"
+                                        value="False"
                                         name="formHorizontalRadios"
                                         id="formpaidRadios"
-                                        checked={this.state.paid==="false"}
+                                        checked={this.state.paid==="False"}
                                         onChange={this.onChangeStatus}
        
                                     />
@@ -232,9 +158,9 @@ export default class ImportantFacts extends Component {
                                         label="Paid"
                                         name="formHorizontalRadios"
                                         id="formnotpaidRadios"
-                                        value = "true"
-                                        checked={this.state.paid==="true"}
-                                        onChange={this.onChangeStatus1}
+                                        value = "True"
+                                        checked={this.state.paid==="True"}
+                                        onChange={this.onChangeStatus}
                                     />
 
                                 </Col>

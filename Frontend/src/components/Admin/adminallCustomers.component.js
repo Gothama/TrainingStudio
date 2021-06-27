@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import Moment from 'react-moment';
 import {Chart} from 'react-google-charts';
 import moment from 'moment';
+import jsPDF from 'jspdf';
 
 export default class AdminAllCustomers extends Component{
   state={
@@ -27,6 +28,15 @@ constructor(){
   })
   this.getyeardata();
   this.getmonthdata();
+}
+
+download=()=>{
+  var doc = new jsPDF("p" , "pt" , "a4");
+  doc.html(document.querySelector('#content'),{
+    callback: function(pdf){
+      pdf.save("mypdf.pdf");
+    }
+  })
 }
 
 getyeardata=()=>{
@@ -222,8 +232,10 @@ return(
 
 </div>
 
+<div id="content">
 <div className="row">
 <div className="col-lg-6">
+  
 <Chart
   width={'100%'}
   height={'100%'}
@@ -284,7 +296,10 @@ return(
 </div>
 
 </div>
-
+</div>
+<Button onClick={this.download}>
+                   Download
+                   </Button>
 
 
 </div>

@@ -39,10 +39,10 @@ export default class TrainerAccount extends Component {
     image1: "",
     posterphotoLink: "",
     uploading1: "",
-    phoneerror:false,
-    fnameerror:false,
-    lnameerror:false,
-    emailerror:false
+    phoneerror: false,
+    fnameerror: false,
+    lnameerror: false,
+    emailerror: false
   }
   constructor() {
     super()
@@ -63,8 +63,8 @@ export default class TrainerAccount extends Component {
   upload1 = (event) => {
 
     //if (this.state.image1.size !== 535 * 693) // 1mb
-      //return alert("Size too large!")
-     // return this.message("error", "Size Should be 535x693!")
+    //return alert("Size too large!")
+    // return this.message("error", "Size Should be 535x693!")
 
     if (this.state.image1.type !== 'image/jpeg' && this.state.image1.type !== 'image/png') // 1mb
       //return alert("File format is incorrect.")
@@ -160,50 +160,50 @@ export default class TrainerAccount extends Component {
         window.alert(err)
       })
   }
-  onChangefName= (event)=>{
+  onChangefName = (event) => {
     let f = event.target.value
-    if(!nameregex.test(f)){
+    if (!nameregex.test(f)) {
       this.setState({
-        fnameerror:true
+        fnameerror: true
       })
     }
-    else{
-       this.setState({
-      fName:event.target.value,
-      fnameerror:false
-    })
+    else {
+      this.setState({
+        fName: event.target.value,
+        fnameerror: false
+      })
     }
-   
+
   }
-  onChangelName= (event)=>{
+  onChangelName = (event) => {
     let l = event.target.value
-    if(!nameregex.test(l)){
+    if (!nameregex.test(l)) {
       this.setState({
-        lnameerror:true
+        lnameerror: true
       })
     }
-    else{
+    else {
       this.setState({
-      lName:event.target.value,
-      lnameerror:false
-    })
+        lName: event.target.value,
+        lnameerror: false
+      })
     }
-    
+
   }
-  onChangeemail= (event)=>{
+  onChangeemail = (event) => {
     let e = event.target.value;
-    if(!emailregex.test(e)){
+    if (!emailregex.test(e)) {
       this.setState({
-        emailerror:true
+        emailerror: true
       })
     }
-    else{
-       this.setState({
-      email:event.target.value,
-      emailerror:false
-    })
+    else {
+      this.setState({
+        email: event.target.value,
+        emailerror: false
+      })
     }
-   
+
   }
   onChangegender = (event) => {
     this.setState({
@@ -211,22 +211,22 @@ export default class TrainerAccount extends Component {
     })
     console.log(this.state.gender)
   }
-  onChangephoneNumber= (event)=>{
+  onChangephoneNumber = (event) => {
     let p = event.target.value;
-    if(!phoneregex.test(p)){
+    if (!phoneregex.test(p)) {
       this.setState({
-        phoneerror:true
+        phoneerror: true
       })
       console.log("Error")
     }
-    else{
+    else {
       this.setState({
-      phoneNumber:event.target.value,
-      phoneerror:false
-    })
-    console.log(this.state.phoneNumber)
+        phoneNumber: event.target.value,
+        phoneerror: false
+      })
+      console.log(this.state.phoneNumber)
     }
-    
+
   }
   onChangeusername = (event) => {
     this.setState({
@@ -354,31 +354,31 @@ export default class TrainerAccount extends Component {
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
                     First Name
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangefName} placeholder={"Add Your First Name"}/>
-                    {this.state.fnameerror ? 
-              <div className="errorMsg">Enter a valid Name</div>
-            :null}
+                    <Form.Control type="text" Value={this.state.fName} onChange={this.onChangefName} placeholder={"Add Your First Name"} />
+                    {this.state.fnameerror ?
+                      <div className="errorMsg">Enter a valid Name</div>
+                      : null}
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalLName" >
                   <Form.Label column sm={2}>
                     Last Name
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.lName} onChange={this.onChangelName} required placeholder={"Add Your Last Name"}/>
-                    {this.state.lnameerror ? 
-              <div className="errorMsg">Enter a valid Name</div>
-            :null}
+                    <Form.Control type="text" Value={this.state.lName} onChange={this.onChangelName} required placeholder={"Add Your Last Name"} />
+                    {this.state.lnameerror ?
+                      <div className="errorMsg">Enter a valid Name</div>
+                      : null}
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalUserName" >
                   <Form.Label column sm={2}>
                     Username
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
                     <Form.Control type="text" Value={this.state.username} onChange={this.onChangeusername} required readOnly />
                   </Col>
@@ -387,7 +387,7 @@ export default class TrainerAccount extends Component {
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                   <Form.Label column sm={2}>
                     Password
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
                     <Form.Control type="password" Value={this.state.password} onChange={this.onChangepassword} required readOnly />
                   </Col>
@@ -396,39 +396,39 @@ export default class TrainerAccount extends Component {
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                   <Form.Label column sm={2}>
                     Fee per plan
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="number" Value={this.state.fee} onChange={this.onChangefee} required  placeholder={"Add Your Fee Per Plan"}/>
+                    <Form.Control type="number" Value={this.state.fee} onChange={this.onChangefee} required placeholder={"Add Your Fee Per Plan"} />
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalTelephoneNumber">
                   <Form.Label column sm={2}>
                     Mobile No.
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" Value={this.state.phoneNumber} onChange={this.onChangephoneNumber} required minlength="10" maxLength="10"  placeholder={"Add Your Phone Number"}/>
-                    {this.state.phoneerror ? 
-              <div className="errorMsg">Enter a valid number</div>
-            :null}
+                    <Form.Control type="text" Value={this.state.phoneNumber} onChange={this.onChangephoneNumber} required minlength="10" maxLength="10" placeholder={"Add Your Phone Number"} />
+                    {this.state.phoneerror ?
+                      <div className="errorMsg">Enter a valid number</div>
+                      : null}
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalAge">
                   <Form.Label column sm={2}>
                     Email
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="email" Value={this.state.email} onChange={this.onChangeemail} required placeholder={"Add Your Email"}/>
-                    {this.state.emailerror ? 
-              <div className="errorMsg">Enter a valid Email address</div>
-            :null}
+                    <Form.Control type="email" Value={this.state.email} onChange={this.onChangeemail} required placeholder={"Add Your Email"} />
+                    {this.state.emailerror ?
+                      <div className="errorMsg">Enter a valid Email address</div>
+                      : null}
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
                     Profile Image
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={8}>
                     <Form.Control type="file" Value={this.state.fName} onChange={this.selectImage} />
 
@@ -443,7 +443,7 @@ export default class TrainerAccount extends Component {
                 <Form.Group as={Row} controlId="formHorizontalFName" >
                   <Form.Label column sm={2}>
                     Poster Image
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={8}>
                     <Form.Control type="file" Value={this.state.posterphotoLink} onChange={this.selectImage1} />
 
@@ -461,7 +461,7 @@ export default class TrainerAccount extends Component {
                   <Form.Group as={Row}>
                     <Form.Label as="legend" column sm={2}>
                       Gender
-      </Form.Label>
+                    </Form.Label>
                     <Col sm={10}>
                       <Form.Check
                         type="radio"
@@ -485,33 +485,33 @@ export default class TrainerAccount extends Component {
                     </Col>
                   </Form.Group>
                 </fieldset>
-             
+
                 <Form.Group as={Row} controlId="formHorizontalAge">
                   <Form.Label column sm={2}>
                     Name on Card
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={4}>
-                    <Form.Control type="text" Value={this.state.nameOnCard} onChange={this.onChangenameOnCard} required placeholder={"Name on Card"}/>
+                    <Form.Control type="text" Value={this.state.nameOnCard} onChange={this.onChangenameOnCard} required placeholder={"Name on Card"} />
                   </Col>
                   <Form.Label column sm={2}>
-         
-    </Form.Label>
+
+                  </Form.Label>
                   <Col sm={4}>
-                    
+
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalAge">
                   <Form.Label column sm={2}>
                     Card Details
-    </Form.Label>
+                  </Form.Label>
                   <Col sm={10}>
-                  <CreditCardInput
-  cardNumberInputProps={{ value: this.state.cardNumber, onChange: this.onChangecardNumber }}
-  cardExpiryInputProps={{ value: this.state.expiryDate, onChange: this.onChangeexpiryDate }}
-  cardCVCInputProps={{ value: this.state.code, onChange: this.onChangecode }}
-  fieldClassName="input"
-/>
+                    <CreditCardInput
+                      cardNumberInputProps={{ value: this.state.cardNumber, onChange: this.onChangecardNumber }}
+                      cardExpiryInputProps={{ value: this.state.expiryDate, onChange: this.onChangeexpiryDate }}
+                      cardCVCInputProps={{ value: this.state.code, onChange: this.onChangecode }}
+                      fieldClassName="input"
+                    />
                   </Col>
                 </Form.Group>
 

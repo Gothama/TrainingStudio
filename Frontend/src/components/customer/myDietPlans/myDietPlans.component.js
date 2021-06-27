@@ -15,10 +15,16 @@ const siAPI1 = axios.create({
   baseURL: `http://localhost:9020/dietplan/getalldietplansbycustomer/`
 })
 
+function paybutton(k) {
+  return (<h1>{k}</h1>)
+}
+
 export default class MyDietPlans extends Component {
   state = {
     dietplans: []
   }
+
+
 
 
   getData = () => {
@@ -68,16 +74,16 @@ export default class MyDietPlans extends Component {
                       the card's content.
                       {h.addedDate}
                     </Card.Text>
-                    <Link to={`/mydietplan/${h._id}`}><Button variant="warning">View</Button></Link>
+
+                   
+                      <Link to={`/mydietplan/${h._id}`}><Button variant="warning">View</Button></Link>
+                    
+
 
                   </Card.Body>
                 </Card>
-
-
               )}
             </div>
-
-
           </div>
         </div>
         <Footer />

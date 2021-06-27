@@ -2,48 +2,102 @@ const mongoose = require('mongoose')
 
 const workoutScheduleSchema = new mongoose.Schema({
     trainerID:{
-        type:String,
-        required:true
+        type: mongoose.Schema.ObjectId, ref: 'Trainer'
     },
     customerID:{
-        type:String,
-        required:true
+        type: mongoose.Schema.ObjectId, ref: 'Customer'
     },
     addedDate:{
         type:Date,
         default:Date.now()
     },
-    expiryDate:{
+    startdate:{
         type:Date,
         required:true
     },
-    noOfweeks:{
-        type:Number,
+    enddate:{
+        type:Date,
         required:true
     },
     Remarks:{
         type:String
     },
-    feedback:{
-        type:String
-    },
-    exercises: [
+    firstday: [
 		{
-			day:{
-                type:String,
-                enum:['Monday', 'Tuesday','wednesday','Thursday', 'Friday','Saturday','Sunday']
-            },
-			exercise:{type:String },
-			imageURL:{type:String},
-			videoURL:{type:String},
-			description:{type:String}
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
 		}
-	]
-
-
-
+	],
+    secondday: [
+		{
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
+		}
+	],
+    thirdday: [
+		{
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
+		}
+	],
+    fourthday: [
+		{
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
+		}
+	],
+    fifthday: [
+		{
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
+		}
+	],
+    sixthday: [
+		{
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
+		}
+	],
+    seventhday: [
+		{
+            exercisename:{type:String },
+			reps:{type:Number},
+			sets:{type:Number},
+            method:{type:String},
+            musclegroup:{type:String},
+            completed:{type:String, default:"false"}
+		}
+	],
     
-
+    price:{
+        amount:{type:Number},
+        paid:{type:Boolean},
+        paymentID:{type: mongoose.Schema.ObjectId, ref: 'Payments'}
+    }
     
 })
 

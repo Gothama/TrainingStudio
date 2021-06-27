@@ -4,6 +4,9 @@ import { Table } from 'react-bootstrap';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
+const siAPI3 = axios.create({
+    baseURL: `http://localhost:9020/dietplan/deletefood/`
+})
 
 
 const siAPI1 = axios.create({
@@ -137,6 +140,22 @@ export default class DietPlanForm extends Component {
         })
     }
 
+    deleteFood=(fid)=>{
+        siAPI3.post("/" , {
+            type:this.props.type,
+            dietplanID: this.props.id,
+            id:fid
+        },
+        {
+            headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+        }).then(res => {
+            console.log(res.data)
+            this.getallfood()
+        }).catch(err => {
+            window.alert(err)
+        })
+    }
+
 
     render() {
         return (
@@ -167,7 +186,7 @@ export default class DietPlanForm extends Component {
                                     <td>{f.foodname}</td>
                                     <td>{f.calories} Kcal</td>
                                     <td>{f.weight} g</td>
-                                    <td className="text-center" ><Button variant="danger" type="submit" >Delete</Button></td>
+                                    <td className="text-center" ><Button variant="danger" type="submit" onClick={() => this.deleteFood(f._id)}>Delete</Button></td>
                                 </tr>
                              )}
 

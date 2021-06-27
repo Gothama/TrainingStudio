@@ -24,7 +24,8 @@ const DietPlanSchema = new mongoose.Schema({
 			unit:{type:String},
 			quantity:{type:String},
             calories:{type:String},
-            weight:{type:String}
+            weight:{type:String},
+            completed:{type:String, default:"false"}
 		}
 	],
     lunch: [
@@ -33,7 +34,8 @@ const DietPlanSchema = new mongoose.Schema({
 			unit:{type:String},
 			quantity:{type:String},
             calories:{type:String},
-            weight:{type:String}
+            weight:{type:String},
+            completed:{type:Boolean, default:false}
 		}
 	],
     dinner: [
@@ -42,7 +44,8 @@ const DietPlanSchema = new mongoose.Schema({
 			unit:{type:String},
 			quantity:{type:String},
             calories:{type:String},
-            weight:{type:String}
+            weight:{type:String},
+            completed:{type:Boolean, default:false}
 		}
 	],
     additional: [

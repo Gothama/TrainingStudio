@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Table } from 'react-bootstrap';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2'
+import { PayPalButton } from "react-paypal-button-v2";
 
 
 
@@ -24,7 +25,9 @@ export default class MyDietPlanForm extends Component {
         weight: "",
         unit: "",
         dietplanID: "",
-        food:[]
+        food: [],
+        paid:"",
+        trainerID:""
     }
 
     constructor(props) {
@@ -32,10 +35,10 @@ export default class MyDietPlanForm extends Component {
         this.getallfood()
         this.setState({
             foodsuggestions: [],
-            foodName:""
-          
+            foodName: ""
+
         })
-       // console.log(this.props.match.params.id)
+        // console.log(this.props.match.params.id)
 
     }
 
@@ -63,32 +66,38 @@ export default class MyDietPlanForm extends Component {
         })
     }
 
-    getallfood(){
-        siAPI2.post('/' , {dietplanID: this.props.id},
-        {
-            headers: { Authorization: "Bearer " + localStorage.getItem("token") }
-        }).then(res => {
-            console.log(res.data[0].breakfast)
-            if(this.props.type==="B"){
-                this.setState({
-                    food:res.data[0].breakfast
-                })
-            }
-            else if(this.props.type==="L"){
-                this.setState({
-                    food:res.data[0].lunch
-                })
-            }
-            else if(this.props.type==="D"){
-                this.setState({
-                    food:res.data[0].dinner
-                })
-            }
-        }).catch(err => {
-            window.alert(err)
-        })
+    getallfood() {
+        siAPI2.post('/', { dietplanID: this.props.id },
+            {
+                headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+            }).then(res => {
+                console.log(res.data[0].price.paid)
+                if (this.props.type === "B") {
+                    this.setState({
+                        food: res.data[0].breakfast,
+                        paid:res.data[0].price.paid,
+                        trainerID:res.data[0].trainerID
+                    })
+                }
+                else if (this.props.type === "L") {
+                    this.setState({
+                        food: res.data[0].lunch,
+                        paid:res.data[0].price.paid,
+                        trainerID:res.data[0].trainerID
+                    })
+                }
+                else if (this.props.type === "D") {
+                    this.setState({
+                        food: res.data[0].dinner,
+                        paid:res.data[0].price.paid,
+                        trainerID:res.data[0].trainerID
+                    })
+                }
+            }).catch(err => {
+                window.alert(err)
+            })
 
-}
+    }
 
     onChangeUnit = (event) => {
 
@@ -137,6 +146,41 @@ export default class MyDietPlanForm extends Component {
         })
     }
 
+    onclickCompleted=(fid)=>{
+        
+        console.log("Pressed" + fid)
+        axios.post("http://localhost:9020/dietplan/updatecompletedfood/" , {id:this.props.id , foodID:fid , completed:true} ,
+        {
+            headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+        }).then(res => {
+            console.log(res.data)
+            this.getallfood()
+        }).catch(err => {
+            window.alert(err)
+        })
+
+
+    }
+
+    
+  onPaymentSuccess = (details, data) => {
+    // alert("Transaction completed by " + details.payer.name.given_name);
+
+    // OPTIONAL: Call your server to save the transaction
+    console.log(data);
+
+    if (data.payerID !== null) {
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}dietplan/makepaymentsfordietplan`, { eid: this.state.trainerID, paymentamount: 200, dietplanID:this.props.id}, {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+      }).then(res => {
+        console.log(res.data)
+      })
+    }
+    this.setState({
+        paid: true
+    })
+}
+
 
     render() {
         return (
@@ -146,6 +190,7 @@ export default class MyDietPlanForm extends Component {
                         <img src={"https://www.verywellhealth.com/thmb/gF-I-Kf6MyQfEbp1Q9mpXtcENxM=/2880x1920/filters:fill(87E3EF,1)/best-breakfast-choices-and-diabetes-1087468-primary-recirc-603a39fe3b10439eaa9a0cf80a09eec2.jpg"} className="rounded avatar" alt="..." style={{ height: "150px", width: "200px", borderRadius: "50%" }} />
                     </div>
                     <div>
+                        {this.state.paid === true?
                         <Table striped bordered hover variant="dark" className="col-lg-12 col-md-12 col-xs-12">
                             <thead >
                                 <tr >
@@ -155,27 +200,35 @@ export default class MyDietPlanForm extends Component {
                                     <th style={{ textAlign: "center", width: "15vh" }}>Food</th>
                                     <th style={{ textAlign: "center", width: "10vh" }}>Calories</th>
                                     <th style={{ textAlign: "center", width: "10vh" }}>Weight</th>
-                                  
+                                    <th style={{ textAlign: "center", width: "10vh" }}>completed</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                               {this.state.food.map(f => 
-                                <tr>
-                                    <td>{f.quantity}</td>
-                                    <td>{f.unit}</td>
-                                    <td>{f.foodname}</td>
-                                    <td>{f.calories} Kcal</td>
-                                    <td>{f.weight} g</td>
-                                   
-                                </tr>
-                             )}
+                                {this.state.food.map(f =>
+                                    <tr>
+                                        <td>{f.quantity}</td>
+                                        <td>{f.unit}</td>
+                                        <td>{f.foodname}</td>
+                                        <td>{f.calories} Kcal</td>
+                                        <td>{f.weight} g</td>
+                                        <td> Done:  <input
+                                            name="completed"
+                                            type="checkbox"
+                                            onChange={()=>this.onclickCompleted(f._id)}/>
+                                        </td>
+                                    </tr>
+                                )}
 
 
                             </tbody>
                         </Table>
+                        :
+                        <PayPalButton amount="200"  onSuccess={(details, data) => this.onPaymentSuccess(details, data)} />
+                    
+                    }
 
-                      
+
 
                     </div>
 
