@@ -39,6 +39,8 @@ import VideoChat from './components/Chat/videochat.component';
 import Customeraccount from './components/physicalTrainer/customerAccount/customeraccount.compoent';
 import AddDietPlan from './components/physicalTrainer/customerAccount/DietPlans/addDietPlan.component';
 import MyDietPlan from './components/customer/myDietPlans/mydietplan.component';
+import AddWorkoutPlan from './components/physicalTrainer/customerAccount/WorkoutPlans/addWorkoutPlan.component';
+import WorkoutPlan from './components/customer/myWorkoutPlans/workoutPlan.component';
  
 
 
@@ -77,6 +79,8 @@ function App() {
       <Route path = "/customeraccount/:id" exact component = {Customeraccount}/>
       <Route path = "/addDietPlan/:id" exact component = {AddDietPlan}/>
       <Route path = "/mydietplan/:id" exact component = {MyDietPlan}/>
+      <Route path = "/addworkoutPlan/:id" exact component = {AddWorkoutPlan}/>
+      <Route path = "/myworkoutplan/:id" exact component = {WorkoutPlan}/>
 
   </Router>
   <Fitbot/>

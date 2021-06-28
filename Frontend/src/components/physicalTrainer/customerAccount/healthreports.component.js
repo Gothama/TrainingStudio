@@ -6,7 +6,7 @@ import Moment from 'react-moment';
 import "react-datepicker/dist/react-datepicker.css";
 
 const siAPI1 = axios.create({
-    baseURL: `http://localhost:9020/general/customerdetails/`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}general/customerdetails/`
 })
 
 export default class HealthReports extends Component {

@@ -22,76 +22,19 @@ const workoutScheduleSchema = new mongoose.Schema({
     Remarks:{
         type:String
     },
-    firstday: [
+    workoutschedule: [
 		{
             exercisename:{type:String },
 			reps:{type:Number},
 			sets:{type:Number},
             method:{type:String},
             musclegroup:{type:String},
-            completed:{type:String, default:"false"}
+            completed:{type:String, default:"false"},
+            day:{type:String},
+            videoURL:{type:String}
 		}
 	],
-    secondday: [
-		{
-            exercisename:{type:String },
-			reps:{type:Number},
-			sets:{type:Number},
-            method:{type:String},
-            musclegroup:{type:String},
-            completed:{type:String, default:"false"}
-		}
-	],
-    thirdday: [
-		{
-            exercisename:{type:String },
-			reps:{type:Number},
-			sets:{type:Number},
-            method:{type:String},
-            musclegroup:{type:String},
-            completed:{type:String, default:"false"}
-		}
-	],
-    fourthday: [
-		{
-            exercisename:{type:String },
-			reps:{type:Number},
-			sets:{type:Number},
-            method:{type:String},
-            musclegroup:{type:String},
-            completed:{type:String, default:"false"}
-		}
-	],
-    fifthday: [
-		{
-            exercisename:{type:String },
-			reps:{type:Number},
-			sets:{type:Number},
-            method:{type:String},
-            musclegroup:{type:String},
-            completed:{type:String, default:"false"}
-		}
-	],
-    sixthday: [
-		{
-            exercisename:{type:String },
-			reps:{type:Number},
-			sets:{type:Number},
-            method:{type:String},
-            musclegroup:{type:String},
-            completed:{type:String, default:"false"}
-		}
-	],
-    seventhday: [
-		{
-            exercisename:{type:String },
-			reps:{type:Number},
-			sets:{type:Number},
-            method:{type:String},
-            musclegroup:{type:String},
-            completed:{type:String, default:"false"}
-		}
-	],
+
     
     price:{
         amount:{type:Number},

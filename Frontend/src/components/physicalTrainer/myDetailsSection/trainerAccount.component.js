@@ -12,7 +12,7 @@ import CreditCardInput from 'react-credit-card-input';
 
 
 const siAPI1 = axios.create({
-  baseURL: `http://localhost:9020/trainer`
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}trainer`
 })
 
 const phoneregex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;

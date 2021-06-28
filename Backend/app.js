@@ -51,6 +51,9 @@ app.use('/payment' , paymentRouter)
 const dietplanRouter = require('./routes/dietplan')
 app.use('/dietplan' , dietplanRouter)
 
+const workoutplanRouter = require('./routes/workoutSchedules')
+app.use('/workoutplan' , workoutplanRouter)
+
 app.listen(process.env.PORT || 9020,()=>{
     console.log('server started on 9020')
 })

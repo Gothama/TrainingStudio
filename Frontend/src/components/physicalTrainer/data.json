@@ -1,0 +1,2518 @@
+[
+    {
+        "id": 345,
+        "uuid": "c788d643-150a-4ac7-97ef-84643c6419bf",
+        "name": "2 Handed Kettlebell Swing",
+        "exercise_base": 9,
+        "status": "2",
+        "description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+        "creation_date": "2015-08-03",
+        "category": 10,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            10
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "deusinvictus",
+        "variations": []
+    },
+    {
+        "id": 174,
+        "uuid": "99881bdd-43d7-4c3b-82ed-9c187d0455b7",
+        "name": "Abduktoren-Maschine",
+        "exercise_base": 12,
+        "status": "2",
+        "description": "<ul>\n<li>in eine aufrechte Position setzen, bei der die Beine hüftbreit geöffnet sind</li>\n<li>den Rücken, die Knie und die Oberschenkelaußenseite an die jeweiligen Polster pressen</li>\n<li>mit den Händen an den Griffen festhalten</li>\n<li>die Oberschenkel bis zum Anschlagpunkt der Hebelarme auseinander drücken</li>\n<li>danach die Beine wieder zusammen führen</li>\n<li>das Gesäß nicht vom Sitz abheben</li>\n<li>beim Auseinanderdrücken der Hebelarme aus- und beim Zusammenführen einatmen</li>\n</ul>",
+        "creation_date": "2013-07-19",
+        "category": 9,
+        "muscles": [
+            8,
+            6
+        ],
+        "muscles_secondary": [
+            11
+        ],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "flori",
+        "variations": []
+    },
+    {
+        "id": 223,
+        "uuid": "e56d0a17-b1b8-427d-991e-97c530c7db6a",
+        "name": "Adduktoren Maschine",
+        "exercise_base": 13,
+        "status": "2",
+        "description": "<p>Oberschenkel Innenseite!</p>",
+        "creation_date": "2014-02-26",
+        "category": 9,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "Marius",
+        "variations": []
+    },
+    {
+        "id": 228,
+        "uuid": "880bff63-6798-4ffc-a818-b2a1ccfec0f7",
+        "name": "Arnold Press",
+        "exercise_base": 20,
+        "status": "2",
+        "description": "<p>Zwei Kurzhanteln mit den Handflächen nach innen vor der Brust halten, Ellbogen unterhalb der Handgelenke.</p>\n<p>Ellbogen nach außen bringen und Hanteln über den Kopf heben. Drehung kommt aus dem Ellbogen, nicht aus den Armen!</p>\n<p>Wenn die Arme durchgestreckt sind, die gleiche Bewegung rückwärts ausführen.</p>",
+        "creation_date": "2014-03-09",
+        "category": 13,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            3
+        ],
+        "language": 1,
+        "license": 3,
+        "license_author": "bloody_disgrace",
+        "variations": [
+            228,
+            153,
+            266,
+            241
+        ]
+    },
+    {
+        "id": 227,
+        "uuid": "53ca25b3-61d9-4f72-bfdb-492b83484ff5",
+        "name": "Arnold Shoulder Press",
+        "exercise_base": 20,
+        "status": "2",
+        "description": "<p>Very common shoulder exercise.</p>\n<p> </p>\n<p>As shown here: https://www.youtube.com/watch?v=vj2w851ZHRM</p>",
+        "creation_date": "2014-03-09",
+        "category": 13,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            3
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "trzr23",
+        "variations": [
+            227,
+            329,
+            229,
+            190,
+            119,
+            123,
+            152,
+            155
+        ]
+    },
+    {
+        "id": 353,
+        "uuid": "583281c7-2362-48e7-95d5-8fd6c455e0fb",
+        "name": "Asai Squad",
+        "exercise_base": 22,
+        "status": "2",
+        "description": "<ol>\n<li>single leg sit and stand</li>\n</ol>",
+        "creation_date": "2015-10-22",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [],
+        "language": 7,
+        "license": 2,
+        "license_author": "Tetsuhiko Asai",
+        "variations": []
+    },
+    {
+        "id": 5,
+        "uuid": "5675ae61-6597-4806-ae5c-2dda5a5ac03c",
+        "name": "Ausfallschritte im Gehen",
+        "exercise_base": 206,
+        "status": "2",
+        "description": "<p>.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [
+            3
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            55,
+            5
+        ]
+    },
+    {
+        "id": 55,
+        "uuid": "27301836-ed7f-4510-83e7-66c0b8041a44",
+        "name": "Ausfallschritte Stehend",
+        "exercise_base": 205,
+        "status": "2",
+        "description": "<p>.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [
+            3
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            55,
+            5
+        ]
+    },
+    {
+        "id": 135,
+        "uuid": "c8d08cbd-d406-4ce0-b1b9-10b236272d30",
+        "name": "Ausfallschritt Trizepsdrücken ü. Kopf, ß-Stange",
+        "exercise_base": 25,
+        "status": "2",
+        "description": "",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 677,
+        "uuid": "8e9d8968-323d-468c-9174-8cf11a105fad",
+        "name": "Axe Hold",
+        "exercise_base": 31,
+        "status": "2",
+        "description": "<p>Nehmen Sie die Hanteln und strecken Sie die Arme zur Seite. Halten Sie sie so lange wie möglich.</p>",
+        "creation_date": "2020-01-16",
+        "category": 8,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            3
+        ],
+        "language": 1,
+        "license": 2,
+        "license_author": "Wunschcoach",
+        "variations": []
+    },
+    {
+        "id": 289,
+        "uuid": "6add5973-86d0-4543-928a-6bb8b3f34efc",
+        "name": "Axe Hold",
+        "exercise_base": 31,
+        "status": "2",
+        "description": "<p>Grab dumbbells and extend arms to side and hold as long as you can</p>",
+        "creation_date": "2014-11-02",
+        "category": 8,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            3
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "GrosseHund",
+        "variations": []
+    },
+    {
+        "id": 637,
+        "uuid": "0fd6154d-fb53-4b24-acc0-1c5c05b57ebc",
+        "name": "Back Squat",
+        "exercise_base": 34,
+        "status": "2",
+        "description": "<p>Place a barbell in a rack just below shoulder-height. Dip under the bar to put it behind the neck across the top of the back, and grip the bar with the hands wider than shoulder-width apart. Lift the chest up and squeeze the shoulder blades together to keep the straight back throughout the entire movement. Stand up to bring the bar off the rack and step backwards, then place the feet so that they are a little wider than shoulder-width apart. Sit back into hips and keep the back straight and the chest up, squatting down so the hips are below the knees. From the bottom of the squat, press feet into the ground and push hips forward to return to the top of the standing position.</p>",
+        "creation_date": "2019-05-29",
+        "category": 9,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "axel",
+        "variations": []
+    },
+    {
+        "id": 38,
+        "uuid": "4def60e7-ed8d-4a9d-bf76-ceb15ecf9779",
+        "name": "Bankdrücken Eng",
+        "exercise_base": 76,
+        "status": "2",
+        "description": "<p>Lege dich auf die Bank, die Stange direkt über die Augen, die Knie etwas angewinkelt und die Füße fest auf dem Boden. Greife nun die Stange mit einem engen Griff (nicht mehr als 20cm.). Führe nun das Gewicht so weit nach unten, bis die Oberarme paralell zum Boden sind, gehe dann wieder nach obern. Bringe die Stange nicht wie beim (breiten) Bankdrücken auf Brusthöhe runter, sondern weiter unten. Auf der tiefsten Stelle sollten deine Arme einen rechten Winkel machen.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [
+            2,
+            4
+        ],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            38,
+            58,
+            25
+        ]
+    },
+    {
+        "id": 77,
+        "uuid": "06450bcb-03a8-4bd7-8349-ef677ee57ea3",
+        "name": "Bankdrücken KH",
+        "exercise_base": 75,
+        "status": "2",
+        "description": "<p>Der Bewegungsablauf ist ähnlich zur Übung mit einer Langhantel.</p>\n<p>Nehme die Gewichte in die Hände und lege dich auf die Bank. Halte die Hanteln neben der Brust auf Brustwarzenhöhe und drücke sie nun nach oben, bis die Arme ausgestreckt sind. Lasse die Gewichte nun langsam und kontrolliert runter.</p>\n<p> </p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2,
+            5
+        ],
+        "equipment": [
+            8,
+            3
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 15,
+        "uuid": "198dcb2e-e35f-4b69-ae8b-e1124d438eae",
+        "name": "Bankdrücken LH",
+        "exercise_base": 73,
+        "status": "2",
+        "description": "<p>Lege dich auf die Bank, die Stange direkt über die Augen, die Knie etwas angewinkelt und die Füße fest auf dem Boden. Greife die Stange breit und lasse sie langsam und kontrolliert runter, dabei sollte die Stange kurz auf Brustwarzenhöhe den Körper berühren. Dann das Gewicht wieder hochdrücken bis die Arme durchgestreckt sind.</p>\n<p>Bei hohem Gewicht, empfielt sich natürlich einen <em>Spotter</em> zu haben, der einen hilft falls man die Stange nicht alleine hochdrücken kann.</p>\n<p>Mit der Breite des Griffs kann außerdem kontrolliert werden, welcher Bereich der Brust stärker belastet wird:</p>\n<ul>\n<li>breiter Griff: äußere Brustmuskeln</li>\n<li>enger Griff: innere Brustmuskeln und Trizeps</li>\n</ul>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2,
+            5
+        ],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            15,
+            17,
+            720,
+            725
+        ]
+    },
+    {
+        "id": 343,
+        "uuid": "1b9dc5bc-790b-4e21-a55d-f8b3115e94c5",
+        "name": "Barbell Ab Rollout",
+        "exercise_base": 41,
+        "status": "2",
+        "description": "<p>Place a barbell on the floor at your feet.</p>\n<p>Bending at the waist, grip the barbell with a shoulder with overhand grip.</p>\n<p>With a slow controlled motion, roll the bar out so that your back is straight.</p>\n<p>Roll back up raising your hips and butt as you return to the starting position.</p>",
+        "creation_date": "2015-07-27",
+        "category": 10,
+        "muscles": [
+            14
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "sevae",
+        "variations": []
+    },
+    {
+        "id": 407,
+        "uuid": "1215dad0-b7e0-42c6-80d4-112f69acb68a",
+        "name": "Barbell Hack Squats",
+        "exercise_base": 43,
+        "status": "2",
+        "description": "<p>Perform leg squats with barbell behind your legs</p>",
+        "creation_date": "2016-07-30",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "BePieToday",
+        "variations": [
+            407,
+            342,
+            300,
+            191,
+            650,
+            389,
+            355,
+            160,
+            185,
+            111,
+            795,
+            387
+        ]
+    },
+    {
+        "id": 405,
+        "uuid": "ae6a6c23-4616-49b7-a152-49d7461c2b7f",
+        "name": "Barbell Lunges",
+        "exercise_base": 46,
+        "status": "2",
+        "description": "<p>Put barbell on the back of your shoulders. Stand upright, then take the first step forward. Step should bring you forward so that your supporting legs knee can touch the floor. Then stand back up and repeat with the other leg.</p>\n<p>Remember to keep good posture.</p>",
+        "creation_date": "2016-07-30",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "Mikko Ruohola",
+        "variations": [
+            405,
+            112,
+            113
+        ]
+    },
+    {
+        "id": 759,
+        "uuid": "95b25f5e-4a01-48f1-a3df-2b7fe8fd624d",
+        "name": "Barbell Reverse Wrist Curl",
+        "exercise_base": 48,
+        "status": "2",
+        "description": "<p>Sitting on a bench, grab a barbell with your palms facing down and your hands shoulder-width apart. Rest your forearms on your thighs and allow your wrists to hang over your knees.</p>\n<p>Curl your knuckles towards your face, lifting the barbell. Pause for a moment in the top position, then slowly return the barbell to the starting position.</p>",
+        "creation_date": "2020-04-01",
+        "category": 8,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 10,
+        "license": 2,
+        "license_author": "burenl",
+        "variations": []
+    },
+    {
+        "id": 344,
+        "uuid": "2cd5e256-20a7-4bc8-a7a8-d62bf8ce00cf",
+        "name": "Barbell Triceps Extension",
+        "exercise_base": 50,
+        "status": "2",
+        "description": "<p>Position barbell overhead with narrow overhand grip.</p>\n<p>Lower forearm behind upper arm with elbows remaining overhead. Extend forearm overhead. Lower and repeat.</p>",
+        "creation_date": "2015-07-27",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [
+            2,
+            4
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "sevae",
+        "variations": [
+            344,
+            274,
+            89,
+            90
+        ]
+    },
+    {
+        "id": 758,
+        "uuid": "0fe97ed6-7d37-444c-90b6-f855cea68a6f",
+        "name": "Barbell Wrist Curl",
+        "exercise_base": 51,
+        "status": "2",
+        "description": "<p>Sitting on a bench, grab a barbell with your palms facing up and your hands shoulder-width apart. Rest your forearms on your thighs and allow your wrists to hang over your knees. Perform the movement by curling your palms and wrists towards your face.</p>\n<p>Pause for a moment in the top position, then slowly return the barbell to the starting position.</p>\n<p> </p>",
+        "creation_date": "2020-04-01",
+        "category": 8,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 10,
+        "license": 2,
+        "license_author": "burenl",
+        "variations": []
+    },
+    {
+        "id": 259,
+        "uuid": "c659577f-d9de-4e39-bcd1-1b0bf1f62d11",
+        "name": "Bauch Stabilisation",
+        "exercise_base": 56,
+        "status": "2",
+        "description": "<p>Auf Rolle liegend</p>",
+        "creation_date": "2014-07-10",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [
+            14
+        ],
+        "equipment": [
+            4
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "andikeller",
+        "variations": []
+    },
+    {
+        "id": 307,
+        "uuid": "1b8b1657-40fd-4e3b-97b7-1c79b1079f8e",
+        "name": "Bear Walk",
+        "exercise_base": 57,
+        "status": "2",
+        "description": "<p>-Rest your weight on your palms and the balls of your feet, not dissimilar to normal pushup position</p>\n<p>-Move by stepping with your R palm and L foot, then your L palm and R foot.  Basically, walk like a lumbering bear.</p>\n<p>-Move as fast as you can.  Measure your reps/sets in either distance (i.e. 40 yards) or time (i.e. 45 seconds)</p>\n<p>-Works your Pecs, Deltoids, Triceps, Traps, Lats, Abs and Lower Back, Hip Flexors, Quads, Glutes and Calves</p>",
+        "creation_date": "2015-02-06",
+        "category": 11,
+        "muscles": [
+            2,
+            7,
+            4,
+            6,
+            3,
+            15,
+            5
+        ],
+        "muscles_secondary": [
+            8,
+            12,
+            14,
+            10,
+            9
+        ],
+        "equipment": [
+            7
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "nate303303",
+        "variations": []
+    },
+    {
+        "id": 718,
+        "uuid": "e4b3da5b-1803-42af-a50e-ffbac3853cd0",
+        "name": "Bear Walk",
+        "exercise_base": 57,
+        "status": "2",
+        "description": "<p>-Stützen Sie Ihr Gewicht auf Ihren Handflächen und Ihren Füßen, nicht anders als in der normalen Liegestützposition</p>\n<p> </p>\n<p>- Bewegen Sie sich, indem Sie mit der R-Handfläche und dem L-Fuß, dann mit der L-Handfläche und dem R-Fuß treten. Gehen Sie im Grunde wie ein trampelnder Bär.</p>\n<p> </p>\n<p>-Bewegen Sie sich so schnell wie möglich. Messen Sie Ihre Wiederholungen / Sätze entweder in der Entfernung (d. H. 40 Meter) oder in der Zeit (d. H. 45 Sekunden).</p>\n<p> </p>\n<p>-Arbeitet an Pecs, Deltamuskeln, Trizeps, Trapezius, Lats, Abs und Lendenwirbelsäule, Hüftbeugern, Quads, Gesäßmuskeln und Waden</p>",
+        "creation_date": "2020-01-17",
+        "category": 11,
+        "muscles": [
+            2,
+            7,
+            4,
+            6,
+            3,
+            15,
+            5
+        ],
+        "muscles_secondary": [
+            8,
+            12,
+            14,
+            10,
+            9
+        ],
+        "equipment": [
+            7
+        ],
+        "language": 1,
+        "license": 2,
+        "license_author": "Wunschcoach",
+        "variations": []
+    },
+    {
+        "id": 230,
+        "uuid": "981ef1f0-414a-478b-bc1b-9c6afa45bc77",
+        "name": "Beckenheben",
+        "exercise_base": 294,
+        "status": "2",
+        "description": "<p>Lege dich auf die Matte, die Arme sind ausgestreckt und bilden einen rechten Winkel mit dem Körper. Bringe mit etwas Schwung die Beine in eine senkrechte Position. Hebe nun mit einer kontrollierten Bewegung den Becken etwa 5 cm. hoch. und bringe ihn langsam wieder runter. Ohne Pausen wird die Bewegung wiederholt.</p>",
+        "creation_date": "2014-03-09",
+        "category": 9,
+        "muscles": [
+            8
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 22,
+        "uuid": "8f0170a2-5274-4487-a295-1a9baf2c92a3",
+        "name": "Beinbeuger Liegend",
+        "exercise_base": 365,
+        "status": "2",
+        "description": "<p>Lege dich auf dem Bauch auf die Bank und klemme die Beine unter der Halterung (eher im unteren Wadenbereich ansetzen). Halte dich fest und bringe nun das Gewicht nach oben, in dem du die Beinbizeps zusammenziehst, gehe langsam wieder nach unten. Während der Übung muss der Körper fest bleiben.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            11
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            22,
+            72
+        ]
+    },
+    {
+        "id": 133,
+        "uuid": "da7fccca-941e-457a-a2eb-d0c56d419938",
+        "name": "Beinbeuger Sitzend",
+        "exercise_base": 370,
+        "status": "2",
+        "description": "<p>Setze dich auf das Geräts und schiebe dich so weit nach hinten, bis du die Rückenlehne berührst. Lege deine Beine auf das Polster (verstelle die Höhe so, dass es knapp unter den Waden Kontakt macht). Drücke nun das Gewicht nach unten indem du die Beine beugst, die Fußspitzen sind angespannt und zeigen nach oben (90° Winkel). Bringe dann das Gewicht langsam wieder hoch, strecke aber die Beine nicht komplett aus.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 72,
+        "uuid": "9075241c-0493-4f2a-a399-a57e3634093e",
+        "name": "Beinbeuger Stehend",
+        "exercise_base": 367,
+        "status": "2",
+        "description": "<p>Diese Übung wird jeweils mit einem Bein durchgeführt.</p>\n<p>Stelle dich vor der Maschine und stelle deine Waden hinter dem Polster (setzte die Höhe so ein, dass es knapp unter den Waden ansetzt). Beuge nun das Bein bis dein Knie einen rechten Winkel einnimmt, bringe das Gewicht nun langsam und kontrolliert wieder nach unten.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            11
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            22,
+            72
+        ]
+    },
+    {
+        "id": 714,
+        "uuid": "68f96d3e-9172-468c-9018-06f71a97faff",
+        "name": "Beinheben am Roman Chair",
+        "exercise_base": 505,
+        "status": "2",
+        "description": "<p>Stütze dich mit dem Unterarmen ab und hänge im Gerät. Ziehe die Knie Richtung Brust und lasse sie wieder kontrolliert zum Boden zurück.</p>",
+        "creation_date": "2020-01-17",
+        "category": 10,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 2,
+        "license_author": "Wunschcoach",
+        "variations": []
+    },
+    {
+        "id": 35,
+        "uuid": "ecff5124-9f6a-414a-b91a-70101847b76d",
+        "name": "Beinheben Aufrecht",
+        "exercise_base": 64,
+        "status": "2",
+        "description": "<p>Stelle dich mit den Unterarmen fest auf die Polster der Beinhebemaschine, der Körper hängt frei nach unten. Hebe nun die Beine so weit wie möglich nach oben, wobei an der höchsten Stelle eine kurze Pause eingelegt wird. Bringe sie dann langsam und kontrolliert wieder nach unten. Während der Übung darf der Körper nicht mitschwingen, nur die Beine sollten sich hier bewegen.</p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [
+            3
+        ],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            35,
+            34
+        ]
+    },
+    {
+        "id": 280,
+        "uuid": "b85a9224-a562-4924-a0f1-5ead09943c75",
+        "name": "Beinheben im Hang",
+        "exercise_base": 65,
+        "status": "2",
+        "description": "<p>Ausgangspostion im Hang, die Beine sind angebhoben (Oberschenkel-Rumpf-Winkel 90°)</p>\n<p>Von hier aus kleine Hebebewegungen ausführen, die Hüftgelenke bleiben in der Endposition gebeugt (90°)</p>",
+        "creation_date": "2014-10-24",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            6
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "Konsumopfer",
+        "variations": []
+    },
+    {
+        "id": 34,
+        "uuid": "342e5889-fee2-420e-a287-f6e5a7f6c4b1",
+        "name": "Beinheben Liegend",
+        "exercise_base": 67,
+        "status": "2",
+        "description": "<p>Lege dich auf die Bank und greife mit den Armen die Lehne o.Ä. damit du stabil liegst. Halte die Beine ausgestreckt und hebe sie, bis sie einen Winkel von etwa 45° bilden. Mache eine kleine Pause von ca. 1 sek. und gehe langsam wieder runter. Du kannst zur Steigerung z.B. jedes 5. Mal, eine längere Pause von 7 Sekunden machen.</p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [
+            3
+        ],
+        "equipment": [
+            4
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            35,
+            34
+        ]
+    },
+    {
+        "id": 6,
+        "uuid": "a27cfdd9-5299-49ab-85f5-6e4042657549",
+        "name": "Beinpresse",
+        "exercise_base": 371,
+        "status": "2",
+        "description": "<p>In die Maschine setzten und die Füße auf die Auflage stellen, der Abstand, etwas mehr als schulterbreit. Die Füße sind etwas nach außen gedreht.</p>\r\n<p>Das Gewicht wird so weit abgesenkt, dass die Knie einen rechten Winkel machen. Sofort wird das Gewicht nach oben gedrückt. Die Knie zeigen etwas nach außen und werden nie ganz ausgestreckt, die Bewegung bleibt immer flüssig, also weder oben noch unten irgendwelche Pausen einlegen!</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            11,
+            7,
+            8,
+            10
+        ],
+        "muscles_secondary": [
+            7,
+            8
+        ],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            6,
+            54,
+            402
+        ]
+    },
+    {
+        "id": 54,
+        "uuid": "e7d0cc2d-e28b-479f-91d9-7eab7b686fd8",
+        "name": "Beinpresse Eng",
+        "exercise_base": 373,
+        "status": "2",
+        "description": "<p>In die Maschine setzten und die F&uuml;&szlig;e auf die Auflage stellen. Dabei sollte etwa so viel Platz dazwischen bleiben, dass noch ein Fu&szlig; dazwischen Platz h&auml;tte. Die F&uuml;&szlig;e sind wie beim normalen Bankdr&uuml;cken etwas nach au&szlig;en gedreht.</p>\r\n<p>Der Bewegungsablauf ist wie bei bei der breite Beinpresse: das Gewicht wird so weit abgesenkt, dass die Knie einen rechten Winkel machen. Ohne Pause wird dann das Gewicht nach oben gedr&uuml;ckt. Die Knie zeigen etwas nach au&szlig;en und werden nie ganz ausgestreckt, die Bewegung bleibt immer fl&uuml;ssig, also weder oben noch unten irgendwelche Pausen einlegen!</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            6,
+            54,
+            402
+        ]
+    },
+    {
+        "id": 39,
+        "uuid": "a07629b2-a422-4da0-b70a-810fa203bf12",
+        "name": "Beinstrecker",
+        "exercise_base": 70,
+        "status": "2",
+        "description": "<p>Setze dich in die Beinstreckermaschine. Der Rücken soll einen festen Halt haben, stelle die Maschine so ein, dass du fest sitzt. In der Anfangsposition sind die Beine entwas nach hinten angewinkelt. Drücke das Gewicht nach oben bis die Beine nahezu vollständig ausgestreckt sind. Gehe langsam und kontrolliert wieder runter.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            39,
+            69
+        ]
+    },
+    {
+        "id": 69,
+        "uuid": "71efbc60-c301-453e-8ac7-4184b16a4681",
+        "name": "Beinstrecker Einbeinig",
+        "exercise_base": 71,
+        "status": "2",
+        "description": "<p>Der Bewegungsablauf ist wie beim beidbeinigem Beinstrecker:</p>\r\n<p>Setze dich in die Beinstreckermaschine. Der Rücken soll einen festen Halt haben, stelle die Maschine so ein, dass du fest sitzt. In der Anfangsposition sind die Beine entwas nach hinten angewinkelt. Drücke das Gewicht nach oben bis die Beine nahezu vollständig ausgestreckt sind. Gehe langsam und kontrolliert wieder runter.</p>",
+        "creation_date": "2013-05-05",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            39,
+            69
+        ]
+    },
+    {
+        "id": 192,
+        "uuid": "5da6340b-22ec-4c1b-a443-eef2f59f92f0",
+        "name": "Bench Press",
+        "exercise_base": 73,
+        "status": "2",
+        "description": "<p>Lay down on a bench, the bar should be directly above your eyes, the knees are somewhat angled and the feet are firmly on the floor. Concentrate, breath deeply and grab the bar more than shoulder wide. Bring it slowly down till it briefly touches your chest at the height of your nipples. Push the bar up.</p>\n<p>If you train with a high weight it is advisable to have a <em>spotter</em> that can help you up if you can't lift the weight on your own.</p>\n<p>With the width of the grip you can also control which part of the chest is trained more:</p>\n<ul>\n<li>wide grip: outer chest muscles</li>\n<li>narrow grip: inner chest muscles and triceps</li>\n</ul>",
+        "creation_date": "2013-08-11",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2,
+            5
+        ],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "sistab2",
+        "variations": [
+            192,
+            100,
+            101,
+            163,
+            210,
+            211,
+            270,
+            399
+        ]
+    },
+    {
+        "id": 97,
+        "uuid": "0ec76f5d-1311-4d6d-bf79-00fa17c3061a",
+        "name": "Benchpress Dumbbells",
+        "exercise_base": 75,
+        "status": "2",
+        "description": "<p>The movement is very similar to benchpressing with a barbell, however, the weight is brought down to the chest at a lower point.</p>\n<p>Hold two dumbbells and lay down on a bench. Hold the weights next to the chest, at the height of your nipples and press them up till the arms are stretched. Let the weight slowly and controlled down.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2,
+            5
+        ],
+        "equipment": [
+            8,
+            3
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 88,
+        "uuid": "03d821e7-e1ac-4026-903b-d406381cbf76",
+        "name": "Bench Press Narrow Grip",
+        "exercise_base": 76,
+        "status": "2",
+        "description": "<p>Lay down on a bench, the bar is directly over your eyes, the knees form a slight angle and the feet are firmly on the ground. Hold the bar with a narrow grip (around 20cm.). Lead the weight slowly down till the arms are parallel to the floor (elbow: right angle), press then the bar up. When bringing the bar down, don't let it down on your nipples as with the regular bench pressing, but somewhat lower.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [
+            2,
+            4
+        ],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            88,
+            217,
+            85,
+            84,
+            386,
+            218,
+            186
+        ]
+    },
+    {
+        "id": 268,
+        "uuid": "34ce7ec5-12a1-4bf8-b4f1-94544c3f1cfc",
+        "name": "Bent High Pulls",
+        "exercise_base": 79,
+        "status": "2",
+        "description": "<p>Bend over slightly while holding two dumbbells.  Pull the dumbbells up to your chest, keeping your elbows as high as you can.</p>",
+        "creation_date": "2014-09-01",
+        "category": 13,
+        "muscles": [
+            9
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            3
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "lakerbeezel",
+        "variations": []
+    },
+    {
+        "id": 412,
+        "uuid": "b8466ace-ebc7-42bb-941c-39e0e7e67a4f",
+        "name": "Bent Over Barbell Row",
+        "exercise_base": 80,
+        "status": "2",
+        "description": "<ol>\n<li>Holding a barbell with a pronated grip (palms facing down), bend your knees slightly and bring your torso forward, by bending at the waist, while keeping the back straight until it is almost parallel to the floor. Tip: Make sure that you keep the head up. The barbell should hang directly in front of you as your arms hang perpendicular to the floor and your torso. This is your starting position.</li>\n<li>Now, while keeping the torso stationary, breathe out and lift the barbell to you. Keep the elbows close to the body and only use the forearms to hold the weight. At the top contracted position, squeeze the back muscles and hold for a brief pause.</li>\n<li>Then inhale and slowly lower the barbell back to the starting position.</li>\n<li>Repeat for the recommended amount of repetitions.</li>\n</ol>",
+        "creation_date": "2016-08-15",
+        "category": 12,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "warchildmd",
+        "variations": [
+            412,
+            362,
+            109,
+            110,
+            340,
+            214,
+            202,
+            670,
+            142,
+            108,
+            106,
+            339
+        ]
+    },
+    {
+        "id": 362,
+        "uuid": "f866fd75-c18d-4419-84b9-1b9ccd22adba",
+        "name": "Bentover Dumbbell Rows",
+        "exercise_base": 81,
+        "status": "2",
+        "description": "<p>With dumbbells in hand, bend at the hip until hands hang just below the knees (similar to straight-legged-deadlift starting position). Keep upper body angle constant while contracting your lats to pull you ellbows back pinching the shoulder blades at the top. Try not to stand up with every rep, check hands go below knees on every rep.</p>",
+        "creation_date": "2016-01-05",
+        "category": 12,
+        "muscles": [
+            12
+        ],
+        "muscles_secondary": [
+            1,
+            11,
+            13
+        ],
+        "equipment": [
+            3
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "sebk",
+        "variations": [
+            412,
+            362,
+            109,
+            110,
+            340,
+            214,
+            202,
+            670,
+            142,
+            108,
+            106,
+            339
+        ]
+    },
+    {
+        "id": 421,
+        "uuid": "170cc52f-345f-41b3-bdae-8a5e0c9aa449",
+        "name": "Bent-over Lateral Raises",
+        "exercise_base": 82,
+        "status": "2",
+        "description": "<p>Sit on bench while holding weights. Bend forward as far as possible, with arms slightly bent at the elbow. Perform a lateral raise while maintaining the bend in your elbow.</p>",
+        "creation_date": "2016-09-29",
+        "category": 13,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [
+            8,
+            3
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "apeschel",
+        "variations": [
+            421,
+            233,
+            148,
+            149,
+            306,
+            237
+        ]
+    },
+    {
+        "id": 109,
+        "uuid": "f82c579e-c069-4dc7-8e36-a3266dfd8e4a",
+        "name": "Bent Over Rowing",
+        "exercise_base": 83,
+        "status": "2",
+        "description": "<p>Grab the barbell with a wide grip (slightly more than shoulder wide) and lean forward. Your upper body is not quite parallel to the floor, but forms a slight angle. The chest's out during the whole exercise.</p>\n<p>Pull now the barbell with a fast movement towards your belly button, not further up. Go slowly down to the initial position. Don't swing with your body and keep your arms next to your body.</p>",
+        "creation_date": "2013-05-05",
+        "category": 12,
+        "muscles": [
+            12
+        ],
+        "muscles_secondary": [
+            2,
+            1
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            412,
+            362,
+            109,
+            110,
+            340,
+            214,
+            202,
+            670,
+            142,
+            108,
+            106,
+            339
+        ]
+    },
+    {
+        "id": 110,
+        "uuid": "77688310-f2cf-4d37-a854-dca906387be7",
+        "name": "Bent Over Rowing Reverse",
+        "exercise_base": 84,
+        "status": "2",
+        "description": "<p>The same as <em>regular</em> rowing, but holding a reversed grip (your palms pointing forwards):</p>\n<p>Grab the barbell with a wide grIp (slightly more than shoulder wide) and lean forward. Your upper body is not quite parallel to the floor, but forms a slight angle. The chest's out during the whole exercise.</p>\n<p>Pull now the barbell with a fast movement towards your belly button, not further up. Go slowly down to the initial position. Don't swing with your body and keep your arms next to your body.</p>",
+        "creation_date": "2013-05-05",
+        "category": 12,
+        "muscles": [
+            12
+        ],
+        "muscles_secondary": [
+            2,
+            1
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            412,
+            362,
+            109,
+            110,
+            340,
+            214,
+            202,
+            670,
+            142,
+            108,
+            106,
+            339
+        ]
+    },
+    {
+        "id": 74,
+        "uuid": "c56078d2-ae85-4524-a467-d1e143b6df1a",
+        "name": "Biceps Curls With Barbell",
+        "exercise_base": 91,
+        "status": "2",
+        "description": "<p>Hold the Barbell shoulder-wide, the back is straight, the shoulders slightly back, the arms are streched. Bend the arms, bringing the weight up, with a fast movement. Without pausing, let down the bar with a slow and controlled movement.</p>\n<p>Don't allow your body to swing during the exercise, all work is done by the biceps, which are the only mucles that should move (pay attention to the elbows).</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            74,
+            81,
+            80,
+            129,
+            275,
+            298,
+            86,
+            138,
+            193,
+            208,
+            205,
+            768,
+            305
+        ]
+    },
+    {
+        "id": 81,
+        "uuid": "48a59aa8-4568-409c-8afe-f8cb99c558ea",
+        "name": "Biceps Curls With Dumbbell",
+        "exercise_base": 92,
+        "status": "2",
+        "description": "<p>Hold two barbells, the arms are streched, the hands are on your side, the palms face inwards. Bend the arms and bring the weight with a fast movement up. At the same time, rotate your arms by 90 degrees at the very beginning of the movement. At the highest point, rotate a little the weights further outwards. Without a pause, bring them down, slowly.</p>\n<p>Don't allow your body to swing during the exercise, all work is done by the biceps, which are the only mucles that should move (pay attention to the elbows).</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            3
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            74,
+            81,
+            80,
+            129,
+            275,
+            298,
+            86,
+            138,
+            193,
+            208,
+            205,
+            768,
+            305
+        ]
+    },
+    {
+        "id": 80,
+        "uuid": "38919515-ce04-4383-9c3f-5846edd0e844",
+        "name": "Biceps Curls With SZ-bar",
+        "exercise_base": 94,
+        "status": "2",
+        "description": "<p>Hold the SZ-bar shoulder-wide, the back is straight, the shoulders slightly back, the arms are streched. Bend the arms, bringing the weight up, with a fast movement. Without pausing, let down the bar with a slow and controlled movement.</p>\n<p>Don't allow your body to swing during the exercise, all work is done by the biceps, which are the only mucles that should move (pay attention to the elbows).</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            2
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            74,
+            81,
+            80,
+            129,
+            275,
+            298,
+            86,
+            138,
+            193,
+            208,
+            205,
+            768,
+            305
+        ]
+    },
+    {
+        "id": 129,
+        "uuid": "8c6c1544-cbf8-403c-ae12-b27b392702f8",
+        "name": "Biceps Curl With Cable",
+        "exercise_base": 95,
+        "status": "2",
+        "description": "<p>Stand around 30 - 40cm away from the cable, the feet are firmly on the floor. Take the bar and lift the weight with a fast movements. Lower the weight as with the dumbbell curls slowly and controlled.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            74,
+            81,
+            80,
+            129,
+            275,
+            298,
+            86,
+            138,
+            193,
+            208,
+            205,
+            768,
+            305
+        ]
+    },
+    {
+        "id": 3,
+        "uuid": "ef487de3-f071-41bf-85a6-6e76afe9c732",
+        "name": "Bizeps am Kabel",
+        "exercise_base": 95,
+        "status": "2",
+        "description": "<p>Stelle dich gerade etwa 30 - 40 cm. vor dem Kabel hin, die Füße sind fest auf dem Boden. Nehme die Stange in die Hände und hebe das Gewicht mit einer schnellen Bewegung. Lassie die Stange wie bei den KH Curls kontrolliert wieder runter.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            24,
+            26,
+            44,
+            3,
+            681,
+            242,
+            46,
+            134
+        ]
+    },
+    {
+        "id": 231,
+        "uuid": "1ea6774c-083a-4141-89cf-4c0e973ede12",
+        "name": "Bizeps am Kabel, ß-Stange",
+        "exercise_base": 105,
+        "status": "2",
+        "description": "<p>Wie \"Bizeps am Kabel\", nur mit einer ß-Stange</p>",
+        "creation_date": "2014-03-09",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 2,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 44,
+        "uuid": "8277124a-9ef2-442a-9824-7ab4439a5f1f",
+        "name": "Bizeps Curls Mit ß-Stange ",
+        "exercise_base": 94,
+        "status": "2",
+        "description": "<p>Halte die Hantel mit etwa schulterbreitem Griff, die Arme sind ausgestreckt. Beuge die Arme und brige die Hantel mit einer schnellen Bewegung nach oben. Ohne Pause wird das Gewicht nun kontrolliert nach unten gebracht. Beachte, dass die Bewegung nach oben schneller ist als nach unten.</p>\n<p>Während des Bewegungablaufs darf der Körper nicht mitschwingen. Die Ellenbogen bleiben dabei immer an der Stelle.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            2
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            24,
+            26,
+            44,
+            3,
+            681,
+            242,
+            46,
+            134
+        ]
+    },
+    {
+        "id": 26,
+        "uuid": "8cbbffcc-1989-43de-9200-03869480398c",
+        "name": "Bizeps KH-Curls",
+        "exercise_base": 92,
+        "status": "2",
+        "description": "<p>Halte zwei Kurzhantel mit ausgestreckten Armen neben dem Körper, die Handflächen zeigen nach innen. Beuge die Arme und brige die Hanteln mit einer schnellen Bewegung nach oben wobei sie gleichzeitig um 90 Grad gedreht werden. Am höchsten Punkt kann man die Hanteln ganz leicht weiter nach außen drehen. Ohne Pause wird das Gewicht nun kontrolliert nach unten gebracht. Beachte, dass die Bewegung nach oben schneller ist als nach unten.</p>\n<p>Während des Bewegungablaufs darf der Körper nicht mitschwingen. Die Ellenbogen bleiben dabei immer an der Stelle.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            3
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            24,
+            26,
+            44,
+            3,
+            681,
+            242,
+            46,
+            134
+        ]
+    },
+    {
+        "id": 242,
+        "uuid": "0842e81e-7b90-4d68-8e6b-e9a7c0186b54",
+        "name": "Bizeps KH-Curls Schrägbank",
+        "exercise_base": 204,
+        "status": "2",
+        "description": "<p>Sitz auf einer ca. 45° nach hinten geneigten Schrägbank; Oberkörper und Kopf an die Rückenlehne angelehnt.</p>\n<p>Rumpfmuskulatur anspannen, Rücken bleibt gerade, Blick geradeaus.</p>\n<p>Die Kurzhanteln werden jeweils im neutralen Hammergriff gefasst (Handinnenflächen zeigen zueinander). Die Arme hängen, leicht gebeugt, seitlich herab. Durch die Neigung der Rückenlehne befinden sich die leicht gebeugten Arme hinter der Körperachse.</p>\n<p>Handgelenke in Verlängerung des Unterarms.</p>\n<p>Beugen und Strecken im Ellbogengelenk in einer gleichmäßigen, parallelen Bewegung nah am Körper vorbei; Dabei zeigt der Oberarm weiter nahezu unverändert senkrecht nach unten.</p>\n<p>Die Unterarme während der Beugephase entweder auswärts drehen (Supination), so dass in der Endposition die Handinnenfläche zum Körper hin zeigt bzw. die Kurzhantel im Untergriff gehalten wird oder ohne Auswärtsdrehung der Unterarme beugen, so dass in der Endposition der Daumen zum Körper zeigt bzw. die Kurzhantel im neutralen Hammergriff gehalten wird.</p>\n<p>Die Arme weder maximal beugen noch ganz durchstrecken.</p>\n<p>Bei der Spuinationsvariante werden die Unterarme in der Abwärtsbewegung wieder nac innen zurückgedreht.</p>\n<p>Richtige Atmung: Beim Beugen ausatmen, beim Strecken einatmen.</p>",
+        "creation_date": "2014-04-08",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            3
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "Konsumopfer",
+        "variations": [
+            24,
+            26,
+            44,
+            3,
+            681,
+            242,
+            46,
+            134
+        ]
+    },
+    {
+        "id": 24,
+        "uuid": "2e3fa138-3894-4f61-959a-d8966804a1a3",
+        "name": "Bizeps LH-Curls",
+        "exercise_base": 91,
+        "status": "2",
+        "description": "<p>Halte die Hantel mit etwa schulterbreitem Griff, die Arme sind ausgestreckt. Beuge die Arme und brige die Hantel mit einer schnellen Bewegung nach oben. Ohne Pause wird das Gewicht nun kontrolliert nach unten gebracht. Beachte, dass die Bewegung nach oben schneller ist als nach unten.</p>\n<p>Während des Bewegungablaufs sollte der Körper nicht mitschwingen. Die Ellenbogen bleiben dabei immer an der Stelle.</p>",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [
+            13
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            24,
+            26,
+            44,
+            3,
+            681,
+            242,
+            46,
+            134
+        ]
+    },
+    {
+        "id": 679,
+        "uuid": "635b4ee0-7a37-4434-a3e2-de348f4c2976",
+        "name": "Body-Ups",
+        "exercise_base": 113,
+        "status": "2",
+        "description": "<p>Nehmen Sie eine Dielenposition auf dem Boden ein. Sie sollten Ihr Körpergewicht auf Zehen und Unterarmen abstützen und Ihren Oberkörper gerade halten. Ihre Unterarme sollten schulterbreit auseinander liegen. Dies wird Ihre Startposition sein.</p>\n<p>Drücken Sie Ihre Handflächen fest in den Boden und strecken Sie sie durch die Ellbogen, um Ihren Körper vom Boden abzuheben. Halten Sie Ihren Oberkörper steif, während Sie die Bewegung ausführen.</p>\n<p>Lassen Sie Ihre Unterarme langsam wieder auf den Boden sinken, indem Sie die Ellbogen beugen.</p>\n<p>Wiederholen Sie diesen Vorgang nach Bedarf.</p>",
+        "creation_date": "2020-01-16",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            7
+        ],
+        "language": 1,
+        "license": 2,
+        "license_author": "Wunschcoach",
+        "variations": []
+    },
+    {
+        "id": 341,
+        "uuid": "4e15a410-5530-4b86-964f-8af26e118e2b",
+        "name": "Body-Ups",
+        "exercise_base": 112,
+        "status": "2",
+        "description": "<ol>\n<li>Assume a plank position on the ground. You should be supporting your bodyweight on your toes and forearms, keeping your torso straight. Your forearms should be shoulder-width apart. This will be your starting position.</li>\n<li>Pressing your palms firmly into the ground, extend through the elbows to raise your body from the ground. Keep your torso rigid as you perform the movement.</li>\n<li>Slowly lower your forearms back to the ground by allowing the elbows to flex.</li>\n<li>Repeat as needed.</li>\n</ol>",
+        "creation_date": "2015-07-21",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            7
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "cal.zabel",
+        "variations": []
+    },
+    {
+        "id": 342,
+        "uuid": "5bd3ba00-8f4e-4935-a682-87b150d830c8",
+        "name": "Braced Squat",
+        "exercise_base": 124,
+        "status": "2",
+        "description": "<p>Stand with feet slightly wider than shoulder-width apart, while standing as tall as you can.</p>\n<p>Grab a weight plate and hold it out in front of your body with arms straight out. Keep your core tight and stand with a natural arch in your back.</p>\n<p>Now, push hips back and bend knees down into a squat as far as you can. Hold for a few moments and bring yourself back up to the starting position.</p>",
+        "creation_date": "2015-07-23",
+        "category": 9,
+        "muscles": [
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "sevae",
+        "variations": [
+            407,
+            342,
+            300,
+            191,
+            650,
+            389,
+            355,
+            160,
+            185,
+            111,
+            795,
+            387
+        ]
+    },
+    {
+        "id": 765,
+        "uuid": "04bb8808-dab8-46a4-8e92-c92c7687ee76",
+        "name": "Brücke Auf Dem Ball",
+        "exercise_base": 127,
+        "status": "2",
+        "description": "<p>Ausgangsposition: Auf den Rücken legen. Großer Gymnastikball unter die Beine legen und schräg in der Brücke mit angespanntem Körper bleiben.</p>\n<p>Anschließend die Beine bis 90 Grad anwinkeln und wieder absetzten in Ausgangsposition zurück.</p>",
+        "creation_date": "2020-04-04",
+        "category": 9,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 2,
+        "license_author": "Konsumopfer",
+        "variations": []
+    },
+    {
+        "id": 199,
+        "uuid": "61f77ca6-0e8d-42c7-b01f-aa83a0d7b386",
+        "name": "Brustpresse",
+        "exercise_base": 129,
+        "status": "2",
+        "description": "<p>.</p>",
+        "creation_date": "2013-11-09",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 354,
+        "uuid": "6335de72-146f-4f38-886d-6b8a27db62ff",
+        "name": "Burpees",
+        "exercise_base": 132,
+        "status": "2",
+        "description": "<p>Jump, lay down on your chest, do a pushup then jump, repeat</p>",
+        "creation_date": "2015-11-01",
+        "category": 11,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "er0355",
+        "variations": []
+    },
+    {
+        "id": 719,
+        "uuid": "5bae16b0-cefb-4fc7-be2b-e31794335c42",
+        "name": "Burpees",
+        "exercise_base": 132,
+        "status": "2",
+        "description": "<p>Spring, leg dich auf deine Brust, mach einen Liegestütz und spring, wiederhole</p>",
+        "creation_date": "2020-01-17",
+        "category": 11,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 2,
+        "license_author": "Wunschcoach",
+        "variations": []
+    },
+    {
+        "id": 98,
+        "uuid": "3c3857f8-d224-4d5a-8cc1-f4e7982d3475",
+        "name": "Butterfly",
+        "exercise_base": 135,
+        "status": "2",
+        "description": "<p>Sit on the butterfly machine, the feet have a good contact with the floor, the upper arms are parallel to the floor. Press your arms together till the handles are practically together (but aren't!). Go slowly back. The weights should stay all the time in the air.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2
+        ],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 30,
+        "uuid": "9df24c6f-016b-4623-8878-f71c235c50fa",
+        "name": "Butterfly",
+        "exercise_base": 135,
+        "status": "2",
+        "description": "<p>Setzte dich auf den Sitz der Butterflymaschine, die Füße sollen dabei guten Kontakt mit dem Boden machen, die Oberarme sind waagerecht zum Boden. Drücke nun die Gewichte zusammen, wobei die Griffe sich nicht berühren sollen. Gehe nun wieder zurück, das Trainingsgewicht darf dabei nicht abgelegt werden.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2
+        ],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 52,
+        "uuid": "44b0d79a-5c5b-43df-bf62-3e67148f1c33",
+        "name": "Butterfly Eng",
+        "exercise_base": 137,
+        "status": "2",
+        "description": "<p>Setzte dich auf den Sitz der Butterflymaschine, die Füße sollen dabei guten Kontakt mit dem Boden machen, die Ellenbogen machen etwa einen Rechten Winkel, die Oberarme sind waagerecht zum Boden. Drücke nun die Gewichte zusammen, wobei die Griffe sich nicht berühren sollen. Gehe nun wieder zurück, das Trainingsgewicht darf dabei nicht abgelegt werden.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 99,
+        "uuid": "08637e04-d995-4c07-b021-a20f26b6fd97",
+        "name": "Butterfly Narrow Grip",
+        "exercise_base": 137,
+        "status": "2",
+        "description": "<p>The movement is the same as with a regular butterfly, only that the grip is narrow:</p>\n<p>Sit on the butterfly machine, the feet have a good contact with the floor, the upper arms are parallel to the floor. Press your arms together till the handles are practically together (but aren't!). Go slowly back. The weights should stay all the time in the air.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 21,
+        "uuid": "605b4a25-bc1d-4604-bd93-c85b2aaf84ae",
+        "name": "Butterfly Reverse",
+        "exercise_base": 139,
+        "status": "2",
+        "description": "",
+        "creation_date": "2013-05-05",
+        "category": 13,
+        "muscles": [
+            2
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 124,
+        "uuid": "8715a96e-c8a2-458a-b023-4ea7d82fdab8",
+        "name": "Butterfly Reverse",
+        "exercise_base": 139,
+        "status": "2",
+        "description": "",
+        "creation_date": "2013-05-05",
+        "category": 13,
+        "muscles": [
+            2
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+    },
+    {
+        "id": 207,
+        "uuid": "1b9ed9da-46d1-4484-8acc-236379ee823c",
+        "name": "Cable Cross-over",
+        "exercise_base": 141,
+        "status": "2",
+        "description": "<p>Begin with cables at about shoulder height, one in each hand. Take a step forward so that one foot is in front of the other, for stability, and so that there is tension on the cables. Bring hands together in front of you. Try to make your hands overlap (so that the cables cross) a few inches.</p>",
+        "creation_date": "2014-01-15",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "tuckerm",
+        "variations": []
+    },
+    {
+        "id": 265,
+        "uuid": "a7e15f4f-a7e6-4c0c-9bcb-ef3de90201aa",
+        "name": "Cable External Rotation",
+        "exercise_base": 142,
+        "status": "2",
+        "description": "<p>Steps:</p>\n<ol>\n<li>Start off placing an extension band around a post or in a secure position where it will not release and is at elbow level.</li>\n<li>Position yourself to the side of the band and with your hand that is opposite of the band, reach out and grab the handle.</li>\n<li>Bring the band to your chest keeping your elbow bent in a 90 degree angle then slowly rotate your arm in a backhand motion so that the band externally rotates out</li>\n<li>Continue out as far as possible so that you feel a stretch in your shoulders, hold for a count and then return back to the starting position.</li>\n<li>Repeat for as many reps and sets as desired.</li>\n</ol>",
+        "creation_date": "2014-07-27",
+        "category": 13,
+        "muscles": [
+            2
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "lauroernesto",
+        "variations": []
+    },
+    {
+        "id": 167,
+        "uuid": "c376346a-1923-4468-9320-b0f480c46b1e",
+        "name": "Cable Woodchoppers",
+        "exercise_base": 145,
+        "status": "2",
+        "description": "<p>Set cable pulley slightly lower than chest height. Keep body facing forward with hips stable.  Grab the pulley handle, fully extend your arms and bring your arms forward and across your body. Hold for 1 second at the end of the movement and slowly return to starting position.</p>",
+        "creation_date": "2013-06-23",
+        "category": 10,
+        "muscles": [
+            14
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "robhoyt",
+        "variations": []
+    },
+    {
+        "id": 308,
+        "uuid": "074530d6-801a-404b-b3b7-adc207be69be",
+        "name": "Calf Press Using Leg Press Machine",
+        "exercise_base": 146,
+        "status": "2",
+        "description": "<p>Put  the balls of your feet on an extended leg press pad.  Use your calves to press the weight by flexing your feet/toes into a pointed position, and releasing back into a relaxed position.</p>\n<p>This exercise builds mass and strength in the Gastrocnemius and Soleus muscles as well, if not better, than any calf exercise.</p>",
+        "creation_date": "2015-02-06",
+        "category": 14,
+        "muscles": [
+            7,
+            15
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "nate303303",
+        "variations": []
+    },
+    {
+        "id": 776,
+        "uuid": "b6ecc0eb-877c-449f-ac61-8caced7736d6",
+        "name": "Calf Raises",
+        "exercise_base": 147,
+        "status": "2",
+        "description": "Calf raises are a method of exercising the gastrocnemius, tibialis posterior and soleus muscles of the lower leg. The movement performed is plantar flexion, a.k.a. ankle extension.",
+        "creation_date": "2020-04-06",
+        "category": 14,
+        "muscles": [
+            7,
+            15
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            3,
+            10
+        ],
+        "language": 2,
+        "license": 3,
+        "license_author": "BFad07",
+        "variations": [
+            776,
+            104,
+            103,
+            102
+        ]
+    },
+    {
+        "id": 104,
+        "uuid": "e7677699-5e4f-49e6-a645-e8915a203c4d",
+        "name": "Calf Raises on Hackenschmitt Machine",
+        "exercise_base": 148,
+        "status": "2",
+        "description": "<p>Place yourself on the machine with your back firmly against the backrest, the feet are on the platform for calf raises. Check that the feet are half free and that you can completely stretch the calf muscles down.</p>\n<p>With straight knees pull up your weight as much as you can. Go with a fluid movement down till the calves are completely stretched. Repeat.</p>",
+        "creation_date": "2013-05-05",
+        "category": 14,
+        "muscles": [
+            7
+        ],
+        "muscles_secondary": [
+            15
+        ],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            776,
+            104,
+            103,
+            102
+        ]
+    },
+    {
+        "id": 803,
+        "uuid": "0849d95d-e83b-44bd-ae95-1fcb89fa5a04",
+        "name": "Chin Up",
+        "exercise_base": 152,
+        "status": "2",
+        "description": "The chin-up (also known as a chin or chinup) is a strength training exercise. People frequently do this exercise with the intention of strengthening muscles such as the latissimus dorsi and biceps, which extend the shoulder and flex the elbow, respectively. In this maneuver, the palms are faced towards the body. It is a form of pull-up in which the range of motion is established in relation to a person's chin.",
+        "creation_date": "2020-05-10",
+        "category": 12,
+        "muscles": [
+            1,
+            12
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            6
+        ],
+        "language": 2,
+        "license": 3,
+        "license_author": "BFad07",
+        "variations": []
+    },
+    {
+        "id": 747,
+        "uuid": "9e71d2a3-9021-4270-a7b9-0d8bd28e7394",
+        "name": "Chin-ups",
+        "exercise_base": 154,
+        "status": "2",
+        "description": "<p>Wie normale Klimmzüge, aber im Untergriff.</p>",
+        "creation_date": "2020-01-17",
+        "category": 12,
+        "muscles": [
+            1,
+            12
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            6
+        ],
+        "language": 1,
+        "license": 2,
+        "license_author": "Wunschcoach",
+        "variations": []
+    },
+    {
+        "id": 181,
+        "uuid": "f6c4e2fa-226d-46e8-87dc-75fc8cd628bd",
+        "name": "Chin-ups",
+        "exercise_base": 154,
+        "status": "2",
+        "description": "<p>Like pull-ups but with a reverse grip</p>",
+        "creation_date": "2013-07-24",
+        "category": 12,
+        "muscles": [
+            1,
+            12
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            6
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "oliser67",
+        "variations": []
+    },
+    {
+        "id": 217,
+        "uuid": "6cc54626-d5ef-4013-9184-010ac96de20a",
+        "name": "Close-grip Bench Press",
+        "exercise_base": 157,
+        "status": "2",
+        "description": "<p>Perform a typical bench press, but hold the bar with your hands approximately shoulder-width apart and keep your elbows close to your body.</p>",
+        "creation_date": "2014-02-01",
+        "category": 8,
+        "muscles": [
+            5
+        ],
+        "muscles_secondary": [
+            4
+        ],
+        "equipment": [
+            1,
+            8
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "tuckerm",
+        "variations": [
+            88,
+            217,
+            85,
+            84,
+            386,
+            218,
+            186
+        ]
+    },
+    {
+        "id": 899,
+        "uuid": "9baf0689-e7d6-4809-9318-01a043860a82",
+        "name": "Close Grip Bench Press",
+        "exercise_base": 16,
+        "status": "2",
+        "description": "<p>Start off laying on the back feet in front of you and holding a dumbbell in each hand elevated above your chest.Slowly lower the dumbbells to your chest, keeping them close together, without touching and hold for a count.Return back to the starting position.</p>",
+        "creation_date": "2021-06-07",
+        "category": 11,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 2,
+        "license_author": "M123",
+        "variations": []
+    },
+    {
+        "id": 213,
+        "uuid": "42b092ec-80b1-4471-90d1-e462a65ab18c",
+        "name": "Close-grip Lat Pull Down",
+        "exercise_base": 158,
+        "status": "2",
+        "description": "<p>Grip the pull-down bar with your hands closer than shoulder width apart, with your palms facing away from you. Lean back slightly. Pull the bar down towards your chest, keeping your elbows close to your sides as you come down. Pull your shoulders back at the end of the motion.</p>",
+        "creation_date": "2014-02-01",
+        "category": 12,
+        "muscles": [
+            12
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "tuckerm",
+        "variations": [
+            213,
+            188,
+            187,
+            216,
+            215,
+            212,
+            424,
+            204
+        ]
+    },
+    {
+        "id": 194,
+        "uuid": "122f5dd3-fc8c-47fe-9a79-1c15cf784a60",
+        "name": "Cross-Bench Dumbbell Pullovers",
+        "exercise_base": 161,
+        "status": "2",
+        "description": "<p>Grasp a moderately weighted dumbbell so your palms are flat against the underside of the top plates and your thumbs are around the bar. Lie on your back across a flat bench so only your upper back and shoulders are in contact with the bench. Your feet should be set about shoulder-width apart and your head should hang slightly downward. With the dumbbell supported at arm's length directly about your chest, bend your arms about 15 degrees and keep them bent throughout the movement. Slowly lower the dumbbell backward and downward in a semicircle arc to as low a position as is comfortably possible. Raise it slowly back along the same arc to the starting point, and repeat for the required number of repetitions.</p>",
+        "creation_date": "2013-08-20",
+        "category": 11,
+        "muscles": [
+            12,
+            4,
+            3
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "powerade69",
+        "variations": []
+    },
+    {
+        "id": 764,
+        "uuid": "41ee5cf8-9dae-4871-96e4-9dc01117ab77",
+        "name": "Crunch am TRX Oder Auf Ball",
+        "exercise_base": 165,
+        "status": "2",
+        "description": "<p>Beine in die TRX-Schlingen oder auf einem großen Ball auflegen und mit den Händen unter den Schultern in eine Stützposition (Plank) kommen. Dann die Beine anziehen.</p>",
+        "creation_date": "2020-04-04",
+        "category": 10,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 2,
+        "license_author": "Konsumopfer",
+        "variations": []
+    },
+    {
+        "id": 4,
+        "uuid": "0e10ac9b-ed1d-42c9-b8cc-123c22ccc5d5",
+        "name": "Crunches",
+        "exercise_base": 167,
+        "status": "2",
+        "description": "<p>Lege dich auf eine Matte mit angewinkelten Beinen. Die Füße werden irgendwie festgehalten (Partner, Lanhghantel, o.Ä.) und die Hände werden hinter dem Nacken verschränkt. Aus dieser Position führe den Oberkörper so weit nach oben, bis Kopf oder Ellenbogen die angewinkelten Beine berühren.</p>\n<p>Es ist wichtig, dass dieser Vorgang mit einer rollenden Bewegung durchgeführt wird: die Wirbelsäule sollte sich Wirbel für Wirbel von der Matte lösen. Ein Hohlkreuz ist stets zu vermeiden.</p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [
+            3
+        ],
+        "equipment": [
+            8,
+            4
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            4,
+            51,
+            33,
+            32,
+            57
+        ]
+    },
+    {
+        "id": 91,
+        "uuid": "d325dd5c-6833-41c7-8eea-6b95c4871133",
+        "name": "Crunches",
+        "exercise_base": 167,
+        "status": "2",
+        "description": "<p>Lay down on your back a soft surface, the feet are on the floor. Ask a partner or use some other help (barbell, etc.) to keep them fixed, your hands are behind your head. From this position move your upper body up till your head or elbows touch your knees. Do this movement by rolling up your back.</p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [
+            3
+        ],
+        "equipment": [
+            8,
+            4
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            91,
+            94,
+            92,
+            416,
+            93,
+            176,
+            95,
+            170
+        ]
+    },
+    {
+        "id": 33,
+        "uuid": "5c47b690-d19f-4523-9c47-47160693eefc",
+        "name": "Crunches am Seil",
+        "exercise_base": 173,
+        "status": "2",
+        "description": "<p>Nehme das Kabel in die Hand und halte es neben den Schläfen fest. Knie dich nun vor dem Kabelzug mit geradem aber nach vorne gebeugtem Oberkörper hin. Rolle dich mit einer schnellen Bewegung zusammen, die Ellenbogen zeigen zu den Knien. Gehe langsam wieder zur Anfangsposition zurück.</p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            4,
+            51,
+            33,
+            32,
+            57
+        ]
+    },
+    {
+        "id": 51,
+        "uuid": "efbece79-4384-49d1-bb88-e16fcd8de5aa",
+        "name": "Crunches an Maschine",
+        "exercise_base": 172,
+        "status": "2",
+        "description": "\n<p>Ablauf wie bei reguläre Crunches, nur mit zusätzlichem Gewicht an der Maschine.</p>\n<p>Setzte dich hin, beide Füße stabil auf dem Boden. Nehme die Gewichte, Kabel, etc. fest und führe eine rollende Bewegung nach vorn (die Wirbelsäule sollte sich idealerweise Wirbel für Wirbel von der Lehne lösen). Kehre langsam in die Ausgangsposition zurück.</p>\n",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            4,
+            51,
+            33,
+            32,
+            57
+        ]
+    },
+    {
+        "id": 32,
+        "uuid": "f5e98b51-6c0e-4c77-94ec-158210669f6d",
+        "name": "Crunches an Negativbank",
+        "exercise_base": 427,
+        "status": "2",
+        "description": "<p>Setze dich auf die Negativbank und fixiere deine Beine. Kreuze deine Arme &uuml;ber die Brust und bringe den Oberk&ouml;rper nach oben, den Kopf dabei nicht nach vorn kippen. Gehe langsam wieder runter. </p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            4,
+            51,
+            33,
+            32,
+            57
+        ]
+    },
+    {
+        "id": 56,
+        "uuid": "6f473716-2fc0-453d-9ab7-70212c1d2f92",
+        "name": "Crunches an Schrägbank",
+        "exercise_base": 171,
+        "status": "2",
+        "description": "\n<p>Der Ablauf der Übung ist im Prinzip wie bei den normalen Crunches, nur legst du dich auf eine Schrägbank oder eine andere geeignete Fläche. Stelle sicher, dass du nicht rutschen kannst indem du die Beine über den Rand anwikelst oder sonstwo festhalten kannst. Halte die Hände hinter dem Nacken verschränkt. Aus dieser Position führe den Oberkörper so weit nach oben, bis Kopf oder Ellenbogen die Knie berühren.</p>\n<p>Es ist wichtig, dass dieser Vorgang mit einer rollenden Bewegung durchgeführt wird: die Wirbelsäule sollte sich Wirbel für Wirbel von der Matte lösen. Ein Hohlkreuz ist stets zu vermeiden.</p>\n",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            9
+        ],
+        "language": 1,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            56
+        ]
+    },
+    {
+        "id": 94,
+        "uuid": "6709577b-95ec-4053-a822-d5fe1f753966",
+        "name": "Crunches on Machine",
+        "exercise_base": 172,
+        "status": "2",
+        "description": "<p>The procedure is very similar as for regular crunches, only with the additional weight of the machine. Sit on the machine, put both feet firmly on the ground. Grab the to the weights, cables, etc. and do a rolling motion forwards (the spine should ideally lose touch vertebra by vertebra). Slowly return to the starting position. </p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            91,
+            94,
+            92,
+            416,
+            93,
+            176,
+            95,
+            170
+        ]
+    },
+    {
+        "id": 92,
+        "uuid": "8d6c13c6-256d-4137-b1c6-b0e817697639",
+        "name": "Crunches With Cable",
+        "exercise_base": 173,
+        "status": "2",
+        "description": "<p>Take the cable on your hands and hold it next to your temples. Knee down and hold your upper body straight and bend forward. Go down with a fast movement, rolling your back in (your ellbows point to your knees). Once down, go slowly back to the initial position.</p>",
+        "creation_date": "2013-05-05",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            91,
+            94,
+            92,
+            416,
+            93,
+            176,
+            95,
+            170
+        ]
+    },
+    {
+        "id": 416,
+        "uuid": "6ec0d447-1dfa-40fa-9fad-9a86c222d1a4",
+        "name": "Crunches With Legs Up",
+        "exercise_base": 174,
+        "status": "2",
+        "description": "<p>On your back, legs extended straight up, reach toward your toes with your hands and lift your shoulder blades off the ground and back.</p>",
+        "creation_date": "2016-09-13",
+        "category": 10,
+        "muscles": [
+            6
+        ],
+        "muscles_secondary": [
+            14
+        ],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "krisbbb",
+        "variations": [
+            91,
+            94,
+            92,
+            416,
+            93,
+            176,
+            95,
+            170
+        ]
+    },
+    {
+        "id": 619,
+        "uuid": "b1133e95-a644-42e4-b109-38bda8bda278",
+        "name": "Curl su Panca a 45°",
+        "exercise_base": 175,
+        "status": "2",
+        "description": "<p>Bicipiti su panca a 45°. Il movimento deve essere completo</p>",
+        "creation_date": "2018-11-27",
+        "category": 8,
+        "muscles": [
+            1
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            8
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "csequino",
+        "variations": []
+    },
+    {
+        "id": 806,
+        "uuid": "035d5dfc-1a1b-480b-bc9b-b6f634f19aee",
+        "name": "Cycling",
+        "exercise_base": 177,
+        "status": "2",
+        "description": "Cycling, also called bicycling or biking, is the use of bicycles for transport, recreation, exercise or sport. People engaged in cycling are referred to as cyclists, bicyclists, or bikers. Apart from two-wheeled bicycles, cycling also includes the riding of unicycles, tricycles, quadracycles, recumbent and similar human-powered vehicles.",
+        "creation_date": "2020-05-11",
+        "category": 9,
+        "muscles": [
+            14,
+            9
+        ],
+        "muscles_secondary": [
+            11,
+            13,
+            8,
+            12,
+            10
+        ],
+        "equipment": [
+            7
+        ],
+        "language": 2,
+        "license": 3,
+        "license_author": "BFad07",
+        "variations": []
+    },
+    {
+        "id": 544,
+        "uuid": "e3c163b4-205e-457f-8b91-68e5c6d6be96",
+        "name": "Deadbug",
+        "exercise_base": 178,
+        "status": "2",
+        "description": "Lie on your back, with your hips and knees bent to 90°. Raise both arms toward the ceiling. Pull your lower back to the floor to eliminate the gap. Start by pressing one leg out, and tapping the heel to the floor. \"As you extend one leg, exhale as much as you can, keeping your lower back glued to the floor,\" Dunham says. When you can’t exhale any more, pull your knee back to the starting position. Make this more difficult by holding weight in your hands, or by lowering opposite arm and leg.",
+        "creation_date": "2018-01-15",
+        "category": 10,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "Metin",
+        "variations": []
+    },
+    {
+        "id": 347,
+        "uuid": "8976d255-d7e4-46c7-8079-ca525f0a7d0d",
+        "name": "Deadhang",
+        "exercise_base": 182,
+        "status": "2",
+        "description": "<p>Deadhang performed on an edge either with or without added weight (adujst edge or weight to adjust difficulty)</p>",
+        "creation_date": "2015-08-27",
+        "category": 8,
+        "muscles": [],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 2,
+        "license_author": "2dPREtEZP221u68Akf0JImv5L48",
+        "variations": []
+    },
+    {
+        "id": 105,
+        "uuid": "22cca8fc-cfaf-4941-b0f7-faf9f2937c52",
+        "name": "Deadlifts",
+        "exercise_base": 184,
+        "status": "2",
+        "description": "<p>Stand firmly, with your feet slightly more than shoulder wide apart. Stand directly behind the bar where it should barely touch your shin, your feet pointing a bit out. Bend down with a straight back, the knees also pointing somewhat out. Grab the bar with a shoulder wide grip, one underhand, one reverse grip.</p>\n<p>Pull the weight up. At the highest point make a slight hollow back and pull the bar back. Hold 1 or 2 seconds that position. Go down, making sure the back is not bent. Once down you can either go back again as soon as the weights touch the floor, or make a pause, depending on the weight.</p>",
+        "creation_date": "2013-05-05",
+        "category": 12,
+        "muscles": [
+            12,
+            10
+        ],
+        "muscles_secondary": [
+            8
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            105,
+            381,
+            161,
+            351,
+            328,
+            209
+        ]
+    },
+    {
+        "id": 100,
+        "uuid": "b72ae8d4-ede6-4480-8fc5-7b80e369f7ed",
+        "name": "Decline Bench Press Barbell",
+        "exercise_base": 185,
+        "status": "2",
+        "description": "<p>Lay down on a decline bench, the bar should be directly above your eyes, the knees are somewhat angled and the feet are firmly on the floor. Concentrate, breath deeply and grab the bar more than shoulder wide. Bring it slowly down till it briefly touches your chest at the height of your nipples. Push the bar up.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            192,
+            100,
+            101,
+            163,
+            210,
+            211,
+            270,
+            399
+        ]
+    },
+    {
+        "id": 101,
+        "uuid": "80d318b3-4b8a-41aa-9c6c-0a2a921fe1e6",
+        "name": "Decline Bench Press Dumbbell",
+        "exercise_base": 186,
+        "status": "2",
+        "description": "<p>Take two dumbbells and sit on a decline bench, the feet are firmly on the floor, the head is resting the bench. Hold the weights next to the chest, at the height of your nipples and press them up till the arms are stretched. Let the weight slowly and controlled down.</p>",
+        "creation_date": "2013-05-05",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [],
+        "equipment": [
+            3
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [
+            192,
+            100,
+            101,
+            163,
+            210,
+            211,
+            270,
+            399
+        ]
+    },
+    {
+        "id": 260,
+        "uuid": "36ef5f12-6f77-4754-a926-39915e4b57a5",
+        "name": "Decline Pushups",
+        "exercise_base": 188,
+        "status": "2",
+        "description": "<p>With your feet raised approximately 30cm on a platform, align your shoulders, elbows and hands, then perform regular pushups. This emphasises the clavicular fibers of the pectoralis major.</p>",
+        "creation_date": "2014-07-12",
+        "category": 11,
+        "muscles": [
+            4
+        ],
+        "muscles_secondary": [
+            2,
+            5
+        ],
+        "equipment": [
+            7
+        ],
+        "language": 2,
+        "license": 1,
+        "license_author": "aszc",
+        "variations": [
+            260,
+            168,
+            182,
+            790,
+            302
+        ]
+    },
+    {
+        "id": 381,
+        "uuid": "83b741dc-fd19-4c85-ac0c-b0388c5838e6",
+        "name": "Deficit Deadlift",
+        "exercise_base": 189,
+        "status": "2",
+        "description": "<p>Preparation</p>\n<p>Stand on weight plate, bumper plate, or shallow elevated platform with loaded bar above feet. Squat down and grasp bar with shoulder width or slightly wider overhand or mixed grip.</p>\n<p> </p>\n<p>Execution</p>\n<p>Lift bar by extending hips and knees to full extension. Pull shoulders back at top of lift if rounded. Return weights to floor by bending hips back while allowing knees to bend forward, keeping back straight and knees pointed same direction as feet. Repeat.</p>\n<p> </p>\n<p>Comments</p>\n<p>Throughout lift, keep hips low, shoulders high, arms and back straight. Knees should point same direction as feet throughout movement. Keep bar close to body to improve mechanical leverage. Grip strength and strength endurance often limit ability to perform multiple reps at heavy resistances. Gym chalk, wrist straps, grip work, and mixed grip can be used to enhance grip. Mixed grip indicates one hand holding with overhand grip and other hand holding with underhand grip. Lever barbell jack can be used to lift barbell from floor for easier loading and unloading of weight plates.</p>\n<p>Barbell Deficit Deadlift emphasizes building strength through lowest portion of Deadlift. Target muscle is exercised isometrically. Heavy barbell deadlifts significantly engages Latissmus Dorsi. See Barbell Deficit Deadlift under Gluteus Maximus. Also see Deadlift Analysis.</p>",
+        "creation_date": "2016-02-09",
+        "category": 12,
+        "muscles": [],
+        "muscles_secondary": [
+            11,
+            8,
+            12,
+            6,
+            15
+        ],
+        "equipment": [
+            1
+        ],
+        "language": 2,
+        "license": 2,
+        "license_author": "bobbyprince89",
+        "variations": [
+            105,
+            381,
+            161,
+            351,
+            328,
+            209
+        ]
+    }
+]

@@ -19,7 +19,7 @@ router.post("/ndietplan", auth,
             res.json({ status: "successfull", id: d._id });
         }).catch(err => {
             console.log(err)
-            res.send("fail")
+            res.send(err)
         })
 
 
@@ -275,11 +275,6 @@ router.post("/updatecompletedfood" ,auth,function(req,res,next){
         res.json(err)
     })
 })
-
-
-
-
-
 
 
 module.exports = router

@@ -5,6 +5,7 @@ import AddDietPlan from './DietPlans/addDietPlan.component';
 import HealthReports from './healthreports.component';
 import PersonalDetails from './personaldetails.component';
 import DietPlans from './dietplans.components';
+import WorkoutPlans from './workoutplans.components';
 //import Footer from '../general/footer.component';
 
 export default class InternalNavbar extends Component {
@@ -20,9 +21,14 @@ export default class InternalNavbar extends Component {
                     <Tab eventKey="Health Reports" title="Health Reports">
                         <HealthReports id={this.props.id}/>
                     </Tab>
+                    { localStorage.getItem("loggedIn") ==="loggedIn" && localStorage.getItem("AccountType")==="Dietician" ?  
                     <Tab eventKey="Diet Plans" title="Diet Plans">
                         <DietPlans id={this.props.id}/>
-                    </Tab>
+                    </Tab>:
+                      <Tab eventKey="Workout Plans" title="Workout Plans">
+                      <WorkoutPlans id={this.props.id}/>
+                  </Tab>
+                    }
                 </Tabs>s
 
 

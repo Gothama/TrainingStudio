@@ -58,7 +58,7 @@ const DietPlanSchema = new mongoose.Schema({
     price:{
         amount:{type:Number},
         paid:{type:Boolean},
-        paymentID:{type: mongoose.Schema.ObjectId, ref: 'Payments'}
+        paymentID:{type: String, default:"notpaid"}
     }
     
 })

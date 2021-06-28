@@ -14,20 +14,21 @@ const siAPI = axios.create({
 })
 
 const siAPI1 = axios.create({
-    baseURL: `${process.env.REACT_APP_BACKEND_URL}dietplan/getalldietplans/`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}workoutplan/getallworkplans/`
 })
 
 const siAPI2 = axios.create({
-    baseURL: `${process.env.REACT_APP_BACKEND_URL}dietplan/ndietplan/`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}workoutplan/nworkoutplan/`
 })
 const siAPI3= axios.create({
     baseURL: `${process.env.REACT_APP_BACKEND_URL}email/newdietplanadded/`
 })
 
-export default class DietPlans extends Component {
+export default class WorkoutPlans extends Component {
     state = {
-        dietplans: [],
-        forDate: "",
+        workoutplans: [],
+        startdate: "",
+        enddate: "",
         id: "",
         k:""
     }
@@ -49,21 +50,28 @@ export default class DietPlans extends Component {
             console.log(res.data)
 
             this.setState({
-                dietplans: res.data
+                workoutplans: res.data
             })
 
         }).catch(err => {
             window.alert(err)
         })
     }
-    onChangedate = (event) => {
-        event.preventDefault();
+    onChangedate1 = (date) => {
+       // event.preventDefault();
         this.setState({
-            forDate: event.target.value
+            startdate:date
         })
 
     }
-    onChangedate1 = (date) => {
+    onChangedate2 = (date) => {
+       
+        this.setState({
+            enddate: date
+        })
+
+    }
+ /*    onChangedate1 = (date) => {
        // event.preventDefault();
        console.log(date.toLocaleDateString())
        this.setState({
@@ -71,7 +79,7 @@ export default class DietPlans extends Component {
        })
 
     }
-    deletePlan = (id) => {
+   deletePlan = (id) => {
         siAPI.post("/" + id, {}, { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }).then(res => {
             console.log(res)
             //  this.message("success" , "Blog Deleted Successfully")
@@ -81,14 +89,15 @@ export default class DietPlans extends Component {
             console.log(err)
         })
 
-    }
+    }*/
 
 
     createDietPlan = (event) => {
         event.preventDefault();
         siAPI2.post("/", {
             customerID: this.props.id,
-            forDate: this.state.forDate
+            startdate: this.state.startdate,
+            enddate: this.state.enddate
         },
             {
                 headers: { Authorization: "Bearer " + localStorage.getItem("token") }
@@ -119,34 +128,43 @@ export default class DietPlans extends Component {
                 <div style={{ margin: "20px" }}className="col-lg-12">
 
                     <DatePicker
-                        selected={this.state.forDate}
+                        selected={this.state.startdate}
                         dateFormat="MM-dd-yyyy"
                         minDate={Date.now()}
                         onChange={(date) => this.onChangedate1(date)}
                        //excludeDates={[new Date('2021-06-10'),new Date('2021-06-11')]}
-                       excludeDates={this.state.dietplans.map(h=>new Date(h.forDate))}
+                       //excludeDates={this.state.dietplans.map(h=>new Date(h.forDate))}
+                        placeholderText="Select a date"
+                    />
+                    <DatePicker
+                        selected={this.state.enddate}
+                        dateFormat="MM-dd-yyyy"
+                        minDate={Date.now()}
+                        onChange={(date) => this.onChangedate2(date)}
+                       //excludeDates={[new Date('2021-06-10'),new Date('2021-06-11')]}
+                       //excludeDates={this.state.dietplans.map(h=>new Date(h.forDate))}
                         placeholderText="Select a date"
                     />
 
 
 
-                    <Button variant="danger" style={{marginLeft:"2px"}} onClick={this.createDietPlan}>Create</Button> <Link to={`/addDietPlan/${this.state.id}`}><Button variant="danger">Add New Plan</Button></Link>
+                    <Button variant="danger" style={{marginLeft:"2px"}} onClick={this.createDietPlan}>Create</Button> <Link to={`/addworkoutPlan/${this.state.id}`}><Button variant="danger">Add New Plan</Button></Link>
                 </div>
                 <div className="row" style={{ alignContent: "center" }}>
 
-                    {this.state.dietplans.map(h =>
+                    {this.state.workoutplans.map(h =>
 
                         <Card style={{ width: '18rem', margin: "0.3rem" }}>
                             <Card.Body>
-                                <Card.Title>Diet Plan</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">For Date: <Moment format="YYYY/MM/DD">{h.forDate}</Moment></Card.Subtitle>
+                                <Card.Title>Workout Plan</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">Start Date: <Moment format="YYYY/MM/DD">{h.startdate}</Moment> <br/> End Date: <Moment format="YYYY/MM/DD">{h.enddate}</Moment></Card.Subtitle>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                                     {h.addedDate}
                                 </Card.Text>
-                                <a href="#"><Button variant="danger" style={{ margin: "0.3rem" }} onClick={() => this.deletePlan(h._id)}>Delete</Button></a>
-                                <Link to={`/addDietPlan/${h._id}`}><Button variant="warning">View</Button></Link>
+                               {/* <a href="#"><Button variant="danger" style={{ margin: "0.3rem" }} onClick={() => this.deletePlan(h._id)}>Delete</Button></a>*/}
+                                <Link to={`/addworkoutPlan/${h._id}`}><Button variant="warning">View</Button></Link>
 
                             </Card.Body>
                         </Card>

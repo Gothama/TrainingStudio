@@ -5,16 +5,16 @@ import { Button, Form, Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 const siAPI3 = axios.create({
-    baseURL: `http://localhost:9020/dietplan/deletefood/`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}dietplan/deletefood/`
 })
 
 
 const siAPI1 = axios.create({
-    baseURL: `http://localhost:9020/dietplan/addFoods/`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}dietplan/addFoods/`
 })
 
 const siAPI2 = axios.create({
-    baseURL: `http://localhost:9020/dietplan/getallfood/`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}dietplan/getallfood/`
 })
 
 

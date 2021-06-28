@@ -3,11 +3,54 @@ import React, { Component } from 'react';
 import Footer from '../../general/footer.component';
 import NavBar from './../cusnav.component'
 import { Button, Card, Accordion } from 'react-bootstrap';
-import WorkoutPlans from './workoutPlans.component';
 
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Moment from 'react-moment';
 
+//import {Link} from 'react-router-dom';
+
+//import Footer from '../general/footer.component';
+const siAPI1 = axios.create({
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}workoutplan/getallworkoutplansbycustomer/`
+})
+
+function paybutton(k) {
+  return (<h1>{k}</h1>)
+}
 
 export default class MyWorkoutPlans extends Component {
+  state = {
+    workoutplans: []
+  }
+
+
+
+
+  getData = () => {
+    siAPI1.post("/",
+      {
+
+      },
+      {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+      }
+    ).then(res => {
+      console.log(res.data)
+
+      this.setState({
+        workoutplans: res.data
+      })
+
+    }).catch(err => {
+      window.alert(err)
+    })
+  }
+
+  constructor(props) {
+    super(props);
+    this.getData()
+  }
 
   render() {
     return (
@@ -16,54 +59,31 @@ export default class MyWorkoutPlans extends Component {
           <NavBar />
           <div className="container" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
             <h1 style={{ color: "white", paddingBottom: "50px" }}>My Workout Plans</h1>
-            <div style={{ color: "white", paddingBottom: "10px" }}>Contact Dietician:</div><Button href="/videoChat" style={{ marginBottom: "25px" }}>Video Chat</Button> <Button href="/messenger" style={{ marginBottom: "25px" }}>Messenger</Button>
-            <Accordion >
-              <Card style={{ backgroundColor: "#892cdc" }}>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white" }}>
-                    First Week!
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="0" style={{ backgroundColor: "white" }}>
-                  <Card.Body><WorkoutPlans /></Card.Body>
-                </Accordion.Collapse>
-              </Card>
-              <Card style={{ backgroundColor: "#892cdc" }}>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white" }}>
-                    Second Week!
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="1" style={{ backgroundColor: "white" }}>
-                  <Card.Body><WorkoutPlans /></Card.Body>
-                </Accordion.Collapse>
-              </Card>
+            <div style={{ color: "white", paddingBottom: "10px" }}>Contact Trainer:</div><Button href="/videoChat" style={{ marginBottom: "25px" }}>Video Chat</Button> <Link to="/messenger" ><Button style={{ marginBottom: "25px" }}>Messenger</Button> </Link>
 
-              <Card style={{ backgroundColor: "#892cdc" }}>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white" }}>
-                    Second Week!
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="2" style={{ backgroundColor: "white" }}>
-                  <Card.Body><WorkoutPlans /></Card.Body>
-                </Accordion.Collapse>
-              </Card>
+            <div className="row" style={{ alignContent: "center" }}>
 
-              <Card style={{ backgroundColor: "#892cdc" }}>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "white" }}>
-                    Second Week!
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="3" style={{ backgroundColor: "white" }}>
-                  <Card.Body><WorkoutPlans /></Card.Body>
-                </Accordion.Collapse>
-              </Card>
+              {this.state.workoutplans.map(h =>
 
-            </Accordion>
+                <Card style={{ width: '18rem', margin: "0.3rem" }}>
+                  <Card.Body>
+                    <Card.Title>Workout Plan</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Start Date: <Moment format="YYYY/MM/DD">{h.startdate}</Moment><br/>End Date: <Moment format="YYYY/MM/DD">{h.enddate}</Moment></Card.Subtitle>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the bulk of
+                      the card's content.
+                      {h.addedDate}
+                    </Card.Text>
+
+                   
+                      <Link to={`/myworkoutplan/${h._id}`}><Button variant="warning">View</Button></Link>
+                    
 
 
+                  </Card.Body>
+                </Card>
+              )}
+            </div>
           </div>
         </div>
         <Footer />
