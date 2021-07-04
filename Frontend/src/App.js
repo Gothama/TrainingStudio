@@ -41,6 +41,7 @@ import AddDietPlan from './components/physicalTrainer/customerAccount/DietPlans/
 import MyDietPlan from './components/customer/myDietPlans/mydietplan.component';
 import AddWorkoutPlan from './components/physicalTrainer/customerAccount/WorkoutPlans/addWorkoutPlan.component';
 import WorkoutPlan from './components/customer/myWorkoutPlans/workoutPlan.component';
+import KommunicateChat  from './components/general/chat';
  
 
 
@@ -83,7 +84,8 @@ function App() {
       <Route path = "/myworkoutplan/:id" exact component = {WorkoutPlan}/>
 
   </Router>
-  <Fitbot/>
+  {/*<Fitbot/>*/}
+  <KommunicateChat />
 </div>
   );
 }
