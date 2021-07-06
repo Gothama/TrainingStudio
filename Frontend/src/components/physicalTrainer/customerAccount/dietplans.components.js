@@ -24,6 +24,10 @@ const siAPI3= axios.create({
     baseURL: `${process.env.REACT_APP_BACKEND_URL}email/newdietplanadded/`
 })
 
+const siAPI4= axios.create({
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}sms/send`
+})
+
 export default class DietPlans extends Component {
     state = {
         dietplans: [],
@@ -102,6 +106,11 @@ export default class DietPlans extends Component {
                     id: res.data.id
                 })
                 siAPI3.post("/").then(res=>{
+                    console.log(res)
+                }).catch(err=>{
+                    window.alert(err)
+                })
+                siAPI4.post("/" , {message:"New Diet Plan is added to your account. Unlock the plan after the relevant payment and enjoy the plan."}).then(res=>{
                     console.log(res)
                 }).catch(err=>{
                     window.alert(err)
