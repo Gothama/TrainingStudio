@@ -207,7 +207,7 @@ router.put('/addsugarLevel',
     [
         check('level', "sugarLevel is required").not().isEmpty(),
         check('level', "sugarLevel should be numeric").isNumeric(),
-    ],
+    ],auth,
     function (req, res, next) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -227,14 +227,13 @@ router.put('/addsugarLevel',
                 }
             }
 
-            Customer.findOneAndUpdate({
-                credentials: {
-                    username: req.body.username,
-                    password: req.body.password
-                }
+            Customer.findByIdAndUpdate({
+                _id:
+                    req.user
+    
             }, k).then(function (c) {
                 console.log(c);
-                res.json(c);
+                res.json("successfull");
             }).catch(err => {
                 console.log(err)
                 res.send('fail' + err);
@@ -245,9 +244,9 @@ router.put('/addsugarLevel',
 //add weight
 router.put('/addweight',
     [
-        check('amount', "amount is required").not().isEmpty(),
-        check('amount', "amount should be numeric").isNumeric(),
-    ],
+        check('amount', "Weight is required").not().isEmpty(),
+        check('amount', "Weight should be numeric").isNumeric(),
+    ],auth,
     function (req, res, next) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -267,11 +266,10 @@ router.put('/addweight',
                 }
             }
 
-            Customer.findOneAndUpdate({
-                credentials: {
-                    username: req.body.username,
-                    password: req.body.password
-                }
+            Customer.findByIdAndUpdate({
+                _id:
+                    req.user
+    
             }, k).then(function (c) {
                 console.log(c);
                 res.json(c);
@@ -288,7 +286,7 @@ router.put('/addpressure',
     [
         check('level', "level is required").not().isEmpty(),
         check('level', "level should be numeric").isNumeric(),
-    ],
+    ],auth,
     function (req, res, next) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -308,11 +306,10 @@ router.put('/addpressure',
                 }
             }
 
-            Customer.findOneAndUpdate({
-                credentials: {
-                    username: req.body.username,
-                    password: req.body.password
-                }
+            Customer.findByIdAndUpdate({
+                _id:
+                    req.user
+    
             }, k).then(function (c) {
                 console.log(c);
                 res.json(c);
