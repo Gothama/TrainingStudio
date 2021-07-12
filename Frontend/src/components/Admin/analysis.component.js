@@ -9,8 +9,8 @@ import {Form, Row, Col,Button} from 'react-bootstrap'
     render() {
       return (
           <div>
-<div className="row" style={{paddingBottom:"10px"}}>
-       <Form.Group as={Row} controlId="formHorizontalLName" >
+<div className="row" style={{paddingBottom:"10px" , width:"100px"}}>
+       {/* <Form.Group as={Row} controlId="formHorizontalLName" >
     <Form.Label column sm={10}>
       <p style={{fontWeight:"bold", fontSize:"24px"}}>Anlysis Report</p>
     </Form.Label>
@@ -36,12 +36,12 @@ import {Form, Row, Col,Button} from 'react-bootstrap'
   </Form.Group>
   <div style={{height:"24px", paddingTop:"24px"}}>
   <Button variant="danger" type="file" style={{fontWeight:"bolder", fontSize:"20px" }}>Generate</Button> <Button variant="warning" type="file" style={{fontWeight:"bolder", fontSize:"20px" }}>Print</Button>
-  </div>
+  </div> */}
 </div>
 
 
 <div className ="row" style={{paddingLeft:"10px" , paddingTop:"10px"}}>
-<Chart
+{/* <Chart
   width={'1100px'}
   height={'100%'}
 
@@ -83,7 +83,46 @@ import {Form, Row, Col,Button} from 'react-bootstrap'
     },
   }}
   rootProps={{ 'data-testid': '2' }}
-/>
+/> */}
+<div className="row">
+<div  className= "col-lg-6">
+<iframe style={{background:"#FFFFFF" , border: "none" , borderRadius: "2px",boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"}} width="400" height="300" 
+src="https://charts.mongodb.com/charts-project-0-zlycc/embed/charts?id=eda1fe8e-1890-4c35-9414-6278dc91b873&autoRefresh=60&theme=light&
+attribution=false"></iframe>
+</div>
+<div  className= "col-lg-6">
+<iframe style={{background:"#FFFFFF" , border: "none" , borderRadius: "2px",boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"}} width="400" height="300" 
+src="https://charts.mongodb.com/charts-project-0-zlycc/embed/charts?id=effd535c-d08b-4a26-af0c-710f08386de4&autoRefresh=60&theme=light&
+attribution=false"></iframe>
+</div></div>
+
+<div className="row">
+<div  className= "col-lg-6">
+<iframe style={{background:"#FFFFFF" , border: "none" , borderRadius: "2px",boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"}} width="400" height="300" 
+src="https://charts.mongodb.com/charts-project-0-zlycc/embed/charts?id=f7d523f6-9bbb-46fb-aeae-e9de2b9a2271&autoRefresh=60&theme=light&
+attribution=false"></iframe>
+</div>
+<div  className= "col-lg-6">
+<iframe style={{background:"#FFFFFF" , border: "none" , borderRadius: "2px",boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"}} width="400" height="300" 
+src="https://charts.mongodb.com/charts-project-0-zlycc/embed/charts?id=ef8eb51f-60dd-40f1-b8c4-dcccb06eba01&autoRefresh=60&theme=light&
+attribution=false"></iframe>
+</div>
+
+</div>
+
+<div className="row">
+<div  className= "col-lg-6">
+<iframe style={{background:"#FFFFFF" , border: "none" , borderRadius: "2px",boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"}} width="400" height="300" 
+src="https://charts.mongodb.com/charts-project-0-zlycc/embed/charts?id=35947807-25e4-4185-a710-c8eb4d2bab9d&theme=light&
+attribution=false"></iframe>
+</div>
+<div  className= "col-lg-6">
+<iframe style={{background:"#FFFFFF" , border: "none" , borderRadius: "2px",boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"}} width="400" height="300" 
+src="https://charts.mongodb.com/charts-project-0-zlycc/embed/charts?id=ed976612-3502-47e0-b731-b6240b9e0646&theme=light&
+attribution=false"></iframe>
+</div>
+
+</div>
 </div>
 </div>
 
