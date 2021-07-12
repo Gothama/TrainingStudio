@@ -1,32 +1,124 @@
 import React, {Component} from 'react';
-//import {Link} from 'react-router-dom';
 import {Button,Tabs, Tab, Form, Row, Col, Table} from 'react-bootstrap';
 import {Chart} from 'react-google-charts';
-import jsPDF from 'jspdf'
 import 'jspdf-autotable'
+import axios from 'axios';
+import Moment from 'react-moment';
 
-
+const siAPI1= axios.create({
+  baseURL :`http://localhost:9020/customer`
+})
 
 
 export default class HealthDetails extends Component{
-  
-  generate=()=>{
-    const doc = new jsPDF()
-    doc.autoTable({ html: 'sadasd' })
-    doc.save('table.pdf')
+
+  state={
+    sugarLevel:"",
+    sugarLevels:[],
+    bloodPressure:"",
+    bloodPressures:[],
+    weight:"",
+    weights:[]
   }
+
+  componentDidMount(){
+    this.getHealthData();
+  }
+
+  submitSugarlevel=(event)=>{
+    event.preventDefault();
+    siAPI1.put("/addsugarLevel", {level:this.state.sugarLevel},
+    {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      console.log(res)
+      window.alert(res)
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  submitBloodPressure=(event)=>{
+    event.preventDefault();
+    siAPI1.put("/addpressure", {level:this.state.bloodPressure},
+    {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      console.log(res)
+      window.alert(res)
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  
+  submitWeight=(event)=>{
+    event.preventDefault();
+    siAPI1.put("/addweight", {amount:this.state.weight},
+    {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      console.log(res)
+      window.alert(res.data)
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  getHealthData=()=>{
+    siAPI1.post("/fdetail", {},
+    {
+      headers:{Authorization:"Bearer "+ localStorage.getItem("token")}
+    })
+    .then(res=>{
+      console.log(res.data.sugarLevel)
+      this.setState({
+        sugarLevels:res.data.sugarLevel,
+        bloodPressures:res.data.bloodPressure,
+        weights:res.data.weight
+      })
+    }).catch(err => {
+      window.alert(err)
+  })
+  }
+
+  onChangeSugarLevel=(event)=>{
+    event.preventDefault();
+    this.setState({
+      sugarLevel:event.target.value
+    })
+  }
+
+  onChangeBloodPressure=(event)=>{
+    event.preventDefault();
+    this.setState({
+      bloodPressure:event.target.value
+    })
+  }
+
+  
+  onChangeWeight=(event)=>{
+    event.preventDefault();
+    this.setState({
+      weight:event.target.value
+    })
+  }
+
     render(){
 return(
 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" bg="light" variant="tabs" >
   <Tab eventKey="home" title="Sugar Level " bg="light" >
     <div>
-    <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
+    <Form style={{padding:"20px"}} onSubmit={this.submitSugarlevel}>
   <Form.Group as={Row} controlId="formHorizontalFName" >
     <Form.Label column sm={4}>
       Sugar Level 
     </Form.Label>
     <Col sm={8}>
-      <Form.Control type="text" />
+      <Form.Control type="Number" onChange={this.onChangeSugarLevel} placeholder={"Add Blood Sugar in mmol/L"}/>
     </Col>
   </Form.Group>
 
@@ -41,43 +133,23 @@ return(
   <thead >
     <tr >
      
-      <th style={{textAlign:"center" }}>Date</th>
-      <th style={{textAlign:"center"}}>Blood Sugar</th>
+      <th style={{textAlign:"center" }}>Added Date</th>
+      <th style={{textAlign:"center" }}>Added Time</th>
+      <th style={{textAlign:"center"}}>Blood Sugar (mmol/L)</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr>
+    {this.state.sugarLevels.map(s=>
+       <tr>
      
-      <td style={{textAlign:"center" }}>Mark</td>
+       <td style={{textAlign:"center" }}><Moment format="YYYY/MM/DD">{s.checkedDate}</Moment></td>
+ 
+       <td style={{textAlign:"center" }}><Moment format="hh:mm a">{s.checkedDate}</Moment></td>
+       <td style={{textAlign:"center" }}>{s.level}</td>
+     </tr>
+    )}
 
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-    <td style={{textAlign:"center" }}>Mark</td>
-
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr> 
   </tbody>
 </Table>
 
@@ -125,7 +197,7 @@ return(
   </Tab>
   <Tab eventKey="profile" title="Blood Pressure" bg="light" >
   <div>
-  <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
+  <Form style={{padding:"20px"}} onSubmit={this.submitBloodPressure}>
 
 
   <Form.Group as={Row} controlId="formHorizontalLName" >
@@ -133,7 +205,7 @@ return(
       Blood Pressure
     </Form.Label>
     <Col sm={8}>
-      <Form.Control type="text"  />
+      <Form.Control type="Number" onChange={this.onChangeBloodPressure} placeholder={"Add Blood Pressure in mmHg"}/>
     </Col>
   </Form.Group>
 
@@ -148,49 +220,27 @@ return(
     </Col>
   </Form.Group>
 </Form>
-<Table striped bordered hover variant="dark">
+<Table striped bordered hover variant="dark"   id="#table" >
   <thead >
     <tr >
      
-      <th style={{textAlign:"center" }}>Date</th>
-
-      <th style={{textAlign:"center"}}>Blood Pressure</th>
-
+      <th style={{textAlign:"center" }}>Added Date</th>
+      <th style={{textAlign:"center" }}>Added Time</th>
+      <th style={{textAlign:"center"}}>Blood Pressure (mmHg)</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr>
+    {this.state.bloodPressures.map(s=>
+       <tr>
      
-      <td style={{textAlign:"center" }}>Mark</td>
+       <td style={{textAlign:"center" }}><Moment format="YYYY/MM/DD">{s.checkedDate}</Moment></td>
+ 
+       <td style={{textAlign:"center" }}><Moment format="hh:mm a">{s.checkedDate}</Moment></td>
+       <td style={{textAlign:"center" }}>{s.level}</td>
+     </tr>
+    )}
 
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-    <td style={{textAlign:"center" }}>Mark</td>
-
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-     
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr> 
   </tbody>
 </Table>
 
@@ -198,14 +248,14 @@ return(
   </Tab>
   <Tab eventKey="contact" title="Weight" bg="light" >
   <div>
-  <Form style={{padding:"20px"}} onSubmit={this.handleOnSubmit}>
+  <Form style={{padding:"20px"}} onSubmit={this.submitWeight}>
 
   <Form.Group as={Row} controlId="formHorizontalUserName" >
     <Form.Label column sm={4}>
       Weight
     </Form.Label>
     <Col sm={8}>
-      <Form.Control type="text"   />
+      <Form.Control type="Number"  onChange={this.onChangeWeight} placeholder={"Add Weight in Kg"}/>
     </Col>
   </Form.Group>
 
@@ -222,45 +272,25 @@ return(
 
 <Table striped bordered hover variant="dark">
   <thead >
-    <tr >
+  <tr >
      
-      <th style={{textAlign:"center" }}>Date</th>
-      <th style={{textAlign:"center"}}>Weight</th>
+      <th style={{textAlign:"center" }}>Added Date</th>
+      <th style={{textAlign:"center" }}>Added Time</th>
+      <th style={{textAlign:"center"}}>Weight (Kg)</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr>
+    {this.state.weights.map(s=>
+       <tr>
      
-      <td style={{textAlign:"center" }}>Mark</td>
-     
-      <td style={{textAlign:"center" }}>35</td>
+       <td style={{textAlign:"center" }}><Moment format="YYYY/MM/DD">{s.checkedDate}</Moment></td>
+ 
+       <td style={{textAlign:"center" }}><Moment format="hh:mm a">{s.checkedDate}</Moment></td>
+       <td style={{textAlign:"center" }}>{s.amount}</td>
+     </tr>
+    )}
 
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-    <td style={{textAlign:"center" }}>Mark</td>
-     
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr>
-    <tr>
-      <td style={{textAlign:"center" }}>Mark</td>
-      
-      <td style={{textAlign:"center" }}>35</td>
-
-    </tr> 
   </tbody>
 </Table>
 
