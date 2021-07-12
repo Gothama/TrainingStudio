@@ -138,21 +138,21 @@ getmessages=()=>{
       <div>
         <div className="App cta2" >
 
-          <div className="chatContainer container" style={{ margin: "auto", height: "98vh", overflowX: "hidden", overflowY: "auto", backgroundColor: "#522909" }}>
+          <div className="chatContainer container" style={{ margin: "auto", height: "98vh", overflowX: "hidden", overflowY: "auto", backgroundColor: "#e5ddd5" }}>
             {this.state.typing ? <p>typing</p> : null}
             {this.state.messagereceived.map(e => {
               return (<div >
                 { this.state.userName === e.author ? <Row>
-                  <Col><div style={{ color: "white", textAlign: "left", backgroundColor: "blue", padding: "10px", margin: "10px", borderRadius: "10px" }}>
+                  <Col><div style={{ color: "black", textAlign: "left", backgroundColor: "#dcf8c6", padding: "10px", margin: "10px", borderRadius: "10px" }}>
 
                     <h4>{e.message}</h4>
-                    <p>By - {e.author}</p>
+                    <p style={{color:"black"}}>By - {e.author}</p>
                     <p></p>
                   </div></Col><Col></Col></Row>
                   :
-                  <Row><Col></Col><Col><div style={{ color: "white", textAlign: "right", backgroundColor: "red", padding: "10px", margin: "10px", borderRadius: "10px" }}>
+                  <Row><Col></Col><Col><div style={{ color: "black", textAlign: "right", backgroundColor: "#ffffff", padding: "10px", margin: "10px", borderRadius: "10px" }}>
                        <h4>{e.message}</h4>
-                    <p>By - {e.author}</p>
+                    <p style={{color:"black"}}>By - {e.author}</p>
                   </div></Col></Row>
                 } </div>
               )

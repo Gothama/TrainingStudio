@@ -4,6 +4,7 @@ import {Chart} from 'react-google-charts';
 import 'jspdf-autotable'
 import axios from 'axios';
 import Moment from 'react-moment';
+import Swal from 'sweetalert2'
 
 const siAPI1= axios.create({
   baseURL :`http://localhost:9020/customer`
@@ -21,6 +22,27 @@ export default class HealthDetails extends Component{
     weights:[]
   }
 
+  successfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  
+  unsuccessfulmessage=(msg)=>{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
   componentDidMount(){
     this.getHealthData();
   }
@@ -33,7 +55,8 @@ export default class HealthDetails extends Component{
     })
     .then(res=>{
       console.log(res)
-      window.alert(res)
+      this.successfulmessage("Sugar level Added Successfully")
+     this.getHealthData();
     }).catch(err => {
       window.alert(err)
   })
@@ -47,7 +70,8 @@ export default class HealthDetails extends Component{
     })
     .then(res=>{
       console.log(res)
-      window.alert(res)
+      this.successfulmessage("Blood Pressure Added Successfully")
+      this.getHealthData();
     }).catch(err => {
       window.alert(err)
   })
@@ -62,7 +86,8 @@ export default class HealthDetails extends Component{
     })
     .then(res=>{
       console.log(res)
-      window.alert(res.data)
+      this.successfulmessage("Weight Added Successfully")
+      this.getHealthData();
     }).catch(err => {
       window.alert(err)
   })
